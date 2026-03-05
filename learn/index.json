@@ -1,0 +1,62 @@
+[
+  {
+    "type": "folder",
+    "name": "Docker",
+    "icon": "🐳",
+    "path": "Docker",
+    "children": [
+      {
+        "type": "file",
+        "name": "01_basics.md",
+        "title": "Basics",
+        "path": "Docker/01_basics.md",
+        "ext": "md"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Go",
+    "icon": "🐹",
+    "path": "Go",
+    "children": [
+      {
+        "type": "file",
+        "name": "01_goroutines.md",
+        "title": "Goroutines",
+        "path": "Go/01_goroutines.md",
+        "ext": "md"
+      },
+      {
+        "type": "file",
+        "name": "02_channels.md",
+        "title": "Channels",
+        "path": "Go/02_channels.md",
+        "ext": "md"
+      }
+    ]
+  },
+  {
+    "type": "folder",
+    "name": "Linux",
+    "icon": "🐧",
+    "path": "Linux",
+    "children": [
+      {
+        "type": "folder",
+        "name": "networking",
+        "icon": "🌐",
+        "path": "Linux/networking",
+        "children": [
+          {
+            "type": "file",
+            "name": "01_tcp_ip.md",
+            "title": "Tcp Ip",
+            "path": "Linux/networking/01_tcp_ip.md",
+            "ext": "md"
+          }
+        ]
+      }
+    ]
+  }
+]

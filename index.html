@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Конспекты</title>
+  <!--
+    Если репозиторий НЕ называется ВАШ_НИК.github.io — раскомментируй строку ниже
+    и замени /ИМЯ_РЕПО на имя своего репозитория, например: /notes
+  -->
+  <!-- <script>window.SITE_BASE = '/ИМЯ_РЕПО'</script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title">Конспекты</span>
+      <span class="sidebar-count" id="sb-count"></span>
+    </div>
+    <div class="tree" id="tree"></div>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="topbar">
+      <!-- левый слот: бургер -->
+      <div class="topbar-left">
+        <button class="toggle-btn" id="toggle-btn" title="Скрыть панель (B)">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- центр: breadcrumb + file-picker -->
+      <div class="topbar-center" id="topbar-center">
+        <span class="bc-placeholder">выбери конспект</span>
+      </div>
+
+      <!-- правый слот: dots + кнопка папок -->
+      <div class="topbar-right">
+        <div class="pdots" id="pdots"></div>
+        <button class="folder-panel-btn" id="folder-panel-btn" title="Папки">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M1 3.5A1.5 1.5 0 012.5 2h3.379a1.5 1.5 0 011.06.44l.622.621A1.5 1.5 0 008.62 3.5H12.5A1.5 1.5 0 0114 5v6.5A1.5 1.5 0 0112.5 13h-10A1.5 1.5 0 011 11.5v-8z" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <span id="folder-panel-label">Папки</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- floating nav: левая кнопка -->
+    <div class="float-nav left" id="float-left">
+      <button class="float-btn" id="btn-prev" disabled title="Предыдущий (←)">&#8592;</button>
+    </div>
+
+    <!-- floating nav: правая кнопка -->
+    <div class="float-nav right" id="float-right">
+      <button class="float-btn" id="btn-next" disabled title="Следующий (→)">&#8594;</button>
+    </div>
+
+    <!-- folder panel overlay -->
+    <div class="folder-panel-overlay" id="folder-panel-overlay"></div>
+    <div class="folder-panel" id="folder-panel">
+      <div class="folder-panel-header">
+        <span class="folder-panel-title">Папки</span>
+        <button class="folder-panel-close" id="folder-panel-close">✕</button>
+      </div>
+      <div class="folder-panel-list" id="folder-panel-list"></div>
+    </div>
+
+    <div class="scroll-area" id="scroll-area">
+      <div class="content-wrap" id="content">
+        <div class="welcome">
+          <div class="welcome-glyph">§</div>
+          <h2>Выбери конспект</h2>
+          <p>Слева — файловое дерево.<br>Раскрой папку и выбери файл.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+
+</div><!-- /app -->
+
+<!-- file-picker dropdown (вне topbar, позиция абсолютная) -->
+<div class="fp-dropdown" id="fp-dropdown"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
