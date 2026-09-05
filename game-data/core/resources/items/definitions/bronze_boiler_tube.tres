@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "bronze_boiler_tube"
+name = "item.bronze_boiler_tube.name"
+description = "item.bronze_boiler_tube.desc"
+item_color = Color(0.74, 0.46, 0.20, 1)
+max_stack = 64

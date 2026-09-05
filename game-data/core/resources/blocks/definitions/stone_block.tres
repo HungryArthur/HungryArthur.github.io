@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/blocks/stone.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "stone_block"
+display_name = "Stone Block"
+texture = ExtResource("2_tex")
+color = Color(0.55, 0.55, 0.55, 1)
+health = 3
+required_tool = "pickaxe"
+drop_item_id = "stone"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "tin_ingot"
+name = "item.tin_ingot.name"
+description = "item.tin_ingot.desc"
+item_color = Color(0.65, 0.68, 0.72, 1)
+max_stack = 64

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/machines/conveer_t2.png" id="2_belt"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "conveyor_t2"
+display_name = "Conveyor T2"
+color = Color(0.30, 0.42, 0.56, 1)
+health = 4
+required_tool = "pickaxe"
+drop_item_id = "conveyor_t2"
+is_interactive = true
+interact_type = "conveyor"
+size = Vector2i(1, 1)
+rotatable = true
+belt_sheet = ExtResource("2_belt")
+belt_frame_count = 15
+belt_fps = 22.0
+belt_tier = 2
+belt_cross_time = 0.56

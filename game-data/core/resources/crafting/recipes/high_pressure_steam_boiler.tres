@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+result_item_id = "high_pressure_steam_boiler"
+result_count = 1
+ingredient_ids = PackedStringArray("steam_boiler", "steel_plate", "steel_pipe", "thermal_unit", "fluid_manifold", "steam_control_unit")
+ingredient_counts = PackedInt32Array(1, 12, 6, 2, 2, 1)
+category = "machines"
+sort_order = 157
+required_age = 4
+unlocked_by_quest = "steam_component_certification"

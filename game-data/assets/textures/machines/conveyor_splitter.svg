@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- Transparent, rotation-neutral conveyor junction. Runtime arrows mark the
+       active rear input and the two side outputs for the current facing. -->
+  <path fill="#080c10" d="M5 3h22v3h3v20h-3v3H5v-3H2V6h3z"/>
+  <path fill="#26343a" d="M6 4h20v3h3v18h-3v3H6v-3H3V7h3z"/>
+  <path fill="#3f5559" d="M7 5h18v2h2v4H5V7h2zm-2 16h22v4h-2v2H7v-2H5z"/>
+  <path fill="#131c22" d="M8 7h16v18H8z"/>
+
+  <!-- Four mechanical mouths keep the base sprite readable at any rotation. -->
+  <path fill="#070a0d" d="M11 3h10v7H11zM11 22h10v7H11zM2 11h8v10H2zM22 11h8v10h-8z"/>
+  <path fill="#1d292f" d="M12 4h8v6h-8zM12 22h8v6h-8zM3 12h7v8H3zM22 12h7v8h-7z"/>
+  <path fill="#77898b" d="M13 5h6v1h-6zm0 2h6v1h-6zm0 17h6v1h-6zm0 2h6v1h-6zM4 13h1v6H4zm2 0h1v6H6zm19 0h1v6h-1zm2 0h1v6h-1z"/>
+
+  <!-- Orange industrial guards inspired by the supplied concept. -->
+  <path fill="#d98021" d="M5 7h5v2H7v3H5zm17 0h5v5h-2V9h-3zM5 20h2v3h3v2H5zm20 0h2v5h-5v-2h3z"/>
+  <path fill="#f2ad36" d="M6 7h4v1H7v3H6zm16 0h4v4h-1V8h-3z"/>
+
+  <!-- Central split plate and flow indicators. -->
+  <path fill="#34474c" d="M11 10h10v3h3v6h-3v3H11v-3H8v-6h3z"/>
+  <path fill="#0b1115" d="M13 11h6v4h4v2h-4v4h-2v-5h-2v5h-2v-4H9v-2h4z"/>
+  <path fill="#29e6a2" d="M23 13h2v6h-2zm-16 0h2v6H7z"/>
+  <path fill="#7affc9" d="M23 14h1v2h-1zM8 14h1v2H8z"/>
+  <path fill="#ffbf35" d="M14 6h4v2h-4z"/>
+  <path fill="#11171b" d="M10 26h12v1H10z"/>
+</svg>

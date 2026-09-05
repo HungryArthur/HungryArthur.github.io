@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "workbench"
+display_name = "Workbench"
+color = Color(0.55, 0.35, 0.12, 1)
+health = 5
+required_tool = "axe"
+drop_item_id = "workbench"
+is_interactive = true
+interact_type = "workbench"

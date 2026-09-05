@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "electric_furnace"
+display_name = "Electric Furnace"
+color = Color(0.30, 0.35, 0.55, 1)
+health = 12
+required_tool = "pickaxe"
+drop_item_id = "electric_furnace"
+is_interactive = true
+interact_type = "electric_furnace"
+rotatable = true

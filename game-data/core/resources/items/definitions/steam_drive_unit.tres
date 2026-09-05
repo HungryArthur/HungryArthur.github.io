@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "steam_drive_unit"
+name = "item.steam_drive_unit.name"
+description = "item.steam_drive_unit.desc"
+item_color = Color(0.53, 0.57, 0.61, 1)
+max_stack = 64

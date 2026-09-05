@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "thermal_gloves"
+name = "item.thermal_gloves.name"
+description = "item.thermal_gloves.desc"
+rarity = "rare"
+item_color = Color(0.80, 0.45, 0.25, 1)
+max_stack = 1
+tool_type = "armor"
+equip_slot = "hands"

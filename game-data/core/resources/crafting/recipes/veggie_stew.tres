@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+result_item_id = "veggie_stew"
+result_count = 1
+ingredient_ids = PackedStringArray("fruit_salad", "carrot", "potato", "beet", "cucumber", "bowl")
+ingredient_counts = PackedInt32Array(1, 1, 1, 1, 1, 1)
+category = "cooking"
+sort_order = 102

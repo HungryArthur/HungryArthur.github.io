@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+result_item_id = "electrum_wire"
+result_count = 1
+ingredient_ids = PackedStringArray("electrum_ingot", "rubber")
+ingredient_counts = PackedInt32Array(1, 1)
+category = "electrical"
+sort_order = 112
+required_age = 5

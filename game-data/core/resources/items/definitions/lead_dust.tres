@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/materials/lead_dust.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+texture = ExtResource("2_tex")
+id = "lead_dust"
+name = "item.lead_dust.name"
+description = "item.lead_dust.desc"
+item_color = Color(0.42, 0.44, 0.52, 1)
+max_stack = 64

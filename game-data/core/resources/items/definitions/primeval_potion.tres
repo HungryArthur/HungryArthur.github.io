@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "primeval_potion"
+name = "item.primeval_potion.name"
+description = "item.primeval_potion.desc"
+rarity = "legendary"
+item_color = Color(0.35, 0.85, 0.45, 1)
+max_stack = 1
+use_action = "unlock_biome_access:PrimevalThicketBiome"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "farming_station"
+name = "item.farming_station.name"
+description = "item.farming_station.desc"
+rarity = "uncommon"
+item_color = Color(0.3, 0.55, 0.25, 1)
+max_stack = 99
+block_id = "farming_station"

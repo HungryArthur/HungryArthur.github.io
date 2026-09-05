@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/cactus.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "cactus"
+name = "item.cactus.name"
+description = "item.cactus.desc"
+texture = ExtResource("2_tex")
+item_color = Color(0.22, 0.52, 0.25, 1)
+max_stack = 64

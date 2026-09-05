@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "farming_station"
+display_name = "Фермерская станция"
+color = Color(0.3, 0.55, 0.25, 1)
+health = 12
+required_tool = "pickaxe"
+drop_item_id = "farming_station"
+is_interactive = true
+interact_type = "farming_station"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/materials/resonite_shard.svg" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+texture = ExtResource("2_tex")
+id = "resonite_shard"
+name = "item.resonite_shard.name"
+description = "item.resonite_shard.desc"
+item_color = Color(0.55, 0.36, 0.91, 1)
+max_stack = 64

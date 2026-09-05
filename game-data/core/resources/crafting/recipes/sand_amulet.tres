@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+result_item_id = "sand_amulet"
+result_count = 1
+ingredient_ids = PackedStringArray("copper_ingot", "tin_ingot", "wood")
+ingredient_counts = PackedInt32Array(4, 2, 2)
+category = "tools"
+sort_order = 410
+required_age = 99
+unlocked_by_item = "page_sand_amulet"

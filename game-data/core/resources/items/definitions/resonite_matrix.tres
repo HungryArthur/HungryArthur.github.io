@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/materials/resonite_matrix.svg" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+texture = ExtResource("2_tex")
+id = "resonite_matrix"
+name = "item.resonite_matrix.name"
+description = "item.resonite_matrix.desc"
+rarity = "epic"
+item_color = Color(0.63, 0.43, 0.94, 1)
+max_stack = 64

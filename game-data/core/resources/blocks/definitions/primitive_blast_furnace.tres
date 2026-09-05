@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/furnaces/blast_furnace.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "primitive_blast_furnace"
+display_name = "Primitive Blast Furnace"
+texture = ExtResource("2_tex")
+color = Color(0.45, 0.30, 0.24, 1)
+health = 16
+required_tool = "pickaxe"
+drop_item_id = "primitive_blast_furnace"
+is_interactive = true
+interact_type = "primitive_blast_furnace"
+size = Vector2i(2, 2)

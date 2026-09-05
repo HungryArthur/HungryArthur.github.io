@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/food/campfire.svg" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "cooking_station"
+display_name = "Campfire"
+texture = ExtResource("2_texture")
+color = Color(0.72, 0.24, 0.08, 1)
+health = 5
+required_tool = "none"
+drop_item_id = "cooking_station"
+is_interactive = true
+interact_type = "cooking_station"
+rotatable = true

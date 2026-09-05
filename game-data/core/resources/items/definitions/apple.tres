@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bhiyxjmcem6d1"]
+
+[ext_resource type="Script" uid="uid://0gxl7o7ykens" path="res://core/resources/items/ItemData.gd" id="1_d4m5h"]
+
+[resource]
+script = ExtResource("1_d4m5h")
+id = "apple"
+name = "item.apple.name"
+description = "item.apple.desc"
+item_color = Color(1, 0, 0, 1)
+food_value = 8
+metadata/_custom_type_script = "uid://0gxl7o7ykens"

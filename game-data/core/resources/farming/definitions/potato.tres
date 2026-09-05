@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CropData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/farming/CropData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+crop_id = "potato"
+display_name = "Картофель"
+plant_item_id = "potato"
+stages = 4
+minutes_per_stage = 80
+yield_min = 3
+yield_max = 4
+plant_color = Color(0.55, 0.72, 0.35, 1)

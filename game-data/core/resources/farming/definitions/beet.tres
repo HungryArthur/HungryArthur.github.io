@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CropData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/farming/CropData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+crop_id = "beet"
+display_name = "Свёкла"
+plant_item_id = "beet"
+stages = 4
+minutes_per_stage = 70
+yield_min = 2
+yield_max = 3
+plant_color = Color(0.62, 0.13, 0.24, 1)

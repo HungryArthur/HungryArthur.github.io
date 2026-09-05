@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/placeholders/components/robotic_arm_t1.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "mechanical_inserter"
+name = "item.mechanical_inserter.name"
+description = "item.mechanical_inserter.desc"
+texture = ExtResource("2_tex")
+item_color = Color(0.58, 0.38, 0.16, 1)
+max_stack = 32
+block_id = "mechanical_inserter"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/fluids/fluid_tank_t1.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "fluid_tank_t1"
+name = "item.fluid_tank_t1.name"
+description = "item.fluid_tank_t1.desc"
+texture = ExtResource("2_tex")
+max_stack = 1
+block_id = "fluid_tank_t1"

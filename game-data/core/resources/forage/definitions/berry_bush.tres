@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ForageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/forage/ForageData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "berry_bush"
+display_name = "Ягодный куст"
+resource_item_id = "berry"
+required_tool = "none"
+mining_level_required = 1
+mining_interval = 0.25
+yield_amount = 1
+atlas_x = 10
+tile_source_id = 29
+health = 2
+total_resource_amount = 3
+default_spawn_chance = 0.0
+spawn_chance_by_biome = {
+"ForestBiome": 0.022,
+"JungleBiome": 0.02
+}
+minimum_spacing = 2
+requires_water = false

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "chemical_reactor"
+display_name = "Chemical Reactor"
+color = Color(0.40, 0.65, 0.45, 1)
+health = 14
+required_tool = "pickaxe"
+drop_item_id = "chemical_reactor"
+is_interactive = true
+interact_type = "chemical_reactor"

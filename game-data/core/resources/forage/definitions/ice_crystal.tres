@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ForageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/forage/ForageData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "ice_crystal"
+display_name = "Ледяные кристаллы"
+resource_item_id = "ice_shard"
+required_tool = "none"
+mining_level_required = 1
+mining_interval = 0.3
+yield_amount = 1
+atlas_x = 9
+tile_source_id = 28
+health = 2
+total_resource_amount = 2
+default_spawn_chance = 0.0
+spawn_chance_by_biome = {
+"SnowBiome": 0.04
+}
+minimum_spacing = 2
+requires_water = false

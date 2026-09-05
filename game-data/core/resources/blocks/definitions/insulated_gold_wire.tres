@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "insulated_gold_wire"
+display_name = "Insulated Gold Wire"
+color = Color(0.62, 0.46, 0.10, 1)
+health = 2
+required_tool = "pickaxe"
+drop_item_id = "insulated_gold_wire"
+is_interactive = false
+interact_type = ""

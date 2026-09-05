@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/solar_panel/base_solar_panel.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "solar_panel"
+display_name = "Базовая солнечная панель"
+texture = ExtResource("2_tex")
+color = Color(0.10, 0.25, 0.60, 1)
+health = 8
+required_tool = "pickaxe"
+drop_item_id = "solar_panel"
+is_interactive = true
+interact_type = "solar_panel"

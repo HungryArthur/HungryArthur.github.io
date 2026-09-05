@@ -1,0 +1,715 @@
+keys,en,ru
+boss.ent.name,The Ent,Энт
+item.CHEST_MODIFIER_T2.desc,A steel-cased upgrade module used to reinforce a Tier 1 chest.,Стальной модуль улучшения для укрепления сундука 1-го уровня.
+item.CHEST_MODIFIER_T2.name,Chest Modifier Tier 2,Модификатор сундука ур. 2
+item.CHEST_MODIFIER_T3.desc,A rare brass-steel module with an energized core for final-tier storage.,Редкий латунно-стальной модуль с энергетическим ядром для хранилища высшего уровня.
+item.CHEST_MODIFIER_T3.name,Chest Modifier Tier 3,Модификатор сундука ур. 3
+item.CHEST_T1.desc,A basic 30-slot wooden storage chest.,Базовый деревянный сундук на 30 ячеек.
+item.CHEST_T1.name,Chest Tier 1,Сундук ур. 1
+item.CHEST_T2.desc,A reinforced 60-slot industrial storage chest.,Укреплённый промышленный сундук на 60 ячеек.
+item.CHEST_T2.name,Chest Tier 2,Сундук ур. 2
+item.CHEST_T3.desc,An advanced 90-slot mechanical storage chest.,Продвинутый механический сундук на 90 ячеек.
+item.CHEST_T3.name,Chest Tier 3,Сундук ур. 3
+item.advanced_board.desc,Resin-coated circuit board. Used in Tier 2 circuits.,"Плата, покрытая смолой. Для схем 2-го уровня."
+item.advanced_board.name,Advanced Board,Продвинутая плата
+item.advanced_drill.desc,"The fastest drill; reaches every vein, including mythril. Place a conveyor or chest directly against the arrow side to receive ore automatically.","Самый быстрый бур; достаёт любую жилу, включая мифрил. Поставьте конвейер или сундук вплотную со стороны стрелки для автоматической выгрузки."
+item.advanced_drill.name,Advanced Drill,Продвинутый бур
+item.advanced_machine_casing.desc,Steel and silver housing. Used to construct Electric Furnace and Compressor.,Корпус из стали и серебра. Для электропечи и компрессора.
+item.advanced_machine_casing.name,Advanced Machine Casing,Продвинутый корпус механизма
+item.advanced_machine_frame.desc,Reinforced frame with spring suspension. Base of high-tech machines.,Усиленный каркас с пружинной подвеской. Основа высокотехнологичных машин.
+item.advanced_machine_frame.name,Advanced Machine Frame,Продвинутая рамка механизма
+item.advanced_processor.desc,High-performance multi-core processor. For computers and ME controllers.,Многоядерный процессор повышенной производительности. Для компьютеров и ME-контроллеров.
+item.advanced_processor.name,Advanced Processor,Продвинутый процессор
+item.advanced_solar_panel.desc,Generates 120 EU/s in daylight. Place next to power cables.,Вырабатывает 120 EU/с при свете дня. Ставится у проводов электросети.
+item.advanced_solar_panel.name,Advanced Solar Panel,Продвинутая солнечная панель
+item.apple.desc,"A crisp, juicy apple. Restores a little energy.",Хрустящее сочное яблоко. Немного восстанавливает силы.
+item.apple.name,Apple,Яблоко
+item.berry.desc,"Sweet wild berries picked from a bush. A tasty snack.",Сладкие лесные ягоды с куста. Вкусный перекус.
+item.berry.name,Berries,Ягоды
+item.beet.desc,"A hearty beetroot. Filling and earthy.",Сытная свёкла. Питательная и землистая.
+item.beet.name,Beet,Свёкла
+item.carrot.desc,"A crunchy carrot. A quick, tasty bite.",Хрустящая морковь. Быстрый вкусный перекус.
+item.carrot.name,Carrot,Морковь
+item.potato.desc,"A starchy potato. Best cooked, but edible raw.",Крахмалистый картофель. Лучше приготовить, но можно и сырым.
+item.potato.name,Potato,Картофель
+item.cucumber.desc,"A cool, watery cucumber. Refreshing.",Прохладный сочный огурец. Освежает.
+item.cucumber.name,Cucumber,Огурец
+item.hoe.desc,"A simple hoe. Right-click bare ground to till a farm plot for planting.",Простая мотыга. ПКМ по земле — вскопать грядку для посадки.
+item.hoe.name,Hoe,Мотыга
+item.cooking_station.desc,"A campfire with six ingredient slots. It cooks simple dishes and multi-stage feasts.",Костёр с шестью слотами для ингредиентов. Готовит простые блюда и многоступенчатые угощения.
+item.cooking_station.name,Campfire,Костёр
+item.bowl.desc,A simple wooden bowl used in campfire recipes.,Простая деревянная миска для рецептов на костре.
+item.bowl.name,Bowl,Миска
+item.fruit_salad.desc,"Five portions of fruit and berries served in a bowl. The first step toward advanced dishes.",Пять порций фруктов и ягод в миске. Первый шаг к продвинутым блюдам.
+item.fruit_salad.name,Fruit Assortment,Фруктовое ассорти
+item.veggie_stew.desc,"A hot garden stew enriched with fruit assortment. Very filling.",Горячее овощное рагу с фруктовым ассорти. Очень сытное.
+item.veggie_stew.name,Veggie Stew,Овощное рагу
+item.baked_potato.desc,"A hot baked potato. Simple and filling.",Горячий печёный картофель. Просто и сытно.
+item.baked_potato.name,Baked Potato,Печёный картофель
+item.harvest_feast.desc,"Several prepared dishes combined into one rich feast. Used for the final stew.",Несколько готовых блюд объединены в сытный пир. Используется для финального рагу.
+item.harvest_feast.name,Harvest Feast,Пир урожая
+item.infinity_stew.desc,"The culmination of the entire cooking chain. Restores an enormous amount of hunger.",Вершина всей кулинарной цепочки. Восстанавливает огромное количество сытости.
+item.infinity_stew.name,Infinity Stew,Рагу бесконечности
+item.basic_board.desc,Simple wooden circuit board. Used in Tier 1 circuits.,Простая деревянная плата. Для схем 1-го уровня.
+item.basic_board.name,Basic Board,Базовая плата
+item.basic_machine_casing.desc,Iron and copper housing. Used to construct Crusher and Extractor.,Корпус из железа и меди. Для дробилки и экстрактора.
+item.basic_machine_casing.name,Basic Machine Casing,Базовый корпус механизма
+item.battery_casing.desc,Empty rubber-and-iron housing for accumulator cells.,Пустой резино-железный корпус для аккумуляторных ячеек.
+item.battery_casing.name,Accumulator Casing,Корпус аккумулятора
+item.battery_t1.desc,"Accumulator cell rated for 10,000 EU. Four cells form the 40k EU T1 storage.","Аккумуляторная ячейка ёмкостью 10 000 EU. Четыре ячейки образуют хранилище T1 на 40k EU."
+item.battery_t1.name,Accumulator Cell T1 (10k EU),Аккумуляторная ячейка T1 (10k EU)
+item.battery_t2.desc,"Accumulator cell rated for 50,000 EU. Four cells upgrade the storage to 200k EU.","Аккумуляторная ячейка ёмкостью 50 000 EU. Четыре ячейки улучшают хранилище до 200k EU."
+item.battery_t2.name,Accumulator Cell T2 (50k EU),Аккумуляторная ячейка T2 (50k EU)
+item.battery_t3.desc,"Accumulator cell rated for 250,000 EU. Four cells upgrade the storage to 1M EU.","Аккумуляторная ячейка ёмкостью 250 000 EU. Четыре ячейки улучшают хранилище до 1M EU."
+item.battery_t3.name,Accumulator Cell T3 (250k EU),Аккумуляторная ячейка T3 (250k EU)
+item.bolt.desc,Steel fastener. Holds machine casings and frames together.,Стальной крепёж. Скрепляет корпуса машин и каркасы.
+item.bolt.name,Bolt,Болт
+item.bronze_bucket.desc,A sturdy bronze liquid container.,Прочная бронзовая ёмкость для жидкостей.
+item.bronze_bucket.name,Bronze Bucket,Бронзовое ведро
+item.bronze_drill.desc,"Place on a vein core to auto-mine copper, tin, coal and iron. Ore exits from the arrow side onto an adjacent conveyor or into a chest.","Ставится на сердцевину жилы для добычи меди, олова, угля и железа. Руда выходит со стороны стрелки на соседний конвейер или в сундук."
+item.bronze_drill.name,Bronze Drill,Бронзовый бур
+item.bronze_dust.desc,Fine bronze powder. Smelt it into a bronze ingot.,Мелкий бронзовый порошок. Переплавь в бронзовый слиток.
+item.bronze_dust.name,Bronze Dust,Бронзовая пыль
+item.bronze_ingot.desc,An alloy of copper and tin used for durable early tools.,Сплав меди и олова для прочных ранних инструментов.
+item.bronze_ingot.name,Bronze Ingot,Бронзовый слиток
+item.bronze_pickaxe.desc,"A bronze pickaxe. Mines copper, coal, tin, and iron.","Бронзовая кирка. Добывает медь, уголь, олово и железо."
+item.bronze_pickaxe.name,Bronze Pickaxe,Бронзовая кирка
+item.bronze_rod.desc,Rolled bronze rod. Blank for springs and parts.,Прокатанный бронзовый стержень. Заготовка для пружин и деталей.
+item.bronze_rod.name,Bronze Rod,Бронзовый стержень
+item.bronze_spring.desc,Spring wound from a bronze rod. Wear-resistant.,Свитая из бронзового стержня пружина. Устойчива к износу.
+item.bronze_spring.name,Bronze Spring,Бронзовая пружина
+item.cactus.desc,Cactus flesh. A source of moisture and fiber in the desert.,Мякоть кактуса. Источник влаги и волокна в пустыне.
+item.cactus.name,Cactus,Кактус
+item.capacitor_t1.desc,Basic charge storage. Component of energy storages.,Базовый накопитель заряда. Компонент энергохранилищ.
+item.capacitor_t1.name,Capacitor T1,Конденсатор T1
+item.capacitor_t2.desc,Improved charge storage with silver plates.,Улучшенный накопитель заряда с серебряными обкладками.
+item.capacitor_t2.name,Capacitor T2,Конденсатор T2
+item.capacitor_t3.desc,High-density charge storage with gold contacts and solid matter.,Высокоплотный накопитель заряда с золотыми контактами и твёрдой материей.
+item.capacitor_t3.name,Capacitor T3,Конденсатор T3
+item.carbon_cloth.desc,Fabric woven from four carbon-fiber threads. Compresses into carbon plastic.,"Полотно, сотканное из четырёх нитей углеволокна. Спрессовывается в углепластик."
+item.carbon_cloth.name,Carbon Cloth,Углеткань
+item.carbon_fiber.desc,Thin thread of compressed coal dust. Raw material for carbon cloth.,Тонкая нить из спрессованной угольной пыли. Сырьё для углеткани.
+item.carbon_fiber.name,Carbon Fiber,Углеволокно
+item.carbon_plastic.desc,"Carbon cloth compressed in a compressor. Ultra-light, ultra-strong material.",Спрессованная в компрессоре углеткань. Сверхлёгкий и сверхпрочный материал.
+item.carbon_plastic.name,Carbon Plastic,Углепластик
+item.circuit_t1.desc,An iron-backed circuit using resonite shards for signal logic.,Схема на железной основе с резонитовыми осколками для обработки сигналов.
+item.circuit_t1.name,Basic Circuit,Базовая схема
+item.circuit_t2.desc,Advanced circuit built around purified resonite for terminals and automation.,Продвинутая схема на очищенном резоните для терминалов и автоматизации.
+item.circuit_t2.name,Advanced Circuit,Продвинутая схема
+item.circuit_t3.desc,Industrial circuit synchronized by a resonite matrix for complex automation.,Промышленная схема с резонитовой матрицей для сложной автоматизации.
+item.circuit_t3.name,Industrial Circuit,Промышленная схема
+item.cloth.desc,Cloth of plant fiber. Used in suits and filters.,Полотно из растительного волокна. Используется в костюмах и фильтрах.
+item.cloth.name,Cloth,Ткань
+item.coal.desc,A lump of coal. Used as fuel.,Кусок угля. Используется как топливо.
+item.coal.name,Coal,Уголь
+item.coal_dust.desc,Fine coal powder. Compress 8 units into Compressed Coal.,Мелкий угольный порошок. Сожми 8 единиц в прессованный уголь.
+item.coal_dust.name,Coal Dust,Угольная пыль
+item.coal_generator.desc,Burns coal to generate 30 EU/s. Place adjacent to cables to power machines.,"Сжигает уголь, вырабатывая 30 EU/с. Ставь рядом с кабелями для питания машин."
+item.coal_generator.name,Coal Generator,Угольный генератор
+item.cobblestone_generator.desc,"While powered, endlessly produces stone. Connect to the power grid.","Пока запитан, бесконечно производит камень. Подключи к электросети."
+item.cobblestone_generator.name,Cobblestone Generator,Генератор булыжника
+item.codex.desc,Trailblazer's tome. Use (right-click) to open it. Pages dropped by bosses unlock the access-gear recipes.,"Том первопроходца. Используй (ПКМ), чтобы открыть. Страницы с боссов открывают рецепты снаряжения для входа в биомы."
+item.codex.name,Codex,Книга Первопроходца
+item.coil.desc,"Copper wire wound on a core. Component of motors, electromagnets and transformers.","Медный провод, намотанный на сердечник. Компонент моторов, электромагнитов и трансформаторов."
+item.coil.name,Coil,Катушка
+item.compressed_coal.desc,Eight coal dust units compressed into a dense block.,"Восемь единиц угольной пыли, спрессованные в плотный блок."
+item.compressed_coal.name,Compressed Coal,Прессованный уголь
+item.compressor.desc,Compresses materials into denser forms. Requires 25 EU/s.,Сжимает материалы в более плотные формы. Требует 25 EU/с.
+item.compressor.name,Compressor,Компрессор
+item.computer.desc,"A unit built from a motherboard, processor and memory. Controls the ME network and high-tech machines.","Собранный из материнской платы, процессора и памяти блок. Управляет ME-сетью и высокотехнологичными машинами."
+item.computer.name,Computer,Компьютер
+item.concrete.desc,Cured mix of gravel and binder. Sturdy building material.,Застывшая смесь гравия и связующего. Прочный строительный материал.
+item.concrete.name,Concrete,Бетон
+item.conveyor.desc,Slow mechanical conveyor that needs no electricity. Faces the same direction as the player when placed.,Медленный механический конвейер без потребления электричества. При установке смотрит туда же, куда игрок.
+item.conveyor.name,Conveyor T1,Конвейер T1
+item.conveyor_splitter.desc,"Splits one input belt into two side outputs, alternating items evenly between them. Mechanical: needs no electricity. Faces the same direction as the player when placed.","Разделяет одну входную ленту на два боковых выхода, равномерно чередуя предметы. Механический: электричество не требуется. При установке смотрит туда же, куда игрок."
+item.conveyor_splitter.name,Conveyor Splitter,Конвейерный разветвитель
+item.conveyor_t2.desc,Faster conveyor. Draws 2 EU/s from the grid. Faces the same direction as the player when placed.,Более быстрый конвейер. Потребляет 2 EU/с из сети. При установке смотрит туда же, куда игрок.
+item.conveyor_t2.name,Conveyor T2,Конвейер T2
+item.conveyor_t3.desc,High-speed conveyor. Draws 3 EU/s from the grid. Faces the same direction as the player when placed.,Скоростной конвейер. Потребляет 3 EU/с из сети. При установке смотрит туда же, куда игрок.
+item.conveyor_t3.name,Conveyor T3,Конвейер T3
+item.conveyor_t4.desc,Very fast conveyor. Draws 4 EU/s from the grid. Faces the same direction as the player when placed.,Очень быстрый конвейер. Потребляет 4 EU/с из сети. При установке смотрит туда же, куда игрок.
+item.conveyor_t4.name,Conveyor T4,Конвейер T4
+item.conveyor_t5.desc,Fastest conveyor. Draws 5 EU/s from the grid. Faces the same direction as the player when placed.,Самый быстрый конвейер. Потребляет 5 EU/с из сети. При установке смотрит туда же, куда игрок.
+item.conveyor_t5.name,Conveyor T5,Конвейер T5
+item.copper_block.desc,A solid block of copper. Can be placed.,Цельный блок меди. Можно ставить.
+item.copper_block.name,Copper Block,Медный блок
+item.copper_dust.desc,Fine copper powder. Smelt it into a copper ingot.,Мелкий медный порошок. Переплавь в медный слиток.
+item.copper_dust.name,Copper Dust,Медная пыль
+item.copper_gear.desc,A copper mechanical component for electric machines.,Медный механический компонент для электрических машин.
+item.copper_gear.name,Copper Gear,Медная шестерёнка
+item.copper_ingot.desc,Smelted copper. Used in crafting.,Переплавленная медь. Используется в крафте.
+item.copper_ingot.name,Copper Ingot,Медный слиток
+item.copper_ore.desc,Raw copper ore. Smelt it into ingots.,Сырая медная руда. Переплавь в слитки.
+item.copper_ore.name,Copper Ore,Медная руда
+item.copper_plate.desc,Thin copper sheet. Used in circuits and battery components.,Тонкий медный лист. Для схем и деталей батарей.
+item.copper_plate.name,Copper Plate,Медная пластина
+item.copper_rod.desc,Rod rolled from a copper sheet. Blank for wires and windings.,Прокатанный из медного листа стержень. Заготовка для проводов и обмоток.
+item.copper_rod.name,Copper Rod,Медный стержень
+item.copper_wire.desc,Bare copper power cable. Transfers up to 64 EU/s and shocks on contact while live.,Голый медный силовой кабель. Передаёт до 64 EU/с и бьёт током при касании под напряжением.
+item.copper_wire.name,Copper Cable,Медный кабель
+item.crude_oil_canister.desc,Canister of unrefined oil. Feedstock for the distillation column.,Канистра с неочищенной нефтью. Сырьё для переработки в дистилляционной колонне.
+item.crude_oil_canister.name,Crude Oil Canister,Канистра с сырой нефтью
+item.crusher.desc,Grinds ore directly into metal dust with doubled yield. Requires 20 EU/s.,Перемалывает руду сразу в металлическую пыль с удвоенным выходом. Требует 20 EU/с.
+item.crusher.name,Crusher,Дробилка
+item.cryo_mantle.desc,Insulated mantle against deadly cold. Equip it to safely enter the Icy Abyss.,"Утеплённая мантия против смертельного холода. Надень, чтобы безопасно входить в Ледяную Бездну."
+item.cryo_mantle.name,Cryo Mantle,Крио Мантия
+item.dense_iron_plate.desc,Eight iron plates compressed into one. Heavy structural component.,"Восемь железных пластин, спрессованных в одну. Тяжёлый конструкционный компонент."
+item.dense_iron_plate.name,Dense Iron Plate,Плотная железная пластина
+item.distillation_column.desc,"Electrically separates crude oil into refinery gas, gasoline, kerosene, diesel, heavy oil, and bitumen.","Электрически разделяет сырую нефть на нефтезаводской газ, бензин, керосин, дизель, мазут и битум."
+item.distillation_column.name,Distillation Column,Дистилляционная колонна
+item.electric_furnace.desc,Smelts ores 3x faster than a regular furnace. Requires 30 EU/s.,Плавит руду в 3 раза быстрее обычной печи. Требует 30 EU/с.
+item.electric_furnace.name,Electric Furnace,Электропечь
+item.electronic_board.desc,Printed board of plastic and copper wiring. Heart of capacitors and advanced electronics.,Печатная плата из пластика и медной проводки. Сердце конденсаторов и продвинутой электроники.
+item.electronic_board.name,Electronic Board,Электронная плата
+item.electrum_ingot.desc,Gold-silver alloy with exceptional conductivity. Used in advanced circuits and high-tier batteries.,Золото-серебряный сплав с исключительной проводимостью. Для продвинутых схем и батарей высокого уровня.
+item.electrum_ingot.name,Electrum Ingot,Электрумовый слиток
+item.electrum_wire.desc,High-capacity electrum wire. Supports industrial machines and late-game automation.,Высокоёмкий электрумовый провод. Поддерживает промышленные машины и автоматизацию конца игры.
+item.electrum_wire.name,Electrum Wire,Электрумовый провод
+item.elite_solar_panel.desc,Generates 360 EU/s in daylight. Place next to power cables.,Вырабатывает 360 EU/с при свете дня. Ставится у проводов электросети.
+item.elite_solar_panel.name,Elite Solar Panel,Элитная солнечная панель
+item.empty_canister.desc,Sealed metal container. Filled with fluid in machines.,Герметичный металлический контейнер. Наполняется жидкостью в машинах.
+item.empty_canister.name,Empty Canister,Пустая канистра
+item.energy_storage_t1.desc,"Grid buffer of 40,000 EU (up to 128 EU/s). Stores surplus and smooths peaks.","Буфер сети на 40 000 EU (до 128 EU/с). Запасает излишки и сглаживает пики."
+item.energy_storage_t1.name,Energy Storage T1,Энергохранилище T1
+item.energy_storage_t2.desc,"Grid buffer of 200,000 EU (up to 512 EU/s).","Буфер сети на 200 000 EU (до 512 EU/с)."
+item.energy_storage_t2.name,Energy Storage T2,Энергохранилище T2
+item.energy_storage_t3.desc,"Grid buffer of 1,000,000 EU (up to 2048 EU/s). Pinnacle of energy storage.","Буфер сети на 1 000 000 EU (до 2048 EU/с). Вершина накопления энергии."
+item.energy_storage_t3.name,Energy Storage T3,Энергохранилище T3
+item.ent_totem.desc,Use (right-click) to re-summon the Ent at its forest grove. Consumed on use.,"Используй (ПКМ), чтобы вновь призвать Энта в его лесной роще. Расходуется при использовании."
+item.ent_totem.name,Ent Totem,Тотем Энта
+item.extractor.desc,Extracts fluids and raw materials. Processes resin and uranium ore. Requires 25 EU/s.,Извлекает жидкости и сырьё. Обрабатывает смолу и урановую руду. Требует 25 EU/с.
+item.extractor.name,Extractor,Экстрактор
+item.farming_station.desc,"While powered, automatically grows crops (apples, watermelons, reed, cacti).","Пока запитана, автоматически выращивает урожай (яблоки, арбузы, тростник, кактусы)."
+item.farming_station.name,Farming Station,Фермерская станция
+item.flower.desc,A wildflower. A bright spot in the grass — useful for dyes.,Полевой цветок. Яркое пятно среди травы — пригодится для красителей.
+item.flower.name,Flower,Цветок
+item.fluid_pipe.desc,"Bronze-sealed pipe for water, steam, and other fluids.","Герметичная бронзовая труба для воды, пара и других жидкостей."
+item.fluid_pipe.name,Fluid Pipe,Труба для жидкости
+item.fluid_pipe_t2.desc,"Steel high-pressure pipe carrying up to 30 liters per second.","Стальная труба высокого давления с пропускной способностью до 30 литров в секунду."
+item.fluid_pipe_t2.name,High-Pressure Fluid Pipe,Труба высокого давления
+item.fluid_valve.desc,"One-way valve that can allow only a selected fluid.","Односторонний клапан, пропускающий только выбранную жидкость."
+item.fluid_valve.name,Filtered Fluid Valve,Фильтрующий клапан
+item.fluid_tank_t1.desc,Stores one liquid. Capacity: 200 L.,Хранит одну жидкость. Ёмкость: 200 л.
+item.fluid_tank_t1.name,Fluid Tank T1,Бак для жидкости T1
+item.fluid_tank_t2.desc,Stores one liquid. Capacity: 350 L.,Хранит одну жидкость. Ёмкость: 350 л.
+item.fluid_tank_t2.name,Fluid Tank T2,Бак для жидкости T2
+item.fluid_tank_t3.desc,Stores one liquid. Capacity: 500 L.,Хранит одну жидкость. Ёмкость: 500 л.
+item.fluid_tank_t3.name,Fluid Tank T3,Бак для жидкости T3
+item.fluid_tank_t4.desc,Stores one liquid. Capacity: 750 L.,Хранит одну жидкость. Ёмкость: 750 л.
+item.fluid_tank_t4.name,Fluid Tank T4,Бак для жидкости T4
+item.fluid_tank_t5.desc,The largest practical tank. Capacity: 1000 L.,Самый большой практичный бак. Ёмкость: 1000 л.
+item.fluid_tank_t5.name,Fluid Tank T5,Бак для жидкости T5
+item.furnace.desc,A smelting furnace. Place and press F to open.,"Плавильная печь. Поставь и нажми F, чтобы открыть."
+item.furnace.name,Furnace,Печь
+item.gas_filter.desc,Charcoal cartridge that traps toxins and spores. Key part of the gas mask.,"Угольный картридж, задерживающий токсины и споры. Ключевая деталь противогаза."
+item.gas_filter.name,Gas Filter,Газовый фильтр
+item.gas_mask.desc,Filters the toxins of the Rotting Marsh and spores of the Primeval Thicket. Equip in the armor slot for safe mining in those sectors.,Фильтрует токсины Гниющих Топей и споры Первобытных Дебрей. Наденьте в слот брони для безопасной добычи в этих секторах.
+item.gas_mask.name,Gas Mask,Противогаз
+item.gear.desc,A basic mechanical component for machines.,Базовый механический компонент для машин.
+item.gear.name,Iron Gear,Железная шестерёнка
+item.gold_dust.desc,Fine gold powder. Smelt it into a gold ingot.,Мелкий золотой порошок. Переплавь в золотой слиток.
+item.gold_dust.name,Gold Dust,Золотая пыль
+item.gold_gear.desc,A gold mechanical component for precise machinery.,Золотой механический компонент для точных механизмов.
+item.gold_gear.name,Gold Gear,Золотая шестерёнка
+item.gold_ingot.desc,Pure gold. Used in advanced circuits.,Чистое золото. Используется в продвинутых схемах.
+item.gold_ingot.name,Gold Ingot,Золотой слиток
+item.gold_ore.desc,Rare raw gold ore extracted from small deposits.,"Редкая сырая золотая руда, добытая из небольших залежей."
+item.gold_ore.name,Gold Ore,Золотая руда
+item.gold_plate.desc,Thin gold sheet. Used in advanced electronics.,Тонкий золотой лист. Для продвинутой электроники.
+item.gold_plate.name,Gold Plate,Золотая пластина
+item.gold_rod.desc,Soft gold rod. Conducts current excellently — used in precise electronics.,Мягкий золотой стержень. Отлично проводит ток — используется в точной электронике.
+item.gold_rod.name,Gold Rod,Золотой стержень
+item.gold_spring.desc,Spring made from a gold rod. Used in precise electronic contacts.,Пружина из золотого стержня. Применяется в точных контактах электроники.
+item.gold_spring.name,Gold Spring,Золотая пружина
+item.gold_wire.desc,Bare gold power wire. Transfers up to 256 EU/s and shocks on contact while live.,Голый золотой силовой провод. Передаёт до 256 EU/с и бьёт током при касании под напряжением.
+item.gold_wire.name,Gold Wire,Золотой провод
+item.tin_wire.desc,Bare starter power wire. Transfers up to 32 EU/s and shocks on contact while live.,Голый начальный силовой провод. Передаёт до 32 EU/с и бьёт током при касании под напряжением.
+item.tin_wire.name,Tin Wire,Оловянный провод
+item.fiberglass_wire.desc,Inherently safe high-capacity power wire. Transfers up to 1024 EU/s.,Безопасный стекловолоконный силовой провод. Передаёт до 1024 EU/с.
+item.fiberglass_wire.name,Fiberglass Wire,Стекловолоконный провод
+item.gravel.desc,Crushed stone fragments. Building material.,Раздробленные каменные осколки. Строительный материал.
+item.gravel.name,Gravel,Гравий
+item.gunpowder.desc,"A mix of coal, sulfur and saltpeter. Explosive raw material.","Смесь угля, серы и селитры. Взрывчатое сырьё."
+item.gunpowder.name,Gunpowder,Порох
+item.heat_suit.desc,Protects from the heat of the Sun Canyon. Equip in the armor slot to safely mine ore in scorching sectors.,"Защищает от жара Солнечного Каньона. Наденьте в слот брони, чтобы безопасно добывать руду в раскалённых секторах."
+item.heat_suit.name,Heat Suit,Жаростойкий костюм
+item.ice_shard.desc,A crystal of frozen ice from the snowy wastes.,Кристалл намёрзшего льда из снежных пустошей.
+item.ice_shard.name,Ice Shard,Ледяной осколок
+item.industrial_board.desc,Rubber-reinforced high-performance circuit board. Used in Tier 3 circuits.,"Высокопроизводительная плата, армированная резиной. Для схем 3-го уровня."
+item.industrial_board.name,Industrial Board,Промышленная плата
+item.industrial_machine_casing.desc,"Titanium, electrum and industrial circuit housing. Used for late-game machines.","Корпус из титана, электрума и промышленной схемы. Для машин конца игры."
+item.industrial_machine_casing.name,Industrial Machine Casing,Промышленный корпус механизма
+item.insulated_copper_wire.desc,Safe fiber-insulated copper cable. Transfers up to 64 EU/s.,Безопасный медный кабель в волоконной изоляции. Передаёт до 64 EU/с.
+item.insulated_copper_wire.name,Insulated Copper Cable,Изолированный медный кабель
+item.insulated_tin_wire.desc,Safe fiber-insulated tin wire. Transfers up to 32 EU/s.,Безопасный оловянный провод в волоконной изоляции. Передаёт до 32 EU/с.
+item.insulated_tin_wire.name,Insulated Tin Wire,Изолированный оловянный провод
+item.insulated_gold_wire.desc,Safe rubber-insulated gold wire. Transfers up to 256 EU/s.,Безопасный золотой провод в резиновой изоляции. Передаёт до 256 EU/с.
+item.insulated_gold_wire.name,Insulated Gold Wire,Изолированный золотой провод
+item.insulated_suit.desc,Protects from the cold of the Frozen Abyss. Equip in the armor slot to safely mine ore in freezing sectors.,"Защищает от холода Ледяной Бездны. Наденьте в слот брони, чтобы безопасно добывать руду в морозных секторах."
+item.insulated_suit.name,Insulated Suit,Утеплённый костюм
+item.iron_block.desc,A solid block of iron. Can be placed.,Цельный блок железа. Можно ставить.
+item.iron_block.name,Iron Block,Железный блок
+item.iron_bolt.desc,Iron fastener. Holds machine casings and frames together.,Железный крепёж. Скрепляет корпуса машин и каркасы.
+item.iron_bolt.name,Iron Bolt,Железный болт
+item.iron_dust.desc,Fine iron powder. Smelt it into an iron ingot.,Мелкий железный порошок. Переплавь в железный слиток.
+item.iron_dust.name,Iron Dust,Железная пыль
+item.iron_ingot.desc,Smelted iron. Used in crafting.,Переплавленное железо. Используется в крафте.
+item.iron_ingot.name,Iron Ingot,Железный слиток
+item.iron_ore.desc,Raw iron ore extracted from the ground. Smelt it into ingots.,Сырая железная руда из земли. Переплавь в слитки.
+item.iron_ore.name,Iron Ore,Железная руда
+item.iron_plate.desc,Flat iron sheet. Used in machine casings and compressor recipes.,Плоский железный лист. Для корпусов машин и рецептов компрессора.
+item.iron_plate.name,Iron Plate,Железная пластина
+item.iron_rod.desc,Rolled iron rod. Blank for springs and shafts.,Прокатанный железный стержень. Заготовка для пружин и валов.
+item.iron_rod.name,Iron Rod,Железный стержень
+item.iron_spring.desc,Spring wound from an iron rod. Part of simple mechanisms.,Свитая из железного стержня пружина. Деталь простых механизмов.
+item.iron_spring.name,Iron Spring,Железная пружина
+item.iron_wire.desc,Simple iron wire. A basic conductor for early circuits.,Простой железный провод. Базовый проводник для ранних схем.
+item.iron_wire.name,Iron Wire,Железный провод
+item.latex.desc,Processed tree resin. Extract again to obtain Rubber.,"Обработанная древесная смола. Извлеки снова, чтобы получить резину."
+item.latex.name,Latex,Латекс
+item.lava_canister.desc,Canister filled with molten lava. A source of heat and energy.,"Канистра, заполненная раскалённой лавой. Источник тепла и энергии."
+item.lava_canister.name,Lava Canister,Канистра с лавой
+item.lead_dust.desc,Heavy lead powder. Smelt it into lead components.,Тяжёлый свинцовый порошок. Переплавь в свинцовые компоненты.
+item.lead_dust.name,Lead Dust,Свинцовая пыль
+item.lead_ore.desc,Raw lead ore. Smelt it for heavy metal components.,Сырая свинцовая руда. Переплавь для тяжёлых металлических компонентов.
+item.lead_ore.name,Lead Ore,Свинцовая руда
+item.machine_frame.desc,Steel frame on which advanced machines are assembled.,"Стальной каркас, на который собираются продвинутые машины."
+item.machine_frame.name,Machine Frame,Рамка механизма
+item.me_cable.desc,Connects ME network devices. Channels are unlimited — only connectivity matters.,Соединяет устройства ME-сети. Каналы бесконечны — важна только связность.
+item.me_cable.name,ME Cable,ME-кабель
+item.me_controller.desc,The core of the ME network. Consumes power; without it the whole network shuts down.,Ядро ME-сети. Потребляет энергию; без питания вся сеть отключается.
+item.me_controller.name,ME Controller,ME-контроллер
+item.me_crafting_terminal.desc,Crafting terminal: crafts recipes straight from ME network resources.,Терминал создания: крафтит рецепты прямо из ресурсов ME-сети.
+item.me_crafting_terminal.name,ME Crafting Terminal,ME-терминал крафта
+item.me_pattern_terminal.desc,"Configures stock targets and distributes autocrafting jobs among Molecular Assemblers in the connected ME network.","Настраивает целевой запас и распределяет задания автокрафта между молекулярными сборщиками подключённой ME-сети."
+item.me_pattern_terminal.name,ME Pattern Terminal,ME-терминал шаблонов
+item.me_drive.desc,Storage: holds up to 6 storage cells. Their capacity adds to the network.,Накопитель: вмещает до 6 ячеек хранения. Их объём складывается в сеть.
+item.me_drive.name,ME Drive,ME-накопитель
+item.me_export_bus.desc,Pushes a configured item from the ME network into an adjacent inventory/machine. Set the filter in the menu.,Выдаёт настроенный предмет из ME-сети в соседний инвентарь/машину. Настрой фильтр в меню.
+item.me_export_bus.name,ME Export Bus,ME-шина экспорта
+item.me_import_bus.desc,Pulls items from an adjacent inventory/machine into the ME network. Place next to an ME cable and a chest/machine.,Втягивает предметы из соседнего инвентаря/машины в ME-сеть. Ставь рядом с ME-кабелем и сундуком/машиной.
+item.me_import_bus.name,ME Import Bus,ME-шина импорта
+item.me_interface.desc,Pattern provider: place it next to a machine and encode a processing recipe to automate input and output through the ME network.,Провайдер шаблонов: поставьте рядом с машиной и закодируйте рецепт обработки для автоматической подачи и вывода через МЭ-сеть.
+item.me_interface.name,ME Interface,ME-интерфейс
+item.me_item_cell_16k.desc,"Item storage cell: up to 25 types, 32,000 pcs. Goes into a drive.","Ячейка хранения предметов: до 25 видов, 32 000 шт. Ставится в накопитель."
+item.me_item_cell_16k.name,ME Item Cell 16k,ME-ячейка предметов 16k
+item.me_item_cell_1k.desc,"Item storage cell: up to 5 types, 2,000 pcs. Goes into a drive.","Ячейка хранения предметов: до 5 видов, 2 000 шт. Ставится в накопитель."
+item.me_item_cell_1k.name,ME Item Cell 1k,ME-ячейка предметов 1k
+item.me_item_cell_4k.desc,"Item storage cell: up to 12 types, 8,000 pcs. Goes into a drive.","Ячейка хранения предметов: до 12 видов, 8 000 шт. Ставится в накопитель."
+item.me_item_cell_4k.name,ME Item Cell 4k,ME-ячейка предметов 4k
+item.me_item_cell_64k.desc,"Item storage cell: up to 50 types, 128,000 pcs. Goes into a drive.","Ячейка хранения предметов: до 50 видов, 128 000 шт. Ставится в накопитель."
+item.me_item_cell_64k.name,ME Item Cell 64k,ME-ячейка предметов 64k
+item.me_fluid_cell_1k.desc,"Fluid storage cell: up to 2 fluids, 4,000 L. Goes into a drive.","Ячейка хранения жидкостей: до 2 видов, 4 000 л. Ставится в накопитель."
+item.me_fluid_cell_1k.name,ME Fluid Cell 1k,ME-ячейка жидкостей 1k
+item.me_fluid_cell_4k.desc,"Fluid storage cell: up to 4 fluids, 16,000 L. Goes into a drive.","Ячейка хранения жидкостей: до 4 видов, 16 000 л. Ставится в накопитель."
+item.me_fluid_cell_4k.name,ME Fluid Cell 4k,ME-ячейка жидкостей 4k
+item.me_fluid_cell_16k.desc,"Fluid storage cell: up to 6 fluids, 64,000 L. Goes into a drive.","Ячейка хранения жидкостей: до 6 видов, 64 000 л. Ставится в накопитель."
+item.me_fluid_cell_16k.name,ME Fluid Cell 16k,ME-ячейка жидкостей 16k
+item.me_fluid_cell_64k.desc,"Fluid storage cell: up to 9 fluids, 256,000 L. Goes into a drive.","Ячейка хранения жидкостей: до 9 видов, 256 000 л. Ставится в накопитель."
+item.me_fluid_cell_64k.name,ME Fluid Cell 64k,ME-ячейка жидкостей 64k
+item.me_molecular_assembler.desc,Connects to the ME network and automatically crafts a chosen recipe from stored resources.,Подключается к ME-сети и автоматически крафтит выбранный рецепт из хранимых ресурсов.
+item.me_molecular_assembler.name,ME Molecular Assembler,ME молекулярный сборщик
+item.me_storage_part_16k.desc,Storage component. Core part for crafting the ME Item Cell 16k.,Компонент хранения. Основа для крафта ME-ячейки предметов 16k.
+item.me_storage_part_16k.name,ME Storage Component 16k,ME-компонент хранения 16k
+item.me_storage_part_1k.desc,Storage component. Core part for crafting the ME Item Cell 1k.,Компонент хранения. Основа для крафта ME-ячейки предметов 1k.
+item.me_storage_part_1k.name,ME Storage Component 1k,ME-компонент хранения 1k
+item.me_storage_part_4k.desc,Storage component. Core part for crafting the ME Item Cell 4k.,Компонент хранения. Основа для крафта ME-ячейки предметов 4k.
+item.me_storage_part_4k.name,ME Storage Component 4k,ME-компонент хранения 4k
+item.me_storage_part_64k.desc,Storage component. Core part for crafting the ME Item Cell 64k.,Компонент хранения. Основа для крафта ME-ячейки предметов 64k.
+item.me_storage_part_64k.name,ME Storage Component 64k,ME-компонент хранения 64k
+item.me_terminal.desc,"Access the network contents: view, take and put items.","Доступ к содержимому сети: смотреть, доставать и класть предметы."
+item.me_terminal.name,ME Terminal,ME-терминал
+item.miasma_boots.desc,Sealed boots that keep out swamp miasma. Equip them to safely enter the Swamp.,"Герметичные ботинки против болотных миазмов. Надень, чтобы безопасно входить в Болото."
+item.miasma_boots.name,Miasma Boots,Ботинки Миазмов
+item.microchip.desc,A silicon crystal in a plastic case. Basic logic element.,Кремниевый кристалл в пластиковом корпусе. Базовый логический элемент.
+item.microchip.name,Microchip,Микросхема
+item.molecular_transformer.desc,Compresses coal and gravel into solid matter. Extremely power-hungry (200 EU/s).,Сжимает уголь и гравий в твёрдую материю. Очень прожорлив до энергии (200 EU/с).
+item.molecular_transformer.name,Molecular Transformer,Молекулярный преобразователь
+item.motherboard.desc,"Printed board that unites the processor, memory and microchips.","Печатная плата, объединяющая процессор, память и микросхемы."
+item.motherboard.name,Motherboard,Материнская плата
+item.motor.desc,"Electric motor of a rotor, copper winding and magnets. The moving part of pumps and machines.","Электромотор из ротора, медной обмотки и магнитов. Движущая часть насосов и станков."
+item.motor.name,Motor,Мотор
+item.mushroom.desc,A forest mushroom. Grows in tree shade and in the swamp.,Лесной гриб. Растёт в тени деревьев и на болоте.
+item.mushroom.name,Mushroom,Гриб
+item.mythril_ingot.desc,Rare magical alloy. Lightweight and strong.,Редкий магический сплав. Лёгкий и прочный.
+item.mythril_ingot.name,Mithril Ingot,Мифриловый слиток
+item.mythril_ore.desc,An exceptionally durable ore with a cold arcane glow.,Исключительно прочная руда с холодным мистическим свечением.
+item.mythril_ore.name,Mythril Ore,Мифриловая руда
+item.nickel_dust.desc,Fine nickel powder. Used in steel alloys and plating.,Мелкий никелевый порошок. Для стальных сплавов и покрытий.
+item.nickel_dust.name,Nickel Dust,Никелевая пыль
+item.nickel_ore.desc,Raw nickel ore. Used in steel alloys and plating.,Сырая никелевая руда. Для стальных сплавов и покрытий.
+item.nickel_ore.name,Nickel Ore,Никелевая руда
+item.oil_pump.desc,Powered pumpjack. Must stand on the center of an oil deposit. Buffer: 150 L.,Насос с приводом. Должен стоять в центре нефтяной залежи. Буфер: 150 л.
+item.oil_pump.name,Oil Pump,Нефтяной насос
+item.page_cryo_mantle.desc,A torn codex page. Carry it to unlock the Cryo Mantle recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Крио Мантии."
+item.page_cryo_mantle.name,Page: Cryo Mantle,Страница: Крио Мантия
+item.page_miasma_boots.desc,A torn codex page. Carry it to unlock the Miasma Boots recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Ботинок Миазмов."
+item.page_miasma_boots.name,Page: Miasma Boots,Страница: Ботинки Миазмов
+item.page_primeval_potion.desc,A torn codex page. Carry it to unlock the Primeval Potion recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Первозданного Зелья."
+item.page_primeval_potion.name,Page: Primeval Potion,Страница: Первозданное Зелье
+item.page_sand_amulet.desc,A torn codex page. Carry it to unlock the Sand Amulet recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Песчаного Амулета."
+item.page_sand_amulet.name,Page: Sand Amulet,Страница: Песчаный Амулет
+item.page_savage_belt.desc,A torn codex page. Carry it to unlock the Savage Belt recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Пояса Дикаря."
+item.page_savage_belt.name,Page: Savage Belt,Страница: Пояс Дикаря
+item.page_sun_crown.desc,A torn codex page. Carry it to unlock the Sun Crown recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Солнечной Короны."
+item.page_sun_crown.name,Page: Sun Crown,Страница: Солнечная Корона
+item.page_thermal_gloves.desc,A torn codex page. Carry it to unlock the Thermal Gloves recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Тепловых Перчаток."
+item.page_thermal_gloves.name,Page: Thermal Gloves,Страница: Тепловые Перчатки
+item.page_void_respirator.desc,A torn codex page. Carry it to unlock the Void Respirator recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Респиратора Пустоты."
+item.page_void_respirator.name,Page: Void Respirator,Страница: Респиратор Пустоты
+item.plant_fiber.desc,A bundle of plant fibers for ropes and weaving.,Пучок растительных волокон для верёвок и плетения.
+item.plant_fiber.name,Plant Fiber,Растительное волокно
+item.plastic.desc,Polymer of rubber and coal dust. Base of electronic boards and casings.,Полимер из резины и угольной пыли. Основа электронных плат и корпусов.
+item.plastic.name,Plastic,Пластик
+item.platinum_dust.desc,Fine platinum powder. Used in advanced catalysts and circuits.,Мелкий платиновый порошок. Для продвинутых катализаторов и схем.
+item.platinum_dust.name,Platinum Dust,Платиновая пыль
+item.platinum_ore.desc,Rare platinum ore. Used in advanced catalysts and circuits.,Редкая платиновая руда. Для продвинутых катализаторов и схем.
+item.platinum_ore.name,Platinum Ore,Платиновая руда
+item.platinum_plate.desc,Thin platinum sheet. Used in end-game electronics.,Тонкий платиновый лист. Для электроники конца игры.
+item.platinum_plate.name,Platinum Plate,Платиновая пластина
+item.primeval_potion.desc,Wards off ancient spores — the key to the Primeval Thicket. (Access effect not wired yet.),Отгоняет древние споры — ключ к Первобытным Дебрям. (Эффект доступа ещё не реализован.)
+item.primeval_potion.name,Primeval Potion,Первозданное Зелье
+item.primitive_axe.desc,Chops wood.,Рубит дерево.
+item.primitive_axe.name,Primitive Axe,Примитивный топор
+item.primitive_bucket.desc,A rope-bound wooden bucket.,"Деревянное ведро, обвязанное верёвкой."
+item.primitive_bucket.name,Primitive Bucket,Примитивное ведро
+item.primitive_crusher.desc,Hand-cranked crusher. Slowly grinds ore into metal dust without electricity.,Дробилка с ручным приводом. Медленно перемалывает руду в металлическую пыль без электричества.
+item.primitive_crusher.name,Primitive Crusher,Примитивная дробилка
+item.primitive_drill.desc,"Place on a Tier-1 vein core (copper, coal) to slowly auto-mine ore. Has no output side — open the drill to collect the ore by hand.","Ставится на сердцевину жилы ур.1 (медь, уголь) для медленной добычи. Без выхода — открой бур, чтобы забрать руду вручную."
+item.primitive_drill.name,Primitive Drill,Примитивный бур
+item.primitive_pickaxe.desc,Mines stone and blocks.,Добывает камень и блоки.
+item.primitive_pickaxe.name,Primitive Pickaxe,Примитивная кирка
+item.primitive_sword.desc,A basic melee weapon.,Простое оружие ближнего боя.
+item.primitive_sword.name,Primitive Sword,Примитивный меч
+item.processor.desc,A computing core of microchips. The brain of computers and ME tech.,Вычислительное ядро из микросхем. Мозг компьютеров и ME-техники.
+item.processor.name,Processor,Процессор
+item.quantum_processor.desc,A processor on quantum gates. Pinnacle of end-game computing tech.,Процессор на квантовых вентилях. Вершина вычислительной техники конца игры.
+item.quantum_processor.name,Quantum Processor,Квантовый процессор
+item.quantum_solar_panel.desc,Generates 3240 EU/s in daylight. Pinnacle of solar energy.,Вырабатывает 3240 EU/с при свете дня. Вершина солнечной энергетики.
+item.quantum_solar_panel.name,Quantum Solar Panel,Квантовая солнечная панель
+item.ram.desc,A memory stick for fast data storage. Component of computers and ME drives.,Планка памяти для быстрого хранения данных. Компонент компьютеров и ME-накопителей.
+item.ram.name,RAM,Оперативная память
+item.resonite_shard.desc,A raw signal crystal mined from resonite deposits in the Forest. Used in Tier 1 circuits and basic sensors.,Необработанный сигнальный кристалл из лесных залежей резонита. Используется в схемах T1 и простых датчиках.
+item.resonite_shard.name,Resonite Shard,Резонитовый осколок
+item.purified_resonite.desc,"A resonite crystal purified by heating. Used in Tier 2 circuits, terminals, and automation.","Очищенный нагревом кристалл резонита. Используется в схемах T2, терминалах и автоматизации."
+item.purified_resonite.name,Purified Resonite,Очищенный резонит
+item.resonite_matrix.desc,"A synchronized resonite lattice for Tier 3 circuits, autocrafting, and complex computing machines.","Синхронизированная решётка резонита для схем T3, автокрафта и сложных вычислительных машин."
+item.resonite_matrix.name,Resonite Matrix,Резонитовая матрица
+item.reed.desc,Swamp reed. Flexible fiber for weaving.,Болотный камыш. Гибкое волокно для плетения.
+item.reed.name,Reed,Тростник
+item.rotor.desc,Rotating core of a shaft and blades. Base of motors and pumps.,Вращающийся сердечник из вала и лопастей. Основа моторов и насосов.
+item.rotor.name,Rotor,Ротор
+item.rubber.desc,Vulcanized rubber. Electrical insulator. Used in wire insulation and battery casings.,Вулканизированная резина. Электроизолятор. Для изоляции проводов и корпусов батарей.
+item.rubber.name,Rubber,Резина
+item.sand_amulet.desc,Wards off desert heat. Equip it to safely enter the Desert.,"Отводит пустынный зной. Надень, чтобы безопасно входить в Пустыню."
+item.sand_amulet.name,Sand Amulet,Песчаный Амулет
+item.ent_heart.name,Ent Heart,Сердце Энта
+item.ent_heart.desc,A living core suitable for electrical research.,Живое ядро для исследования электричества.
+item.dune_core.name,Dune Core,Ядро дюн
+item.dune_core.desc,A compressed core recovered from the Dune Colossus.,Сжатое ядро Песчаного колосса.
+item.frost_core.name,Frost Core,Морозное ядро
+item.frost_core.desc,A frozen mechanism from the Frost Warden.,Замёрзший механизм Ледяного стража.
+item.hydra_gland.name,Hydra Gland,Железа гидры
+item.hydra_gland.desc,A reactive organ used for industrial chemistry research.,Реактивный орган для исследования промышленной химии.
+item.thorn_heart.name,Thorn Heart,Терновое сердце
+item.thorn_heart.desc,A regenerative heart carrying bioengineering secrets.,Регенерирующее сердце с секретами биоинженерии.
+item.solar_core.name,Solar Core,Солнечное ядро
+item.solar_core.desc,A concentrated source of solar energy.,Концентрированный источник солнечной энергии.
+item.leviathan_scale.name,Leviathan Scale,Чешуя левиафана
+item.leviathan_scale.desc,A molecularly stable scale from the abyss.,Молекулярно стабильная чешуя из бездны.
+item.rot_crown.name,Rot Crown,Корона гнили
+item.rot_crown.desc,A toxic crown containing frontier catalysts.,Токсичная корона с катализаторами пограничных технологий.
+item.primal_core.name,Primal Core,Первобытное ядро
+item.primal_core.desc,A quantum-active core used in final Overworld research.,Квантово-активное ядро для финального исследования основного мира.
+item.savage_belt.desc,Belt of a jungle survivor. Equip it to safely enter the Jungle.,"Пояс выжившего в джунглях. Надень, чтобы безопасно входить в Джунгли."
+item.savage_belt.name,Savage Belt,Пояс Дикаря
+item.silver_dust.desc,Fine silver powder. Smelt it into a silver ingot.,Мелкий серебряный порошок. Переплавь в серебряный слиток.
+item.silver_dust.name,Silver Dust,Серебряная пыль
+item.silver_ingot.desc,Refined silver. Excellent electrical conductor.,Очищенное серебро. Отличный проводник электричества.
+item.silver_ingot.name,Silver Ingot,Серебряный слиток
+item.silver_ore.desc,Raw silver ore. Smelt it into ingots.,Сырая серебряная руда. Переплавь в слитки.
+item.silver_ore.name,Silver Ore,Серебряная руда
+item.solar_panel.desc,Generates 40 EU/s. Place adjacent to cables to power machines.,Вырабатывает 40 EU/с. Ставь рядом с кабелями для питания машин.
+item.solar_panel.name,Basic Solar Panel,Базовая солнечная панель
+item.solid_matter.desc,Matter compressed in a molecular transformer. Ultra-dense end-game material.,Спрессованная в молекулярном преобразователе материя. Сверхплотный материал для конца игры.
+item.solid_matter.name,Solid Matter,Твёрдая материя
+item.spring.desc,Spring wound from steel wire. Part of motors and mechanisms.,Свитая из стальной проволоки пружина. Деталь моторов и механизмов.
+item.spring.name,Spring,Пружина
+item.steel_bucket.desc,A large steel liquid container.,Большая стальная ёмкость для жидкостей.
+item.steel_bucket.name,Steel Bucket,Стальное ведро
+item.steel_drill.desc,A faster drill that also reaches gold and silver veins. Ore exits from the arrow side onto an adjacent conveyor or into a chest.,"Более быстрый бур, достающий также золотые и серебряные жилы. Руда выходит со стороны стрелки на соседний конвейер или в сундук."
+item.steel_drill.name,Steel Drill,Стальной бур
+item.steel_dust.desc,Fine steel powder. Smelt it into a steel ingot.,Мелкий стальной порошок. Переплавь в стальной слиток.
+item.steel_dust.name,Steel Dust,Стальная пыль
+item.steel_ingot.desc,Hardened iron-carbon alloy. Strong structural material.,Закалённый железоуглеродистый сплав. Прочный конструкционный материал.
+item.steel_ingot.name,Steel Ingot,Стальной слиток
+item.steel_pickaxe.desc,"A steel pickaxe. Fast mining, reaches all common deposits.","Стальная кирка. Быстрая добыча, достаёт все обычные залежи."
+item.steel_pickaxe.name,Steel Pickaxe,Стальная кирка
+item.steel_plate.desc,Flat steel sheet. Used in advanced machine casings.,Плоский стальной лист. Для продвинутых корпусов машин.
+item.steel_plate.name,Steel Plate,Стальная пластина
+item.steel_rod.desc,"Sturdy steel rod. Blank for springs, shafts and frames.","Прочный стальной стержень. Заготовка для пружин, валов и каркасов."
+item.steel_rod.name,Steel Rod,Стальной стержень
+item.steel_spring.desc,Elastic spring from a steel rod. Part of motors and advanced mechanisms.,Упругая пружина из стального стержня. Деталь моторов и продвинутых механизмов.
+item.steel_spring.name,Steel Spring,Стальная пружина
+item.stick.desc,A fallen branch used to make primitive tools.,Упавшая ветка для изготовления примитивных инструментов.
+item.stick.name,Stick,Палка
+item.stone.desc,Rough stone for primitive tools.,Грубый камень для примитивных инструментов.
+item.stone.name,Stone,Камень
+item.sun_crown.desc,Deflects searing heat. Equip it to safely enter the Sunny Canyon.,"Отражает испепеляющий зной. Надень, чтобы безопасно входить в Солнечный Каньон."
+item.sun_crown.name,Sun Crown,Солнечная Корона
+item.super_computer.desc,A rack of many processors and memory. Controls the largest ME networks and molecular synthesis.,Стойка из множества процессоров и памяти. Управляет крупнейшими ME-сетями и молекулярным синтезом.
+item.super_computer.name,Supercomputer,Суперкомпьютер
+item.thermal_gloves.desc,Heat-retaining gloves. Equip them to safely enter the Snow.,"Утепляющие перчатки. Надень, чтобы безопасно входить в Снега."
+item.thermal_gloves.name,Thermal Gloves,Тепловые Перчатки
+item.tin_dust.desc,Fine tin powder. Smelt it into a tin ingot.,Мелкий оловянный порошок. Переплавь в оловянный слиток.
+item.tin_dust.name,Tin Dust,Оловянная пыль
+item.tin_ingot.desc,Soft tin metal. Used in bronze alloys.,Мягкий металл олово. Для бронзовых сплавов.
+item.tin_ingot.name,Tin Ingot,Оловянный слиток
+item.tin_ore.desc,Raw tin ore. Smelt it into tin ingots.,Сырая оловянная руда. Переплавь в оловянные слитки.
+item.tin_ore.name,Tin Ore,Оловянная руда
+item.titanium_drill.desc,A high-tier drill reaching titanium and uranium veins. Ore exits from the arrow side onto an adjacent conveyor or into a chest.,"Высокоуровневый бур, достающий титановые и урановые жилы. Руда выходит со стороны стрелки на соседний конвейер или в сундук."
+item.titanium_drill.name,Titanium Drill,Титановый бур
+item.titanium_ingot.desc,"Ultra-light, high-strength metal for industrial casings.",Сверхлёгкий высокопрочный металл для промышленных корпусов.
+item.titanium_ingot.name,Titanium Ingot,Титановый слиток
+item.titanium_ore.desc,Rare lightweight ore found deep underground.,"Редкая лёгкая руда, найденная глубоко под землёй."
+item.titanium_ore.name,Titanium Ore,Титановая руда
+item.tree_resin.desc,Sticky sap harvested from rubber trees. Process in Extractor to get Latex.,Липкий сок с каучуковых деревьев. Обработай в экстракторе для получения латекса.
+item.tree_resin.name,Tree Resin,Древесная смола
+item.ultimate_solar_panel.desc,Generates 1080 EU/s in daylight. Place next to power cables.,Вырабатывает 1080 EU/с при свете дня. Ставится у проводов электросети.
+item.ultimate_solar_panel.name,Ultimate Solar Panel,Ультимативная солнечная панель
+item.uranium_dust.desc,Radioactive uranium powder. Handle with care.,Радиоактивный урановый порошок. Обращайся осторожно.
+item.uranium_dust.name,Uranium Dust,Урановая пыль
+item.uranium_enriched.desc,Highly enriched uranium. Future: advanced nuclear fuel.,Высокообогащённый уран. В будущем: продвинутое ядерное топливо.
+item.uranium_enriched.name,Enriched Uranium,Обогащённый уран
+item.uranium_ore.desc,Radioactive ore found deep underground. Handle with care.,Радиоактивная руда из глубин. Обращайся осторожно.
+item.uranium_ore.name,Uranium Ore,Урановая руда
+item.uranium_processed.desc,Refined uranium. Used in Tier 3 batteries. Future: nuclear generators.,Очищенный уран. Для батарей 3-го уровня. В будущем: ядерные генераторы.
+item.uranium_processed.name,Processed Uranium,Обработанный уран
+item.uranium_raw.desc,Extracted uranium material. Requires further processing.,Извлечённый урановый материал. Требует дальнейшей обработки.
+item.uranium_raw.name,Raw Uranium,Сырой уран
+item.void_respirator.desc,Filters deadly toxins. Equip it to safely enter the Rotting Bog.,"Фильтрует смертельные токсины. Надень, чтобы безопасно входить в Гниющие Топи."
+item.void_respirator.name,Void Respirator,Респиратор Пустоты
+item.water_pump.desc,Powered pump for infinite surface water. Buffer: 150 L.,Насос с приводом для бесконечной поверхностной воды. Буфер: 150 л.
+item.water_pump.name,Water Pump,Водяной насос
+item.mechanical_water_pump.name,Mechanical Water Pump,Механическая водяная помпа
+item.mechanical_water_pump.desc,Slow bronze pump for infinite surface water. Needs no electricity and supplies one steam boiler.,Медленная бронзовая помпа для бесконечной поверхностной воды. Не требует электричества и снабжает один паровой котёл.
+item.steam_water_pump.name,Steam Water Pump,Паровой водяной насос
+item.steam_water_pump.desc,"High-pressure pump that consumes 1 L of steam to extract 16 L of water. Requires a steam bootstrap.","Насос высокого давления, расходующий 1 л пара для добычи 16 л воды. Для запуска нужна первая порция пара."
+item.mechanical_inserter.name,Mechanical Inserter,Механический манипулятор
+item.mechanical_inserter.desc,Transfers one item every 1.5 seconds from the amber rear port to the green front port. Needs no electricity.,Переносит один предмет каждые 1.5 секунды от жёлтого заднего порта к зелёному переднему. Не требует электричества.
+item.watermelon.desc,A juicy watermelon from the savanna. A source of moisture and sugar.,Сочный арбуз из саваны. Источник влаги и сахара.
+item.watermelon.name,Watermelon,Арбуз
+item.wood.desc,Chopped wood. Used for building and crafting.,Срубленная древесина. Для строительства и крафта.
+item.wood.name,Wood,Древесина
+item.wood_plank.desc,Processed wooden planks. Can be placed as a block.,Обработанные деревянные доски. Можно ставить как блок.
+item.wood_plank.name,Wood Plank,Доска
+item.workbench.desc,A crafting table. Place and press F to open.,"Стол для крафта. Поставь и нажми F, чтобы открыть."
+item.workbench.name,Workbench,Верстак
+item.bronze_plate.desc,Rolled bronze sheet. Core material of steam machines.,Прокатанный бронзовый лист. Основной материал паровых машин.
+item.bronze_plate.name,Bronze Plate,Бронзовая пластина
+item.steam_boiler.desc,Burns coal to boil water into steam. Feed steam machines through fluid pipes.,"Жжёт уголь и кипятит воду в пар. Питает паровые машины через жидкостные трубы."
+item.steam_boiler.name,Steam Boiler,Паровой котёл
+item.high_pressure_steam_boiler.name,High-Pressure Steam Boiler,Паровой котёл высокого давления
+item.high_pressure_steam_boiler.desc,"Produces 12 L/s of steam with large buffers, but burns fuel twice as fast. Occupies 2x2 tiles.","Производит 12 л пара в секунду и имеет увеличенные баки но сжигает топливо вдвое быстрее. Занимает площадку 2×2."
+High-Pressure Steam Boiler,High-Pressure Steam Boiler,Паровой котёл высокого давления
+item.steam_crusher.desc,Grinds ore directly into dust with doubled yield. Connect to a boiler with pipes.,"Перемалывает руду сразу в пыль с удвоенным выходом. Подключи трубами к котлу."
+item.steam_crusher.name,Steam Crusher,Паровая дробилка
+item.steam_furnace.desc,Smelts ores with steam heat — no solid fuel slot needed.,"Плавит руду жаром пара — без топлива в слоте."
+item.steam_furnace.name,Steam Furnace,Паровая печь
+item.steam_press.desc,Rolls one ingot into two plates using steam pressure.,"Катает 2 пластины из одного слитка давлением пара."
+item.steam_press.name,Steam Press,Паровой пресс
+item.bronze_bolt.desc,Bronze fastener for early machinery.,Бронзовый крепёж для ранних механизмов.
+item.bronze_bolt.name,Bronze Bolt,Бронзовый болт
+item.bronze_ring.desc,Bronze sealing ring for pumps and rotors.,Бронзовое уплотнительное кольцо для насосов и роторов.
+item.bronze_ring.name,Bronze Ring,Бронзовое кольцо
+item.steel_ring.desc,Steel sealing ring for high-tier pumps and rotors.,Стальное уплотнительное кольцо для насосов и роторов.
+item.steel_ring.name,Steel Ring,Стальное кольцо
+item.copper_foil.desc,Thin copper foil for fine electronics.,Тонкая медная фольга для точной электроники.
+item.copper_foil.name,Copper Foil,Медная фольга
+item.gold_foil.desc,Thin gold foil for lenses and fine electronics.,Тонкая золотая фольга для линз и точной электроники.
+item.gold_foil.name,Gold Foil,Золотая фольга
+item.small_bronze_gear.desc,Compact bronze gear for tight mechanisms.,Компактная бронзовая шестерёнка для тесных механизмов.
+item.small_bronze_gear.name,Small Bronze Gear,Малая бронзовая шестерня
+item.small_steel_gear.desc,Compact steel gear for tight mechanisms.,Компактная стальная шестерёнка для тесных механизмов.
+item.small_steel_gear.name,Small Steel Gear,Малая стальная шестерня
+item.magnetic_iron_rod.desc,Magnetized iron rod — the heart of every electric motor.,Намагниченный железный стержень — сердце любого электромотора.
+item.magnetic_iron_rod.name,Magnetic Iron Rod,Магнитный железный стержень
+item.bronze_pipe.desc,Bronze pipe segment for steam-age machinery.,Отрезок бронзовой трубы для машин паровой эры.
+item.bronze_pipe.name,Bronze Pipe,Бронзовая труба
+item.steel_pipe.desc,Steel pipe segment for industrial machinery.,Отрезок стальной трубы для промышленных машин.
+item.steel_pipe.name,Steel Pipe,Стальная труба
+item.bronze_rotor.desc,Bronze rotor for pumps and turbines.,Бронзовый ротор для насосов и турбин.
+item.bronze_rotor.name,Bronze Rotor,Бронзовый ротор
+item.steel_rotor.desc,Steel rotor for pumps and turbines.,Стальной ротор для насосов и турбин.
+item.steel_rotor.name,Steel Rotor,Стальной ротор
+item.sand.desc,Fine sand. Smelts into glass.,Мелкий песок. Плавится в стекло.
+item.sand.name,Sand,Песок
+item.glass.desc,Clear glass. Base for lenses.,Прозрачное стекло. Основа для линз.
+item.glass.name,Glass,Стекло
+item.glass_lens.desc,Polished glass lens for sensors and emitters.,Шлифованная стеклянная линза для сенсоров и эмиттеров.
+item.glass_lens.name,Glass Lens,Стеклянная линза
+item.gold_lens.desc,Gold-coated precision lens.,Прецизионная линза с золотым напылением.
+item.gold_lens.name,Gold Lens,Золотая линза
+item.electric_motor_t1.desc,Basic electric motor. Spins tier-1 machines.,Базовый электромотор. Крутит машины первого тира.
+item.electric_motor_t1.name,Electric Motor T1,Электромотор T1
+item.electric_motor_t2.desc,Advanced electric motor for tier-2 machines.,Продвинутый электромотор для машин второго тира.
+item.electric_motor_t2.name,Electric Motor T2,Электромотор T2
+item.electric_motor_t3.desc,Industrial electric motor for tier-3 machines.,Промышленный электромотор для машин третьего тира.
+item.electric_motor_t3.name,Electric Motor T3,Электромотор T3
+item.electric_pump_t1.desc,Basic pump component for fluid machines.,Базовый насосный компонент для жидкостных машин.
+item.electric_pump_t1.name,Electric Pump T1,Электронасос T1
+item.electric_pump_t2.desc,Advanced pump component for fluid machines.,Продвинутый насосный компонент для жидкостных машин.
+item.electric_pump_t2.name,Electric Pump T2,Электронасос T2
+item.electric_pump_t3.desc,Industrial pump component for fluid machines.,Промышленный насосный компонент для жидкостных машин.
+item.electric_pump_t3.name,Electric Pump T3,Электронасос T3
+item.piston_t1.desc,Basic piston component for pressing and pushing.,Базовый поршневой компонент для прессовки и толкания.
+item.piston_t1.name,Piston T1,Поршень T1
+item.piston_t2.desc,Advanced piston component.,Продвинутый поршневой компонент.
+item.piston_t2.name,Piston T2,Поршень T2
+item.piston_t3.desc,Industrial piston component.,Промышленный поршневой компонент.
+item.piston_t3.name,Piston T3,Поршень T3
+item.conveyor_module_t1.desc,Basic item-moving module for machine IO.,Базовый модуль перемещения предметов для ввода-вывода машин.
+item.conveyor_module_t1.name,Conveyor Module T1,Конвейерный модуль T1
+item.conveyor_module_t2.desc,Advanced item-moving module for machine IO.,Продвинутый модуль перемещения предметов.
+item.conveyor_module_t2.name,Conveyor Module T2,Конвейерный модуль T2
+item.conveyor_module_t3.desc,Industrial item-moving module for machine IO.,Промышленный модуль перемещения предметов.
+item.conveyor_module_t3.name,Conveyor Module T3,Конвейерный модуль T3
+item.robotic_arm_t1.desc,Basic robotic arm for automated crafting.,Базовый манипулятор для автоматического крафта.
+item.robotic_arm_t1.name,Robotic Arm T1,Манипулятор T1
+item.robotic_arm_t2.desc,Advanced robotic arm for automated crafting.,Продвинутый манипулятор для автоматического крафта.
+item.robotic_arm_t2.name,Robotic Arm T2,Манипулятор T2
+item.robotic_arm_t3.desc,Industrial robotic arm for automated crafting.,Промышленный манипулятор для автоматического крафта.
+item.robotic_arm_t3.name,Robotic Arm T3,Манипулятор T3
+item.sensor_t1.desc,Basic sensor: lens plus circuit.,Базовый сенсор: линза плюс схема.
+item.sensor_t1.name,Sensor T1,Сенсор T1
+item.sensor_t2.desc,Advanced sensor with a gold lens.,Продвинутый сенсор с золотой линзой.
+item.sensor_t2.name,Sensor T2,Сенсор T2
+item.sensor_t3.desc,Industrial sensor with platinum internals.,Промышленный сенсор с платиновой начинкой.
+item.sensor_t3.name,Sensor T3,Сенсор T3
+item.emitter_t1.desc,Basic energy emitter.,Базовый излучатель энергии.
+item.emitter_t1.name,Emitter T1,Эмиттер T1
+item.emitter_t2.desc,Advanced energy emitter.,Продвинутый излучатель энергии.
+item.emitter_t2.name,Emitter T2,Эмиттер T2
+item.emitter_t3.desc,Industrial energy emitter.,Промышленный излучатель энергии.
+item.emitter_t3.name,Emitter T3,Эмиттер T3
+item.drill_head_bronze.desc,Bronze drill head. Assembles into a bronze drill.,Бронзовая буровая головка. Собирается в бронзовый бур.
+item.drill_head_bronze.name,Bronze Drill Head,Бронзовая буровая головка
+item.drill_head_steel.desc,Steel drill head. Assembles into a steel drill.,Стальная буровая головка. Собирается в стальной бур.
+item.drill_head_steel.name,Steel Drill Head,Стальная буровая головка
+item.drill_head_titanium.desc,Titanium drill head. Assembles into a titanium drill.,Титановая буровая головка. Собирается в титановый бур.
+item.drill_head_titanium.name,Titanium Drill Head,Титановая буровая головка
+item.drill_head_advanced.desc,Mythril drill head for the ultimate drill.,Мифриловая буровая головка для абсолютного бура.
+item.drill_head_advanced.name,Advanced Drill Head,Продвинутая буровая головка
+item.steam_turbine.desc,Turns steam into EU. Place next to a boiler or a steam tank.,"Превращает пар в EU. Ставь вплотную к котлу или баку с паром."
+item.steam_turbine.name,Steam Turbine,Паровая турбина
+item.coke.desc,Coal baked in a coke oven. Burns twice as long as coal.,"Уголь, пережжённый в коксовой печи. Горит вдвое дольше угля."
+item.coke.name,Coke,Кокс
+item.refractory_brick.desc,Heat-resistant brick for coke ovens and blast furnaces.,Жаростойкий кирпич для коксовых печей и домен.
+item.refractory_brick.name,Refractory Brick,Огнеупорный кирпич
+item.coke_oven.desc,Slowly bakes coal into coke and drips creosote. Needs no fuel or power.,"Медленно пережигает уголь в кокс, побочно капает креозот. Не требует топлива и энергии."
+item.coke_oven.name,Coke Oven,Коксовая печь
+item.primitive_blast_furnace.desc,The only way to make steel: iron plus coke and a lot of patience.,"Единственный способ получить сталь: железо, кокс и много терпения."
+item.primitive_blast_furnace.name,Primitive Blast Furnace,Примитивная домна
+item.bronze_axe.desc,Bronze axe. Chops faster than the primitive one.,"Бронзовый топор. Рубит быстрее примитивного."
+item.bronze_axe.name,Bronze Axe,Бронзовый топор
+item.steel_axe.desc,Steel axe. Top-tier wood chopping.,"Стальной топор. Лучшая рубка дерева."
+item.steel_axe.name,Steel Axe,Стальной топор
+item.bronze_sword.desc,Bronze blade for early combat.,"Бронзовый клинок для ранних сражений."
+item.bronze_sword.name,Bronze Sword,Бронзовый меч
+item.steel_sword.desc,Sharp steel blade.,"Острый стальной клинок."
+item.steel_sword.name,Steel Sword,Стальной меч
+item.primitive_spear.desc,Stone-tipped spear with extended reach.,Каменное копьё с увеличенной дальностью.
+item.primitive_spear.name,Stone Spear,Каменное копьё
+item.bronze_spear.desc,Bronze-tipped spear with extended reach.,Бронзовое копьё с увеличенной дальностью.
+item.bronze_spear.name,Bronze Spear,Бронзовое копьё
+item.steel_spear.desc,Steel-tipped spear with extended reach.,Стальное копьё с увеличенной дальностью.
+item.steel_spear.name,Steel Spear,Стальное копьё
+item.titanium_dust.desc,Pure titanium dust. Smelts into an ingot.,"Чистая титановая пыль. Плавится в слиток."
+item.titanium_dust.name,Titanium Dust,Титановая пыль
+item.mythril_dust.desc,Pure mythril dust. Smelts into an ingot.,"Чистая мифриловая пыль. Плавится в слиток."
+item.mythril_dust.name,Mythril Dust,Мифриловая пыль
+item.ore_washer.desc,Washes raw ore into metal dust plus a full byproduct dust. Needs water and 15 EU/s.,Промывает сырую руду в металлическую пыль и обычную побочную пыль. Нужна вода и 15 EU/с.
+item.ore_washer.name,Ore Washer,Промывочная машина
+item.centrifuge.desc,Separates raw ore into metal dust and a full byproduct dust. 30 EU/s.,Разделяет сырую руду на металлическую и обычную побочную пыль. 30 EU/с.
+item.centrifuge.name,Centrifuge,Центрифуга
+item.chemical_reactor.name,Chemical Reactor,Химический реактор
+item.chemical_reactor.desc,Combines 1-2 fluids with an item (or a casting mold) to produce a new item. 30 EU/s.,Соединяет 1-2 жидкости с предметом (или литейной формой) в новый предмет. 30 EU/с.
+item.cpu_die.name,CPU Die,Кристалл процессора
+item.cpu_die.desc,"The heart of a processor, etched on a silicon wafer.","Сердце процессора, вытравленное на кремниевой пластине."
+item.crystal_processor.name,Crystal Processor,Кристальный процессор
+item.crystal_processor.desc,An exotic processor with an optically clocked core.,Экзотический процессор с оптическим ядром.
+item.diode.name,Diode,Диод
+item.diode.desc,One-way electronic component.,Электронный компонент одностороннего действия.
+item.magnetic_separator.name,Magnetic Separator,Магнитный сепаратор
+item.magnetic_separator.desc,Separates raw ore into metal dust plus a full magnetic byproduct dust. 25 EU/s.,Разделяет сырую руду на металлическую и обычную магнитную побочную пыль. 25 EU/с.
+item.mold_gear.name,Gear Mold,Форма: шестерня
+item.mold_gear.desc,Steel casting mold for gears. Not consumed.,Стальная литейная форма для шестерней. Не расходуется.
+item.mold_plate.name,Plate Mold,Форма: пластина
+item.mold_plate.desc,Steel casting mold. Put into the chemical reactor to cast plates from molten metal. Not consumed.,"Стальная литейная форма. Вставь в химический реактор, чтобы отливать пластины из расплава. Не расходуется."
+item.mold_rod.name,Rod Mold,Форма: стержень
+item.mold_rod.desc,Steel casting mold for rods. Not consumed.,Стальная литейная форма для стержней. Не расходуется.
+item.mold_wire.name,Wire Mold,Форма: провод
+item.mold_wire.desc,Steel casting mold for wire. Not consumed.,Стальная литейная форма для проводов. Не расходуется.
+item.nano_processor.name,Nano Processor,Нанопроцессор
+item.nano_processor.desc,A dense processor built from a CPU die and transistors.,Плотный процессор из кристалла и транзисторов.
+item.ore_melter.name,Induction Melter,Индукционная плавильня
+item.ore_melter.desc,"Melts ore, dust and ingots into molten metal. 40 EU/s.","Плавит руду, пыль и слитки в жидкий металл. 40 EU/с."
+item.silicon_ingot.name,Silicon Ingot,Кремниевый слиток
+item.silicon_ingot.desc,Raw silicon smelted from sand and coal dust.,"Технический кремний, выплавленный из песка и угольной пыли."
+item.silicon_wafer.name,Silicon Wafer,Кремниевая пластина
+item.silicon_wafer.desc,A thin polished wafer cut from a silicon ingot.,"Тонкая шлифованная пластина, нарезанная из кремниевого слитка."
+item.transistor.name,Transistor,Транзистор
+item.transistor.desc,Basic switching element of modern processors.,Базовый переключающий элемент современных процессоров.
+item.mixer.name,Mixer,Смеситель
+item.mixer.desc,"A large 3x3 machine that blends 2-4 fluids into one: bronze, electrum, fuel blends. 50 EU/s.","Большая машина 3×3, сплавляющая 2-4 жидкости в одну: бронза, электрум, топливные смеси. 50 EU/с."
+item.coke_dust.name,Coke Dust,Коксовая пыль
+item.coke_dust.desc,"Crushed coke. Burns as long as solid coke and feeds carbon chemistry.","Дроблёный кокс. Горит как цельный кокс и идёт в углехимию."
+item.steam_science_pack.name,Steam Research Pack,Паровой исследовательский набор
+item.steam_science_pack.desc,A standardized package of precision steam parts steel and coke proving that the full workshop is operational.,Стандартизированный набор точных паровых деталей стали и кокса подтверждающий работу полного производственного цеха.
+item.electrical_science_pack.name,Electrical Research Pack,Электротехнический исследовательский набор
+item.electrical_science_pack.desc,A package of low-voltage circuits rubber and copper dust for electrical research.,Набор низковольтных схем резины и медной пыли для электротехнических исследований.
+item.automation_science_pack.name,Automation Research Pack,Исследовательский набор автоматизации
+item.automation_science_pack.desc,Routing mechanisms compressed carbon and control circuits for factory automation.,Механизмы маршрутизации прессованный углерод и управляющие схемы для автоматизации фабрики.
+item.industrial_science_pack.name,Industrial Research Pack,Промышленный исследовательский набор
+item.industrial_science_pack.desc,Iron dust high-grade materials and motors produced by industrial processing.,Железная пыль качественные материалы и моторы промышленной переработки.
+item.chemical_science_pack.name,Chemical Research Pack,Химический исследовательский набор
+item.chemical_science_pack.desc,Carbon products polymers and electronics prepared by the chemical industry.,Углеродные материалы полимеры и электроника подготовленные химической промышленностью.
+item.bio_science_pack.name,Bioengineering Research Pack,Биоинженерный исследовательский набор
+item.bio_science_pack.desc,A renewable production package combining crops resin productivity and solar power.,Набор возобновляемого производства из урожая смолы модулей продуктивности и солнечной энергии.
+item.solar_science_pack.name,Solar Research Pack,Солнечный исследовательский набор
+item.solar_science_pack.desc,Advanced generation storage and semiconductor components for high-energy research.,Продвинутая генерация накопители и полупроводники для высокоэнергетических исследований.
+item.abyss_science_pack.name,Abyss Research Pack,Исследовательский набор бездны
+item.abyss_science_pack.desc,Dense matter advanced processors and high-capacity batteries from abyss engineering.,Плотная материя продвинутые процессоры и ёмкие батареи технологий бездны.
+item.frontier_science_pack.name,Frontier Research Pack,Фронтирный исследовательский набор
+item.frontier_science_pack.desc,A late-game logistics package proving the Overworld factory is ready for quantum systems.,Набор логистики поздней игры подтверждающий готовность фабрики основного мира к квантовым системам.
+item.steam_machine_casing.name,Steam Machine Casing,Корпус паровой машины
+item.steam_machine_casing.desc,A standardized bronze housing lined with refractory brick for steam machinery.,Стандартизированный бронзовый корпус с огнеупорной футеровкой для паровых машин.
+item.bronze_boiler_tube.name,Bronze Boiler Tube,Бронзовая котельная трубка
+item.bronze_boiler_tube.desc,A reinforced heat-exchange tube used in boilers and steam furnaces.,Усиленная теплообменная трубка для котлов и паровых печей.
+item.pressure_valve.name,Pressure Valve,Клапан давления
+item.pressure_valve.desc,A steam-pressed precision valve that safely controls boiler pressure.,Точный клапан изготовленный паровым прессом для безопасного управления давлением.
+item.steam_piston.name,Steam Piston,Паровой поршень
+item.steam_piston.desc,A sealed bronze piston manufactured under steam pressure.,Герметичный бронзовый поршень изготовленный под давлением пара.
+item.precision_flywheel.name,Precision Flywheel,Точный маховик
+item.precision_flywheel.desc,A balanced flywheel for stable steam machinery and turbines.,Сбалансированный маховик для стабильной работы паровых машин и турбин.
+item.steam_assembler.name,Steam Assembler,Паровой сборщик
+item.steam_assembler.desc,A four-input steam machine that automatically assembles bronze components machine casings and research packs.,Паровая машина с четырьмя входами для автоматической сборки бронзовых компонентов корпусов машин и исследовательских наборов.
+item.steam_research_core.name,Steam Research Core,Паровое исследовательское ядро
+item.steam_research_core.desc,A calibrated assembly of pressure components that records stable steam-machine operation.,Откалиброванный узел из деталей высокого давления фиксирующий стабильную работу паровых машин.
+item.bronze_bearing.name,Bronze Bearing,Бронзовый подшипник
+item.bronze_bearing.desc,A low-friction bearing for conveyors pumps and steam machinery.,Подшипник с малым трением для конвейеров насосов и паровых машин.
+item.steel_bearing.name,Steel Bearing,Стальной подшипник
+item.steel_bearing.desc,A durable bearing for turbines high-pressure pumps and industrial machinery.,Прочный подшипник для турбин напорных насосов и промышленных машин.
+item.mechanical_control_unit.name,Mechanical Control Unit,Механический управляющий узел
+item.mechanical_control_unit.desc,A geared governor that coordinates mechanical machines without electricity.,Шестерёнчатый регулятор управляющий механическими машинами без электричества.
+item.steam_control_unit.name,Steam Control Unit,Паровой управляющий узел
+item.steam_control_unit.desc,A pressure-driven controller for advanced steam machinery.,Управляющий блок высокого давления для продвинутых паровых машин.
+item.mechanical_drive_unit.name,Mechanical Drive Unit,Механический приводной узел
+item.mechanical_drive_unit.desc,"A compact bronze gearbox with a rotor, bearings and gears for early machinery.",Компактный бронзовый редуктор с ротором подшипниками и шестернями для ранних машин.
+item.steam_drive_unit.name,Steam Drive Unit,Паровой приводной узел
+item.steam_drive_unit.desc,"A pressure-driven assembly with pistons, a flywheel and a control valve for steam machinery.",Приводной узел с поршнями маховиком и регулирующим клапаном для паровых машин.
+item.thermal_unit.name,Thermal Unit,Тепловой узел
+item.thermal_unit.desc,A replaceable furnace and heat-exchanger assembly for boilers and industrial heating.,Сменный блок печи и теплообменника для котлов и промышленного нагрева.
+item.fluid_manifold.name,Fluid Manifold,Жидкостный коллектор
+item.fluid_manifold.desc,A valved bronze manifold that distributes steam between machine subsystems.,Бронзовый коллектор с клапаном распределяющий пар между узлами машины.

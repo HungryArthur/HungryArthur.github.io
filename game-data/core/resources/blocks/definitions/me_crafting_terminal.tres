@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/me/me_crafting_terminal_block.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "me_crafting_terminal"
+display_name = "ME Crafting Terminal"
+texture = ExtResource("2_tex")
+health = 12
+required_tool = "pickaxe"
+drop_item_id = "me_crafting_terminal"
+is_interactive = true
+interact_type = "me_crafting_terminal"

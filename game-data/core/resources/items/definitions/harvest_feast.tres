@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/food/harvest_feast.svg" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+id = "harvest_feast"
+name = "item.harvest_feast.name"
+description = "item.harvest_feast.desc"
+texture = ExtResource("2_texture")
+rarity = "rare"
+item_color = Color(0.92, 0.48, 0.16, 1)
+max_stack = 24
+food_value = 120

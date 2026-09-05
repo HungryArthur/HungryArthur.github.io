@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/fluids/water_pump.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "steam_water_pump"
+display_name = "Steam Water Pump"
+texture = ExtResource("2_tex")
+color = Color(0.24, 0.68, 0.82, 1)
+health = 14
+required_tool = "pickaxe"
+drop_item_id = "steam_water_pump"
+is_interactive = true
+interact_type = "steam_water_pump"

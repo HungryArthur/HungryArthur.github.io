@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/winter_flower.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "ice_shard"
+name = "item.ice_shard.name"
+description = "item.ice_shard.desc"
+texture = ExtResource("2_tex")
+item_color = Color(0.59, 0.84, 0.93, 1)
+max_stack = 64

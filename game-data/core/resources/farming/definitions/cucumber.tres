@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CropData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/farming/CropData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+crop_id = "cucumber"
+display_name = "Огурец"
+plant_item_id = "cucumber"
+stages = 4
+minutes_per_stage = 60
+yield_min = 2
+yield_max = 3
+plant_color = Color(0.36, 0.62, 0.24, 1)

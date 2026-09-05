@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "codex"
+name = "item.codex.name"
+description = "item.codex.desc"
+rarity = "rare"
+item_color = Color(0.55, 0.40, 0.75, 1)
+max_stack = 1
+use_action = "open_codex"

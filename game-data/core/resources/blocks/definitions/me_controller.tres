@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/me/me_controller_block.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "me_controller"
+display_name = "ME Controller"
+texture = ExtResource("2_tex")
+health = 20
+required_tool = "pickaxe"
+drop_item_id = "me_controller"
+is_interactive = false
+interact_type = "me_controller"

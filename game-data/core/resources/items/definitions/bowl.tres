@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/food/bowl.svg" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+id = "bowl"
+name = "item.bowl.name"
+description = "item.bowl.desc"
+texture = ExtResource("2_texture")
+item_color = Color(0.64, 0.42, 0.22, 1)
+max_stack = 64

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/tools/iron_sword.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+texture = ExtResource("2_tex")
+id = "arcane_wand"
+name = "Арканический посох"
+description = "Стреляет сгустком магической энергии."
+item_color = Color(0.40, 0.72, 1, 1)
+max_stack = 1
+tool_type = "wand"
+power = 3

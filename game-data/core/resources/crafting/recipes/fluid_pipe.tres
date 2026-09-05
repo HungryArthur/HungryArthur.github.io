@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+result_item_id = "fluid_pipe"
+result_count = 4
+ingredient_ids = PackedStringArray("bronze_pipe", "bronze_ring")
+ingredient_counts = PackedInt32Array(2, 1)
+category = "fluids"
+sort_order = 170
+required_age = 2

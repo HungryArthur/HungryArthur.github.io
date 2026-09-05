@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "circuit_t2"
+name = "item.circuit_t2.name"
+description = "item.circuit_t2.desc"
+item_color = Color(0.22, 0.42, 0.55, 1)
+max_stack = 64

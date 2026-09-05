@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "machine_module_productivity"
+name = "Productivity Module"
+description = "Produces 8% additional solid output without extra ingredients."
+item_color = Color(1, 0.64, 0.22, 1)
+max_stack = 16

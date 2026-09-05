@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/machines/conveer_t5.png" id="2_belt"]
+
+[sub_resource type="AtlasTexture" id="atlas_conveyor_t5"]
+atlas = ExtResource("2_belt")
+region = Rect2(0, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_script")
+id = "conveyor_t5"
+name = "item.conveyor_t5.name"
+description = "item.conveyor_t5.desc"
+texture = SubResource("atlas_conveyor_t5")
+item_color = Color(0.60, 0.35, 0.80, 1)
+max_stack = 99
+block_id = "conveyor_t5"

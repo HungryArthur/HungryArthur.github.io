@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ForageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/forage/ForageData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "wild_flax"
+display_name = "Дикий лён"
+resource_item_id = "plant_fiber"
+required_tool = "none"
+mining_level_required = 1
+mining_interval = 3.0
+yield_amount = 1
+atlas_x = 6
+tile_source_id = 25
+health = 3
+total_resource_amount = 1
+random_total_resource_min = 1
+random_total_resource_max = 3
+default_spawn_chance = 0.0
+spawn_chance_by_biome = {
+"ForestBiome": 0.018,
+"JungleBiome": 0.006
+}
+minimum_spacing = 3
+requires_water = false

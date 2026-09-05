@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/fluids/fluid_tank_t3.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "fluid_tank_t3"
+display_name = "Fluid Tank T3 (500 L)"
+texture = ExtResource("2_tex")
+health = 14
+required_tool = "pickaxe"
+drop_item_id = "fluid_tank_t3"
+is_interactive = true
+interact_type = "fluid_tank_t3"

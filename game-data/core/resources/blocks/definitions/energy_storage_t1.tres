@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "energy_storage_t1"
+display_name = "Энергохранилище T1"
+color = Color(0.25, 0.45, 0.35, 1)
+health = 12
+required_tool = "pickaxe"
+drop_item_id = "energy_storage_t1"
+is_interactive = true
+interact_type = "energy_storage_t1"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+result_item_id = "steam_turbine"
+result_count = 1
+ingredient_ids = PackedStringArray("steel_rotor", "steel_pipe", "steam_machine_casing", "steel_bearing", "steam_drive_unit", "steam_control_unit", "fluid_manifold")
+ingredient_counts = PackedInt32Array(2, 4, 2, 4, 2, 2, 2)
+category = "machines"
+sort_order = 154
+required_age = 4
+unlocked_by_quest = "steam_component_certification"

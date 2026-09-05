@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="OreDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/ores/OreDefinition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "iron"
+display_name = "Iron Deposit"
+resource_item_id = "iron_ore"
+mining_level_required = 2
+mining_health = 20
+yield_amount = 1
+atlas_x = 0
+spawn_weight = 40
+spawn_biomes = PackedStringArray("ForestBiome", "SnowBiome")

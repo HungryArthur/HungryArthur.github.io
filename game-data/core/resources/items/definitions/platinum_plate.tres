@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/materials/platinum_plate.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+texture = ExtResource("2_tex")
+id = "platinum_plate"
+name = "item.platinum_plate.name"
+description = "item.platinum_plate.desc"
+item_color = Color(0.80, 0.88, 0.92, 1)
+max_stack = 64

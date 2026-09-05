@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "glass_lens"
+name = "item.glass_lens.name"
+description = "item.glass_lens.desc"
+item_color = Color(0.80, 0.90, 0.95, 1)
+max_stack = 64

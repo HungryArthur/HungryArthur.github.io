@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "primal_core"
+name = "item.primal_core.name"
+description = "item.primal_core.desc"
+rarity = "legendary"
+item_color = Color(0.92, 0.48, 0.18, 1)
+max_stack = 8

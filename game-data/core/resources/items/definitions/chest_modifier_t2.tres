@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/chests/chest_sprites_32x32.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_modifier_t2"]
+atlas = ExtResource("2_atlas")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+script = ExtResource("1_script")
+id = "CHEST_MODIFIER_T2"
+name = "item.CHEST_MODIFIER_T2.name"
+description = "item.CHEST_MODIFIER_T2.desc"
+texture = SubResource("AtlasTexture_modifier_t2")
+rarity = "uncommon"
+item_color = Color(0.85, 0.48, 0.12, 1)
+max_stack = 10

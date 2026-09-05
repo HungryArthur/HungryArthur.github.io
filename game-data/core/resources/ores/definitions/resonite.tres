@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="OreDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/ores/OreDefinition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "resonite"
+display_name = "Resonite Deposit"
+resource_item_id = "resonite_shard"
+mining_level_required = 1
+mining_health = 10
+yield_amount = 1
+atlas_x = 13
+spawn_weight = 25
+spawn_biomes = PackedStringArray("ForestBiome")

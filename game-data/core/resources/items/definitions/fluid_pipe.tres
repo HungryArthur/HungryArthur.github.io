@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/fluids/fluid_pipe.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "fluid_pipe"
+name = "item.fluid_pipe.name"
+description = "item.fluid_pipe.desc"
+texture = ExtResource("2_tex")
+item_color = Color(0.35, 0.36, 0.39, 1)
+max_stack = 64
+block_id = "fluid_pipe"

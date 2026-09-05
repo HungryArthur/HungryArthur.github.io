@@ -1,0 +1,142 @@
+[gd_resource type="TileSet" format=3 uid="uid://ci063sx1x0iej"]
+
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/Tree.png" id="1_tree"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/stick.png" id="4_stick"]
+[ext_resource type="Texture2D" uid="uid://c3piqy5cjipuc" path="res://assets/textures/environment/liquids/Oil.png" id="5_oil"]
+[ext_resource type="Texture2D" uid="uid://uvum8vginlku" path="res://assets/textures/items/blocks/gold_ore_block.png" id="6_ore_gold"]
+[ext_resource type="Texture2D" uid="uid://bped6vgynjvk8" path="res://assets/textures/items/blocks/silver_ore_block.png" id="7_ore_silver"]
+[ext_resource type="Texture2D" uid="uid://cdfne11dm5mm0" path="res://assets/textures/items/blocks/nickle_ore_block.png" id="8_ore_nickel"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/blocks/resonite_ore_block.svg" id="18_ore_resonite"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/DrillHole.png" id="9_drill_hole"]
+[ext_resource type="Texture2D" uid="uid://dwlurnrqa0lfi" path="res://assets/textures/environment/liquids/Lava.png" id="10_lava"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/stone.png" id="11_stone"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/cactus.png" id="12_cactus"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/reeds.png" id="13_reeds"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/watermelon.png" id="14_watermelon"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/flower_red.png" id="15_flower_red"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/flower_blue.png" id="16_flower_blue"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/mushrooms.png" id="17_mushrooms"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/winter_flower.png" id="19_winter_flower"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tree"]
+texture = ExtResource("1_tree")
+margins = Vector2i(0, 17)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stick"]
+texture = ExtResource("4_stick")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stone"]
+texture = ExtResource("11_stone")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cactus"]
+texture = ExtResource("12_cactus")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_reeds"]
+texture = ExtResource("13_reeds")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_watermelon"]
+texture = ExtResource("14_watermelon")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flower_red"]
+texture = ExtResource("15_flower_red")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flower_blue"]
+texture = ExtResource("16_flower_blue")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mushrooms"]
+texture = ExtResource("17_mushrooms")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_winter_flower"]
+texture = ExtResource("19_winter_flower")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_berry_bush"]
+texture = ExtResource("15_flower_red")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oil"]
+texture = ExtResource("5_oil")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -2
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ore_gold"]
+texture = ExtResource("6_ore_gold")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ore_silver"]
+texture = ExtResource("7_ore_silver")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ore_nickel"]
+texture = ExtResource("8_ore_nickel")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ore_resonite"]
+texture = ExtResource("18_ore_resonite")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drill_hole"]
+texture = ExtResource("9_drill_hole")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lava"]
+texture = ExtResource("10_lava")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -2
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_tree")
+sources/3 = SubResource("TileSetAtlasSource_stick")
+sources/4 = SubResource("TileSetAtlasSource_oil")
+sources/9 = SubResource("TileSetAtlasSource_lava")
+sources/5 = SubResource("TileSetAtlasSource_ore_gold")
+sources/6 = SubResource("TileSetAtlasSource_ore_silver")
+sources/7 = SubResource("TileSetAtlasSource_ore_nickel")
+sources/13 = SubResource("TileSetAtlasSource_ore_resonite")
+sources/8 = SubResource("TileSetAtlasSource_drill_hole")
+sources/20 = SubResource("TileSetAtlasSource_stone")
+sources/21 = SubResource("TileSetAtlasSource_cactus")
+sources/22 = SubResource("TileSetAtlasSource_reeds")
+sources/23 = SubResource("TileSetAtlasSource_watermelon")
+sources/24 = SubResource("TileSetAtlasSource_flower_red")
+sources/25 = SubResource("TileSetAtlasSource_flower_blue")
+sources/26 = SubResource("TileSetAtlasSource_mushrooms")
+sources/28 = SubResource("TileSetAtlasSource_winter_flower")
+sources/29 = SubResource("TileSetAtlasSource_berry_bush")

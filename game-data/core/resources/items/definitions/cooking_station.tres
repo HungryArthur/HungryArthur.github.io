@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/food/campfire.svg" id="2_texture"]
+
+[resource]
+script = ExtResource("1_script")
+id = "cooking_station"
+name = "item.cooking_station.name"
+description = "item.cooking_station.desc"
+texture = ExtResource("2_texture")
+item_color = Color(0.88, 0.34, 0.10, 1)
+max_stack = 1
+block_id = "cooking_station"

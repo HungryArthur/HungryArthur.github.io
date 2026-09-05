@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/solar_panel/quantum_solar_panel.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "quantum_solar_panel"
+display_name = "Квантовая солнечная панель"
+texture = ExtResource("2_tex")
+color = Color(0.18, 0.55, 0.85, 1)
+health = 12
+required_tool = "pickaxe"
+drop_item_id = "quantum_solar_panel"
+is_interactive = true
+interact_type = "quantum_solar_panel"

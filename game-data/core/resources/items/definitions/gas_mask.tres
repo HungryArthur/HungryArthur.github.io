@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "gas_mask"
+name = "item.gas_mask.name"
+description = "item.gas_mask.desc"
+rarity = "rare"
+item_color = Color(0.5, 0.82, 0.3, 1)
+max_stack = 1
+tool_type = "armor"

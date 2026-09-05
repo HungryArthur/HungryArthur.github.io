@@ -1,0 +1,336 @@
+keys,en,ru
+Close,Close,Закрыть
+Search…,Search…,Поиск…
+ME PATTERN TERMINAL,ME PATTERN TERMINAL,ME-ТЕРМИНАЛ ШАБЛОНОВ
+"Set the desired network stock. Connected Molecular Assemblers will craft missing items automatically.","Set the desired network stock. Connected Molecular Assemblers will craft missing items automatically.","Задайте желаемый запас в сети. Подключённые молекулярные сборщики автоматически создадут недостающие предметы."
+Configured autocrafting,Configured autocrafting,Настроенный автокрафт
+Available recipes,Available recipes,Доступные рецепты
+No autocrafting patterns configured,No autocrafting patterns configured,Шаблоны автокрафта не настроены
+No available recipes,No available recipes,Нет доступных рецептов
+Enable or pause this pattern,Enable or pause this pattern,Включить или приостановить этот шаблон
+Remove pattern,Remove pattern,Удалить шаблон
+Network offline,Network offline,Сеть оффлайн
+Autocrafting is running,Autocrafting is running,Автокрафт запущен
+All stock targets are met,All stock targets are met,Все целевые запасы достигнуты
+No free Molecular Assembler in this network,No free Molecular Assembler in this network,В этой сети нет свободного молекулярного сборщика
+Add a recipe and set its target stock,Add a recipe and set its target stock,Добавьте рецепт и задайте целевой запас
+Stocked,Stocked,Запас готов
+Crafting,Crafting,Крафтится
+No assembler,No assembler,Нет сборщика
+Offline,Offline,Оффлайн
+Paused,Paused,Приостановлено
+Waiting,Waiting,Ожидание
+"POWER GRID [G]  •  Networks: %d  •  Generation: %.0f EU  •  Demand: %.0f EU  •  Deficit: %.0f EU  •  Cable limit: %.0f EU/s","POWER GRID [G]  •  Networks: %d  •  Generation: %.0f EU  •  Demand: %.0f EU  •  Deficit: %.0f EU  •  Cable limit: %.0f EU/s","ЭНЕРГОСЕТЬ [G]  •  Сетей: %d  •  Генерация: %.0f EU  •  Спрос: %.0f EU  •  Дефицит: %.0f EU  •  Лимит проводов: %.0f EU/с"
+Campfire,Campfire,Костёр
+Cooking chain,Cooking chain,Цепочка блюд
+"Put ingredients into any of the six slots. Their order does not matter.","Put ingredients into any of the six slots. Their order does not matter.","Положите ингредиенты в любые из шести слотов. Порядок не важен."
+Ingredient %d,Ingredient %d,Ингредиент %d
+Result,Result,Результат
+Cook,Cook,Приготовить
+Load ingredients,Load ingredients,Загрузите ингредиенты
+No matching recipe,No matching recipe,Нет подходящего рецепта
+Ready: %s,Ready: %s,Можно приготовить: %s
+Output is full,Output is full,Выходной слот заполнен
+Unknown cooking result,Unknown cooking result,Неизвестный результат готовки
+Dish is ready,Dish is ready,Блюдо готово
+Dishes cooked: %d,Dishes cooked: %d,Приготовлено блюд: %d
+Rated output: %s L/s • fuel burn: %sx,Rated output: %s L/s • fuel burn: %sx,Номинальная мощность: %s л/с • расход топлива: ×%s
+Start named playtest,Start named playtest,Начать именованный плейтест
+Start run,Start run,Начать запуск
+Stop run,Stop run,Остановить запуск
+Run name,Run name,Название запуска
+Version tag,Version tag,Тег версии
+Example: Early game balance,Example: Early game balance,Пример: баланс ранней игры
+Run stopped,Run stopped,Запуск остановлен
+Run saved,Run saved,Запуск сохранён
+Named playtest started,Named playtest started,Именованный плейтест начат
+Saved named runs,Saved named runs,Сохранённые запуски
+Recording,Recording,Запись
+PLAYTEST COMPARISON,PLAYTEST COMPARISON,СРАВНЕНИЕ ПЛЕЙТЕСТОВ
+Compare runs,Compare runs,Сравнить запуски
+Baseline playtest,Baseline playtest,Базовый плейтест
+Stage comparison,Stage comparison,Сравнение этапов
+Current / baseline stage time,Current / baseline stage time,Время этапов: текущий / базовый
+Automatic recommendations,Automatic recommendations,Автоматические рекомендации
+No current playtest data,No current playtest data,Нет данных текущего плейтеста
+No previous playtests found,No previous playtests found,Предыдущие плейтесты не найдены
+Compared with,Compared with,Сравнение с
+Current,Current,Текущий
+Baseline,Baseline,Базовый
+%s is %.0f%% slower than target,%s is %.0f%% slower than target,%s медленнее цели на %.0f%%
+%s is %.0f%% faster than target,%s is %.0f%% faster than target,%s быстрее цели на %.0f%%
+Mining dominates crafting by %.1fx,Mining dominates crafting by %.1fx,Добыча превышает крафт в %.1f раза
+Only %.0f%% of mined resources pass through machines,Only %.0f%% of mined resources pass through machines,Через машины проходит только %.0f%% добытых ресурсов
+%s became %.0f%% slower than baseline,%s became %.0f%% slower than baseline,%s стал медленнее базового запуска на %.0f%%
+%s became %.0f%% faster than baseline,%s became %.0f%% faster than baseline,%s стал быстрее базового запуска на %.0f%%
+Completed stages are within balance thresholds,Completed stages are within balance thresholds,Завершённые этапы находятся в пределах баланса
+Not enough completed stages for recommendations,Not enough completed stages for recommendations,Недостаточно завершённых этапов для рекомендаций
+PLAYTEST TELEMETRY,PLAYTEST TELEMETRY,ТЕЛЕМЕТРИЯ ПЛЕЙТЕСТА
+Export report,Export report,Экспорт отчёта
+Stage time: target / actual,Stage time: target / actual,Время этапов: план / факт
+Raw resource cost by stage,Raw resource cost by stage,Сырьевая стоимость этапов
+Stage details,Stage details,Детали этапов
+Playtime,Playtime,Время игры
+Sessions,Sessions,Сессии
+Mined,Mined,Добыто
+Crafted,Crafted,Создано
+Processed,Processed,Обработано
+Bosses,Bosses,Боссы
+Stage,Stage,Этап
+Target,Target,План
+Actual,Actual,Факт
+Difference,Difference,Отклонение
+Status,Status,Статус
+Pending,Pending,Нет данных
+Too fast,Too fast,Слишком быстро
+Too slow,Too slow,Слишком медленно
+On target,On target,В норме
+Export failed,Export failed,Ошибка экспорта
+Report saved,Report saved,Отчёт сохранён
+AGGRO,AGGRO,АГРО
+WIND-UP,WIND-UP,ПОДГОТОВКА
+ATTACK,ATTACK,АТАКА
+RECOVER,RECOVER,ВОССТАНОВЛЕНИЕ
+STUNNED,STUNNED,ОГЛУШЁН
+Сохранено,Saved,Сохранено
+Ошибка сохранения!,Save failed!,Ошибка сохранения!
+Жара,Heat,Жара
+Холод,Cold,Холод
+Токсины,Toxins,Токсины
+Споры,Spores,Споры
+Опасность,Hazard,Опасность
+Океан,Ocean,Океан
+Пляж,Beach,Пляж
+Пустыня,Desert,Пустыня
+Лес,Forest,Лес
+Джунгли,Jungle,Джунгли
+Снега,Snow,Снега
+Болото,Swamp,Болото
+Солнечный Каньон,Sun Canyon,Солнечный Каньон
+Ледяная Бездна,Frozen Abyss,Ледяная Бездна
+Гниющие Топи,Rotting Marsh,Гниющие Топи
+Первобытные Дебри,Primeval Thicket,Первобытные Дебри
+Север,North,Север
+Юг,South,Юг
+Запад,West,Запад
+Восток,East,Восток
+Лесной Обелиск,Forest Obelisk,Лесной Обелиск
+Центр,Center,Центр
+✦ Сеть Обелисков,✦ Obelisk Network,✦ Сеть Обелисков
+Выберите открытый обелиск для перемещения · ESC — закрыть,Select a discovered obelisk to travel · ESC — close,Выберите открытый обелиск для перемещения · ESC — закрыть
+??? · Неизведанный обелиск,??? · Undiscovered obelisk,??? · Неизведанный обелиск
+"Подойдите к обелиску, чтобы открыть",Approach the obelisk to discover it,"Подойдите к обелиску, чтобы открыть"
+Вы здесь,You are here,Вы здесь
+Телепорт,Teleport,Телепорт
+✦ Открыт обелиск: %s,✦ Obelisk discovered: %s,✦ Открыт обелиск: %s
+✦ Перемещение: %s,✦ Teleporting: %s,✦ Перемещение: %s
+Закрыть,Close,Закрыть
+Поиск…,Search…,Поиск…
+Инвентарь,Inventory,Инвентарь
+Настройки,Settings,Настройки
+Игрок,Player,Игрок
+Инженер,Engineer,Инженер
+КРЕАТИВ — все предметы,CREATIVE — all items,КРЕАТИВ — все предметы
+"ЛКМ — стак, ПКМ — 1 шт.","LMB — stack, RMB — 1 pc.","ЛКМ — стак, ПКМ — 1 шт."
+NPC не найдены,No NPCs found,NPC не найдены
+ВКЛ,ON,ВКЛ
+ВЫКЛ,OFF,ВЫКЛ
+Админ-режим: %s — все рецепты разблокированы,Admin mode: %s — all recipes unlocked,Админ-режим: %s — все рецепты разблокированы
+Creative UI не найден,Creative UI not found,Creative UI не найден
+Предмет %s не существует!,Item %s does not exist!,Предмет %s не существует!
+Инвентарь очищен.,Inventory cleared.,Инвентарь очищен.
+/give <предмет> [количество],/give <item> [amount],/give <предмет> [количество]
+Нет рецептов,No recipes,Нет рецептов
+🔒 Век %d,🔒 Age %d,🔒 Век %d
+Выплавка...,Smelting...,Выплавка...
+Нет руды,No ore,Нет руды
+Нет топлива,No fuel,Нет топлива
+Ожидание,Idle,Ожидание
+Неизвестный предмет,Unknown item,Неизвестный предмет
+Описание для этого предмета не указано.,No description provided for this item.,Описание для этого предмета не указано.
+ЗАЩИТА,PROTECTION,ЗАЩИТА
+Костюм,Suit,Костюм
+Маска,Mask,Маска
+АКСЕССУАРЫ,ACCESSORIES,АКСЕССУАРЫ
+ИМПЛАНТЫ,IMPLANTS,ИМПЛАНТЫ
+Генерация: %d EU/с,Generation: %d EU/s,Генерация: %d EU/с
+Выход: %d EU/с,Output: %d EU/s,Выход: %d EU/с
+Подключено: %d машин,Connected: %d machines,Подключено: %d машин
+Горит,Burning,Горит
+Ожидание сети,Waiting for grid,Ожидание сети
+Заряд: +%d EU/с,Charge: +%d EU/s,Заряд: +%d EU/с
+Разряд: %d EU/с,Discharge: %d EU/s,Разряд: %d EU/с
+Генерация:    %d EU/с,Generation:   %d EU/s,Генерация:    %d EU/с
+Выход:         %d EU/с,Output:       %d EU/s,Выход:         %d EU/с
+Подключено:  %d машин,Connected:    %d machines,Подключено:  %d машин
+Активна,Active,Активна
+Нет сети,No grid,Нет сети
+Рецепт не выбран,No recipe selected,Рецепт не выбран
+Сборка...,Assembling...,Сборка...
+Сеть оффлайн,Network offline,Сеть оффлайн
+Нет ингредиентов,No ingredients,Нет ингредиентов
+Сеть заполнена,Network full,Сеть заполнена
+ME МОЛЕКУЛЯРНЫЙ СБОРЩИК,ME MOLECULAR ASSEMBLER,ME МОЛЕКУЛЯРНЫЙ СБОРЩИК
+Цель: — (выбери рецепт ниже),Target: — (pick a recipe below),Цель: — (выбери рецепт ниже)
+Цель: %s,Target: %s,Цель: %s
+%s   ·   собрано: %d,%s   ·   assembled: %d,%s   ·   собрано: %d
+ФИЛЬТРЫ (что выдавать),FILTERS (what to export),ФИЛЬТРЫ (что выдавать)
+ДОСТУПНО В СЕТИ,AVAILABLE IN NETWORK,ДОСТУПНО В СЕТИ
+● Сеть в сети   фильтры %d/%d,● Network online   filters %d/%d,● Сеть в сети   фильтры %d/%d
+○ Сеть оффлайн,○ Network offline,○ Сеть оффлайн
+— фильтр не задан —,— no filter set —,— фильтр не задан —
+Выдавать,Export,Выдавать
+Предметы,Items,Предметы
+Жидкости,Fluids,Жидкости
+Фильтр,Filter,Фильтр
+ФИЛЬТРЫ (что тянуть; пусто = всё),FILTERS (what to pull; empty = everything),ФИЛЬТРЫ (что тянуть; пусто = всё)
+ЕСТЬ У СОСЕДА,IN ADJACENT INVENTORY,ЕСТЬ У СОСЕДА
+ЗАКОДИРОВАННЫЕ ШАБЛОНЫ,ENCODED PATTERNS,ЗАКОДИРОВАННЫЕ ШАБЛОНЫ
+ЗАКОДИРОВАТЬ РЕЦЕПТ СОСЕДНЕЙ МАШИНЫ,ENCODE ADJACENT MACHINE RECIPE,ЗАКОДИРОВАТЬ РЕЦЕПТ СОСЕДНЕЙ МАШИНЫ
+— вставьте закодированный шаблон —,— insert an encoded pattern —,— вставьте закодированный шаблон —
+"Рядом нет машины — поставьте интерфейс вплотную к печи, дробилке и т.п.","No machine nearby — place the interface next to a furnace, crusher, etc.","Рядом нет машины — поставьте интерфейс вплотную к печи, дробилке и т.п."
+Сосед: %s — автокрафт для этой машины не поддерживается,Neighbour: %s — autocrafting is not supported for this machine,Сосед: %s — автокрафт для этой машины не поддерживается
+Сосед: %s,Neighbour: %s,Сосед: %s
+нет сырья,missing input,нет сырья
+машина не умеет,machine can't make it,машина не умеет
+крафтится,crafting,крафтится
+ждёт машину,waiting for machine,ждёт машину
+Закодировать,Encode,Закодировать
+Буфер: %d / %d EU,Buffer: %d / %d EU,Буфер: %d / %d EU
+Жидкости: —,Fluids: —,Жидкости: —
+Жидкости:,Fluids:,Жидкости:
+Создание,Crafting,Создание
+Хранилище,Storage,Хранилище
+● Сеть в сети,● Network online,● Сеть в сети
+○ Сеть оффлайн — нет энергии,○ Network offline — no power,○ Сеть оффлайн — нет энергии
+Нет рецептов из текущих ресурсов сети,No recipes from current network resources,Нет рецептов из текущих ресурсов сети
+Создать,Craft,Создать
+МЭ накопитель,ME Drive,МЭ накопитель
+— сеть пуста —,— network empty —,— сеть пуста —
+— сеть оффлайн —,— network offline —,— сеть оффлайн —
+"● Сеть в сети — клик: забрать, Shift: всё, ПКМ: 1","● Network online — click: take, Shift: all, RMB: 1","● Сеть в сети — клик: забрать, Shift: всё, ПКМ: 1"
+Верстак,Workbench,Верстак
+Печка,Furnace,Печка
+переключение сверху,switch above,переключение сверху
+КНИГА РЕЦЕПТОВ,RECIPE BOOK,КНИГА РЕЦЕПТОВ
+ИНВЕНТАРЬ,INVENTORY,ИНВЕНТАРЬ
+НАСТРОЙКИ,SETTINGS,НАСТРОЙКИ
+Креатив — выдача предметов,Creative — item spawning,Креатив — выдача предметов
+"В креативе: ЛКМ по предмету — стак, ПКМ — 1 шт.","In creative: LMB on item — stack, RMB — 1 pc.","В креативе: ЛКМ по предмету — стак, ПКМ — 1 шт."
+Нет рецепта,No recipe,Нет рецепта
+Для этого предмета нет известного рецепта.,There is no known recipe for this item.,Для этого предмета нет известного рецепта.
+Итог: %d,Total: %d,Итог: %d
+Время: %.1fс   •   ,Time: %.1fs   •   ,Время: %.1fс   •   
+  (топливо),  (fuel),  (топливо)
+Загрузка мира...,Loading world...,Загрузка мира...
+Ошибка загрузки мира,World load error,Ошибка загрузки мира
+В главное меню,To main menu,В главное меню
+Создание мира...,Creating world...,Создание мира...
+Подключение к миру...,Connecting to world...,Подключение к миру...
+Загрузка мира «%s»...,Loading world “%s”...,Загрузка мира «%s»...
+Буфер полон,Buffer full,Буфер полон
+Выход: конвейер подключён,Output: conveyor connected,Выход: конвейер подключён
+Выход: сундук подключён,Output: chest connected,Выход: сундук подключён
+Выход: машина подключена,Output: machine connected,Выход: машина подключена
+Выход занят или не принимает эту руду,Output is occupied or rejects this ore,Выход занят или не принимает эту руду
+Ручная разгрузка,Manual unloading,Ручная разгрузка
+Поставьте конвейер вплотную к стрелке выхода,Place a conveyor directly against the output arrow,Поставьте конвейер вплотную к стрелке выхода
+В ПРОЦЕССЕ,IN PROGRESS,В ПРОЦЕССЕ
+ВЫПОЛНЕНО,COMPLETED,ВЫПОЛНЕНО
+Главы,Chapters,Главы
+Жители,Villagers,Жители
+Назад,Back,Назад
+Нельзя удалить: мир в избранном,Cannot delete: world is favorited,Нельзя удалить: мир в избранном
+Нельзя удалить: персонаж в избранном,Cannot delete: character is favorited,Нельзя удалить: персонаж в избранном
+Нет рудной жилы,No ore vein,Нет рудной жилы
+Нет энергии,No power,Нет энергии
+Помогите жителю биома и заберите награду у него,Help the biome villager and claim your reward from them,Помогите жителю биома и заберите награду у него
+Удалить персонажа,Delete Character,Удалить персонажа
+🔒 Страница из книги,🔒 Page from a book,🔒 Страница из книги
+Connection to host lost,Connection to host lost,Связь с хостом потеряна
+Reconnect,Reconnect,Переподключиться
+Back to Menu,Back to Menu,В главное меню
+Reconnecting...,Reconnecting...,Переподключение...
+(full version),(full version),(в полной версии)
+Demo content complete — thanks for playing! Further chapters await in the full version.,Demo content complete — thanks for playing! Further chapters await in the full version.,Демо-контент пройден — спасибо за игру! Следующие главы ждут в полной версии.
+Clear,Clear,Очистить
+All,All,Все
+Factory,Factory,Фабрика
+Progress,Progress,Прогресс
+Combat,Combat,Бой
+Achievements,Achievements,Достижения
+Quest completed,Quest completed,Задание выполнено
+Technology unlocked,Technology unlocked,Технология открыта
+Boss defeated,Boss defeated,Босс побеждён
+Achievement unlocked,Achievement unlocked,Достижение открыто
+Энт,Ent,Энт
+Recipe unlocked,Recipe unlocked,Рецепт открыт
+Biome unlocked,Biome unlocked,Биом открыт
+Biome locked,Biome locked,Биом закрыт
+Permanent biome protection,Permanent biome protection,Постоянная защита биома
+Available from the start,Available from the start,Доступно с начала
+Discover,Discover,Открыть
+Defeat,Defeat,Победить
+Forest,Forest,Лес
+Desert,Desert,Пустыня
+Snow,Snow,Снега
+Swamp,Swamp,Болото
+Jungle,Jungle,Джунгли
+Sunny Canyon,Sunny Canyon,Солнечный каньон
+Icy Abyss,Icy Abyss,Ледяная бездна
+Rotting Bog,Rotting Bog,Гниющие топи
+Primeval Thicket,Primeval Thicket,Первобытные дебри
+Aggregate all runs,Aggregate all runs,Сводка всех запусков
+Target / median stage time,Target / median stage time,Целевое / медианное время этапа
+All playtests summary,All playtests summary,Сводка всех плейтестов
+Playtests with completed stages,Playtests with completed stages,Плейтесты с завершёнными этапами
+Runs,Runs,Запуски
+Median,Median,Медиана
+P90,P90,P90
+Stability,Stability,Стабильность
+Confidence,Confidence,Доверие
+Stable,Stable,Стабильно
+Variable,Variable,Переменно
+Unstable,Unstable,Нестабильно
+Not enough data,Not enough data,Недостаточно данных
+High,High,Высокое
+Medium,Medium,Среднее
+Low,Low,Низкое
+%s is consistently %.0f%% slower across %d runs (%s confidence),%s is consistently %.0f%% slower across %d runs (%s confidence),%s стабильно медленнее цели на %.0f%% по %d запускам (доверие: %s)
+%s is consistently %.0f%% faster across %d runs (%s confidence),%s is consistently %.0f%% faster across %d runs (%s confidence),%s стабильно быстрее цели на %.0f%% по %d запускам (доверие: %s)
+%s varies by %.0f%% across %d runs,%s varies by %.0f%% across %d runs,%s отличается на %.0f%% между %d запусками
+Median stage times are balanced and stable,Median stage times are balanced and stable,Медианное время этапов сбалансировано и стабильно
+Compare versions,Compare versions,Сравнить версии
+Previous / latest version median,Previous / latest version median,Медиана прошлой / новой версии
+Version regression report,Version regression report,Отчёт о регрессиях версии
+Version comparison,Version comparison,Сравнение версий
+At least two version tags are required,At least two version tags are required,Нужны плейтесты минимум двух версий
+Previous median,Previous median,Прошлая медиана
+Latest median,Latest median,Новая медиана
+%s became %.0f%% slower in the latest version (%s confidence),%s became %.0f%% slower in the latest version (%s confidence),%s стал медленнее на %.0f%% в новой версии (доверие: %s)
+%s became %.0f%% faster in the latest version (%s confidence),%s became %.0f%% faster in the latest version (%s confidence),%s стал быстрее на %.0f%% в новой версии (доверие: %s)
+No stage changed by more than 15% between versions,No stage changed by more than 15% between versions,Ни один этап не изменился между версиями более чем на 15%
+Record playtests with at least two version tags,Record playtests with at least two version tags,Запишите плейтесты минимум с двумя тегами версий
+Analyze,Analyze,Анализировать
+Research completed,Research completed,Исследование завершено
+Requirements not met,Requirements not met,Требования не выполнены
+"Explore biomes, defeat bosses, and analyze their samples to unlock technologies.","Explore biomes, defeat bosses, and analyze their samples to unlock technologies.","Исследуйте биомы, побеждайте боссов и анализируйте образцы для открытия технологий."
+Frontier set,Frontier set,Комплект первопроходца
+Ascendant set,Ascendant set,Комплект вознесения
+arena,arena,арена
+Fortified arena,Fortified arena,Укреплённая арена
+Volatile arena,Volatile arena,Нестабильная арена
+Relentless arena,Relentless arena,Неумолимая арена
+Abundant arena,Abundant arena,Изобильная арена
+"Build production lines, defeat bosses, and consume research packs to unlock each era.","Build production lines, defeat bosses, and consume research packs to unlock each era.",Стройте производственные линии побеждайте боссов и расходуйте исследовательские наборы для открытия каждой эры.
+"Build a bronze workshop, generate steam, press plates, and produce coke.","Build a bronze workshop, generate steam, press plates, and produce coke.",Постройте бронзовую мастерскую вырабатывайте пар прессуйте пластины и производите кокс.
+"Build a bronze workshop, generate steam, press precision parts, and produce coke.","Build a bronze workshop, generate steam, press precision parts, and produce coke.",Постройте бронзовую мастерскую вырабатывайте пар прессуйте точные детали и производите кокс.
+"Prove the steam line works before introducing generators, rubber, and low-voltage circuits.","Prove the steam line works before introducing generators, rubber, and low-voltage circuits.",Подтвердите работу паровой линии прежде чем переходить к генераторам резине и низковольтным схемам.
+"Mass-produce electrical parts to unlock routing, compression, and fluid mixing.","Mass-produce electrical parts to unlock routing, compression, and fluid mixing.",Наладьте массовый выпуск электрических деталей для открытия маршрутизации прессования и смешивания жидкостей.
+"Automate components and dense materials before building multi-step ore processing.","Automate components and dense materials before building multi-step ore processing.",Автоматизируйте компоненты и плотные материалы перед созданием многоступенчатой переработки руды.
+"Use crushing, washing, separation, or centrifuging to turn ore directly into dust before chemistry.","Use crushing, washing, separation, or centrifuging to turn ore directly into dust before chemistry.",Используйте дробление промывку сепарацию или центрифугирование чтобы напрямую превращать руду в пыль перед химической эрой.
+"Convert oil and coke products into advanced materials for renewable production.","Convert oil and coke products into advanced materials for renewable production.",Перерабатывайте нефтепродукты и кокс в продвинутые материалы для возобновляемого производства.
+"Combine agricultural output, productivity modules, and electronics into sustainable industry.","Combine agricultural output, productivity modules, and electronics into sustainable industry.",Объедините сельскохозяйственную продукцию модули продуктивности и электронику в устойчивую промышленность.
+"Scale solar generation and energy storage before attempting molecular processing.","Scale solar generation and energy storage before attempting molecular processing.",Масштабируйте солнечную генерацию и накопление энергии перед молекулярной переработкой.
+"Feed dense matter and high-tier electronics into a stable late-game production line.","Feed dense matter and high-tier electronics into a stable late-game production line.",Подавайте плотную материю и электронику высокого уровня в стабильную производственную линию поздней игры.
+"Complete the Overworld factory chain to unlock quantum storage and logistics.","Complete the Overworld factory chain to unlock quantum storage and logistics.",Завершите фабричную цепочку основного мира чтобы открыть квантовые хранилища и логистику.

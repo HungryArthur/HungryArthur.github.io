@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/fluids/oil_pump.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "oil_pump"
+name = "item.oil_pump.name"
+description = "item.oil_pump.desc"
+texture = ExtResource("2_tex")
+item_color = Color(0.25, 0.22, 0.18, 1)
+max_stack = 1
+block_id = "oil_pump"

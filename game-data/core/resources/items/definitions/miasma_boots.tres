@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "miasma_boots"
+name = "item.miasma_boots.name"
+description = "item.miasma_boots.desc"
+rarity = "rare"
+item_color = Color(0.45, 0.55, 0.30, 1)
+max_stack = 1
+tool_type = "armor"
+equip_slot = "feet"

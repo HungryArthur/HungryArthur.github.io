@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "robotic_arm_t1"
+name = "item.robotic_arm_t1.name"
+description = "item.robotic_arm_t1.desc"
+item_color = Color(0.60, 0.55, 0.30, 1)
+max_stack = 64

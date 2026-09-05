@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/solar_panel/ultimate_solar_panel.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "ultimate_solar_panel"
+name = "item.ultimate_solar_panel.name"
+description = "item.ultimate_solar_panel.desc"
+texture = ExtResource("2_tex")
+rarity = "legendary"
+item_color = Color(0.16, 0.48, 0.82, 1)
+max_stack = 99
+block_id = "ultimate_solar_panel"

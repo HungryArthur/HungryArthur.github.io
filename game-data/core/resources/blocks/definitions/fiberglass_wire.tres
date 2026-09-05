@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "fiberglass_wire"
+display_name = "Fiberglass Wire"
+color = Color(0.56, 0.94, 1, 1)
+health = 3
+required_tool = "pickaxe"
+drop_item_id = "fiberglass_wire"
+is_interactive = false
+interact_type = ""

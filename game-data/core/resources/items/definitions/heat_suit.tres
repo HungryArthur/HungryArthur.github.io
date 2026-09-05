@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "heat_suit"
+name = "item.heat_suit.name"
+description = "item.heat_suit.desc"
+rarity = "rare"
+item_color = Color(1, 0.45, 0.12, 1)
+max_stack = 1
+tool_type = "armor"

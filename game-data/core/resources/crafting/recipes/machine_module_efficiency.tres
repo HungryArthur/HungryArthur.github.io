@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+result_item_id = "machine_module_efficiency"
+ingredient_ids = PackedStringArray("circuit_t1", "insulated_copper_wire", "tree_resin")
+ingredient_counts = PackedInt32Array(2, 8, 4)
+category = "components"
+sort_order = 361
+required_age = 4

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ForageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/forage/ForageData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "pebble"
+display_name = "Камушки"
+resource_item_id = "stone"
+required_tool = "none"
+mining_level_required = 1
+mining_interval = 0.2
+yield_amount = 1
+atlas_x = 1
+tile_source_id = 20
+health = 1
+total_resource_amount = 1
+default_spawn_chance = 0.0022
+spawn_chance_by_biome = {
+"ForestBiome": 0.019,
+"JungleBiome": 0.0055,
+"SwampBiome": 0.0028,
+"DesertBiome": 0.0030,
+"SnowBiome": 0.0030
+}
+minimum_spacing = 3
+requires_water = false

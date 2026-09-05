@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/fluids/primitive_bucket.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "primitive_bucket"
+name = "item.primitive_bucket.name"
+description = "item.primitive_bucket.desc"
+texture = ExtResource("2_tex")
+item_color = Color(0.48, 0.28, 0.10, 1)
+max_stack = 1
+fluid_capacity = 5.0

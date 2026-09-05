@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/tools/iron_axe.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+texture = ExtResource("2_tex")
+id = "steel_axe"
+name = "item.steel_axe.name"
+description = "item.steel_axe.desc"
+item_color = Color(0.55, 0.65, 0.72, 1)
+max_stack = 1
+tool_type = "axe"
+power = 3

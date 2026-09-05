@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ForageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/forage/ForageData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "fallen_stick"
+display_name = "Fallen Stick"
+resource_item_id = "stick"
+required_tool = "none"
+mining_level_required = 1
+mining_interval = 0.2
+yield_amount = 1
+atlas_x = 0
+tile_source_id = 3
+health = 1
+total_resource_amount = 1
+default_spawn_chance = 0.0024
+spawn_chance_by_biome = {
+"DesertBiome": 0.0008,
+"ForestBiome": 0.016,
+"SwampBiome": 0.0038,
+"JungleBiome": 0.0060
+}
+minimum_spacing = 3

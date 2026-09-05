@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "steel_drill"
+display_name = "Steel Drill"
+color = Color(0.58, 0.64, 0.70, 1)
+health = 14
+required_tool = "pickaxe"
+drop_item_id = "steel_drill"
+is_interactive = true
+interact_type = "drill"
+size = Vector2i(3, 3)
+rotatable = true

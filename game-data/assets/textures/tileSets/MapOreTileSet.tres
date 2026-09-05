@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" format=3 uid="uid://x0gco0bkt5bg"]
+
+[ext_resource type="Texture2D" uid="uid://c30bqy3hebn2t" path="res://assets/textures/tileSets/MapOreMarkers.png" id="1_markers"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_markers"]
+texture = ExtResource("1_markers")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_markers")

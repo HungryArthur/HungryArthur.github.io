@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "me_molecular_assembler"
+display_name = "ME молекулярный сборщик"
+color = Color(0.2, 0.6, 0.62, 1)
+health = 14
+required_tool = "pickaxe"
+drop_item_id = "me_molecular_assembler"
+is_interactive = true
+interact_type = "me_molecular_assembler"

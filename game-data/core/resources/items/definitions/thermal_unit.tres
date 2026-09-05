@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "thermal_unit"
+name = "item.thermal_unit.name"
+description = "item.thermal_unit.desc"
+item_color = Color(0.78, 0.38, 0.16, 1)
+max_stack = 64

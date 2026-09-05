@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "titanium_drill"
+name = "item.titanium_drill.name"
+description = "item.titanium_drill.desc"
+item_color = Color(0.55, 0.80, 0.92, 1)
+max_stack = 1
+block_id = "titanium_drill"

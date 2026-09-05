@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "cucumber"
+name = "item.cucumber.name"
+description = "item.cucumber.desc"
+item_color = Color(0.36, 0.62, 0.24, 1)
+max_stack = 99
+food_value = 5

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "empty_canister"
+name = "item.empty_canister.name"
+description = "item.empty_canister.desc"
+rarity = "common"
+item_color = Color(0.7, 0.72, 0.78, 1)
+max_stack = 16
+fluid_capacity = 1000.0

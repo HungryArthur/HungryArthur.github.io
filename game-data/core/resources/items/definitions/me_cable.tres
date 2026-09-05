@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/me/me_cable_block.png" id="2_tex"]
+
+[sub_resource type="AtlasTexture" id="node_tile"]
+atlas = ExtResource("2_tex")
+region = Rect2(64, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_script")
+id = "me_cable"
+name = "item.me_cable.name"
+description = "item.me_cable.desc"
+texture = SubResource("node_tile")
+item_color = Color(0.27, 0.78, 0.82, 1)
+max_stack = 64
+block_id = "me_cable"

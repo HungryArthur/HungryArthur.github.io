@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/materials/gold_wire.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+texture = ExtResource("2_tex")
+id = "gold_wire"
+name = "item.gold_wire.name"
+description = "item.gold_wire.desc"
+item_color = Color(0.95, 0.78, 0.20, 1)
+max_stack = 64
+block_id = "gold_wire"

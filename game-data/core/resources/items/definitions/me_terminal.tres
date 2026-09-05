@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/me/me_terminal_block.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = "me_terminal"
+name = "item.me_terminal.name"
+description = "item.me_terminal.desc"
+texture = ExtResource("2_tex")
+item_color = Color(0.31, 0.78, 0.45, 1)
+max_stack = 16
+block_id = "me_terminal"

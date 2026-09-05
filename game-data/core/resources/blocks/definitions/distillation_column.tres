@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/machines/fluids/distillation_column.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "distillation_column"
+display_name = "Distillation Column"
+texture = ExtResource("2_tex")
+health = 20
+required_tool = "pickaxe"
+drop_item_id = "distillation_column"
+is_interactive = true
+interact_type = "distillation_column"

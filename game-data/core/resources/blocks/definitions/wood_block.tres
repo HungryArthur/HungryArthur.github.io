@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "wood_block"
+display_name = "Wood Plank"
+color = Color(0.55, 0.38, 0.15, 1)
+health = 2
+required_tool = "axe"
+drop_item_id = "wood_plank"

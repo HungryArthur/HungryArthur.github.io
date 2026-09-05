@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "steel_rod"
+name = "item.steel_rod.name"
+description = "item.steel_rod.desc"
+rarity = "common"
+item_color = Color(0.5, 0.53, 0.58, 1)
+max_stack = 99

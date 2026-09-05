@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "coke_oven"
+display_name = "Coke Oven"
+color = Color(0.52, 0.34, 0.26, 1)
+health = 14
+required_tool = "pickaxe"
+drop_item_id = "coke_oven"
+is_interactive = true
+interact_type = "coke_oven"
+size = Vector2i(2, 2)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/fluids/fluid_pipe.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "fluid_pipe"
+display_name = "Fluid Pipe"
+texture = ExtResource("2_tex")
+health = 5
+required_tool = "pickaxe"
+drop_item_id = "fluid_pipe"

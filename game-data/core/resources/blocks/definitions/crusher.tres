@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+block_id = "crusher"
+display_name = "Crusher"
+color = Color(0.45, 0.32, 0.22, 1)
+health = 12
+required_tool = "pickaxe"
+drop_item_id = "crusher"
+is_interactive = true
+interact_type = "crusher"
+rotatable = true

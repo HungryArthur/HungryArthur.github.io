@@ -1,0 +1,1713 @@
+keys,en,ru
+"Улучши примитивный бур до бронзового. Он требует 10 EU/с и выдаёт руду со стороны стрелки. Поставь конвейер вплотную к этой стороне: добытый предмет появится на ленте и поедет по её направлению.","Upgrade the primitive drill to a bronze drill. It requires 10 EU/s and outputs ore from the arrow side. Place a conveyor directly against that side: the mined item will appear on the belt and travel in its direction.","Улучши примитивный бур до бронзового. Он требует 10 EU/с и выдаёт руду со стороны стрелки. Поставь конвейер вплотную к этой стороне: добытый предмет появится на ленте и поедет по её направлению."
+Подключить конвейер к выходу бура,Connect a conveyor to the drill output,Подключить конвейер к выходу бура
+Главы,Chapters,Главы
+Жители,Villagers,Жители
+Фармилка,Farming,Фармилка
+Боссы,Bosses,Боссы
+Убейте по 100 мобов каждого вида,Defeat 100 mobs of each species,Убейте по 100 мобов каждого вида
+Победите каждого босса один раз,Defeat each boss once,Победите каждого босса один раз
+Убей 100 мобов этого вида.,Defeat 100 mobs of this species.,Убей 100 мобов этого вида.
+Убить 100 мобов,Defeat 100 mobs,Убить 100 мобов
+Победи этого босса один раз.,Defeat this boss once.,Победи этого босса один раз.
+Убить босса,Defeat the boss,Убить босса
+mob.sand_scarab.name,Sand Scarab,Песчаный скарабей
+mob.cactus_stalker.name,Cactus Stalker,Кактусовый охотник
+mob.dust_wisp.name,Dust Wisp,Пылевой огонёк
+mob.frost_wolf.name,Frost Wolf,Морозный волк
+mob.ice_wisp.name,Ice Wisp,Ледяной огонёк
+mob.snow_golem.name,Snow Golem,Снежный голем
+mob.bark_beetle.name,Bark Beetle,Короед
+mob.mire_leech.name,Mire Leech,Болотная пиявка
+mob.bog_slime.name,Bog Slime,Топкая слизь
+mob.mosquito_swarm.name,Mosquito Swarm,Рой москитов
+mob.woodling.name,Woodling,Древесник
+mob.jungle_panther.name,Jungle Panther,Пантера джунглей
+mob.vine_lurker.name,Vine Lurker,Лиановый ловчий
+mob.sporeling.name,Sporeling,Споровик
+mob.ember_beetle.name,Ember Beetle,Угольный жук
+mob.ash_hound.name,Ash Hound,Пепельная гончая
+mob.flare_wisp.name,Flare Wisp,Пламенный огонёк
+mob.ice_stalker.name,Ice Stalker,Ледяной охотник
+mob.shardling.name,Shardling,Осколочник
+mob.frost_golem.name,Frost Golem,Морозный голем
+mob.toxic_slime.name,Toxic Slime,Ядовитая слизь
+mob.rot_hound.name,Rot Hound,Гончая гнили
+mob.bog_witch.name,Bog Witch,Болотная ведьма
+mob.forest_wolf.name,Forest Wolf,Лесной волк
+mob.razor_raptor.name,Razor Raptor,Бритвенный раптор
+mob.ancient_vine.name,Ancient Vine,Древняя лоза
+mob.primal_beetle.name,Primal Beetle,Первобытный жук
+boss.ent.name,Ent,Энт
+boss.dune_colossus.name,Dune Colossus,Песчаный колосс
+boss.frost_warden.name,Frost Warden,Ледяной страж
+boss.mire_hydra.name,Mire Hydra,Болотная гидра
+boss.thorn_matriarch.name,Thorn Matriarch,Шипастая матриархиня
+boss.solar_tyrant.name,Solar Tyrant,Солнечный тиран
+boss.abyss_leviathan.name,Abyss Leviathan,Левиафан бездны
+boss.rot_king.name,Rot King,Король гнили
+boss.primal_guardian.name,Primal Guardian,Первобытный страж
+I. Исследование электричества,I. Electricity Research,I. Исследование электричества
+II. Электросеть,II. Power Grid,II. Электросеть
+III. Дробилка и резина,III. Crushing and Rubber,III. Дробилка и резина
+V. Исследование автоматизации,V. Automation Research,V. Исследование автоматизации
+VI. Снежные руды,VI. Snowland Ores,VI. Снежные руды
+I. Тяжёлая промышленность,I. Heavy Industry,I. Тяжёлая промышленность
+II. Руды болот,II. Swamp Ores,II. Руды болот
+V. Сухая переработка,V. Dry Ore Processing,V. Сухая переработка
+VI. Титановые материалы,VI. Titanium Materials,VI. Титановые материалы
+VII. Промышленная химия,VII. Industrial Chemistry,VII. Промышленная химия
+VIII. Биотехнологии,VIII. Bioengineering,VIII. Биотехнологии
+IX. Защита и возобновляемые ресурсы,IX. Protection and Renewables,IX. Защита и возобновляемые ресурсы
+X. Солнечная энергия,X. Solar Energy,X. Солнечная энергия
+I. Солнечная индустрия,I. Solar Industry,I. Солнечная индустрия
+II. Развитая энергетика,II. Advanced Power,II. Развитая энергетика
+VII. Титановый бур,VII. Titanium Drill,VII. Титановый бур
+VIII. Редкие руды,VIII. Rare Ores,VIII. Редкие руды
+IX. Продвинутый бур и мифрил,IX. Advanced Drill and Mythril,IX. Продвинутый бур и мифрил
+X. Исследование Бездны,X. Abyss Research,X. Исследование Бездны
+XII. Исследование фронтира,XII. Frontier Research,XII. Исследование фронтира
+XIII. Технологии фронтира,XIII. Frontier Technology,XIII. Технологии фронтира
+XIV. Квантовое исследование,XIV. Quantum Research,XIV. Квантовое исследование
+XV. Жидкости и химия,XV. Fluids and Chemistry,XV. Жидкости и химия
+XVI. Цифровое хранилище,XVI. Digital Storage,XVI. Цифровое хранилище
+XVII. Легенда,XVII. Legend,XVII. Легенда
+"Электричество, резина, автоматизация и руды Снежных земель.","Electricity, rubber, automation, and Snowland ores.","Электричество, резина, автоматизация и руды Снежных земель."
+"Болотные и джунглевые руды, электроника, сухая переработка и солнечная энергия.","Swamp and jungle ores, electronics, dry processing, and solar power.","Болотные и джунглевые руды, электроника, сухая переработка и солнечная энергия."
+"Редкие руды, продвинутые буры, молекулярные технологии, жидкости и ME-сеть.","Rare ores, advanced drills, molecular technology, fluids, and the ME network.","Редкие руды, продвинутые буры, молекулярные технологии, жидкости и ME-сеть."
+Электрическая эра,Electric Age,Электрическая эра
+"Победи Энта во вкладке боссов, подготовь паровые исследовательские наборы и заверши анализ электричества.","Defeat the Ent in the Bosses tab, prepare steam research packs, and complete the electricity analysis.","Победи Энта во вкладке боссов, подготовь паровые исследовательские наборы и заверши анализ электричества."
+Исследовать электричество,Research electricity,Исследовать электричество
+"Экстрактор, изоляция и электрические компоненты","Extractor, insulation, and electrical components","Экстрактор, изоляция и электрические компоненты"
+Автоматизация,Automation,Автоматизация
+"Исследуй образец Песчаного колосса и докажи, что электрическая фабрика готова к массовому производству.",Analyze the Dune Colossus sample and prove that the electric factory is ready for mass production.,"Исследуй образец Песчаного колосса и докажи, что электрическая фабрика готова к массовому производству."
+Исследовать автоматизацию,Research automation,Исследовать автоматизацию
+"Компрессор, разветвители и новые производственные линии","Compressor, splitters, and new production lines","Компрессор, разветвители и новые производственные линии"
+Тяжёлая промышленность,Heavy Industry,Тяжёлая промышленность
+Победа над Ледяным стражем и наборы автоматизации открывают тяжёлые машины и доступ к болотным рудам.,Defeating the Frost Warden and producing automation packs unlocks heavy machines and access to swamp ores.,Победа над Ледяным стражем и наборы автоматизации открывают тяжёлые машины и доступ к болотным рудам.
+Исследовать тяжёлую промышленность,Research heavy industry,Исследовать тяжёлую промышленность
+Продвинутая переработка руды,Advanced ore processing,Продвинутая переработка руды
+Никелевая жила,Nickel Vein,Никелевая жила
+Добудь никель в Болоте и переработай часть руды в пыль.,Mine nickel in the Swamp and process some of the ore into dust.,Добудь никель в Болоте и переработай часть руды в пыль.
+Добыть никелевую руду,Mine nickel ore,Добыть никелевую руду
+Никель для побочных и будущих сплавов,Nickel for byproducts and future alloys,Никель для побочных и будущих сплавов
+Промышленная химия,Industrial Chemistry,Промышленная химия
+Проанализируй железу Болотной гидры и подготовь промышленную фабрику к химическим процессам.,Analyze the Mire Hydra gland and prepare the industrial factory for chemical processes.,Проанализируй железу Болотной гидры и подготовь промышленную фабрику к химическим процессам.
+Исследовать промышленную химию,Research industrial chemistry,Исследовать промышленную химию
+Химический реактор и нефтепереработка,Chemical reactor and oil refining,Химический реактор и нефтепереработка
+Биоинженерия,Bioengineering,Биоинженерия
+Исследуй сердце Шипастой матриархини и открой возобновляемое производство.,Analyze the Thorn Matriarch heart and unlock renewable production.,Исследуй сердце Шипастой матриархини и открой возобновляемое производство.
+Исследовать биоинженерию,Research bioengineering,Исследовать биоинженерию
+"Фермстанция, генератор булыжника и солнечная энергия","Farming station, cobblestone generator, and solar power","Фермстанция, генератор булыжника и солнечная энергия"
+Солнечная индустрия,Solar Industry,Солнечная индустрия
+"Заверши анализ ядра Солнечного тирана, чтобы перейти к усиленной энергетике.",Complete the Solar Tyrant core analysis to advance to enhanced power systems.,"Заверши анализ ядра Солнечного тирана, чтобы перейти к усиленной энергетике."
+Исследовать солнечную индустрию,Research solar industry,Исследовать солнечную индустрию
+Продвинутые панели и энергохранилища,Advanced panels and energy storage,Продвинутые панели и энергохранилища
+Инженерия Бездны,Abyss Engineering,Инженерия Бездны
+Проанализируй чешую Левиафана бездны и подготовь фабрику к молекулярной обработке.,Analyze the Abyss Leviathan scale and prepare the factory for molecular processing.,Проанализируй чешую Левиафана бездны и подготовь фабрику к молекулярной обработке.
+Исследовать инженерию Бездны,Research Abyss engineering,Исследовать инженерию Бездны
+Молекулярный трансформер и элитная энергетика,Molecular transformer and elite power systems,Молекулярный трансформер и элитная энергетика
+Технологии фронтира,Frontier Technology,Технологии фронтира
+Изучи корону Короля гнили и открой предельные промышленные технологии.,Study the Rot King crown and unlock frontier industrial technology.,Изучи корону Короля гнили и открой предельные промышленные технологии.
+Исследовать технологии фронтира,Research frontier technology,Исследовать технологии фронтира
+Абсолютная энергетика и конвейеры T5,Ultimate power and T5 conveyors,Абсолютная энергетика и конвейеры T5
+Квантовая логистика,Quantum Logistics,Квантовая логистика
+Исследуй ядро Первобытного стража и заверши технологический путь Верхнего мира.,Analyze the Primal Guardian core and complete the Overworld technology path.,Исследуй ядро Первобытного стража и заверши технологический путь Верхнего мира.
+Исследовать квантовую логистику,Research quantum logistics,Исследовать квантовую логистику
+ME-сеть и квантовая логистика,ME network and quantum logistics,ME-сеть и квантовая логистика
+Найди свинец в Снежных землях и переработай часть руды в пыль.,Find lead in the Snowlands and process some of the ore into dust.,Найди свинец в Снежных землях и переработай часть руды в пыль.
+Получить свинцовую пыль,Produce lead dust,Получить свинцовую пыль
+Свинцовая пыль для будущих компонентов,Lead dust for future components,Свинцовая пыль для будущих компонентов
+"Добудь уран титановым буром, извлеки сырьё и подготовь его в электропечи.","Mine uranium with a titanium drill, extract the raw material, and process it in an electric furnace.","Добудь уран титановым буром, извлеки сырьё и подготовь его в электропечи."
+Извлечь урановое сырьё,Extract raw uranium,Извлечь урановое сырьё
+Обработать уран,Process uranium,Обработать уран
+Поставь продвинутый бур на мифриловую жилу и добудь первую партию руды.,Place an advanced drill on a mythril vein and extract the first batch of ore.,Поставь продвинутый бур на мифриловую жилу и добудь первую партию руды.
+Каменный век,Stone Age,Каменный век
+"Выживание, добыча, плавка и первая металлургия.","Survival, mining, smelting and first metallurgy.","Выживание, добыча, плавка и первая металлургия."
+Индустриализация,Industrialization,Индустриализация
+Первая металлургия и провода.,First metallurgy and wiring.,Первая металлургия и провода.
+Железный век,Iron Age,Железный век
+"Сталь, корпуса машин и механика.","Steel, machine casings and mechanics.","Сталь, корпуса машин и механика."
+Электрификация,Electrification,Электрификация
+Первый ток и простые схемы.,First current and simple circuits.,Первый ток и простые схемы.
+Электрический век,Electric Age,Электрический век
+Электромашины и солнечная энергия.,Electric machines and solar power.,Электромашины и солнечная энергия.
+Промышленный век,Industrial Age,Промышленный век
+Продвинутые сплавы и автоматизация.,Advanced alloys and automation.,Продвинутые сплавы и автоматизация.
+Глава %d,Chapter %d,Глава %d
+I. Первые шаги,I. First Steps,I. Первые шаги
+Сруби дерево,Chop a Tree,Сруби дерево
+Собери древесину — первый ресурс выживания.,Gather wood — the first survival resource.,Собери древесину — первый ресурс выживания.
+Добыть древесину,Gather wood,Добыть древесину
+Доски и палки,Planks and sticks,Доски и палки
+Собери камни,Gather Stones,Собери камни
+Набей камней для первых инструментов.,Collect stones for your first tools.,Набей камней для первых инструментов.
+Добыть камень,Mine stone,Добыть камень
+Примитивные инструменты,Primitive tools,Примитивные инструменты
+Собери палки,Gather Sticks,Собери палки
+Подбери сухие ветки с земли для рукоятей первых инструментов.,Pick up dry branches from the ground for the handles of your first tools.,Подбери сухие ветки с земли для рукоятей первых инструментов.
+Собрать палки,Collect sticks,Собрать палки
+Рецепты: примитивный топор и каменная кирка,Recipes: primitive axe and stone pickaxe,Рецепты: примитивный топор и каменная кирка
+Примитивный топор,Primitive Axe,Примитивный топор
+Свяжи камень и палку — получи топор.,Bind a stone and a stick — get an axe.,Свяжи камень и палку — получи топор.
+Скрафтить топор,Craft an axe,Скрафтить топор
+Быстрая добыча дерева,Fast wood gathering,Быстрая добыча дерева
+Верстак,Workbench,Верстак
+Собери верстак — основу крафта.,Build a workbench — the foundation of crafting.,Собери верстак — основу крафта.
+Скрафтить верстак,Craft a workbench,Скрафтить верстак
+Базовые рецепты крафта,Basic crafting recipes,Базовые рецепты крафта
+Каменная кирка,Stone Pickaxe,Каменная кирка
+"Сделай кирку, чтобы добывать руду.",Make a pickaxe to mine ore.,"Сделай кирку, чтобы добывать руду."
+Скрафтить кирку,Craft a pickaxe,Скрафтить кирку
+Добыча руды,Ore mining,Добыча руды
+II. Руда и плавка,II. Ore and Smelting,II. Руда и плавка
+Первая руда,First Ore,Первая руда
+Добудь свою первую медную руду.,Mine your first copper ore.,Добудь свою первую медную руду.
+Добыть медную руду,Mine copper ore,Добыть медную руду
+Рецепт: Медный слиток,Recipe: Copper Ingot,Рецепт: Медный слиток
+Топливо для прогресса,Fuel for Progress,Топливо для прогресса
+Накопи уголь для плавки.,Stock up on coal for smelting.,Накопи уголь для плавки.
+Добыть уголь,Mine coal,Добыть уголь
+Рецепт: Каменная печь,Recipe: Stone Furnace,Рецепт: Каменная печь
+Первая печь,First Furnace,Первая печь
+Построй печь для плавки руды.,Build a furnace to smelt ore.,Построй печь для плавки руды.
+Скрафтить каменную печь,Craft a stone furnace,Скрафтить каменную печь
+Категория: Плавка,Category: Smelting,Категория: Плавка
+Рецепты печи,Furnace recipes,Рецепты печи
+Медный век,Copper Age,Медный век
+Выплавь медь из руды.,Smelt copper from ore.,Выплавь медь из руды.
+Выплавить медные слитки,Smelt copper ingots,Выплавить медные слитки
+Рецепты медных инструментов,Copper tool recipes,Рецепты медных инструментов
+III. Бронзовый век,III. Bronze Age,III. Бронзовый век
+Открытие олова,Tin Discovery,Открытие олова
+Найди и добудь оловянную руду.,Find and mine tin ore.,Найди и добудь оловянную руду.
+Добыть оловянную руду,Mine tin ore,Добыть оловянную руду
+Рецепт: Бронзовый слиток,Recipe: Bronze Ingot,Рецепт: Бронзовый слиток
+Начало бронзового века,The Bronze Age Begins,Начало бронзового века
+Соедини медь и олово в бронзовый сплав.,Combine copper and tin into a bronze alloy.,Соедини медь и олово в бронзовый сплав.
+Создать бронзовые слитки,Make bronze ingots,Создать бронзовые слитки
+Рецепты бронзовых инструментов,Bronze tool recipes,Рецепты бронзовых инструментов
+Бронзовая кирка,Bronze Pickaxe,Бронзовая кирка
+Улучши инструмент до бронзы.,Upgrade your tool to bronze.,Улучши инструмент до бронзы.
+Скрафтить бронзовую кирку,Craft a bronze pickaxe,Скрафтить бронзовую кирку
+Добыча железа,Iron mining,Добыча железа
+IV. Железный век,IV. Iron Age,IV. Железный век
+Железо под землёй,Iron Beneath,Железо под землёй
+Добудь железную руду из глубин.,Mine iron ore from the depths.,Добудь железную руду из глубин.
+Добыть железную руду,Mine iron ore,Добыть железную руду
+Рецепт: Железный слиток,Recipe: Iron Ingot,Рецепт: Железный слиток
+Сила железа,The Power of Iron,Сила железа
+Выплавь железо.,Smelt iron.,Выплавь железо.
+Выплавить железные слитки,Smelt iron ingots,Выплавить железные слитки
+Рецепты железных инструментов,Iron tool recipes,Рецепты железных инструментов
+Стальная кирка,Steel Pickaxe,Стальная кирка
+Создай прочную стальную кирку.,Craft a sturdy steel pickaxe.,Создай прочную стальную кирку.
+Скрафтить стальную кирку,Craft a steel pickaxe,Скрафтить стальную кирку
+Следующий технологический тир,Next technology tier,Следующий технологический тир
+V. Склад и механизмы,V. Storage and Mechanisms,V. Склад и механизмы
+Первое хранилище,First Storage,Первое хранилище
+Собери сундук для хранения.,Build a chest for storage.,Собери сундук для хранения.
+Скрафтить сундук Tier 1,Craft a Tier 1 chest,Скрафтить сундук Tier 1
+Рецепты улучшения сундуков,Chest upgrade recipes,Рецепты улучшения сундуков
+Организованный склад,Organized Warehouse,Организованный склад
+Заполни сундуки ресурсами.,Fill chests with resources.,Заполни сундуки ресурсами.
+Хранить предметы в сундуках,Store items in chests,Хранить предметы в сундуках
+Рецепт: Сундук Tier 2,Recipe: Tier 2 Chest,Рецепт: Сундук Tier 2
+Обработка металла,Metal Processing,Обработка металла
+Прокатай металл в пластины.,Roll metal into plates.,Прокатай металл в пластины.
+Скрафтить медные пластины,Craft copper plates,Скрафтить медные пластины
+Скрафтить железные пластины,Craft iron plates,Скрафтить железные пластины
+Рецепт: Шестерёнка,Recipe: Gear,Рецепт: Шестерёнка
+Механические детали,Mechanical Parts,Механические детали
+Изготовь шестерёнки для механизмов.,Make gears for mechanisms.,Изготовь шестерёнки для механизмов.
+Скрафтить шестерёнки,Craft gears,Скрафтить шестерёнки
+Категория: Промышленные компоненты,Category: Industrial Components,Категория: Промышленные компоненты
+Открывает Главу 2,Unlocks Chapter 2,Открывает Главу 2
+I. Производство корпусов,I. Casing Production,I. Производство корпусов
+Медный рудокоп,Copper Miner,Медный рудокоп
+Накопи меди для производства.,Stock up on copper for production.,Накопи меди для производства.
+Расширенная добыча,Expanded mining,Расширенная добыча
+Медные пластины,Copper Plates,Медные пластины
+Наладь выпуск пластин.,Set up plate production.,Наладь выпуск пластин.
+Рецепт: Базовый корпус машины,Recipe: Basic Machine Casing,Рецепт: Базовый корпус машины
+Корпус машины,Machine Casing,Корпус машины
+Собери первый корпус механизма.,Assemble your first machine casing.,Собери первый корпус механизма.
+Скрафтить базовый корпус,Craft a basic casing,Скрафтить базовый корпус
+Открывает Главу 3,Unlocks Chapter 3,Открывает Главу 3
+I. Сталь и корпуса,I. Steel and Casings,I. Сталь и корпуса
+Железная хватка,Iron Grip,Железная хватка
+Освой железо и сталь.,Master iron and steel.,Освой железо и сталь.
+Выплавить сталь,Smelt steel,Выплавить сталь
+Рецепты стали,Steel recipes,Рецепты стали
+Продвинутый корпус,Advanced Casing,Продвинутый корпус
+Собери усиленный корпус для электромашин.,Assemble a reinforced casing for electric machines.,Собери усиленный корпус для электромашин.
+Скрафтить продвинутый корпус,Craft an advanced casing,Скрафтить продвинутый корпус
+Открывает Главу 4,Unlocks Chapter 4,Открывает Главу 4
+I. Первый ток,I. First Current,I. Первый ток
+Первый ток,First Current,Первый ток
+Построй генератор и проведи кабель.,Build a generator and run a cable.,Построй генератор и проведи кабель.
+Скрафтить угольный генератор,Craft a coal generator,Скрафтить угольный генератор
+Проложить медный кабель,Lay copper cable,Проложить медный кабель
+Электросеть,Power grid,Электросеть
+Первая схема,First Circuit,Первая схема
+Спаяй базовую электронную схему.,Solder a basic electronic circuit.,Спаяй базовую электронную схему.
+Скрафтить схему T1,Craft a T1 circuit,Скрафтить схему T1
+Рецепты электромашин,Electric machine recipes,Рецепты электромашин
+II. Жидкости,II. Fluids,II. Жидкости
+Водоснабжение,Water Supply,Водоснабжение
+Собери первую систему перекачки и хранения воды.,Build your first water pumping and storage system.,Собери первую систему перекачки и хранения воды.
+Скрафтить водяную помпу,Craft a water pump,Скрафтить водяную помпу
+Скрафтить резервуар T1,Craft a T1 tank,Скрафтить резервуар T1
+Скрафтить жидкостные трубы,Craft fluid pipes,Скрафтить жидкостные трубы
+Перекачка воды,Water pumping,Перекачка воды
+Резервуары до 1000 л,Tanks up to 1000 L,Резервуары до 1000 л
+Чёрное золото,Black Gold,Чёрное золото
+Поставь начало нефтяной промышленности.,Kick off the oil industry.,Поставь начало нефтяной промышленности.
+Скрафтить нефтекачку,Craft an oil pump,Скрафтить нефтекачку
+Добыча сырой нефти,Crude oil extraction,Добыча сырой нефти
+III. Электроплавка,III. Electric Smelting,III. Электроплавка
+Электроплавка,Electric Smelting,Электроплавка
+Запусти электропечь.,Fire up the electric furnace.,Запусти электропечь.
+Скрафтить электропечь,Craft an electric furnace,Скрафтить электропечь
+Открыть электропечь,Open the electric furnace,Открыть электропечь
+Открывает Главу 5,Unlocks Chapter 5,Открывает Главу 5
+I. Солнце и переработка,I. Sun and Processing,I. Солнце и переработка
+Солнечный рассвет,Solar Dawn,Солнечный рассвет
+Перейди на энергию солнца.,Switch to solar power.,Перейди на энергию солнца.
+Скрафтить солнечную панель,Craft a solar panel,Скрафтить солнечную панель
+Открыть солнечную панель,Open the solar panel,Открыть солнечную панель
+Солнечная энергетика,Solar power,Солнечная энергетика
+Тяжёлая переработка,Heavy Processing,Тяжёлая переработка
+Запусти электрическую дробилку.,Fire up the electric crusher.,Запусти электрическую дробилку.
+Скрафтить дробилку,Craft a crusher,Скрафтить дробилку
+Открыть дробилку,Open the crusher,Открыть дробилку
+Удвоение руды,Ore doubling,Удвоение руды
+II. Схемы и нефть,II. Circuits and Oil,II. Схемы и нефть
+Продвинутые схемы,Advanced Circuits,Продвинутые схемы
+Освой схемы второго поколения.,Master second-generation circuits.,Освой схемы второго поколения.
+Скрафтить схему T2,Craft a T2 circuit,Скрафтить схему T2
+Рецепт ректификационной колонны,Distillation column recipe,Рецепт ректификационной колонны
+Фракционирование нефти,Oil Fractionation,Фракционирование нефти
+Собери колонну и запусти базовую переработку сырой нефти.,Build the column and start basic crude oil refining.,Собери колонну и запусти базовую переработку сырой нефти.
+Скрафтить ректификационную колонну,Craft a distillation column,Скрафтить ректификационную колонну
+Открыть ректификационную колонну,Open the distillation column,Открыть ректификационную колонну
+Газ,Gas,Газ
+Бензин,Gasoline,Бензин
+Керосин,Kerosene,Керосин
+Дизель,Diesel,Дизель
+Мазут,Heavy fuel oil,Мазут
+Битум,Bitumen,Битум
+III. Цифровое хранилище,III. Digital Storage,III. Цифровое хранилище
+Цифровая сеть,Digital Network,Цифровая сеть
+"Собери ME-сеть: контроллер (запитай его), накопитель с ячейкой и терминал.","Build an ME network: a controller (power it), a drive with a cell, and a terminal.","Собери ME-сеть: контроллер (запитай его), накопитель с ячейкой и терминал."
+Скрафтить ME Controller,Craft an ME Controller,Скрафтить ME Controller
+Скрафтить ME Drive,Craft an ME Drive,Скрафтить ME Drive
+Скрафтить ME-ячейку 1k,Craft a 1k ME cell,Скрафтить ME-ячейку 1k
+Скрафтить ME Terminal,Craft an ME Terminal,Скрафтить ME Terminal
+Бесконечное цифровое хранилище предметов,Infinite digital item storage,Бесконечное цифровое хранилище предметов
+Автоматизация ME,ME Automation,Автоматизация ME
+Свяжи сеть с машинами: шины импорта/экспорта и интерфейс.,Link the network to machines: import/export buses and an interface.,Свяжи сеть с машинами: шины импорта/экспорта и интерфейс.
+Скрафтить ME Import Bus,Craft an ME Import Bus,Скрафтить ME Import Bus
+Скрафтить ME Export Bus,Craft an ME Export Bus,Скрафтить ME Export Bus
+Скрафтить ME Interface,Craft an ME Interface,Скрафтить ME Interface
+Автоввод/вывод предметов в сеть,Auto item input/output to the network,Автоввод/вывод предметов в сеть
+IV. Защита от среды,IV. Environmental Protection,IV. Защита от среды
+Противогаз,Gas Mask,Противогаз
+Гниющие Топи и Первобытные Дебри отравляют воздух. Собери противогаз для безопасной добычи в этих секторах.,The Rotting Marsh and Primeval Thicket poison the air. Craft a gas mask to mine safely in those sectors.,Гниющие Топи и Первобытные Дебри отравляют воздух. Собери противогаз для безопасной добычи в этих секторах.
+Скрафтить противогаз,Craft a gas mask,Скрафтить противогаз
+Безопасный вход в Гниющие Топи и Первобытные Дебри,Safe entry into the Rotting Marsh and Primeval Thicket,Безопасный вход в Гниющие Топи и Первобытные Дебри
+Жаростойкий костюм,Heat Suit,Жаростойкий костюм
+Солнечный Каньон пышет жаром. Собери жаростойкий костюм для добычи в раскалённых секторах.,The Sun Canyon blazes with heat. Craft a heat suit to mine in scorching sectors.,Солнечный Каньон пышет жаром. Собери жаростойкий костюм для добычи в раскалённых секторах.
+Скрафтить жаростойкий костюм,Craft a heat suit,Скрафтить жаростойкий костюм
+Безопасный вход в Солнечный Каньон,Safe entry into the Sun Canyon,Безопасный вход в Солнечный Каньон
+Утеплённый костюм,Insulated Suit,Утеплённый костюм
+"Ледяная Бездна вымораживает. Собери утеплённый костюм, чтобы работать в морозных секторах.",The Frozen Abyss freezes everything. Craft an insulated suit to work in frigid sectors.,"Ледяная Бездна вымораживает. Собери утеплённый костюм, чтобы работать в морозных секторах."
+Скрафтить утеплённый костюм,Craft an insulated suit,Скрафтить утеплённый костюм
+Безопасный вход в Ледяную Бездну,Safe entry into the Frozen Abyss,Безопасный вход в Ледяную Бездну
+Открывает Главу 6,Unlocks Chapter 6,Открывает Главу 6
+I. Вершина технологий,I. Peak of Technology,I. Вершина технологий
+Промышленник,Industrialist,Промышленник
+Достигни вершины технологий.,Reach the peak of technology.,Достигни вершины технологий.
+Скрафтить промышленный корпус,Craft an industrial casing,Скрафтить промышленный корпус
+Скрафтить схему T3,Craft a T3 circuit,Скрафтить схему T3
+Промышленные резервуары,Industrial tanks,Промышленные резервуары
+Тысяча литров,A Thousand Liters,Тысяча литров
+Доведи резервуар до максимального практичного объёма.,Push a tank to its maximum practical capacity.,Доведи резервуар до максимального практичного объёма.
+Скрафтить резервуар T5,Craft a T5 tank,Скрафтить резервуар T5
+Резервуар на 1000 л,1000 L tank,Резервуар на 1000 л
+Механик Сэм,Mechanic Sam,Механик Сэм
+Механик,Mechanic,Механик
+"О, свежие руки! Тут, в центральном лесу, всё начинается с металла и первой автоматизации. Поможешь — научу паре трюков.","Oh, fresh hands! Here in the central forest, everything starts with metal and early automation. Lend a hand — I'll teach you a few tricks.","О, свежие руки! Тут, в центральном лесу, всё начинается с металла и первой автоматизации. Поможешь — научу паре трюков."
+Лесник Тэд,Forester Ted,Лесник Тэд
+Лесник,Forester,Лесник
+"Лес кормит и греет. Дерево, смола, волокно — всё в дело. Займёшься деревообработкой?","The forest feeds and warms. Wood, resin, fiber — all of it useful. Fancy some woodworking?","Лес кормит и греет. Дерево, смола, волокно — всё в дело. Займёшься деревообработкой?"
+Химик Борис,Chemist Boris,Химик Борис
+Химик,Chemist,Химик
+"Болото воняет? Это запах прогресса, друг. Здесь рождается химпром: трубы, помпы, газ.","The swamp stinks? That's the smell of progress, friend. This is where chemical industry is born: pipes, pumps, gas.","Болото воняет? Это запах прогресса, друг. Здесь рождается химпром: трубы, помпы, газ."
+Натуралист Лили,Naturalist Lily,Натуралист Лили
+Натуралист,Naturalist,Натуралист
+"Джунгли — фабрика природы. Собери каучук, а я покажу, как делать резину и быстрые ленты.","The jungle is nature's factory. Gather rubber sap, and I'll show you how to make rubber and fast belts.","Джунгли — фабрика природы. Собери каучук, а я покажу, как делать резину и быстрые ленты."
+Инженер Мороз,Engineer Frost,Инженер Мороз
+Инженер,Engineer,Инженер
+Холодно? Заводы встают на морозе. Строим бойлеры и теплотрассы — иначе тут не выжить.,Cold? Factories seize up in the frost. We build boilers and heat lines — or we don't survive here.,Холодно? Заводы встают на морозе. Строим бойлеры и теплотрассы — иначе тут не выжить.
+Шейх Кремний,Sheikh Silicon,Шейх Кремний
+Магнат,Magnate,Магнат
+Песок — это кремний. Кремний — это микросхемы. Микросхемы — это власть. Работаем?,Sand is silicon. Silicon is microchips. Microchips are power. Shall we work?,Песок — это кремний. Кремний — это микросхемы. Микросхемы — это власть. Работаем?
+Доктор Кислота,Doctor Acid,Доктор Кислота
+Токсиколог,Toxicologist,Токсиколог
+Кислотные дожди разъедают всё живое и неживое. Нужны стойкие материалы и герметичные цеха.,"Acid rain eats away everything, living and not. We need resistant materials and sealed workshops.",Кислотные дожди разъедают всё живое и неживое. Нужны стойкие материалы и герметичные цеха.
+Археолог Стерлинг,Archaeologist Sterling,Археолог Стерлинг
+Археолог,Archaeologist,Археолог
+Древние знали толк в технологиях. В этих руинах — квантовые схемы и энергия без потерь.,The ancients knew their technology. In these ruins lie quantum circuits and lossless energy.,Древние знали толк в технологиях. В этих руинах — квантовые схемы и энергия без потерь.
+Смотритель «Абсолют»,"Warden ""Absolute""",Смотритель «Абсолют»
+Смотритель,Warden,Смотритель
+Ниже −150°C обычные обогреватели бесполезны. Но холод открывает сверхпроводимость. И ядерное тепло.,Below −150°C ordinary heaters are useless. But cold unlocks superconductivity. And nuclear heat.,Ниже −150°C обычные обогреватели бесполезны. Но холод открывает сверхпроводимость. И ядерное тепло.
+Скрап-Рейнджер,Scrap Ranger,Скрап-Рейнджер
+Рейнджер,Ranger,Рейнджер
+"Метеоритные дожди рушат постройки, а под ногами — спекшееся кварцевое стекло. Нужны тяжёлые буры и щиты.","Meteor showers wreck buildings, and underfoot lies fused quartz glass. We need heavy drills and shields.","Метеоритные дожди рушат постройки, а под ногами — спекшееся кварцевое стекло. Нужны тяжёлые буры и щиты."
+Разведка недр,Prospecting,Разведка недр
+"Оцени, что скрывает лесная земля под ногами.",See what the forest soil hides beneath your feet.,"Оцени, что скрывает лесная земля под ногами."
+Первая плавильня,First Smeltery,Первая плавильня
+Наладь простейшую металлургию.,Set up the simplest metallurgy.,Наладь простейшую металлургию.
+Скрафтить печь,Craft a furnace,Скрафтить печь
+Лента пошла,Belt Rolling,Лента пошла
+Собери шестерни — сердце любой автоматизации.,Make gears — the heart of any automation.,Собери шестерни — сердце любой автоматизации.
+Ранний доступ: Конвейер T1,Early access: Conveyor T1,Ранний доступ: Конвейер T1
+Лесоруб,Lumberjack,Лесоруб
+"Лесу нужен уход, а тебе — древесина.","The forest needs tending, and you need wood.","Лесу нужен уход, а тебе — древесина."
+Смола и волокно,Resin and Fiber,Смола и волокно
+Собери органику для переработки.,Gather organics for processing.,Собери органику для переработки.
+Собрать древесную смолу,Collect tree resin,Собрать древесную смолу
+Собрать растительное волокно,Collect plant fiber,Собрать растительное волокно
+Заготовки впрок,Stocking Up,Заготовки впрок
+Обеспечь склад досками и ящиком.,Supply the warehouse with planks and a chest.,Обеспечь склад досками и ящиком.
+Скрафтить доски,Craft planks,Скрафтить доски
+Скрафтить сундук,Craft a chest,Скрафтить сундук
+Болотные пробы,Swamp Samples,Болотные пробы
+Возьми образцы болотных руд.,Take samples of swamp ores.,Возьми образцы болотных руд.
+Добыть серебряную руду,Mine silver ore,Добыть серебряную руду
+Добыть свинцовую руду,Mine lead ore,Добыть свинцовую руду
+Первые трубы,First Pipes,Первые трубы
+Проложи основу для перекачки жидкостей.,Lay the groundwork for pumping fluids.,Проложи основу для перекачки жидкостей.
+Болотный газ,Swamp Gas,Болотный газ
+Запусти первую перекачку.,Start your first pumping.,Запусти первую перекачку.
+Открыть помпу,Open the pump,Открыть помпу
+Ранний доступ: Нефтекачка,Early access: Oil Pump,Ранний доступ: Нефтекачка
+Сбор каучука,Rubber Tapping,Сбор каучука
+Надрежь деревья и собери латекс.,Tap the trees and collect latex.,Надрежь деревья и собери латекс.
+Собрать латекс,Collect latex,Собрать латекс
+Вулканизация,Vulcanization,Вулканизация
+Переработай латекс в резину.,Process latex into rubber.,Переработай латекс в резину.
+Скрафтить резину,Craft rubber,Скрафтить резину
+Скоростные ленты,Speed Belts,Скоростные ленты
+Собери детали для быстрых конвейеров.,Gather parts for fast conveyors.,Собери детали для быстрых конвейеров.
+Ранний доступ: Компрессор,Early access: Compressor,Ранний доступ: Компрессор
+Мерзлота,Permafrost,Мерзлота
+Пробей промёрзший грунт.,Break through the frozen ground.,Пробей промёрзший грунт.
+Собрать осколки льда,Collect ice shards,Собрать осколки льда
+Бойлерная,Boiler Room,Бойлерная
+Тепло начинается с печи и стали.,Warmth starts with a furnace and steel.,Тепло начинается с печи и стали.
+Теплотрасса,Heat Line,Теплотрасса
+Заготовь стальные плиты для обогрева.,Prepare steel plates for heating.,Заготовь стальные плиты для обогрева.
+Скрафтить стальные пластины,Craft steel plates,Скрафтить стальные пластины
+Ранний доступ: Угольный генератор,Early access: Coal Generator,Ранний доступ: Угольный генератор
+Пески богатств,Sands of Riches,Пески богатств
+Просей пустыню в поисках золота.,Sift the desert in search of gold.,Просей пустыню в поисках золота.
+Добыть золотую руду,Mine gold ore,Добыть золотую руду
+Собрать гравий,Collect gravel,Собрать гравий
+Микросхемы,Microchips,Микросхемы
+Спаяй первые схемы.,Solder your first circuits.,Спаяй первые схемы.
+Солнечные поля,Solar Fields,Солнечные поля
+Подготовь электронику для панелей.,Prepare electronics for the panels.,Подготовь электронику для панелей.
+Скрафтить электронную плату,Craft an electronic board,Скрафтить электронную плату
+Ранний доступ: Солнечная панель,Early access: Solar Panel,Ранний доступ: Солнечная панель
+Кислотный конденсат,Acid Condensate,Кислотный конденсат
+Добудь стойкую руду сквозь ядовитый туман.,Mine resistant ore through the toxic fog.,Добудь стойкую руду сквозь ядовитый туман.
+Добыть мифриловую руду,Mine mythril ore,Добыть мифриловую руду
+Герметичные цеха,Sealed Workshops,Герметичные цеха
+Защити дыхание — собери противогаз.,Protect your breathing — craft a gas mask.,Защити дыхание — собери противогаз.
+Нейтрализация,Neutralization,Нейтрализация
+Наладь выпуск кислотостойкого пластика.,Set up production of acid-resistant plastic.,Наладь выпуск кислотостойкого пластика.
+Скрафтить пластик,Craft plastic,Скрафтить пластик
+Древние жилы,Ancient Veins,Древние жилы
+"Вскрой залежи, скрытые монолитами.",Open the deposits hidden by monoliths.,"Вскрой залежи, скрытые монолитами."
+Добыть титановую руду,Mine titanium ore,Добыть титановую руду
+Добыть платиновую руду,Mine platinum ore,Добыть платиновую руду
+Квантовые процессоры,Quantum Processors,Квантовые процессоры
+Собери схемы уровня древних.,Assemble circuits of ancient caliber.,Собери схемы уровня древних.
+Энерго-пилоны,Energy Pylons,Энерго-пилоны
+Изготовь высшую схему для пилонов.,Make the highest-tier circuit for the pylons.,Изготовь высшую схему для пилонов.
+Абсолютный холод,Absolute Cold,Абсолютный холод
+Добудь топливо для реактора.,Mine fuel for the reactor.,Добудь топливо для реактора.
+Добыть урановую руду,Mine uranium ore,Добыть урановую руду
+Сверхпроводник,Superconductor,Сверхпроводник
+Холод открывает нулевое сопротивление.,Cold unlocks zero resistance.,Холод открывает нулевое сопротивление.
+Скрафтить электрумовый провод,Craft electrum wire,Скрафтить электрумовый провод
+Ядерное тепло,Nuclear Heat,Ядерное тепло
+Переработай уран для реактора.,Process uranium for the reactor.,Переработай уран для реактора.
+Обработать уран,Process uranium,Обработать уран
+Спекшееся стекло,Fused Glass,Спекшееся стекло
+Выдержи жар — собери жаростойкий костюм.,Endure the heat — craft a heat suit.,Выдержи жар — собери жаростойкий костюм.
+Тяжёлые буры,Heavy Drills,Тяжёлые буры
+Обычные буры кварц не берут — нужен стальной.,Ordinary drills won't cut quartz — you need a steel one.,Обычные буры кварц не берут — нужен стальной.
+Скрафтить стальной бур,Craft a steel drill,Скрафтить стальной бур
+Орбитальный щит,Orbital Shield,Орбитальный щит
+Собери каркас и схему для силового щита.,Assemble the frame and circuit for a force shield.,Собери каркас и схему для силового щита.
+Задания NPC  ▾,NPC Quests  ▾,Задания NPC  ▾
+Помогите жителям биомов и заберите награду у них,Help the biome dwellers and claim your reward from them,Помогите жителям биомов и заберите награду у них
+Глава %d: %s%s  ▾,Chapter %d: %s%s  ▾,Глава %d: %s%s  ▾
+ВЫБОР ГЛАВЫ,SELECT CHAPTER,ВЫБОР ГЛАВЫ
+Глава %d: %s%s,Chapter %d: %s%s,Глава %d: %s%s
+Задания NPC,NPC Quests,Задания NPC
+ВЕСЬ ПУТЬ,THE WHOLE PATH,ВЕСЬ ПУТЬ
+Весь путь,Whole Path,Весь путь
+ЦЕЛИ,OBJECTIVES,ЦЕЛИ
+НАГРАДА,REWARD,НАГРАДА
+ОТКРЫВАЕТ,UNLOCKS,ОТКРЫВАЕТ
+"Подойдите к NPC и нажмите F, чтобы сдать задание.",Approach the NPC and press F to hand in the quest.,"Подойдите к NPC и нажмите F, чтобы сдать задание."
+Выполнено,Completed,Выполнено
+Готово к сдаче,Ready to hand in,Готово к сдаче
+Доступно,Available,Доступно
+В процессе,In progress,В процессе
+Заблокировано,Locked,Заблокировано
+Сначала выполните предыдущее задание.,Complete the previous quest first.,Сначала выполните предыдущее задание.
+Награда: ,Reward: ,Награда: 
+Сдать задание,Hand in quest,Сдать задание
+✓ Выполнено,✓ Completed,✓ Выполнено
+"✦ Задание выполнено, награда получена.","✦ Quest complete, reward claimed.","✦ Задание выполнено, награда получена."
+II. Сила пара,II. Steam Power,II. Сила пара
+Бронзовый прокат,Bronze Rolling,Бронзовый прокат
+Прокатай бронзу в пластины — материал паровых машин.,Roll bronze into plates — the material of steam machines.,Прокатай бронзу в пластины — материал паровых машин.
+Скрафтить бронзовые пластины,Craft bronze plates,Скрафтить бронзовые пластины
+Рецепты паровых машин,Steam machine recipes,Рецепты паровых машин
+Паровой котёл,Steam Boiler,Паровой котёл
+"Собери котёл, залей воду и разожги уголь — получи пар.","Build the boiler, add water and light the coal — get steam.","Собери котёл, залей воду и разожги уголь — получи пар."
+Скрафтить паровой котёл,Craft a steam boiler,Скрафтить паровой котёл
+Пар — энергия до электричества,Steam — power before electricity,Пар — энергия до электричества
+Машины на пару,Machines on Steam,Машины на пару
+Подведи пар по трубам к первым машинам.,Pipe steam into your first machines.,Подведи пар по трубам к первым машинам.
+Скрафтить паровую дробилку,Craft a steam crusher,Скрафтить паровую дробилку
+Скрафтить паровую печь,Craft a steam furnace,Скрафтить паровую печь
+Удвоение руды без электричества,Ore doubling without electricity,Удвоение руды без электричества
+Паровой пресс,Steam Press,Паровой пресс
+Пресс катает 2 пластины из одного слитка.,The press rolls 2 plates from a single ingot.,Пресс катает 2 пластины из одного слитка.
+Скрафтить паровой пресс,Craft a steam press,Скрафтить паровой пресс
+Дешёвые пластины для корпусов,Cheap plates for casings,Дешёвые пластины для корпусов
+IV. Компоненты,IV. Components,IV. Компоненты
+Очистка резонита,Resonite Purification,Очистка резонита
+Прогрей резонитовые осколки в любой печи: примеси выгорят и кристалл подойдёт для схем T2 и терминалов.,Heat resonite shards in any furnace to burn away impurities and prepare the crystal for Tier 2 circuits and terminals.,Прогрей резонитовые осколки в любой печи: примеси выгорят и кристалл подойдёт для схем T2 и терминалов.
+Получить очищенный резонит,Obtain purified resonite,Получить очищенный резонит
+Рецепт: Магнитный стержень,Recipe: Magnetic Rod,Рецепт: Магнитный стержень
+Электромоторы,Electric Motors,Электромоторы
+Намагниченный стержень плюс провод — сердце любой машины.,A magnetized rod plus wire — the heart of every machine.,Намагниченный стержень плюс провод — сердце любой машины.
+Скрафтить магнитный стержень,Craft a magnetic rod,Скрафтить магнитный стержень
+Скрафтить электромотор T1,Craft an electric motor T1,Скрафтить электромотор T1
+"Моторы, насосы, поршни — детали машин","Motors, pumps, pistons — machine parts","Моторы, насосы, поршни — детали машин"
+Паровая турбина,Steam Turbine,Паровая турбина
+Поставь турбину вплотную к котлу или баку с паром — пар станет током.,Place the turbine next to a boiler or steam tank — steam becomes power.,Поставь турбину вплотную к котлу или баку с паром — пар станет током.
+Скрафтить паровую турбину,Craft a steam turbine,Скрафтить паровую турбину
+Пар превращается в EU,Steam turns into EU,Пар превращается в EU
+III. Кокс и сталь,III. Coke and Steel,III. Кокс и сталь
+Коксовая печь,Coke Oven,Коксовая печь
+Сложи печь из огнеупорного кирпича и пережги уголь в кокс.,Build an oven from refractory bricks and bake coal into coke.,Сложи печь из огнеупорного кирпича и пережги уголь в кокс.
+Скрафтить коксовую печь,Craft a coke oven,Скрафтить коксовую печь
+Получить кокс,Obtain coke,Получить кокс
+Кокс — топливо вдвое лучше угля,Coke — fuel twice as good as coal,Кокс — топливо вдвое лучше угля
+Креозот — жидкое топливо котла,Creosote — liquid boiler fuel,Креозот — жидкое топливо котла
+Настоящая сталь,Real Steel,Настоящая сталь
+"Сталь не плавится в обычной печи: только домна, только кокс.","Steel does not smelt in a regular furnace: blast furnace and coke only.","Сталь не плавится в обычной печи: только домна, только кокс."
+Скрафтить примитивную домну,Craft a primitive blast furnace,Скрафтить примитивную домну
+Выплавить сталь в домне,Smelt steel in the blast furnace,Выплавить сталь в домне
+Сталь — материал следующего тира,Steel — the next tier material,Сталь — материал следующего тира
+IV. Полная переработка,IV. Full Processing,IV. Полная переработка
+Промывка руды,Ore Washing,Промывка руды
+Скрафтить промывочную машину,Craft an ore washer,Скрафтить промывочную машину
+Промой железную руду и получи обычную железную пыль.,Wash iron ore and obtain regular iron dust.,Промой железную руду и получи обычную железную пыль.
+Побочные металлы из руды,Byproduct metals from ore,Побочные металлы из руды
+Центрифуга,Centrifuge,Центрифуга
+Разделяй сырую руду на основную и побочную металлическую пыль.,Separate raw ore into primary and byproduct metal dust.,Разделяй сырую руду на основную и побочную металлическую пыль.
+Скрафтить центрифугу,Craft a centrifuge,Скрафтить центрифугу
+Получить железную пыль,Obtain iron dust,Получить железную пыль
+Максимальный выход из каждой жилы,Maximum yield from every vein,Максимальный выход из каждой жилы
+I. Железный прокат,I. Iron Rolling,I. Железный прокат
+I. Медная промышленность,I. Copper Industry,I. Медная промышленность
+I. Промышленное ядро,I. Industrial Core,I. Промышленное ядро
+I. Солнечная энергия,I. Solar Power,I. Солнечная энергия
+II. Дробилка и резонит,II. Crusher and Resonite,II. Дробилка и резонит
+II. Компоненты третьего тира,II. Tier 3 Components,II. Компоненты третьего тира
+II. Пластик и электроника,II. Plastic and Electronics,II. Пластик и электроника
+II. Прокат и детали,II. Rolling and Parts,II. Прокат и детали
+II. Стальные детали,II. Steel Parts,II. Стальные детали
+III. Вычислительный центр,III. Computing Center,III. Вычислительный центр
+III. Каркасы машин,III. Machine Frames,III. Каркасы машин
+III. Компоненты машин,III. Machine Components,III. Компоненты машин
+III. Машины второго тира,III. Tier 2 Machines,III. Машины второго тира
+III. Сила пара,III. Steam Power,III. Сила пара
+IV. Железо под землёй,IV. Iron Underground,IV. Железо под землёй
+IV. Жидкости,IV. Fluids,IV. Жидкости
+IV. Кокс и сталь,IV. Coke and Steel,IV. Кокс и сталь
+IV. Логистика,IV. Logistics,IV. Логистика
+IV. Энергия будущего,IV. Energy of the Future,IV. Энергия будущего
+IX. Защита и материалы,IX. Protection and Materials,IX. Защита и материалы
+ME-магистраль,ME Backbone,ME-магистраль
+V. Буровая техника,V. Drilling Rigs,V. Буровая техника
+V. Глубокая переработка,V. Deep Processing,V. Глубокая переработка
+V. Пар в ток,V. Steam to Power,V. Пар в ток
+V. Стальные инструменты,V. Steel Tools,V. Стальные инструменты
+V. Титановые буры и мифрил,V. Titanium Drills and Mythril,V. Титановые буры и мифрил
+V. Хранение,V. Storage,V. Хранение
+VI. Драгоценные жилы,VI. Precious Veins,VI. Драгоценные жилы
+VI. Молекулярные технологии,VI. Molecular Technology,VI. Молекулярные технологии
+VI. Первая механизация,VI. First Mechanization,VI. Первая механизация
+VI. Плавильня и литьё,VI. Melting and Casting,VI. Плавильня и литьё
+VII. Жидкостные сплавы,VII. Liquid Alloys,VII. Жидкостные сплавы
+VII. Нефть и жидкости,VII. Oil and Fluids,VII. Нефть и жидкости
+VIII. Легенда,VIII. Legend,VIII. Легенда
+VIII. Цифровое хранилище,VIII. Digital Storage,VIII. Цифровое хранилище
+Ёмкие батареи,High-Capacity Batteries,Ёмкие батареи
+Ёмкие ячейки,Roomy Cells,Ёмкие ячейки
+Абсолютная панель,Ultimate Panel,Абсолютная панель
+Автоввод/вывод предметов,Auto item input/output,Автоввод/вывод предметов
+Автокрафт прямо в ME-сети.,Autocrafting right inside the ME network.,Автокрафт прямо в ME-сети.
+Автоматизация крафта,Crafting automation,Автоматизация крафта
+Автоматизируй грядки фермстанцией.,Automate your crops with a farming station.,Автоматизируй грядки фермстанцией.
+Автоматическая добыча,Automatic mining,Автоматическая добыча
+Автоматическая логистика,Automatic logistics,Автоматическая логистика
+Автоматический крафт,Automatic crafting,Автоматический крафт
+Автоферма,Auto farm,Автоферма
+Аккумуляторы,Accumulators,Аккумуляторы
+Амортизация механизмов,Machine shock absorption,Амортизация механизмов
+Аккумуляторы T2,Tier 2 Accumulators,Аккумуляторы T2
+Аккумуляторы T3,Tier 3 Accumulators,Аккумуляторы T3
+Ёмкие аккумуляторы,High-Capacity Accumulators,Ёмкие аккумуляторы
+"Бензин, керосин, дизель","Gasoline, kerosene, diesel","Бензин, керосин, дизель"
+Бесконечная вода,Infinite water,Бесконечная вода
+Бесконечный камень,Infinite stone,Бесконечный камень
+Бесконечный камень без кирки.,Infinite stone without a pickaxe.,Бесконечный камень без кирки.
+Бесперебойная плавка,Uninterrupted smelting,Бесперебойная плавка
+Бесплатная энергия днём,Free energy by day,Бесплатная энергия днём
+Бесплатные металлы,Free metals,Бесплатные металлы
+Бетонный завод,Concrete Plant,Бетонный завод
+Богатая плавка,Richer melting,Богатая плавка
+Больше слотов,More slots,Больше слотов
+Большие резервуары,Big Tanks,Большие резервуары
+Большой склад,Big Warehouse,Большой склад
+Бронза держит заточку лучше камня.,Bronze holds an edge better than stone.,Бронза держит заточку лучше камня.
+Бронзовая головка,Bronze Drill Head,Бронзовая головка
+Бронзовые болты для паровой техники.,Bronze bolts for steam machinery.,Бронзовые болты для паровой техники.
+Бронзовые инструменты,Bronze tools,Бронзовые инструменты
+Бронзовые кольца,Bronze Rings,Бронзовые кольца
+Бронзовые пружины,Bronze Springs,Бронзовые пружины
+Бронзовые стержни,Bronze Rods,Бронзовые стержни
+Бронзовые трубы,Bronze Pipes,Бронзовые трубы
+Бронзовый бур,Bronze Drill,Бронзовый бур
+Бронзовый запас,Bronze Reserve,Бронзовый запас
+Бронзовый клинок,Bronze Blade,Бронзовый клинок
+Бронзовый крепёж,Bronze Fasteners,Бронзовый крепёж
+Бронзовый ротор,Bronze Rotor,Бронзовый ротор
+Бронзовый топор,Bronze Axe,Бронзовый топор
+Бур в работе,Drill at Work,Бур в работе
+Бур второго тира,Tier 2 drill,Бур второго тира
+Бур пятого тира,Tier 5 drill,Бур пятого тира
+Бур четвёртого тира,Tier 4 drill,Бур четвёртого тира
+Буровая площадка,Drilling Site,Буровая площадка
+Быстрая добыча руды,Faster ore mining,Быстрая добыча руды
+Быстрая логистика,Fast logistics,Быстрая логистика
+Быстрая плавка,Fast smelting,Быстрая плавка
+Быстрая рубка леса,Faster woodcutting,Быстрая рубка леса
+Быстрое удвоение руды,Fast ore doubling,Быстрое удвоение руды
+Валы и оси,Shafts and axles,Валы и оси
+Вдвое больше EU,Twice the EU,Вдвое больше EU
+Верстак и сундуки,Workbench and chests,Верстак и сундуки
+Вершина буровой техники — он берёт даже мифрил.,The pinnacle of drilling — it even breaks mythril.,Вершина буровой техники — он берёт даже мифрил.
+Вершина вычислений,The peak of computing,Вершина вычислений
+Вершина машиностроения,The peak of machine engineering,Вершина машиностроения
+Вода в дело,Water to Work,Вода в дело
+Водяные и нефтяные помпы,Water and oil pumps,Водяные и нефтяные помпы
+Возобновляемая древесина,Renewable wood,Возобновляемая древесина
+Выкуй простой меч — в мире есть кому огрызаться.,Forge a simple sword — this world bites back.,Выкуй простой меч — в мире есть кому огрызаться.
+Выкуй стальной клинок.,Forge a steel blade.,Выкуй стальной клинок.
+Выкуй стальные формы для литья. Они не расходуются.,Forge steel casting molds. They are never consumed.,Выкуй стальные формы для литья. Они не расходуются.
+Выплави кремний из песка и угольной пыли.,Smelt silicon from sand and coal dust.,Выплави кремний из песка и угольной пыли.
+Выплавить золото,Smelt gold,Выплавить золото
+Выплавить мифрил,Smelt mythril,Выплавить мифрил
+Выплавить олово,Smelt tin,Выплавить олово
+Выплавить серебро,Smelt silver,Выплавить серебро
+Выплавить стекло,Smelt glass,Выплавить стекло
+Выплавить титан,Smelt titanium,Выплавить титан
+Выплавка стали,Steel smelting,Выплавка стали
+Выплавь мифрил.,Smelt mythril.,Выплавь мифрил.
+Выплавь олово — вторая половина бронзы.,Smelt tin — the other half of bronze.,Выплавь олово — вторая половина бронзы.
+Выплавь титан.,Smelt titanium.,Выплавь титан.
+Вырежи тотем — лес будет расти сам.,Carve a totem — the forest will grow on its own.,Вырежи тотем — лес будет расти сам.
+Выточи буровую головку из бронзы.,Machine a drill head out of bronze.,Выточи буровую головку из бронзы.
+Выточи буровую головку из титана.,Machine a drill head out of titanium.,Выточи буровую головку из титана.
+Выточи малые бронзовые шестерни.,Machine small bronze gears.,Выточи малые бронзовые шестерни.
+Выточи малые шестерни из стали.,Machine small gears out of steel.,Выточи малые шестерни из стали.
+Вытрави кристалл на кремниевой пластине.,Etch a die onto a silicon wafer.,Вытрави кристалл на кремниевой пластине.
+Вытяни бронзовые стержни.,Draw bronze rods.,Вытяни бронзовые стержни.
+Вытяни железо в стержни.,Draw iron into rods.,Вытяни железо в стержни.
+Вытяни золото в провод — лучший проводник.,Draw gold into wire — the finest conductor.,Вытяни золото в провод — лучший проводник.
+Вытяни золото в стержни для тонкой электроники.,Draw gold into rods for fine electronics.,Вытяни золото в стержни для тонкой электроники.
+Вытяни медь в провод — пригодится задолго до электричества.,Draw copper into wire — useful long before electricity.,Вытяни медь в провод — пригодится задолго до электричества.
+Вытяни стальные стержни.,Draw steel rods.,Вытяни стальные стержни.
+Вытяни электрум в провод для схем T3.,Draw electrum into wire for Tier 3 circuits.,Вытяни электрум в провод для схем T3.
+Вычислительные машины,Computing machines,Вычислительные машины
+Генератор булыжника,Cobblestone Generator,Генератор булыжника
+Генератору нужно что-то жечь. Много.,The generator needs something to burn. A lot of it.,Генератору нужно что-то жечь. Много.
+Гибридная энергетика,Hybrid energy,Гибридная энергетика
+Гидравлика T2,Tier 2 Hydraulics,Гидравлика T2
+Гидравлика T3,Tier 3 Hydraulics,Гидравлика T3
+Гравийные работы,Gravel Works,Гравийные работы
+Дальше — путь к Infinity,Next stop — the road to Infinity,Дальше — путь к Infinity
+Двойная пыль,Double Dust,Двойная пыль
+Двойная пыль в центрифуге,Double dust in the centrifuge,Двойная пыль в центрифуге
+Двойной выход,Double Yield,Двойной выход
+Деревянное ведро,Wooden Bucket,Деревянное ведро
+Детали высоких нагрузок,Heavy-duty parts,Детали высоких нагрузок
+Детали механизмов,Machine parts,Детали механизмов
+Детали насосов,Pump parts,Детали насосов
+Дешёвые пластины,Cheap plates,Дешёвые пластины
+Добудь платину и раскатай её в пластины.,Mine platinum and roll it into plates.,Добудь платину и раскатай её в пластины.
+Добудь уран — топливо далёкого будущего.,Mine uranium — fuel of the distant future.,Добудь уран — топливо далёкого будущего.
+"Добыча золота, серебра и титана","Mining gold, silver and titanium","Добыча золота, серебра и титана"
+Добыча мифрила,Mythril mining,Добыча мифрила
+Добыча руды 2 уровня,Level 2 ore mining,Добыча руды 2 уровня
+Добыча руды 4 уровня,Level 4 ore mining,Добыча руды 4 уровня
+Добыча руды и угля,Mining ore and coal,Добыча руды и угля
+Доведи резервуар до максимального объёма.,Upgrade the tank to its maximum volume.,Доведи резервуар до максимального объёма.
+Доведи сундук до третьего уровня.,Upgrade the chest to tier three.,Доведи сундук до третьего уровня.
+Домна и котлы жгут топливо безостановочно.,The blast furnace and boilers burn fuel non-stop.,Домна и котлы жгут топливо безостановочно.
+Доступ в опасные зоны,Access to hazardous zones,Доступ в опасные зоны
+Дробилка под током,Crusher Powered Up,Дробилка под током
+Дробление камня и руды,Crushing stone and ore,Дробление камня и руды
+Дробилка превращает руду в готовую к плавке металлическую пыль.,The crusher turns ore into metal dust ready for smelting.,Дробилка превращает руду в готовую к плавке металлическую пыль.
+Дровосек,Lumberjack,Дровосек
+Железная пыль,Iron Dust,Железная пыль
+Железные блоки,Iron Blocks,Железные блоки
+Железные болты,Iron Bolts,Железные болты
+Железные изделия,Iron goods,Железные изделия
+Железные пружины,Iron Springs,Железные пружины
+Железные слитки,Iron ingots,Железные слитки
+Железные стержни,Iron Rods,Железные стержни
+Железный запас,Iron Reserve,Железный запас
+Железный прокат,Iron rolling,Железный прокат
+Железо плюс два кокса — и домна выдаст сталь.,Iron plus two coke — and the blast furnace yields steel.,Железо плюс два кокса — и домна выдаст сталь.
+Жидкая бронза и электрум,Liquid bronze and electrum,Жидкая бронза и электрум
+Жидкий металл (90 л = слиток),Molten metal (90 L = one ingot),Жидкий металл (90 л = слиток)
+Жидкости в цифре,Fluids Go Digital,Жидкости в цифре
+Заведи жидкостную ячейку — нефть тоже можно хранить в сети.,Set up a fluid cell — even oil can live in the network.,Заведи жидкостную ячейку — нефть тоже можно хранить в сети.
+Заверши комплект лесоруба.,Complete the lumberjack's kit.,Заверши комплект лесоруба.
+Загрузи топливо и дай ток.,Load fuel and switch on the current.,Загрузи топливо и дай ток.
+Загрузи уголь в коксовую печь и жди.,Load coal into the coke oven and wait.,Загрузи уголь в коксовую печь и жди.
+Задел на индустриализацию,A head start on industrialization,Задел на индустриализацию
+Задел на машины,A head start on machines,Задел на машины
+Задел на паровую эру,A head start on the steam era,Задел на паровую эру
+Задел на схемы,A head start on circuits,Задел на схемы
+Задел на ядерную эру,A head start on the nuclear era,Задел на ядерную эру
+Закалка стали,Steel Quenching,Закалка стали
+Залей нефть и запусти колонну.,Pour in crude oil and start the column.,Залей нефть и запусти колонну.
+Замеси огнеупорный кирпич из камня и угольной пыли.,Mix refractory bricks from stone and coal dust.,Замеси огнеупорный кирпич из камня и угольной пыли.
+Замешай бетон из гравия и воды в реакторе.,Mix concrete from gravel and water in the reactor.,Замешай бетон из гравия и воды в реакторе.
+Запас досок на стройку,Plank supply for construction,Запас досок на стройку
+Запас железа,Iron supply,Запас железа
+Запас олова,Tin supply,Запас олова
+Запас энергии на ночь,Energy stored for the night,Запас энергии на ночь
+Запуск генератора,Generator Startup,Запуск генератора
+Запуск реактора,Reactor Startup,Запуск реактора
+"Запусти котёл: топливо вниз, вода в бак.","Start the boiler: fuel below, water in the tank.","Запусти котёл: топливо вниз, вода в бак."
+Запусти турбину и проверь выработку.,Start the turbine and check its output.,Запусти турбину и проверь выработку.
+Запусти электропечь — плавка без топлива.,Start the electric furnace — smelting without fuel.,Запусти электропечь — плавка без топлива.
+Защита от врагов,Protection from enemies,Защита от врагов
+Золотая лихорадка,Gold Rush,Золотая лихорадка
+Золотая пыль в бонус,Bonus gold dust,Золотая пыль в бонус
+Золото для электроники,Gold for electronics,Золото для электроники
+Золотые контактные пружины.,Gold contact springs.,Золотые контактные пружины.
+Золотые провода,Gold Wires,Золотые провода
+Золотые пружины,Gold Springs,Золотые пружины
+Золотые слитки,Gold Ingots,Золотые слитки
+Золотые стержни,Gold Rods,Золотые стержни
+Зрение машин,Machine vision,Зрение машин
+Изготовь большие шестерни для механизмов.,Make large gears for machinery.,Изготовь большие шестерни для механизмов.
+Излучатели машин,Machine emitters,Излучатели машин
+Изолированные провода,Insulated Wires,Изолированные провода
+Империя машин работает на тебя. Впереди — бесконечность.,An empire of machines works for you. Infinity lies ahead.,Империя машин работает на тебя. Впереди — бесконечность.
+Импульсная энергия,Pulse energy,Импульсная энергия
+Инвентаризация,Taking Inventory,Инвентаризация
+Индукционная плавильня,Induction Melter,Индукционная плавильня
+Интерфейс дробилки,Crusher interface,Интерфейс дробилки
+Интерфейс плавки,Smelting interface,Интерфейс плавки
+Интерфейс хранилища,Storage interface,Интерфейс хранилища
+К свету,Into the Light,К свету
+Каменотёс,Stonecutter,Каменотёс
+"Камень нужен всегда: печи, механизмы, постройки.","Stone is always needed: furnaces, machines, buildings.","Камень нужен всегда: печи, механизмы, постройки."
+Каркас машины,Machine Frame,Каркас машины
+Катушки,Coils,Катушки
+Качай нефть,Pump the Oil,Качай нефть
+Квантовые технологии,Quantum technology,Квантовые технологии
+Квантовый процессор,Quantum Processor,Квантовый процессор
+Кодекс,Codex,Кодекс
+Кокс и креозот,Coke and creosote,Кокс и креозот
+Коксовая пыль,Coke Dust,Коксовая пыль
+Кольца и роторы,Rings and rotors,Кольца и роторы
+Компактное хранение,Compact storage,Компактное хранение
+Компактное хранение меди,Compact copper storage,Компактное хранение меди
+Композитные материалы,Composite materials,Композитные материалы
+Компонент бронзы,A component of bronze,Компонент бронзы
+Компоненты T2,Tier 2 components,Компоненты T2
+Компоненты T3,Tier 3 components,Компоненты T3
+Компрессор,Compressor,Компрессор
+Компьютер,Computer,Компьютер
+Компьютеры,Computers,Компьютеры
+Конвейер,Conveyor,Конвейер
+Конвейер руды,Ore Conveyor,Конвейер руды
+Конвейерные модули,Conveyor Modules,Конвейерные модули
+Конвейерные модули второго тира.,Tier 2 conveyor modules.,Конвейерные модули второго тира.
+Конвейерные модули высшего тира.,Top-tier conveyor modules.,Конвейерные модули высшего тира.
+Конвейеры T3,Tier 3 Conveyors,Конвейеры T3
+Конвейеры T4,Tier 4 Conveyors,Конвейеры T4
+Конвейеры T5,Tier 5 Conveyors,Конвейеры T5
+Конденсаторы,Capacitors,Конденсаторы
+Конденсаторы T3,Tier 3 Capacitors,Конденсаторы T3
+Конденсаторы высшего класса.,Top-class capacitors.,Конденсаторы высшего класса.
+Контакты приборов,Instrument contacts,Контакты приборов
+Корпус аккумулятора,Accumulator Casing,Корпус аккумулятора
+Корпуса и буры,Casings and drills,Корпуса и буры
+Корпуса и котлы,Casings and boilers,Корпуса и котлы
+Корпуса машин,Machine casings,Корпуса машин
+Крафт из сети,Crafting from the Network,Крафт из сети
+Крафт из хранилища,Crafting from storage,Крафт из хранилища
+Кремниевые пластины,Silicon Wafers,Кремниевые пластины
+Креозот в бонус,Bonus creosote,Креозот в бонус
+Крепкое хозяйство,A solid homestead,Крепкое хозяйство
+Крепёж высокого тира,High-tier fasteners,Крепёж высокого тира
+Крепёж для машин,Fasteners for machines,Крепёж для машин
+Кристалл процессора,CPU Die,Кристалл процессора
+Кристальный процессор,Crystal Processor,Кристальный процессор
+Крути ручку,Turn the Crank,Крути ручку
+Легенда индустрии,Legend of Industry,Легенда индустрии
+Легендарный металл,Legendary metal,Легендарный металл
+Литейные формы,Casting Molds,Литейные формы
+Литой электрум,Cast Electrum,Литой электрум
+Литьё деталей из расплава,Casting parts from molten metal,Литьё деталей из расплава
+Литьё и химия,Casting and chemistry,Литьё и химия
+Лёгкая броня и фильтры,Light armor and filters,Лёгкая броня и фильтры
+Магнитная сепарация,Magnetic separation,Магнитная сепарация
+Магнитное поле,Magnetic Field,Магнитное поле
+Магнитные стержни,Magnetic Rods,Магнитные стержни
+Магнитный сепаратор,Magnetic Separator,Магнитный сепаратор
+Магнитный стержень плюс провод — сердце любой машины.,A magnetic rod plus wire — the heart of every machine.,Магнитный стержень плюс провод — сердце любой машины.
+Максимальная скорость рубки,Maximum chopping speed,Максимальная скорость рубки
+Максимальная ячейка хранения.,The largest storage cell.,Максимальная ячейка хранения.
+Максимальный выход железа,Maximum iron yield,Максимальный выход железа
+Максимальный выход меди,Maximum copper yield,Максимальный выход меди
+Максимальный выход мифрила,Maximum mythril yield,Максимальный выход мифрила
+Максимум из каждой жилы,The most out of every vein,Максимум из каждой жилы
+Максимум логистики,Peak logistics,Максимум логистики
+Максимум слотов,Maximum slots,Максимум слотов
+Максимум ёмкости,Maximum capacity,Максимум ёмкости
+Малые стальные шестерни,Small Steel Gears,Малые стальные шестерни
+Малые шестерни,Small Gears,Малые шестерни
+Манипулятор T3,Tier 3 Robotic Arm,Манипулятор T3
+Манипуляторы,Robotic Arms,Манипуляторы
+Манипуляторы T2,Tier 2 Robotic Arms,Манипуляторы T2
+Массовая плавка,Mass smelting,Массовая плавка
+Масштабная генерация,Large-scale generation,Масштабная генерация
+Материал высшего тира,Top-tier material,Материал высшего тира
+Материал для печей,Material for furnaces,Материал для печей
+Материал для ткани,Material for cloth,Материал для ткани
+Материал коксовой печи и домны,Material for the coke oven and blast furnace,Материал коксовой печи и домны
+"Материал паровых корпусов, коксовой печи и домны","Material for steam casings, the coke oven, and blast furnace","Материал паровых корпусов, коксовой печи и домны"
+Материал легенд,The stuff of legends,Материал легенд
+Материал нового тира,A new tier of material,Материал нового тира
+Материнская плата,Motherboard,Материнская плата
+Машина занимает 9 клеток,The machine occupies 9 tiles,Машина занимает 9 клеток
+"Машина, пересобирающая материю.",A machine that reassembles matter.,"Машина, пересобирающая материю."
+Машинная логистика,Machine logistics,Машинная логистика
+Машины второго поколения,Second-generation machines,Машины второго поколения
+Машины пятой эпохи,Machines of the fifth age,Машины пятой эпохи
+Мгновенная логистика,Instant logistics,Мгновенная логистика
+Мегаватты про запас,Megawatts in reserve,Мегаватты про запас
+Меди много не бывает — она уйдёт на провода и пластины.,You can never have too much copper — it all goes into wires and plates.,Меди много не бывает — она уйдёт на провода и пластины.
+Медленный жар,Slow Heat,Медленный жар
+Медная жила,Copper Vein,Медная жила
+Медная пыль,Copper Dust,Медная пыль
+Медные инструменты и детали,Copper tools and parts,Медные инструменты и детали
+Медные пластины тоже лучше катать прессом.,Copper plates are also better rolled by press.,Медные пластины тоже лучше катать прессом.
+Медные слитки,Copper ingots,Медные слитки
+Медные стержни,Copper Rods,Медные стержни
+Медный блок,Copper Block,Медный блок
+Медный запас,Copper Reserve,Медный запас
+Мелочь в дело,Every Bit Counts,Мелочь в дело
+Меню крафта,Crafting menu,Меню крафта
+Место под гиганта,Room for a Giant,Место под гиганта
+Металлические вёдра,Metal Buckets,Металлические вёдра
+Микрочипы,Microchips,Микрочипы
+Мифриловая жила,Mythril Vein,Мифриловая жила
+Мифриловая пыль,Mythril Dust,Мифриловая пыль
+Мифриловые слитки,Mythril Ingots,Мифриловые слитки
+Модули T2,Tier 2 Modules,Модули T2
+Модули T3,Tier 3 Modules,Модули T3
+Модуль конвейера: мотор и резина.,A conveyor module: a motor and rubber.,Модуль конвейера: мотор и резина.
+Мокрое обогащение,Wet beneficiation,Мокрое обогащение
+Молекулярный сборщик,Molecular Assembler,Молекулярный сборщик
+Молекулярный трансформер,Molecular Transformer,Молекулярный трансформер
+Монтажные платы,Circuit Boards,Монтажные платы
+Моторы T2,Tier 2 Motors,Моторы T2
+Моторы T3,Tier 3 Motors,Моторы T3
+Моторы и генераторы,Motors and generators,Моторы и генераторы
+Мощные вычисления,Powerful computing,Мощные вычисления
+Мягкие бронзовые пружины для точных приборов.,Soft bronze springs for precision instruments.,Мягкие бронзовые пружины для точных приборов.
+Набор расширения,Expansion Kit,Набор расширения
+Навей пружины из железа.,Coil springs out of iron.,Навей пружины из железа.
+Навей пружины из стали.,Coil springs out of steel.,Навей пружины из стали.
+Наделай проводов — ток сам себя не доставит.,Make wires — the current won't deliver itself.,Наделай проводов — ток сам себя не доставит.
+Надрежь деревья: смола и латекс пойдут в экстрактор.,Tap the trees: resin and latex go into the extractor.,Надрежь деревья: смола и латекс пойдут в экстрактор.
+Найди свинец — тяжёлый металл на будущее.,Find lead — a heavy metal for the future.,Найди свинец — тяжёлый металл на будущее.
+Найди серебро для слитков и продвинутых электронных компонентов.,Find silver for ingots and advanced electronic components.,Найди серебро для слитков и продвинутых электронных компонентов.
+Найди угольную жилу — топливо всей ранней игры.,Find a coal vein — the fuel of the whole early game.,Найди угольную жилу — топливо всей ранней игры.
+Накопи уран для реакторов будущего.,Stockpile uranium for the reactors of the future.,Накопи уран для реакторов будущего.
+Наладь выпуск медных пластин.,Set up copper plate production.,Наладь выпуск медных пластин.
+Намагнить железные стержни резонитовыми осколками.,Magnetize iron rods with resonite shards.,Намагнить железные стержни резонитовыми осколками.
+Намотай провод на сердечник — получи катушки.,Wind wire around a core — get coils.,Намотай провод на сердечник — получи катушки.
+Нанопроцессоры,Nano Processors,Нанопроцессоры
+Нанопроцессоры (Глава 6),Nano processors (Chapter 6),Нанопроцессоры (Глава 6)
+Нарежь болтов — без крепежа ничего не соберёшь.,Cut some bolts — nothing assembles without fasteners.,Нарежь болтов — без крепежа ничего не соберёшь.
+Нарежь слитки на тонкие пластины.,Slice ingots into thin wafers.,Нарежь слитки на тонкие пластины.
+Нарежь стальных болтов.,Cut steel bolts.,Нарежь стальных болтов.
+Насос и поршень высшего тира.,A top-tier pump and piston.,Насос и поршень высшего тира.
+Насосная станция,Pumping Station,Насосная станция
+Насосы и поршни второго тира.,Tier 2 pumps and pistons.,Насосы и поршни второго тира.
+"Насосы, поршни, манипуляторы","Pumps, pistons, robotic arms","Насосы, поршни, манипуляторы"
+Настрой конвейер под свои маршруты.,Configure the conveyor for your routes.,Настрой конвейер под свои маршруты.
+Настройка направлений,Direction setup,Настройка направлений
+Начало склада,The warehouse begins,Начало склада
+Начинка процессоров,Processor internals,Начинка процессоров
+Нефтекачка и турбина,Oil pump and turbine,Нефтекачка и турбина
+Обмотай провода резиной — надёжнее и безопаснее.,Wrap wires in rubber — sturdier and safer.,Обмотай провода резиной — надёжнее и безопаснее.
+Обороты турбины,Turbine Spin-Up,Обороты турбины
+Огнеупорный кирпич,Refractory bricks,Огнеупорный кирпич
+Огнеупоры,Refractories,Огнеупоры
+Одна панель — не ферма. Расширь поле.,One panel is not a farm. Expand the field.,Одна панель — не ферма. Расширь поле.
+Одной плавкой сыт не будешь — накопи стали.,One melt won't feed you — stockpile steel.,Одной плавкой сыт не будешь — накопи стали.
+Олово уйдёт в бронзу и припой — добудь с запасом.,Tin goes into bronze and solder — mine extra.,Олово уйдёт в бронзу и припой — добудь с запасом.
+Оловянные слитки,Tin Ingots,Оловянные слитки
+Оловянный передел,Tin Processing,Оловянный передел
+"Оптическое ядро: нанопроцессор, диоды и золотая линза.","An optical core: a nano processor, diodes and a gold lens.","Оптическое ядро: нанопроцессор, диоды и золотая линза."
+Оружие бронзового века,Bronze age weaponry,Оружие бронзового века
+Оружие стального века,Steel age weaponry,Оружие стального века
+Основа всех машин,The basis of all machines,Основа всех машин
+Основа моторов,The basis of motors,Основа моторов
+Основа электроники,The basis of electronics,Основа электроники
+От палок и камней до бронзы и первых механизмов.,From sticks and stones to bronze and the first machines.,От палок и камней до бронзы и первых механизмов.
+Открой сундук и разложи вещи.,Open the chest and sort your belongings.,Открой сундук и разложи вещи.
+Открыть бур,Open the drill,Открыть бур
+Открыть верстак,Open the workbench,Открыть верстак
+Открыть водяную помпу,Open the water pump,Открыть водяную помпу
+Открыть генератор,Open the generator,Открыть генератор
+Открыть коксовую печь,Open the coke oven,Открыть коксовую печь
+Открыть колонну,Open the column,Открыть колонну
+Открыть компрессор,Open the compressor,Открыть компрессор
+Открыть конвейер,Open the conveyor,Открыть конвейер
+Открыть нефтекачку,Open the oil pump,Открыть нефтекачку
+Открыть паровой котёл,Open the steam boiler,Открыть паровой котёл
+Открыть печь,Open the furnace,Открыть печь
+Открыть плавильню,Open the melter,Открыть плавильню
+Открыть промывочную машину,Open the ore washer,Открыть промывочную машину
+Открыть сепаратор,Open the separator,Открыть сепаратор
+Открыть смеситель,Open the mixer,Открыть смеситель
+Открыть сундук,Open the chest,Открыть сундук
+Открыть трансформер,Open the transformer,Открыть трансформер
+Открыть турбину,Open the turbine,Открыть турбину
+Открыть химический реактор,Open the chemical reactor,Открыть химический реактор
+Отлить электрумовые провода,Cast electrum wires,Отлить электрумовые провода
+Отшлифуй линзы из стекла и золотой фольги.,Grind lenses from glass and gold foil.,Отшлифуй линзы из стекла и золотой фольги.
+Сепарация меди,Copper Separation,Сепарация меди
+Металлическая пыль,Metal Dust,Металлическая пыль
+Перерабатывающие машины дают две основные пыли из одной руды.,Processing machines yield two primary dusts from one ore.,Перерабатывающие машины дают две основные пыли из одной руды.
+Сепарация железа,Iron Separation,Сепарация железа
+Память,Memory,Память
+Паровая дробилка,Steam Crusher,Паровая дробилка
+Паровая дробилка даёт две железные пыли из одной руды.,The steam crusher yields two iron dust from one ore.,Паровая дробилка даёт две железные пыли из одной руды.
+Паровая печь,Steam Furnace,Паровая печь
+Паровые дробилки и прессы,Steam crushers and presses,Паровые дробилки и прессы
+Паровые машины,Steam machines,Паровые машины
+Паровые машины будущего съедят много бронзы.,The steam machines to come will eat plenty of bronze.,Паровые машины будущего съедят много бронзы.
+Пассивная добыча руды,Passive ore mining,Пассивная добыча руды
+Пассивный доход руды,Passive ore income,Пассивный доход руды
+Первая линия,The First Line,Первая линия
+Первая фракция,First Fraction,Первая фракция
+Первые EU,First EU,Первые EU
+Первые доски,First Planks,Первые доски
+Первый бур,First Drill,Первый бур
+Первый клинок,First Blade,Первый клинок
+Первый кокс,First Coke,Первый кокс
+Первый расплав,First Melt,Первый расплав
+"Первый ток, компоненты машин и жидкости.","First current, machine components and fluids.","Первый ток, компоненты машин и жидкости."
+Передача энергии,Power transmission,Передача энергии
+Пережги уголь в кокс — топливо вдвое лучше угля.,Burn coal into coke — a fuel twice as good as coal.,Пережги уголь в кокс — топливо вдвое лучше угля.
+Пережиг угля,Coal coking,Пережиг угля
+Перенос воды,Carrying water,Перенос воды
+Перенос лавы и нефти,Carrying lava and oil,Перенос лавы и нефти
+Модульное хранение энергии,Modular energy storage,Модульное хранение энергии
+Переплавь добытое — слитки скоро понадобятся все разом.,Smelt your haul — you'll soon need every ingot at once.,Переплавь добытое — слитки скоро понадобятся все разом.
+Переплавь золотую руду.,Smelt the gold ore.,Переплавь золотую руду.
+Переплавь песок в стекло.,Smelt sand into glass.,Переплавь песок в стекло.
+Переплавь титан впрок.,Smelt titanium for later.,Переплавь титан впрок.
+Переплавь часть серебра — остальное прибереги для дробилки.,Smelt part of the silver — save the rest for the crusher.,Переплавь часть серебра — остальное прибереги для дробилки.
+Песок для стекла,Sand for glass,Песок для стекла
+Песчаный цех,Sand Works,Песчаный цех
+Печь на пару плавит быстрее угольной.,A steam furnace smelts faster than a coal one.,Печь на пару плавит быстрее угольной.
+Печь прожорлива. Накопи угля про запас.,The furnace is hungry. Stockpile coal.,Печь прожорлива. Накопи угля про запас.
+Пик солнечной энергии,Peak solar power,Пик солнечной энергии
+Плавка на пару,Steam Smelting,Плавка на пару
+Плавка на электричестве,Smelting on electricity,Плавка на электричестве
+Плавка руды,Ore smelting,Плавка руды
+Пластины за полцены,Plates at half price,Пластины за полцены
+Платина,Platinum,Платина
+Платиновая пыль в бонус,Bonus platinum dust,Платиновая пыль в бонус
+Плотная электроника,Dense electronics,Плотная электроника
+Плотный прокат,Dense rolling,Плотный прокат
+Побочная пыль в бонус,Bonus byproduct dust,Побочная пыль в бонус
+Под давлением,Under Pressure,Под давлением
+Подача воды,Water supply,Подача воды
+Подбери сухие ветки — рукояти для первых инструментов.,Pick up dry branches — handles for your first tools.,Подбери сухие ветки — рукояти для первых инструментов.
+Подведи воду и запусти промывку.,Pipe in water and start washing.,Подведи воду и запусти промывку.
+Подведи пар к дробилке — руда будет удваиваться.,Pipe steam to the crusher — your ore will double.,Подведи пар к дробилке — руда будет удваиваться.
+Подведи трубы с жидкостями и вставь форму или сырьё.,Pipe in fluids and insert a mold or raw material.,Подведи трубы с жидкостями и вставь форму или сырьё.
+Подведи трубы с расплавами и запитай машину.,Pipe in molten metals and power the machine.,Подведи трубы с расплавами и запитай машину.
+Подготовка руды,Ore Preparation,Подготовка руды
+Подключи дробилку к сети и запусти.,Connect the crusher to the grid and start it.,Подключи дробилку к сети и запусти.
+Подключи сепаратор и загрузи обычную руду.,Connect the separator and load raw ore.,Подключи сепаратор и загрузи обычную руду.
+Полная автоматизация,Full automation,Полная автоматизация
+Полная переработка меди.,Full copper processing.,Полная переработка меди.
+Прямая переработка руды в пыль,Direct ore-to-dust processing,Прямая переработка руды в пыль
+Полупроводники,Semiconductors,Полупроводники
+Получить бетон,Obtain concrete,Получить бетон
+Получить гравий,Obtain gravel,Получить гравий
+Получить коксовую пыль,Obtain coke dust,Получить коксовую пыль
+Получить медную пыль,Obtain copper dust,Получить медную пыль
+Получить мифриловую пыль,Obtain mythril dust,Получить мифриловую пыль
+Получить никелевую пыль,Obtain nickel dust,Получить никелевую пыль
+Дополнительные металлы,Additional metals,Дополнительные металлы
+Получить песок,Obtain sand,Получить песок
+Получить плотные пластины,Obtain dense plates,Получить плотные пластины
+Получить углепластик,Obtain carbon plastic,Получить углепластик
+Получить угольную пыль,Obtain coal dust,Получить угольную пыль
+Поршни,Pistons,Поршни
+Порядок в делах,Everything in order,Порядок в делах
+Поставить бронзовый бур,Place a bronze drill,Поставить бронзовый бур
+Поставить конвейеры,Place conveyors,Поставить конвейеры
+Поставить смеситель,Place the mixer,Поставить смеситель
+Поставить солнечные панели,Place solar panels,Поставить солнечные панели
+Поставить сундук,Place a chest,Поставить сундук
+Поставь бронзовый бур на богатую жилу.,Set a bronze drill on a rich vein.,Поставь бронзовый бур на богатую жилу.
+Поставь бур на жилу и проверь его.,Set the drill on a vein and check on it.,Поставь бур на жилу и проверь его.
+Поставь верстак и загляни в него.,Place the workbench and take a look inside.,Поставь верстак и загляни в него.
+Поставь выпуск схем T2 на поток.,Put Tier 2 circuit production on the line.,Поставь выпуск схем T2 на поток.
+Поставь дробилку и загрузи её.,Place the crusher and load it up.,Поставь дробилку и загрузи её.
+Поставь нефтекачку на месторождение.,Set the oil pump on a deposit.,Поставь нефтекачку на месторождение.
+"Поставь печь, загрузи руду и уголь.","Place the furnace, load ore and coal.","Поставь печь, загрузи руду и уголь."
+Поставь помпу у воды и запусти.,Set the pump by the water and start it.,Поставь помпу у воды и запусти.
+Поставь продвинутый бур на мифрил и переработай добычу.,Set the advanced drill on mythril and process the haul.,Поставь продвинутый бур на мифрил и переработай добычу.
+Поставь сундук в удобном месте базы.,Place the chest somewhere handy at your base.,Поставь сундук в удобном месте базы.
+Поставь турбину вплотную к котлу — пар станет током.,Place the turbine right next to the boiler — steam becomes current.,Поставь турбину вплотную к котлу — пар станет током.
+Построй первый источник электричества.,Build your first source of electricity.,Построй первый источник электричества.
+Построй хранилище энергии высшего тира.,Build a top-tier energy storage.,Построй хранилище энергии высшего тира.
+Предел скорости ленты.,The speed limit of the belt.,Предел скорости ленты.
+Предел солнечной энергетики.,The limit of solar power.,Предел солнечной энергетики.
+Предел цифрового склада,The limit of digital storage,Предел цифрового склада
+Прессованная медь,Pressed Copper,Прессованная медь
+Прессованное железо,Pressed Iron,Прессованное железо
+Прессованное топливо,Compressed fuel,Прессованное топливо
+Прессы и манипуляторы,Presses and robotic arms,Прессы и манипуляторы
+Прецизионные контакты,Precision contacts,Прецизионные контакты
+Прецизионные приборы,Precision instruments,Прецизионные приборы
+Приборостроение,Instrument-making,Приборостроение
+Приборы T2,Tier 2 Instruments,Приборы T2
+Приборы T3,Tier 3 Instruments,Приборы T3
+Примитивная домна,Primitive Blast Furnace,Примитивная домна
+Провода,Wires,Провода
+Провода высшего класса,Top-class wires,Провода высшего класса
+Провода для будущих машин,Wires for future machines,Провода для будущих машин
+Проводники и фольга,Conductors and foil,Проводники и фольга
+Прогони железную руду через электродробилку.,Run iron ore through the electric crusher.,Прогони железную руду через электродробилку.
+Прогони железо через полную цепочку.,Run iron through the full chain.,Прогони железо через полную цепочку.
+Прогони мифрил через центрифугу до чистой пыли.,Run mythril through the centrifuge into pure dust.,Прогони мифрил через центрифугу до чистой пыли.
+Прогони плавку через паровую печь.,Run your smelting through the steam furnace.,Прогони плавку через паровую печь.
+Прогони железную руду через магнитный сепаратор.,Run iron ore through the magnetic separator.,Прогони железную руду через магнитный сепаратор.
+Продвинутая автоматика,Advanced automation,Продвинутая автоматика
+Продвинутая головка,Advanced Drill Head,Продвинутая головка
+Продвинутая панель,Advanced Panel,Продвинутая панель
+Продвинутые каркасы,Advanced Frames,Продвинутые каркасы
+Продвинутые корпуса,Advanced casings,Продвинутые корпуса
+Продвинутые платы,Advanced Boards,Продвинутые платы
+Продвинутые процессоры,Advanced Processors,Продвинутые процессоры
+Продвинутый бур,Advanced Drill,Продвинутый бур
+Продолжи дробление: гравий превращается в песок.,Keep crushing: gravel turns into sand.,Продолжи дробление: гравий превращается в песок.
+Продукты нефтепереработки,Oil refining products,Продукты нефтепереработки
+Производство пара,Steam production,Производство пара
+Пройдись по округе и собери растительное волокно.,Walk the area and gather plant fiber.,Пройдись по округе и собери растительное волокно.
+"Прокат, детали, сила пара, кокс и первая сталь.","Rolling, parts, steam power, coke and the first steel.","Прокат, детали, сила пара, кокс и первая сталь."
+Прокатай железо в пластины — основной конструкционный материал.,Roll iron into plates — the main structural material.,Прокатай железо в пластины — основной конструкционный материал.
+Прокатай железо через пресс — вдвое выгоднее верстака.,Roll iron through the press — twice as efficient as the workbench.,Прокатай железо через пресс — вдвое выгоднее верстака.
+Прокатай медные стержни.,Roll copper rods.,Прокатай медные стержни.
+Прокатай сталь в пластины.,Roll steel into plates.,Прокатай сталь в пластины.
+Прокладка сети,Laying the Grid,Прокладка сети
+Проложи жидкостные трубы.,Lay fluid pipes.,Проложи жидкостные трубы.
+Проложи конвейерную линию по базе.,Lay a conveyor line across your base.,Проложи конвейерную линию по базе.
+Проложить ME-кабели,Lay ME cables,Проложить ME-кабели
+Сепарируй медную руду — побочкой пойдёт золотая пыль.,Separate copper ore to obtain gold dust as a byproduct.,Сепарируй медную руду — побочкой пойдёт золотая пыль.
+Получи обычную никелевую пыль как побочный продукт переработки.,Obtain regular nickel dust as a processing byproduct.,Получи обычную никелевую пыль как побочный продукт переработки.
+Переработай титановую руду в пыль — впереди титановая эра.,Process titanium ore into dust for the coming titanium era.,Переработай титановую руду в пыль — впереди титановая эра.
+Промывка меди,Copper Washing,Промывка меди
+Промывка железа,Iron Washing,Промывка железа
+Промыть медную руду,Wash copper ore,Промыть медную руду
+Промыть мифриловую руду,Wash mythril ore,Промыть мифриловую руду
+Промышленные машины,Industrial machines,Промышленные машины
+Промышленные платы,Industrial Boards,Промышленные платы
+Процессоры,Processors,Процессоры
+Пульт конвейера,Conveyor Controls,Пульт конвейера
+Пуск смесителя,Mixer Startup,Пуск смесителя
+Рабочее место,Workplace,Рабочее место
+Разветвители,Splitters,Разветвители
+Раздели потоки предметов разветвителями.,Split item flows with splitters.,Раздели потоки предметов разветвителями.
+Раздроби камень в гравий.,Crush stone into gravel.,Раздроби камень в гравий.
+"Раздроби кокс в пыль — горит так же долго, а идёт и в химию.","Crush coke into dust — burns just as long, and feeds chemistry too.","Раздроби кокс в пыль — горит так же долго, а идёт и в химию."
+Сигнал в камне,Signal in Stone,Сигнал в камне
+Найди в Лесу фиолетовую резонитовую жилу. Осколки реагируют на слабый ток и служат логическим сердцем первых схем.,Find a violet resonite vein in the Forest. Its shards react to weak current and form the logical core of early circuits.,Найди в Лесу фиолетовую резонитовую жилу. Осколки реагируют на слабый ток и служат логическим сердцем первых схем.
+Добыть резонитовые осколки,Mine resonite shards,Добыть резонитовые осколки
+Скрафтить первую схему T1,Craft the first Tier 1 circuit,Скрафтить первую схему T1
+Схемы T1 и простые датчики,Tier 1 circuits and basic sensors,Схемы T1 и простые датчики
+Схемы T2 и терминалы,Tier 2 circuits and terminals,Схемы T2 и терминалы
+Раздроби титановую руду — впереди титановая эра.,Crush titanium ore — the titanium era is coming.,Раздроби титановую руду — впереди титановая эра.
+Раздроби уголь в пыль — материал огнеупоров.,Crush coal into dust — the stuff of refractories.,Раздроби уголь в пыль — материал огнеупоров.
+Раздробить железную руду,Crush iron ore,Раздробить железную руду
+Раздробить медную руду,Crush copper ore,Раздробить медную руду
+Раздробить мифриловую руду,Crush mythril ore,Раздробить мифриловую руду
+Раздробить титановую руду,Crush titanium ore,Раздробить титановую руду
+Разжечь огонь,Light the Fire,Разжечь огонь
+Раскатай пластины в тонкую фольгу.,Roll plates into thin foil.,Раскатай пластины в тонкую фольгу.
+Раскачай добычу железа до промышленных объёмов.,Scale iron mining up to industrial volumes.,Раскачай добычу железа до промышленных объёмов.
+Раскачай добычу титана.,Scale up titanium mining.,Раскачай добычу титана.
+Распаяй материнскую плату.,Solder up a motherboard.,Распаяй материнскую плату.
+Расплав в трубы,Melt into the pipes,Расплав в трубы
+"Расплав стали, вода и железная пластина — плотная пластина.","Molten steel, water and an iron plate — a dense plate.","Расплав стали, вода и железная пластина — плотная пластина."
+"Расплавь руду, пыль или слиток: каждая единица металла даёт 90 л.","Melt ore, dust, or an ingot: each unit of metal yields 90 L.","Расплавь руду, пыль или слиток: каждая единица металла даёт 90 л."
+Расчисти площадку 3×3 и установи смеситель.,Clear a 3×3 area and install the mixer.,Расчисти площадку 3×3 и установи смеситель.
+Расширение сети,Network expansion,Расширение сети
+Расширение склада,Warehouse Expansion,Расширение склада
+Расширь хранилище ячейками покрупнее.,Expand storage with bigger cells.,Расширь хранилище ячейками покрупнее.
+Расщепи брёвна на доски — универсальный материал.,Split logs into planks — the universal material.,Расщепи брёвна на доски — универсальный материал.
+Резервуары,Tanks,Резервуары
+Резина и изоляция,Rubber and insulation,Резина и изоляция
+Рецепты литья и химии,Casting and chemistry recipes,Рецепты литья и химии
+Рецепты первых инструментов,First tool recipes,Рецепты первых инструментов
+Роборука высшего поколения.,A top-generation robotic arm.,Роборука высшего поколения.
+"Роборука: поршень, мотор и схема.","A robotic arm: piston, motor and circuit.","Роборука: поршень, мотор и схема."
+Роборуки второго поколения.,Second-generation robotic arms.,Роборуки второго поколения.
+Ручная дробилка,Hand Crusher,Ручная дробилка
+С топором дело идёт быстрее. Заготовь дров впрок.,With an axe things go faster. Stock up on wood.,С топором дело идёт быстрее. Заготовь дров впрок.
+Сбор латекса,Latex Harvest,Сбор латекса
+Сборка компьютера,Computer assembly,Сборка компьютера
+Сборка роторов,Rotor assembly,Сборка роторов
+Свари каркасы из титана и стали.,Weld frames from titanium and steel.,Свари каркасы из титана и стали.
+Свари каркасы — скелет тяжёлых машин.,Weld frames — the skeleton of heavy machines.,Свари каркасы — скелет тяжёлых машин.
+Свари пластик из резины и угольной пыли.,Cook plastic from rubber and coal dust.,Свари пластик из резины и угольной пыли.
+Свари углепластик из пластика и сырой нефти.,Cook carbon plastic from plastic and crude oil.,Свари углепластик из пластика и сырой нефти.
+Сверни корпуса для аккумуляторов.,Roll casings for batteries.,Сверни корпуса для аккумуляторов.
+Сверни пластины в трубы.,Roll plates into pipes.,Сверни пластины в трубы.
+Сверни стальные трубы — они держат нефть и пар.,Roll steel pipes — they hold oil and steam.,Сверни стальные трубы — они держат нефть и пар.
+Сверхскоростные линии,Ultra-fast lines,Сверхскоростные линии
+Свинец для поздних технологий,Lead for late-game technology,Свинец для поздних технологий
+Свинцовая жила,Lead Vein,Свинцовая жила
+Свой угол,A Place of Your Own,Свой угол
+Свяжи сеть с машинами: шины и интерфейс.,Link the network to machines: buses and an interface.,Свяжи сеть с машинами: шины и интерфейс.
+Сделай вёдра покрепче деревянного.,Make buckets sturdier than wood.,Сделай вёдра покрепче деревянного.
+Сенсор,Sensor,Сенсор
+Сенсор и эмиттер второго тира.,A Tier 2 sensor and emitter.,Сенсор и эмиттер второго тира.
+Сенсор и эмиттер высшего тира.,A top-tier sensor and emitter.,Сенсор и эмиттер высшего тира.
+Сенсоры и эмиттеры,Sensors and emitters,Сенсоры и эмиттеры
+Сепарируй и медь — побочкой пойдёт золотая пыль.,Separate copper too — gold dust comes as a byproduct.,Сепарируй и медь — побочкой пойдёт золотая пыль.
+Сердечники моторов,Motor cores,Сердечники моторов
+Сердце насосов и турбин,The heart of pumps and turbines,Сердце насосов и турбин
+Серебро для схем,Silver for circuits,Серебро для схем
+Серебряная жила,Silver Vein,Серебряная жила
+Серебряные слитки,Silver Ingots,Серебряные слитки
+Серийные схемы,Serial Circuits,Серийные схемы
+Склад настоящего промышленника начинается с полтысячи вещей.,A true industrialist's warehouse starts at five hundred items.,Склад настоящего промышленника начинается с полтысячи вещей.
+Склад растёт вместе с производством.,The warehouse grows with production.,Склад растёт вместе с производством.
+Сколоти ведро — пригодится для жидкостей.,Knock together a bucket — handy for liquids.,Сколоти ведро — пригодится для жидкостей.
+Скоростные линии,High-speed lines,Скоростные линии
+Скрафтить ME Assembler,Craft an ME Assembler,Скрафтить ME Assembler
+Скрафтить ME Crafting Terminal,Craft an ME Crafting Terminal,Скрафтить ME Crafting Terminal
+Скрафтить ME-кабели,Craft ME cables,Скрафтить ME-кабели
+Скрафтить абсолютную панель,Craft an ultimate panel,Скрафтить абсолютную панель
+Скрафтить базовые платы,Craft basic boards,Скрафтить базовые платы
+Скрафтить аккумуляторные ячейки T1,Craft Tier 1 accumulator cells,Скрафтить аккумуляторные ячейки T1
+Скрафтить аккумуляторные ячейки T2,Craft Tier 2 accumulator cells,Скрафтить аккумуляторные ячейки T2
+Скрафтить аккумуляторные ячейки T3,Craft Tier 3 accumulator cells,Скрафтить аккумуляторные ячейки T3
+Скрафтить бронзовое ведро,Craft a bronze bucket,Скрафтить бронзовое ведро
+Скрафтить бронзовую головку,Craft a bronze drill head,Скрафтить бронзовую головку
+Скрафтить бронзовые болты,Craft bronze bolts,Скрафтить бронзовые болты
+Скрафтить бронзовые кольца,Craft bronze rings,Скрафтить бронзовые кольца
+Скрафтить бронзовые пружины,Craft bronze springs,Скрафтить бронзовые пружины
+Скрафтить бронзовые роторы,Craft bronze rotors,Скрафтить бронзовые роторы
+Скрафтить бронзовые стержни,Craft bronze rods,Скрафтить бронзовые стержни
+Скрафтить бронзовые трубы,Craft bronze pipes,Скрафтить бронзовые трубы
+Скрафтить бронзовый бур,Craft a bronze drill,Скрафтить бронзовый бур
+Скрафтить бронзовый меч,Craft a bronze sword,Скрафтить бронзовый меч
+Скрафтить бронзовый топор,Craft a bronze axe,Скрафтить бронзовый топор
+Скрафтить ведро,Craft a bucket,Скрафтить ведро
+Скрафтить генератор булыжника,Craft a cobblestone generator,Скрафтить генератор булыжника
+Скрафтить диоды,Craft diodes,Скрафтить диоды
+Скрафтить железные блоки,Craft iron blocks,Скрафтить железные блоки
+Скрафтить железные болты,Craft iron bolts,Скрафтить железные болты
+Скрафтить железные пружины,Craft iron springs,Скрафтить железные пружины
+Скрафтить железные стержни,Craft iron rods,Скрафтить железные стержни
+Скрафтить жидкостную ячейку 1k,Craft a 1k fluid cell,Скрафтить жидкостную ячейку 1k
+Скрафтить золотую линзу,Craft a gold lens,Скрафтить золотую линзу
+Скрафтить золотую фольгу,Craft gold foil,Скрафтить золотую фольгу
+Скрафтить золотые провода,Craft gold wires,Скрафтить золотые провода
+Скрафтить золотые пружины,Craft gold springs,Скрафтить золотые пружины
+Скрафтить золотые стержни,Craft gold rods,Скрафтить золотые стержни
+Скрафтить изолированные провода,Craft insulated wires,Скрафтить изолированные провода
+Скрафтить изолирующий костюм,Craft an insulated suit,Скрафтить изолирующий костюм
+Скрафтить каркасы машин,Craft machine frames,Скрафтить каркасы машин
+Скрафтить катушки,Craft coils,Скрафтить катушки
+Скрафтить квантовый процессор,Craft a quantum processor,Скрафтить квантовый процессор
+Скрафтить кодекс,Craft the codex,Скрафтить кодекс
+Скрафтить колонну,Craft the column,Скрафтить колонну
+Скрафтить компрессор,Craft a compressor,Скрафтить компрессор
+Скрафтить компьютер,Craft a computer,Скрафтить компьютер
+Скрафтить конвейерные модули T1,Craft Tier 1 conveyor modules,Скрафтить конвейерные модули T1
+Скрафтить конвейерные модули T2,Craft Tier 2 conveyor modules,Скрафтить конвейерные модули T2
+Скрафтить конвейерные модули T3,Craft Tier 3 conveyor modules,Скрафтить конвейерные модули T3
+Скрафтить конвейеры,Craft conveyors,Скрафтить конвейеры
+Скрафтить конвейеры T3,Craft Tier 3 conveyors,Скрафтить конвейеры T3
+Скрафтить конвейеры T4,Craft Tier 4 conveyors,Скрафтить конвейеры T4
+Скрафтить конвейеры T5,Craft Tier 5 conveyors,Скрафтить конвейеры T5
+Скрафтить конденсаторы T1,Craft Tier 1 capacitors,Скрафтить конденсаторы T1
+Скрафтить конденсаторы T2,Craft Tier 2 capacitors,Скрафтить конденсаторы T2
+Скрафтить конденсаторы T3,Craft Tier 3 capacitors,Скрафтить конденсаторы T3
+Скрафтить корпуса аккумуляторов,Craft accumulator casings,Скрафтить корпуса аккумуляторов
+Скрафтить кремниевые пластины,Craft silicon wafers,Скрафтить кремниевые пластины
+Скрафтить кремниевые слитки,Craft silicon ingots,Скрафтить кремниевые слитки
+Скрафтить кристаллы,Craft CPU dies,Скрафтить кристаллы
+Скрафтить кристальный процессор,Craft a crystal processor,Скрафтить кристальный процессор
+Скрафтить магнитные стержни,Craft magnetic rods,Скрафтить магнитные стержни
+Скрафтить магнитный сепаратор,Craft a magnetic separator,Скрафтить магнитный сепаратор
+Скрафтить малые шестерни,Craft small gears,Скрафтить малые шестерни
+Скрафтить манипулятор T3,Craft a Tier 3 robotic arm,Скрафтить манипулятор T3
+Скрафтить манипуляторы T1,Craft Tier 1 robotic arms,Скрафтить манипуляторы T1
+Скрафтить манипуляторы T2,Craft Tier 2 robotic arms,Скрафтить манипуляторы T2
+Скрафтить материнскую плату,Craft a motherboard,Скрафтить материнскую плату
+Скрафтить медную фольгу,Craft copper foil,Скрафтить медную фольгу
+Скрафтить медные блоки,Craft copper blocks,Скрафтить медные блоки
+Скрафтить медные провода,Craft copper wires,Скрафтить медные провода
+Скрафтить медные стержни,Craft copper rods,Скрафтить медные стержни
+Скрафтить микрочипы,Craft microchips,Скрафтить микрочипы
+Скрафтить модификатор T2,Craft a Tier 2 modifier,Скрафтить модификатор T2
+Скрафтить модификатор T3,Craft a Tier 3 modifier,Скрафтить модификатор T3
+Скрафтить нанопроцессоры,Craft nano processors,Скрафтить нанопроцессоры
+Скрафтить огнеупорный кирпич,Craft refractory bricks,Скрафтить огнеупорный кирпич
+Скрафтить память,Craft memory,Скрафтить память
+Скрафтить плавильню,Craft the melter,Скрафтить плавильню
+Скрафтить платиновые пластины,Craft platinum plates,Скрафтить платиновые пластины
+Скрафтить поршень T3,Craft a Tier 3 piston,Скрафтить поршень T3
+Скрафтить поршни T1,Craft Tier 1 pistons,Скрафтить поршни T1
+Скрафтить поршни T2,Craft Tier 2 pistons,Скрафтить поршни T2
+Скрафтить примитивный бур,Craft a primitive drill,Скрафтить примитивный бур
+Скрафтить примитивный меч,Craft a primitive sword,Скрафтить примитивный меч
+Скрафтить продвинутую головку,Craft an advanced drill head,Скрафтить продвинутую головку
+Скрафтить продвинутую панель,Craft an advanced panel,Скрафтить продвинутую панель
+Скрафтить продвинутые каркасы,Craft advanced frames,Скрафтить продвинутые каркасы
+Скрафтить продвинутые корпуса,Craft advanced casings,Скрафтить продвинутые корпуса
+Скрафтить продвинутые платы,Craft advanced boards,Скрафтить продвинутые платы
+Скрафтить продвинутые процессоры,Craft advanced processors,Скрафтить продвинутые процессоры
+Скрафтить продвинутый бур,Craft an advanced drill,Скрафтить продвинутый бур
+Скрафтить промышленные корпуса,Craft industrial casings,Скрафтить промышленные корпуса
+Скрафтить промышленные платы,Craft industrial boards,Скрафтить промышленные платы
+Скрафтить процессоры,Craft processors,Скрафтить процессоры
+Скрафтить разветвители,Craft splitters,Скрафтить разветвители
+Скрафтить резервуар T2,Craft a Tier 2 tank,Скрафтить резервуар T2
+Скрафтить резервуар T3,Craft a Tier 3 tank,Скрафтить резервуар T3
+Скрафтить резервуар T4,Craft a Tier 4 tank,Скрафтить резервуар T4
+Скрафтить сенсор T1,Craft a Tier 1 sensor,Скрафтить сенсор T1
+Скрафтить сенсор T2,Craft a Tier 2 sensor,Скрафтить сенсор T2
+Скрафтить сенсор T3,Craft a Tier 3 sensor,Скрафтить сенсор T3
+Скрафтить смеситель,Craft the mixer,Скрафтить смеситель
+Скрафтить стальное ведро,Craft a steel bucket,Скрафтить стальное ведро
+Скрафтить стальной меч,Craft a steel sword,Скрафтить стальной меч
+Скрафтить стальной топор,Craft a steel axe,Скрафтить стальной топор
+Скрафтить стальную головку,Craft a steel drill head,Скрафтить стальную головку
+Скрафтить стальные болты,Craft steel bolts,Скрафтить стальные болты
+Скрафтить стальные кольца,Craft steel rings,Скрафтить стальные кольца
+Скрафтить стальные пружины,Craft steel springs,Скрафтить стальные пружины
+Скрафтить стальные роторы,Craft steel rotors,Скрафтить стальные роторы
+Скрафтить стальные стержни,Craft steel rods,Скрафтить стальные стержни
+Скрафтить стальные трубы,Craft steel pipes,Скрафтить стальные трубы
+Скрафтить стеклянные линзы,Craft glass lenses,Скрафтить стеклянные линзы
+Скрафтить сундук Tier 2,Craft a Tier 2 chest,Скрафтить сундук Tier 2
+Скрафтить сундук Tier 3,Craft a Tier 3 chest,Скрафтить сундук Tier 3
+Скрафтить суперкомпьютер,Craft a supercomputer,Скрафтить суперкомпьютер
+Скрафтить схемы T1,Craft Tier 1 circuits,Скрафтить схемы T1
+Скрафтить схемы T2,Craft Tier 2 circuits,Скрафтить схемы T2
+Скрафтить схемы T3,Craft Tier 3 circuits,Скрафтить схемы T3
+Скрафтить термокостюм,Craft a heat suit,Скрафтить термокостюм
+Скрафтить титановую головку,Craft a titanium drill head,Скрафтить титановую головку
+Скрафтить титановый бур,Craft a titanium drill,Скрафтить титановый бур
+Скрафтить тотем энта,Craft an ent totem,Скрафтить тотем энта
+Скрафтить транзисторы,Craft transistors,Скрафтить транзисторы
+Скрафтить трансформер,Craft the transformer,Скрафтить трансформер
+Скрафтить углеволокно,Craft carbon fiber,Скрафтить углеволокно
+Скрафтить углеткань,Craft carbon cloth,Скрафтить углеткань
+Скрафтить фермстанцию,Craft a farming station,Скрафтить фермстанцию
+Скрафтить форму пластины,Craft a plate mold,Скрафтить форму пластины
+Скрафтить форму провода,Craft a wire mold,Скрафтить форму провода
+Скрафтить форму стержня,Craft a rod mold,Скрафтить форму стержня
+Скрафтить форму шестерни,Craft a gear mold,Скрафтить форму шестерни
+Скрафтить химический реактор,Craft a chemical reactor,Скрафтить химический реактор
+Скрафтить экстрактор,Craft an extractor,Скрафтить экстрактор
+Скрафтить электромоторы T1,Craft Tier 1 electric motors,Скрафтить электромоторы T1
+Скрафтить электромоторы T2,Craft Tier 2 electric motors,Скрафтить электромоторы T2
+Скрафтить электромоторы T3,Craft Tier 3 electric motors,Скрафтить электромоторы T3
+Скрафтить электронасос T3,Craft a Tier 3 electric pump,Скрафтить электронасос T3
+Скрафтить электронасосы T1,Craft Tier 1 electric pumps,Скрафтить электронасосы T1
+Скрафтить электронасосы T2,Craft Tier 2 electric pumps,Скрафтить электронасосы T2
+Скрафтить электронные платы,Craft electronic boards,Скрафтить электронные платы
+Скрафтить электрум,Craft electrum,Скрафтить электрум
+Скрафтить электрумовые провода,Craft electrum wires,Скрафтить электрумовые провода
+Скрафтить элитную панель,Craft an elite panel,Скрафтить элитную панель
+Скрафтить эмиттер T1,Craft a Tier 1 emitter,Скрафтить эмиттер T1
+Скрафтить эмиттер T2,Craft a Tier 2 emitter,Скрафтить эмиттер T2
+Скрафтить эмиттер T3,Craft a Tier 3 emitter,Скрафтить эмиттер T3
+Скрафтить энергохранилище T1,Craft a Tier 1 energy storage,Скрафтить энергохранилище T1
+Скрафтить энергохранилище T2,Craft a Tier 2 energy storage,Скрафтить энергохранилище T2
+Скрафтить энергохранилище T3,Craft a Tier 3 energy storage,Скрафтить энергохранилище T3
+Скрафтить ячейку 16k,Craft a 16k cell,Скрафтить ячейку 16k
+Скрафтить ячейку 4k,Craft a 4k cell,Скрафтить ячейку 4k
+Скрафтить ячейку 64k,Craft a 64k cell,Скрафтить ячейку 64k
+Скрути углеволокно и сотки углеткань.,Spin carbon fiber and weave carbon cloth.,Скрути углеволокно и сотки углеткань.
+Сложи печь из огнеупорного кирпича — она займёт площадку 2×2.,Build the oven from refractory bricks — it takes a 2×2 area.,Сложи печь из огнеупорного кирпича — она займёт площадку 2×2.
+Смени каменный топор на бронзовый.,Swap the stone axe for a bronze one.,Смени каменный топор на бронзовый.
+Смеситель,Mixer,Смеситель
+Смешай расплавы золота и серебра и отлей провода через форму.,Blend molten gold and silver and cast wires through a mold.,Смешай расплавы золота и серебра и отлей провода через форму.
+Смешивание 2-4 жидкостей,Blending 2-4 fluids,Смешивание 2-4 жидкостей
+Смонтируй линию четвёртого поколения.,Install a fourth-generation line.,Смонтируй линию четвёртого поколения.
+Смонтируй скоростные конвейеры.,Install high-speed conveyors.,Смонтируй скоростные конвейеры.
+"Собери ME-сеть: контроллер, накопитель, ячейку и терминал.","Build an ME network: controller, drive, cell and terminal.","Собери ME-сеть: контроллер, накопитель, ячейку и терминал."
+Собери базовые платы — основа будущей электроники.,Make basic boards — the foundation of future electronics.,Собери базовые платы — основа будущей электроники.
+Собери баки для хранения жидкостей.,Build tanks for storing fluids.,Собери баки для хранения жидкостей.
+Собери аккумуляторные ячейки высшей ёмкости.,Build accumulator cells of the highest capacity.,Собери аккумуляторные ячейки высшей ёмкости.
+Собери бронзовый бур — быстрее и глубже примитивного.,Build a bronze drill — faster and deeper than the primitive one.,Собери бронзовый бур — быстрее и глубже примитивного.
+Собери буровую головку высшего класса.,Build a top-class drill head.,Собери буровую головку высшего класса.
+Собери верстак — основу всего крафта.,Build a workbench — the foundation of all crafting.,Собери верстак — основу всего крафта.
+Собери вместительные баки.,Build roomy tanks.,Собери вместительные баки.
+Собери водяную помпу — вода нужна котлам и промывке.,Build a water pump — boilers and ore washing need water.,Собери водяную помпу — вода нужна котлам и промывке.
+Собери кодекс — справочник по всему миру.,Assemble the codex — a guide to the whole world.,Собери кодекс — справочник по всему миру.
+Собери компрессор — прессует уголь и не только.,Build a compressor — it presses coal and more.,Собери компрессор — прессует уголь и не только.
+Собери конвейерные ленты — предметы поедут сами.,Build conveyor belts — items will move themselves.,Собери конвейерные ленты — предметы поедут сами.
+Собери конденсаторы двух поколений.,Build capacitors of two generations.,Собери конденсаторы двух поколений.
+Собери крафт-терминал — верстак с доступом ко всему складу.,Build a crafting terminal — a workbench with access to your whole warehouse.,Собери крафт-терминал — верстак с доступом ко всему складу.
+Собери модификатор сундука второго уровня.,Build a tier two chest modifier.,Собери модификатор сундука второго уровня.
+Собери моторы второго поколения.,Build second-generation motors.,Собери моторы второго поколения.
+Собери моторы высшего тира.,Build top-tier motors.,Собери моторы высшего тира.
+Собери накопители — ночью панели спят.,Build storage units — panels sleep at night.,Собери накопители — ночью панели спят.
+Собери нанопроцессоры из кристаллов и транзисторов.,Assemble nano processors from dies and transistors.,Собери нанопроцессоры из кристаллов и транзисторов.
+Собери насосы для жидкостных машин.,Build pumps for fluid machines.,Собери насосы для жидкостных машин.
+Собери нефтекачку — начало нефтяной промышленности.,Build an oil pump — the beginning of the oil industry.,Собери нефтекачку — начало нефтяной промышленности.
+Собери панель второго поколения.,Build a second-generation panel.,Собери панель второго поколения.
+Собери первые аккумуляторные ячейки.,Build your first accumulator cells.,Собери первые аккумуляторные ячейки.
+Собери первые транзисторы и диоды.,Build your first transistors and diodes.,Собери первые транзисторы и диоды.
+Собери первый компьютер.,Build your first computer.,Собери первый компьютер.
+Собери плавильню — руда и слитки станут жидким металлом.,Build the melter — ore and ingots become molten metal.,Собери плавильню — руда и слитки станут жидким металлом.
+Собери планки памяти.,Build memory sticks.,Собери планки памяти.
+Собери платы высшего класса.,Build top-class boards.,Собери платы высшего класса.
+Собери платы на пластиковой подложке.,Build boards on a plastic substrate.,Собери платы на пластиковой подложке.
+Собери платы следующего поколения.,Build next-generation boards.,Собери платы следующего поколения.
+Собери примитивную дробилку — первый механизм.,Build a primitive crusher — your first machine.,Собери примитивную дробилку — первый механизм.
+"Собери примитивный бур — он копает сам, пока ты занят.",Build a primitive drill — it digs on its own while you're busy.,"Собери примитивный бур — он копает сам, пока ты занят."
+"Собери промывочную машину — чище металл, больше выход.","Build an ore washer — cleaner metal, bigger yield.","Собери промывочную машину — чище металл, больше выход."
+Собери промышленные корпуса машин.,Build industrial machine casings.,Собери промышленные корпуса машин.
+Собери процессоры из чипов и схем.,Assemble processors from chips and circuits.,Собери процессоры из чипов и схем.
+Собери процессоры нового поколения.,Assemble new-generation processors.,Собери процессоры нового поколения.
+Собери реактор: 1-2 жидкости плюс предмет — новый предмет.,Build the reactor: 1-2 fluids plus an item — a new item.,Собери реактор: 1-2 жидкости плюс предмет — новый предмет.
+Собери ректификационную колонну.,Build a distillation column.,Собери ректификационную колонну.
+"Собери ротор из пластин, колец и болтов.","Assemble a rotor from plates, rings and bolts.","Собери ротор из пластин, колец и болтов."
+"Собери сенсор из линзы, серебра и схемы.","Assemble a sensor from a lens, silver and a circuit.","Собери сенсор из линзы, серебра и схемы."
+Собери сепаратор — четвёртую ступень переработки руды.,Build the separator — the fourth stage of ore processing.,Собери сепаратор — четвёртую ступень переработки руды.
+Собери смеситель — огромную машину для сплавления жидкостей.,Build the mixer — a huge machine for blending fluids.,Собери смеситель — огромную машину для сплавления жидкостей.
+Собери стальной бур — третий уровень добычи.,Build a steel drill — mining level three.,Собери стальной бур — третий уровень добычи.
+Собери стальные роторы.,Build steel rotors.,Собери стальные роторы.
+Собери сундук для хранения добычи.,Build a chest to store your haul.,Собери сундук для хранения добычи.
+Собери суперкомпьютер — вершину вычислений.,Build a supercomputer — the peak of computing.,Собери суперкомпьютер — вершину вычислений.
+Собери титановый бур.,Build a titanium drill.,Собери титановый бур.
+Собери усиленные корпуса для электромашин.,Build reinforced casings for electric machines.,Собери усиленные корпуса для электромашин.
+Собери экстрактор — он выжмет резину из латекса.,Build an extractor — it squeezes rubber out of latex.,Собери экстрактор — он выжмет резину из латекса.
+Собери электрическую дробилку — быстрее и мощнее паровой.,Build an electric crusher — faster and stronger than steam.,Собери электрическую дробилку — быстрее и мощнее паровой.
+Собери электропоршни.,Build electric pistons.,Собери электропоршни.
+Собери элитную солнечную панель.,Build an elite solar panel.,Собери элитную солнечную панель.
+Собери эмиттер — излучатель для машин.,Build an emitter — a radiating unit for machines.,Собери эмиттер — излучатель для машин.
+Собиратель,Gatherer,Собиратель
+Собрать волокно,Gather fiber,Собрать волокно
+Собрать никелевую пыль,Collect nickel dust,Собрать никелевую пыль
+Собрать смолу,Gather resin,Собрать смолу
+Совершенные приборы,Perfected instruments,Совершенные приборы
+Согни стальные кольца.,Bend steel rings.,Согни стальные кольца.
+Согни стержни в кольца.,Bend rods into rings.,Согни стержни в кольца.
+Соедини генератор с потребителями.,Connect the generator to its consumers.,Соедини генератор с потребителями.
+Соедини сеть кабелями.,Connect the network with cables.,Соедини сеть кабелями.
+Создай прочную стальную кирку — она берёт золото и титан.,Make a sturdy steel pickaxe — it breaks gold and titanium.,Создай прочную стальную кирку — она берёт золото и титан.
+Солнечная генерация,Solar generation,Солнечная генерация
+Солнечная ферма,Solar Farm,Солнечная ферма
+"Солнце, электроника, переработка руды и ME-сеть.","Solar power, electronics, ore processing and the ME network.","Солнце, электроника, переработка руды и ME-сеть."
+Сортировка на лету,Sorting on the fly,Сортировка на лету
+Спаяй базовые электронные схемы.,Solder basic electronic circuits.,Спаяй базовые электронные схемы.
+Спаяй первые микрочипы.,Solder your first microchips.,Спаяй первые микрочипы.
+Спаяй продвинутые схемы на серебре.,Solder advanced circuits on silver.,Спаяй продвинутые схемы на серебре.
+Спаяй промышленные микросхемы.,Solder industrial microcircuits.,Спаяй промышленные микросхемы.
+Спецзащита,Hazard Gear,Спецзащита
+Сплавы без верстака,Alloys without a workbench,Сплавы без верстака
+Сплавь золото и серебро в электрум.,Alloy gold and silver into electrum.,Сплавь золото и серебро в электрум.
+Справочник предметов и машин,A guide to items and machines,Справочник предметов и машин
+Спрессовать железные пластины,Press iron plates,Спрессовать железные пластины
+Спрессовать медные пластины,Press copper plates,Спрессовать медные пластины
+Спрессуй железо в цельные блоки.,Press iron into solid blocks.,Спрессуй железо в цельные блоки.
+Спрессуй слитки в цельные блоки для компактного хранения.,Press ingots into solid blocks for compact storage.,Спрессуй слитки в цельные блоки для компактного хранения.
+"Сталь не плавится в обычной печи: только домна, только кокс. Займёт площадку 2×2.",Steel won't melt in a regular furnace: blast furnace and coke only. Takes a 2×2 area.,"Сталь не плавится в обычной печи: только домна, только кокс. Займёт площадку 2×2."
+Стальная кирка открыла золотые жилы — вперёд.,The steel pickaxe unlocked gold veins — go get them.,Стальная кирка открыла золотые жилы — вперёд.
+Стальной бур,Steel Drill,Стальной бур
+Стальной задел,Steel Groundwork,Стальной задел
+Стальной крепёж,Steel Fasteners,Стальной крепёж
+Стальной меч,Steel Sword,Стальной меч
+Стальной прокат,Steel Rolling,Стальной прокат
+Стальной резерв,Steel Reserve,Стальной резерв
+Стальной ротор,Steel Rotor,Стальной ротор
+Стальной топор,Steel Axe,Стальной топор
+"Стальные детали, каркасы машин и конвейеры.","Steel parts, machine frames and conveyors.","Стальные детали, каркасы машин и конвейеры."
+Стальные инструменты и детали,Steel tools and parts,Стальные инструменты и детали
+Стальные кольца,Steel Rings,Стальные кольца
+Стальные пружины,Steel Springs,Стальные пружины
+Стальные стержни,Steel Rods,Стальные стержни
+Стальные трубы,Steel Pipes,Стальные трубы
+Стекло для линз и колб,Glass for lenses and flasks,Стекло для линз и колб
+Стекловарня,Glassworks,Стекловарня
+Строительный материал,Building material,Строительный материал
+Сундук мастера,Master's Chest,Сундук мастера
+Сундук побольше,A Bigger Chest,Сундук побольше
+Суперкомпьютер,Supercomputer,Суперкомпьютер
+Схемы T2,Tier 2 Circuits,Схемы T2
+Схемы T3,Tier 3 Circuits,Схемы T3
+Сшей костюмы для опасных биомов.,Sew suits for hazardous biomes.,Сшей костюмы для опасных биомов.
+Сырая нефть,Crude oil,Сырая нефть
+Сырьё для песка,Raw material for sand,Сырьё для песка
+Сырьё для проката,Raw material for rolling,Сырьё для проката
+Сырьё для резины,Raw material for rubber,Сырьё для резины
+Сырьё для стальной эры,Raw material for the steel era,Сырьё для стальной эры
+Сырьё промышленного века,Raw material of the industrial age,Сырьё промышленного века
+"VII. Сертификация паровой фабрики","VII. Steam Factory Certification","VII. Сертификация паровой фабрики"
+Стандартизированные корпуса,Standardized Casings,Стандартизированные корпуса
+Автоматизируй выпуск одинаковых корпусов и котельных труб для расширения парового цеха.,Automate identical casings and boiler tubes for expanding the steam workshop.,Автоматизируй выпуск одинаковых корпусов и котельных труб для расширения парового цеха.
+Собрать паровые корпуса,Assemble steam machine casings,Собрать паровые корпуса
+Собрать бронзовые котельные трубки,Assemble bronze boiler tubes,Собрать бронзовые котельные трубки
+Серийная сборка паровых машин,Serial steam machine assembly,Серийная сборка паровых машин
+Запусти пресс и выпусти стандартизированные детали под давлением.,Run the press and manufacture standardized pressure-formed parts.,Запусти пресс и выпусти стандартизированные детали под давлением.
+Спрессовать клапаны давления,Press pressure valves,Спрессовать клапаны давления
+Спрессовать паровые поршни,Press steam pistons,Спрессовать паровые поршни
+Сбалансировать маховики,Balance flywheels,Сбалансировать маховики
+Точные детали для исследовательских наборов,Precision parts for research packs,Точные детали для исследовательских наборов
+Смена без остановки,Continuous Shift,Смена без остановки
+Докажи что цех способен долго перерабатывать руду а не выпускать единичные образцы.,Prove that the shop can process ore continuously instead of producing isolated samples.,Докажи что цех способен долго перерабатывать руду а не выпускать единичные образцы.
+Раздробить железную руду,Crush iron ore,Раздробить железную руду
+Спрессовать металлические пластины,Press metal plates,Спрессовать металлические пластины
+Произвести кокс,Produce coke,Произвести кокс
+Выплавить сталь,Smelt steel,Выплавить сталь
+Промышленная производительность парового цеха,Industrial steam shop throughput,Промышленная производительность парового цеха
+Пакетный анализ,Batch Analysis,Пакетный анализ
+"Соедини два сборщика: первый выпускает исследовательские ядра, второй упаковывает их со сталью и коксом.","Connect two assemblers: the first produces research cores, while the second packages them with steel and coke.","Соедини два сборщика: первый выпускает исследовательские ядра, второй упаковывает их со сталью и коксом."
+Установить два паровых сборщика,Place two Steam Assemblers,Установить два паровых сборщика
+Выбрать рецепт исследовательского ядра,Select the research core recipe,Выбрать рецепт исследовательского ядра
+Выбрать рецепт парового набора,Select the steam pack recipe,Выбрать рецепт парового набора
+Собрать исследовательские ядра,Assemble research cores,Собрать исследовательские ядра
+Собрать паровые исследовательские наборы,Assemble steam research packs,Собрать паровые исследовательские наборы
+Запустить соединённую исследовательскую линию,Start the connected research line,Запустить соединённую исследовательскую линию
+Готовность к исследованию электричества,Ready for electricity research,Готовность к исследованию электричества
+Сырьё шестой эпохи,Raw material of the sixth age,Сырьё шестой эпохи
+Твёрдая материя,Solid matter,Твёрдая материя
+Технический кремний,Technical Silicon,Технический кремний
+"Титан, вычисления и молекулярные технологии.","Titanium, computing and molecular technology.","Титан, вычисления и молекулярные технологии."
+Титановая головка,Titanium Drill Head,Титановая головка
+Титановая лихорадка,Titanium Rush,Титановая лихорадка
+Титановые слитки,Titanium Ingots,Титановые слитки
+Титановый бур,Titanium Drill,Титановый бур
+Титановый запас,Titanium Reserve,Титановый запас
+Титановый передел,Titanium Processing,Титановый передел
+Тонкая электроника,Fine electronics,Тонкая электроника
+Топливная база,Fuel Base,Топливная база
+Топливная безопасность,Fuel security,Топливная безопасность
+Топливные смеси,Fuel blends,Топливные смеси
+Топливо для генератора,Fuel for the generator,Топливо для генератора
+Топливо для домны,Fuel for the blast furnace,Топливо для домны
+Топливо для печи,Fuel for the furnace,Топливо для печи
+Топливо и углехимия,Fuel and carbon chemistry,Топливо и углехимия
+Тотем энта,Ent Totem,Тотем энта
+Точная механика,Precision mechanics,Точная механика
+Точные приборы,Precision instruments,Точные приборы
+Транзисторы и диоды,Transistors and diodes,Транзисторы и диоды
+Транспорт жидкостей,Fluid transport,Транспорт жидкостей
+Транспорт предметов,Item transport,Транспорт предметов
+Трубопровод,Pipeline,Трубопровод
+Трубопроводы,Pipelines,Трубопроводы
+Турбины и насосы,Turbines and pumps,Турбины и насосы
+Тысяча вещей под учётом,A thousand items accounted for,Тысяча вещей под учётом
+Тысячи предметов в сети,Thousands of items in the network,Тысячи предметов в сети
+Тяжёлая техника,Heavy machinery,Тяжёлая техника
+Тяжёлое машиностроение,Heavy machine engineering,Тяжёлое машиностроение
+Тяжёлые машины,Heavy machines,Тяжёлые машины
+Углеволокно,Carbon Fiber,Углеволокно
+Углехимия,Carbon Chemistry,Углехимия
+Углубись в шахту и набей железа впрок.,Go deeper into the mine and stock up on iron.,Углубись в шахту и набей железа впрок.
+Угольная пыль,Coal Dust,Угольная пыль
+Угольный генератор,Coal Generator,Угольный генератор
+Угольный разрез,Coal Pit,Угольный разрез
+Улучши аккумуляторы.,Upgrade your batteries.,Улучши аккумуляторы.
+Улучши сундук до второго уровня.,Upgrade the chest to tier two.,Улучши сундук до второго уровня.
+Уплотнители машин,Machine seals,Уплотнители машин
+Управление производством,Production management,Управление производством
+Урановая программа,Uranium Program,Урановая программа
+Урановый арсенал,Uranium Arsenal,Урановый арсенал
+Установи панель под открытым небом.,Install the panel under the open sky.,Установи панель под открытым небом.
+Фермстанция,Farming Station,Фермстанция
+Финал текущей прогрессии,The finale of the current progression,Финал текущей прогрессии
+Финал цепочки обогащения,The end of the beneficiation chain,Финал цепочки обогащения
+Фольга,Foil,Фольга
+Химический реактор,Chemical Reactor,Химический реактор
+Хранение воды и пара,Storing water and steam,Хранение воды и пара
+Хранение предметов,Item storage,Хранение предметов
+Хранение сотен литров,Storing hundreds of liters,Хранение сотен литров
+Хранение энергии,Energy storage,Хранение энергии
+Цепочка обогащения,The beneficiation chain,Цепочка обогащения
+Цифровое хранение жидкостей,Digital fluid storage,Цифровое хранение жидкостей
+Цифровое хранилище,Digital storage,Цифровое хранилище
+Чипы будущего,Chips of the future,Чипы будущего
+Чипы и память,Chips and memory,Чипы и память
+Чистый мифрил,Pure Mythril,Чистый мифрил
+Чёрный камень,Black Stone,Чёрный камень
+Шагни за предел классических вычислений.,Step beyond classical computing.,Шагни за предел классических вычислений.
+Шахтёр,Miner,Шахтёр
+Шлифовка линз,Lens Grinding,Шлифовка линз
+Экзотические вычисления,Exotic computing,Экзотические вычисления
+Экономия каждой жилы,Saving every vein,Экономия каждой жилы
+Экстрактор,Extractor,Экстрактор
+Электрическая эра потребует горы стали.,The electric era will demand mountains of steel.,Электрическая эра потребует горы стали.
+Электродробилка,Electric Crusher,Электродробилка
+Электромашины,Electric machines,Электромашины
+Электронасосы,Electric Pumps,Электронасосы
+Электроника высшего тира,Top-tier electronics,Электроника высшего тира
+Электронные платы,Electronic Boards,Электронные платы
+Электропереработка,Electric processing,Электропереработка
+Электропечь и тяжёлые машины,Electric furnace and heavy machines,Электропечь и тяжёлые машины
+Электроэнергия (EU),Electric power (EU),Электроэнергия (EU)
+Электрум,Electrum,Электрум
+Электрумовые провода,Electrum Wires,Электрумовые провода
+Элитная генерация,Elite generation,Элитная генерация
+Элитная панель,Elite Panel,Элитная панель
+Эмиттер,Emitter,Эмиттер
+Энергетика приборов,Instrument energetics,Энергетика приборов
+Энергохранилище,Energy Storage,Энергохранилище
+Энергохранилище T3,Tier 3 Energy Storage,Энергохранилище T3
+Эра пластика,The Age of Plastic,Эра пластика
+Эффективный прокат,Efficient rolling,Эффективный прокат
+Ячейка 64k,64k Cell,Ячейка 64k
+Обучение,Tutorial,Обучение
+Необязательное обучение,Optional tutorial,Необязательное обучение
+Следующая цель: %s,Next objective: %s,Следующая цель: %s
+Подробности — в книге квестов,Details are in the quest book,Подробности — в книге квестов
+Обучение: технологии,Tutorial: Technologies,Обучение: технологии
+Путь развития,Path of Progression,Путь развития
+"Нажми N и открой дерево технологий. Новые биомы открывают направления исследований, а победы над боссами снимают блокировку со следующих уровней фабрики.","Press N to open the technology tree. New biomes reveal research branches, while defeating bosses unlocks the next factory tiers.","Нажми N и открой дерево технологий. Новые биомы открывают направления исследований, а победы над боссами снимают блокировку со следующих уровней фабрики."
+Открыть дерево технологий [N],Open the technology tree [N],Открыть дерево технологий [N]
+Изучено: как открываются технологии,Learned: how technologies unlock,Изучено: как открываются технологии
+Обучение: конвейеры,Tutorial: Conveyors,Обучение: конвейеры
+Первый груз,First Cargo,Первый груз
+"Соедини источник и приёмник лентой и подключи её к энергосети. Конвейер не забирает предметы сам: бур или машина должны передать груз на первую секцию, а направление ленты задаёт дальнейший маршрут.","Connect a source and destination with a belt and link it to the power grid. A conveyor does not pull items by itself: a drill or machine must hand cargo to the first segment, and belt direction defines the route.","Соедини источник и приёмник лентой и подключи её к энергосети. Конвейер не забирает предметы сам: бур или машина должны передать груз на первую секцию, а направление ленты задаёт дальнейший маршрут."
+Переместить груз через 5 секций конвейера,Move cargo through 5 conveyor segments,Переместить груз через 5 секций конвейера
+"Изучено: питание, направление и передача грузов","Learned: conveyor power, direction, and cargo transfer","Изучено: питание, направление и передача грузов"
+Умная сортировка,Smart Sorting,Умная сортировка
+"Открой конвейер клавишей взаимодействия. Укажи ID предмета в фильтре либо измени режим и приоритет: разрешающий фильтр пропускает только список, блокирующий — всё кроме списка.","Open a conveyor with the interact key. Enter an item ID in its filter or change the mode and priority: allow mode passes only listed items, while block mode passes everything else.","Открой конвейер клавишей взаимодействия. Укажи ID предмета в фильтре либо измени режим и приоритет: разрешающий фильтр пропускает только список, блокирующий — всё кроме списка."
+Настроить непустой фильтр или приоритет,Configure a non-empty filter or priority,Настроить непустой фильтр или приоритет
+Изучено: фильтры и приоритеты,Learned: filters and priorities,Изучено: фильтры и приоритеты
+Обучение: энергия,Tutorial: Power,Обучение: энергия
+Рабочая энергосеть,Working Power Grid,Рабочая энергосеть
+"Поставь генератор, загрузи топливо и соедини его проводом с потребителем. Сеть считается рабочей, когда в ней есть генератор и машина, а дефицит энергии отсутствует.","Place a generator, load fuel, and connect it to a consumer with wire. A grid is operational when it contains a generator and a machine with no power deficit.","Поставь генератор, загрузи топливо и соедини его проводом с потребителем. Сеть считается рабочей, когда в ней есть генератор и машина, а дефицит энергии отсутствует."
+Запустить стабильную энергосеть,Start a stable power grid,Запустить стабильную энергосеть
+"Изучено: производство, потребление и дефицит EU","Learned: EU generation, consumption, and deficit","Изучено: производство, потребление и дефицит EU"
+Обучение: модули,Tutorial: Modules,Обучение: модули
+Модернизация машины,Machine Upgrade,Модернизация машины
+"Создай модуль скорости. Он ускоряет обработку на 20%, но повышает расход энергии на 10%. Модули эффективности, вместимости и продуктивности меняют другие параметры машины.","Craft a speed module. It increases processing speed by 20% but raises energy use by 10%. Efficiency, capacity, and productivity modules modify other machine parameters.","Создай модуль скорости. Он ускоряет обработку на 20%, но повышает расход энергии на 10%. Модули эффективности, вместимости и продуктивности меняют другие параметры машины."
+Скрафтить модуль скорости,Craft a speed module,Скрафтить модуль скорости
+Изучено: преимущества и цена модулей,Learned: module benefits and tradeoffs,Изучено: преимущества и цена модулей
+Установка модуля,Installing a Module,Установка модуля
+"Открой производственную машину, возьми модуль скорости курсором и нажми на соответствующий слот. В машину можно установить до трёх модулей каждого типа.","Open a processing machine, pick up the speed module with the cursor, and click its matching slot. A machine can hold up to three modules of each type.","Открой производственную машину, возьми модуль скорости курсором и нажми на соответствующий слот. В машину можно установить до трёх модулей каждого типа."
+Установить модуль скорости в машину,Install a speed module in a machine,Установить модуль скорости в машину
+Изучено: установка и снятие модулей,Learned: installing and removing modules,Изучено: установка и снятие модулей
+Подготовь запас стали для оружия и первых электрических машин.,Prepare a steel reserve for weapons and the first electric machines.,Подготовь запас стали для оружия и первых электрических машин.
+Стальное оружие,Steel weapons,Стальное оружие
+VI. Хранитель леса,VI. Forest Guardian,VI. Хранитель леса
+Оружие против Энта,Weapon Against the Ent,Оружие против Энта
+Энт охраняет переход к электрической эре. Стальной меч наносит достаточно урона, чтобы пробить его кору.,The Ent guards the path to the electric age. A steel sword deals enough damage to pierce its bark.,Энт охраняет переход к электрической эре. Стальной меч наносит достаточно урона, чтобы пробить его кору.
+Скрафтить стальной меч,Craft a steel sword,Скрафтить стальной меч
+Готовность к первому боссу,Ready for the first boss,Готовность к первому боссу
+Падение хранителя,Fall of the Guardian,Падение хранителя
+"Найди арену Энта в Лесу, уклоняйся от корней и саженцев и победи хранителя. Его страница откроет дальнейший путь Overworld.","Find the Ent's arena in the Forest, evade its roots and saplings, and defeat the guardian. Its page unlocks the next part of Overworld.","Найди арену Энта в Лесу, уклоняйся от корней и саженцев и победи хранителя. Его страница откроет дальнейший путь Overworld."
+Победить Энта,Defeat the Ent,Победить Энта
+Технология электричества,Electricity technology,Технология электричества
+Путь в Пустыню,Path to the Desert,Путь в Пустыню
+"Собери базовый пресс и подключи его к котлу — он откроет точные паровые детали.","Build the basic press and connect it to a boiler to unlock precision steam parts.","Собери базовый пресс и подключи его к котлу — он откроет точные паровые детали."
+Прокат и точная механика,Rolling and precision mechanics,Прокат и точная механика
+Запусти пресс и выпусти первые детали для машин высокого давления.,Run the press and produce the first high-pressure machine parts.,Запусти пресс и выпусти первые детали для машин высокого давления.
+Сборка продвинутых паровых машин,Advanced steam machine assembly,Сборка продвинутых паровых машин
+"Собери дробилку вокруг готового парового привода, затем подведи пар.","Build the crusher around a complete steam drive, then supply it with steam.","Собери дробилку вокруг готового парового привода, затем подведи пар."
+Установи клапан давления и собери безопасную печь для непрерывной плавки.,Install a pressure valve and build a safe furnace for continuous smelting.,Установи клапан давления и собери безопасную печь для непрерывной плавки.
+Механическое водоснабжение,Mechanical Water Supply,Механическое водоснабжение
+Поставь бронзовую помпу на воду и соедини её с будущим котлом трубами.,Place a bronze pump on water and connect it to the future boiler with pipes.,Поставь бронзовую помпу на воду и соедини её с будущим котлом трубами.
+Скрафтить механическую водяную помпу,Craft a mechanical water pump,Скрафтить механическую водяную помпу
+Скрафтить ранние жидкостные трубы,Craft early fluid pipes,Скрафтить ранние жидкостные трубы
+Поставить механическую водяную помпу,Place a mechanical water pump,Поставить механическую водяную помпу
+Проложить трубы к котельной,Run pipes to the boiler room,Проложить трубы к котельной
+Автоматическая подача воды без электричества,Automatic water supply without electricity,Автоматическая подача воды без электричества
+Механическая логистика,Mechanical Logistics,Механическая логистика
+Собери медленные механические ленты и проложи первую фабричную линию.,Build slow mechanical belts and lay the first factory line.,Собери медленные механические ленты и проложи первую фабричную линию.
+Скрафтить механические конвейеры,Craft mechanical conveyors,Скрафтить механические конвейеры
+Поставить механические конвейеры,Place mechanical conveyors,Поставить механические конвейеры
+Перемещение предметов без электричества,Item transport without electricity,Перемещение предметов без электричества
+"Поставь манипулятор между источником и лентой: жёлтый порт забирает предмет, зелёный выдаёт.","Place an inserter between the source and belt: the amber port takes an item and the green port outputs it.","Поставь манипулятор между источником и лентой: жёлтый порт забирает предмет, зелёный выдаёт."
+Скрафтить механические манипуляторы,Craft mechanical inserters,Скрафтить механические манипуляторы
+Поставить механические манипуляторы,Place mechanical inserters,Поставить механические манипуляторы
+Переместить предметы манипуляторами,Transfer items with inserters,Переместить предметы манипуляторами
+Настроить фильтр манипулятора,Configure an inserter filter,Настроить фильтр манипулятора
+Железная производственная линия,Iron Production Line,Железная производственная линия
+"Соедини паровую дробилку с паровой печью и выходным сундуком минимум двумя манипуляторами. Панель диагностики покажет разрыв, затор или машину, ограничивающую выпуск.","Connect the Steam Crusher to the Steam Furnace and an output chest with at least two inserters. The diagnostics panel shows disconnections, jams, and the machine limiting throughput.","Соедини паровую дробилку с паровой печью и выходным сундуком минимум двумя манипуляторами. Панель диагностики покажет разрыв, затор или машину, ограничивающую выпуск."
+Произвести железную пыль,Produce iron dust,Произвести железную пыль
+Выплавить железные слитки на линии,Smelt iron ingots on the line,Выплавить железные слитки на линии
+Переместить предметы манипуляторами линии,Move items with the line inserters,Переместить предметы манипуляторами линии
+Запустить соединённую железную линию,Start the connected iron line,Запустить соединённую железную линию
+Автоматическая переработка железа,Automated iron processing,Автоматическая переработка железа
+Диагностика узких мест,Bottleneck diagnostics,Диагностика узких мест
+Автоматическая загрузка и выгрузка машин,Automatic machine loading and unloading,Автоматическая загрузка и выгрузка машин
+Паровой сборщик,Steam Assembler,Паровой сборщик
+"Собери паровой сборщик и выбери рецепт, чтобы заменить ручную обработку бронзовых деталей.","Build a Steam Assembler and select a recipe to replace manual bronze component work.","Собери паровой сборщик и выбери рецепт, чтобы заменить ручную обработку бронзовых деталей."
+Скрафтить паровой сборщик,Craft a Steam Assembler,Скрафтить паровой сборщик
+Поставить паровой сборщик,Place a Steam Assembler,Поставить паровой сборщик
+Открыть паровой сборщик,Open a Steam Assembler,Открыть паровой сборщик
+Выбрать рецепт бронзовых стержней,Select the bronze rod recipe,Выбрать рецепт бронзовых стержней
+Настроить контроль выходного буфера,Configure output buffer control,Настроить контроль выходного буфера
+Автоматическая сборка компонентов,Automated component assembly,Автоматическая сборка компонентов
+Автоматизированная бронзовая мастерская,Automated Bronze Workshop,Автоматизированная бронзовая мастерская
+Подай детали манипуляторами и собери запас промежуточных компонентов без верстака.,Feed parts with inserters and assemble a stock of intermediate components without a workbench.,Подай детали манипуляторами и собери запас промежуточных компонентов без верстака.
+Собрать бронзовые стержни,Assemble bronze rods,Собрать бронзовые стержни
+Собрать бронзовые кольца,Assemble bronze rings,Собрать бронзовые кольца
+Собрать бронзовые болты,Assemble bronze bolts,Собрать бронзовые болты
+Собрать бронзовые роторы,Assemble bronze rotors,Собрать бронзовые роторы
+Собрать корпуса паровых машин,Assemble steam machine casings,Собрать корпуса паровых машин
+Задать запас бронзовых стержней в выходной логистической сети,Set a bronze rod stock target in the output logistics network,Задать запас бронзовых стержней в выходной логистической сети
+Назначить высокий приоритет производителю,Assign high priority to a producer,Назначить высокий приоритет производителю
+Запустить несколько производителей при дефиците,Run multiple producers during a shortage,Запустить несколько производителей при дефиците
+Объединить сборщики в складской производственный план,Link assemblers into a warehouse production plan,Объединить сборщики в складской производственный план
+Включить запрос ингредиентов у парового сборщика,Enable ingredient requests on a Steam Assembler,Включить запрос ингредиентов у парового сборщика
+Передать запрос ингредиентов через конвейер,Transmit an ingredient request through a conveyor,Передать запрос ингредиентов через конвейер
+Настроить запрашивающий склад,Configure a requester warehouse,Настроить запрашивающий склад
+Настроить склад-поставщик,Configure a provider warehouse,Настроить склад-поставщик
+Настроить несколько правил одного склада,Configure multiple rules in one warehouse,Настроить несколько правил одного склада
+Открыть обзор логистической сети,Open the logistics network overview,Открыть обзор логистической сети
+Серийное производство паровых машин,Serial steam machine production,Серийное производство паровых машин
+Стальная производственная линия,Steel Production Line,Стальная производственная линия
+"Соедини коксовую печь, примитивную домну, паровой пресс и выходной сундук минимум тремя манипуляторами.","Connect the coke oven, primitive blast furnace, steam press, and output chest with at least three inserters.","Соедини коксовую печь, примитивную домну, паровой пресс и выходной сундук минимум тремя манипуляторами."
+Произвести кокс на линии,Produce coke on the line,Произвести кокс на линии
+Выплавить стальные слитки на линии,Smelt steel ingots on the line,Выплавить стальные слитки на линии
+Прокатать стальные пластины на линии,Press steel plates on the line,Прокатать стальные пластины на линии
+Переместить предметы стальной линии,Move items through the steel line,Переместить предметы стальной линии
+Запустить соединённую стальную линию,Start the connected steel line,Запустить соединённую стальную линию
+Автоматическая выплавка и прокат стали,Automated steel smelting and pressing,Автоматическая выплавка и прокат стали
+Диагностика кокса и креозота,Coke and creosote diagnostics,Диагностика кокса и креозота
+Креозотный контур,Creosote Loop,Креозотный контур
+"Не сливай побочный продукт. Соедини коксовую печь, резервуар T1 и паровой котёл жидкостными трубами.","Do not waste the byproduct. Connect the coke oven, T1 fluid tank, and steam boiler with fluid pipes.","Не сливай побочный продукт. Соедини коксовую печь, резервуар T1 и паровой котёл жидкостными трубами."
+Скрафтить ранний резервуар T1,Craft an early T1 fluid tank,Скрафтить ранний резервуар T1
+Установить буфер креозота,Place a creosote buffer,Установить буфер креозота
+Замкнуть креозотный контур,Complete the creosote loop,Замкнуть креозотный контур
+Сжечь креозот в паровом котле,Burn creosote in a steam boiler,Сжечь креозот в паровом котле
+Буфер побочного продукта,Byproduct buffer,Буфер побочного продукта
+1 л креозота даёт 2 секунды горения котла,1 L of creosote provides 2 seconds of boiler burn time,1 л креозота даёт 2 секунды горения котла
+Диагностика паровой сети,Steam Network Diagnostics,Диагностика паровой сети
+Напорная гидравлика,Pressure Hydraulics,Напорная гидравлика
+"Замени магистраль стальными трубами и раздели воду, пар и креозот направленными фильтрующими клапанами.","Upgrade the trunk line with steel pipes and separate water, steam, and creosote using directional filtered valves.","Замени магистраль стальными трубами и раздели воду, пар и креозот направленными фильтрующими клапанами."
+Скрафтить трубы высокого давления,Craft high-pressure pipes,Скрафтить трубы высокого давления
+Скрафтить фильтрующий клапан,Craft a filtered valve,Скрафтить фильтрующий клапан
+Установить фильтрующий клапан,Place a filtered valve,Установить фильтрующий клапан
+Выбрать жидкость в фильтре клапана,Select a fluid in the valve filter,Выбрать жидкость в фильтре клапана
+Настроить направление клапана,Configure the valve direction,Настроить направление клапана
+Настроить переливной режим клапана,Configure the valve overflow mode,Настроить переливной режим клапана
+30 л/с по полностью улучшенной магистрали,30 L/s through a fully upgraded trunk line,30 л/с по полностью улучшенной магистрали
+"Раздельные контуры воды, пара и креозота","Separate water, steam, and creosote loops","Раздельные контуры воды, пара и креозота"
+Замкнутый водяной цикл,Closed Water Loop,Замкнутый водяной цикл
+"Улучши механическую помпу. Паровой насос возвращает в котельную больше воды, чем потребляет пара, но для запуска ему нужна первая порция пара.","Upgrade the mechanical pump. The steam pump returns more water to the boiler room than it consumes in steam, but it needs an initial steam charge.","Улучши механическую помпу. Паровой насос возвращает в котельную больше воды, чем потребляет пара, но для запуска ему нужна первая порция пара."
+Скрафтить паровой водяной насос,Craft a steam water pump,Скрафтить паровой водяной насос
+Установить паровой водяной насос,Place a steam water pump,Установить паровой водяной насос
+Открыть паровой водяной насос,Open the steam water pump,Открыть паровой водяной насос
+Назначить насосу высокий приоритет пара,Set high steam priority for the pump,Назначить насосу высокий приоритет пара
+Настроить автоматическое отключение насоса,Configure automatic pump shutoff,Настроить автоматическое отключение насоса
+Запустить замкнутый водяной цикл,Start the closed water loop,Запустить замкнутый водяной цикл
+16 л воды из 1 л пара,16 L of water from 1 L of steam,16 л воды из 1 л пара
+Стабильное питание нескольких котлов,Stable supply for several boilers,Стабильное питание нескольких котлов
+Перейти к проблеме логистики,Navigate to a logistics problem,Перейти к проблеме логистики
+Запустить стабильную паровую сеть,Start a stable steam network,Запустить стабильную паровую сеть
+Контроль дефицита пара,Steam deficit monitoring,Контроль дефицита пара
+Диагностика пропускной способности труб,Pipe throughput diagnostics,Диагностика пропускной способности труб
+Собрать бронзовые подшипники,Assemble bronze bearings,Собрать бронзовые подшипники
+Собрать механические управляющие узлы,Assemble mechanical control units,Собрать механические управляющие узлы
+Сертификация компонентов,Component Certification,Сертификация компонентов
+"Подтверди серийный выпуск полного набора деталей: от шестерён и подшипников до управляющих узлов. Ранее произведённые компоненты тоже засчитываются.","Prove serial production of the complete component set: from gears and bearings to control units. Components produced earlier also count.","Подтверди серийный выпуск полного набора деталей: от шестерён и подшипников до управляющих узлов. Ранее произведённые компоненты тоже засчитываются."
+Собрать малые бронзовые шестерни,Assemble small bronze gears,Собрать малые бронзовые шестерни
+Собрать бронзовые трубы,Assemble bronze pipes,Собрать бронзовые трубы
+Собрать стальные подшипники,Assemble steel bearings,Собрать стальные подшипники
+Собрать паровые управляющие узлы,Assemble steam control units,Собрать паровые управляющие узлы
+Ранний доступ к паровой турбине,Early access to the steam turbine,Ранний доступ к паровой турбине
+Ранний доступ к паровому водяному насосу,Early access to the steam water pump,Ранний доступ к паровому водяному насосу
+Собрать механические приводные узлы,Assemble mechanical drive units,Собрать механические приводные узлы
+Собрать стальные трубы,Assemble steel pipes,Собрать стальные трубы
+Собрать стальные роторы,Assemble steel rotors,Собрать стальные роторы
+Собрать паровые приводные узлы,Assemble steam drive units,Собрать паровые приводные узлы
+Тепловой узел,Thermal Unit,Тепловой узел
+Объедини обычную печь и котельные трубки в сменный тепловой блок для ранних паровых машин.,Combine a basic furnace and boiler tubes into a replaceable thermal unit for early steam machinery.,Объедини обычную печь и котельные трубки в сменный тепловой блок для ранних паровых машин.
+Скрафтить тепловой узел,Craft a thermal unit,Скрафтить тепловой узел
+Стандартизированный нагрев котлов и печей,Standardized heating for boilers and furnaces,Стандартизированный нагрев котлов и печей
+Жидкостный коллектор,Fluid Manifold,Жидкостный коллектор
+Соедини бронзовые трубы и клапан давления в единый распределительный узел для подачи пара.,Combine bronze pipes and a pressure valve into a single distribution unit for steam delivery.,Соедини бронзовые трубы и клапан давления в единый распределительный узел для подачи пара.
+Скрафтить жидкостный коллектор,Craft a fluid manifold,Скрафтить жидкостный коллектор
+Стандартное подключение паровых машин,Standard steam machine connection,Стандартное подключение паровых машин
+Собрать тепловые узлы,Assemble thermal units,Собрать тепловые узлы
+Собрать жидкостные коллекторы,Assemble fluid manifolds,Собрать жидкостные коллекторы
+Котёл высокого давления,High-Pressure Boiler,Котёл высокого давления
+"Усиль обычный котёл стальным корпусом, коллекторами и автоматикой. Новая установка занимает площадку 2×2.","Reinforce a basic boiler with steel, manifolds, and controls. The new installation occupies a 2x2 area.","Усиль обычный котёл стальным корпусом, коллекторами и автоматикой. Новая установка занимает площадку 2×2."
+Скрафтить котёл высокого давления,Craft a high-pressure boiler,Скрафтить котёл высокого давления
+Установить котёл высокого давления,Place a high-pressure boiler,Установить котёл высокого давления
+Открыть котёл высокого давления,Open the high-pressure boiler,Открыть котёл высокого давления
+Производство 12 л пара в секунду,Production of 12 L of steam per second,Производство 12 л пара в секунду
+Расход топлива в 2 раза быстрее,Fuel burns twice as fast,Расход топлива в 2 раза быстрее
+Испытание котельной,Boiler Load Test,Испытание котельной
+"Подай воду и топливо, затем проверь котёл под длительной нагрузкой нескольких паровых машин.","Supply water and fuel, then test the boiler under the sustained load of several steam machines.","Подай воду и топливо, затем проверь котёл под длительной нагрузкой нескольких паровых машин."
+Произвести пар высокого давления,Produce high-pressure steam,Произвести пар высокого давления
+Поддерживать стабильную паровую сеть,Maintain a stable steam network,Поддерживать стабильную паровую сеть
+Стабильное питание расширенной паровой фабрики,Stable supply for an expanded steam factory,Стабильное питание расширенной паровой фабрики
+"Пережги уголь в кокс. Каждый цикл одновременно даёт 1 л креозота.","Bake coal into coke. Every cycle also produces 1 L of creosote.","Пережги уголь в кокс. Каждый цикл одновременно даёт 1 л креозота."
+Получить креозот при коксовании,Produce creosote through coking,Получить креозот при коксовании
+Креозот для котлов и углехимии,Creosote for boilers and carbon chemistry,Креозот для котлов и углехимии
+Промой медную руду и получи обычную медную пыль.,Wash copper ore and obtain regular copper dust.,Промой медную руду и получи обычную медную пыль.
+Собери сепаратор для прямого выделения пыли и побочных металлов из руды.,Build a separator that extracts dust and byproduct metals directly from ore.,Собери сепаратор для прямого выделения пыли и побочных металлов из руды.
+Стабильная сеть,Stable Grid,Стабильная сеть
+Подключи генератор и потребителя проводом. Энергия распределяется автоматически между подключёнными машинами.,Connect a generator and a consumer with wire. Power is distributed automatically among connected machines.,Подключи генератор и потребителя проводом. Энергия распределяется автоматически между подключёнными машинами.
+Изучено: подключение генераторов и машин,Learned: connecting generators and machines,Изучено: подключение генераторов и машин
+Стабильная паровая сеть,Stable Steam Network,Стабильная паровая сеть
+Подключи пресс к котлу трубами и запусти устойчивую подачу пара.,Connect the press to the boiler with pipes and establish a stable steam supply.,Подключи пресс к котлу трубами и запусти устойчивую подачу пара.
+Надёжное питание паровых машин,Reliable power for steam machines,Надёжное питание паровых машин

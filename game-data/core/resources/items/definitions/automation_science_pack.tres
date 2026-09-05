@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "automation_science_pack"
+name = "item.automation_science_pack.name"
+description = "item.automation_science_pack.desc"
+item_color = Color(0.92, 0.42, 0.16, 1)
+max_stack = 64

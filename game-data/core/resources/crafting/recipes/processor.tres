@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+result_item_id = "processor"
+result_count = 1
+ingredient_ids = PackedStringArray("microchip", "circuit_t2", "purified_resonite", "gold_rod")
+ingredient_counts = PackedInt32Array(4, 1, 2, 2)
+category = "components"
+sort_order = 542
+required_age = 5

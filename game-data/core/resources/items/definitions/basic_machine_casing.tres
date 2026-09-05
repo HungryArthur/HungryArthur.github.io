@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = "basic_machine_casing"
+name = "item.basic_machine_casing.name"
+description = "item.basic_machine_casing.desc"
+item_color = Color(0.48, 0.48, 0.50, 1)
+max_stack = 16

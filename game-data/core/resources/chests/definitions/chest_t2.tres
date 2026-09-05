@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ChestTierDefinition" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://core/resources/chests/ChestTierDefinition.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/chests/chest_sprites_32x32.png" id="2_atlas"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chest_t2"]
+atlas = ExtResource("2_atlas")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_script")
+tier = 2
+item_id = "CHEST_T2"
+block_id = "chest_t2"
+display_name = "Chest Tier 2"
+slot_count = 60
+upgrade_modifier_id = "CHEST_MODIFIER_T3"
+icon = SubResource("AtlasTexture_chest_t2")

@@ -1,0 +1,601 @@
+keys,en,ru
+LMB Action · RMB Use / Build,LMB Action · RMB Use / Build,ЛКМ Действие · ПКМ Использовать / Строить
+Construction undone,Construction undone,Постройка отменена
+Single Player,Single Player,Одиночная игра
+Multi Player,Multi Player,Сетевая игра
+Options,Options,Настройки
+Achievements,Achievements,Достижения
+Quit Game,Quit Game,Выход
+Stone Age,Stone Age,Каменный век
+Complete the Stone Age chapter,Complete the Stone Age chapter,Пройдите главу «Каменный век»
+Industrialization,Industrialization,Индустриализация
+Complete the Industrialization chapter,Complete the Industrialization chapter,Пройдите главу «Индустриализация»
+Iron Age,Iron Age,Железный век
+Complete the Iron Age chapter,Complete the Iron Age chapter,Пройдите главу «Железный век»
+Electrification,Electrification,Электрификация
+Complete the Electrification chapter,Complete the Electrification chapter,Пройдите главу «Электрификация»
+Electric Age,Electric Age,Электрический век
+Complete the Electric Age chapter,Complete the Electric Age chapter,Пройдите главу «Электрический век»
+Industrial Age,Industrial Age,Промышленный век
+Complete the Industrial Age chapter,Complete the Industrial Age chapter,Пройдите главу «Промышленный век»
+First Step,First Step,Первый шаг
+Complete your first quest,Complete your first quest,Выполните первое задание
+Reliable Engineer,Reliable Engineer,Надёжный инженер
+Complete 25 quests,Complete 25 quests,Выполните 25 заданий
+Master of Progress,Master of Progress,Мастер прогрессии
+Complete 100 quests,Complete 100 quests,Выполните 100 заданий
+Forest Cleared,Forest Cleared,Лес освобождён
+Defeat the Ent,Defeat the Ent,Победите Энта
+Sandbreaker,Sandbreaker,Сокрушитель песков
+Defeat the Dune Colossus,Defeat the Dune Colossus,Победите Песчаного колосса
+Thaw the Warden,Thaw the Warden,Растопить стража
+Defeat the Frost Warden,Defeat the Frost Warden,Победите Ледяного стража
+Cut Every Head,Cut Every Head,Отрубить все головы
+Defeat the Mire Hydra,Defeat the Mire Hydra,Победите Болотную гидру
+No More Thorns,No More Thorns,Больше никаких шипов
+Defeat the Thorn Matriarch,Defeat the Thorn Matriarch,Победите Шипастую матриархиню
+Eclipse,Eclipse,Затмение
+Defeat the Solar Tyrant,Defeat the Solar Tyrant,Победите Солнечного тирана
+Abyss Conquered,Abyss Conquered,Бездна покорена
+Defeat the Abyss Leviathan,Defeat the Abyss Leviathan,Победите Левиафана бездны
+Cleanse the Bog,Cleanse the Bog,Очистить топь
+Defeat the Rot King,Defeat the Rot King,Победите Короля гнили
+Ancient Falls,Ancient Falls,Падение древнего
+Defeat the Primal Guardian,Defeat the Primal Guardian,Победите Первобытного стража
+World Boss Hunter,World Boss Hunter,Охотник на боссов мира
+Defeat every Overworld boss,Defeat every Overworld boss,Победите всех боссов Overworld
+Factory Floor,Factory Floor,Фабричный цех
+Build a factory with 25 machines,Build a factory with 25 machines,Постройте фабрику из 25 машин
+Industrial Skyline,Industrial Skyline,Промышленный горизонт
+Build a factory with 100 machines,Build a factory with 100 machines,Постройте фабрику из 100 машин
+Stable Current,Stable Current,Стабильный ток
+Power at least 5 consumers without a deficit,Power at least 5 consumers without a deficit,Обеспечьте энергией не менее 5 потребителей без дефицита
+Resume Game,Resume Game,Продолжить
+Quest Book,Quest Book,Квестбук
+Recipe Book,Recipe Book,Книга рецептов
+Settings,Settings,Настройки
+Exit to Menu,Exit to Menu,Выход в меню
+SETTINGS,SETTINGS,НАСТРОЙКИ
+--- VIDEO ---,--- VIDEO ---,--- ВИДЕО ---
+--- AUDIO ---,--- AUDIO ---,--- ЗВУК ---
+--- GAMEPLAY ---,--- GAMEPLAY ---,--- ИГРА ---
+Game,Game,Игра
+Graphics,Graphics,Графика
+Sound,Sound,Звук
+Controls,Controls,Управление
+Cursor Color,Cursor Color,Цвет курсора
+"Click a binding, then press a key.","Click a binding, then press a key.","Нажмите на привязку, затем клавишу."
+"Select a keyboard or gamepad binding, then press a button.","Select a keyboard or gamepad binding, then press a button.","Выберите привязку клавиатуры или геймпада, затем нажмите кнопку."
+Search actions...,Search actions...,Поиск действий...
+Action,Action,Действие
+Keyboard,Keyboard,Клавиатура
+Gamepad,Gamepad,Геймпад
+Movement,Movement,Движение
+Interaction,Interaction,Взаимодействие
+Building,Building,Строительство
+Interface,Interface,Интерфейс
+Hotbar,Hotbar,Панель быстрого доступа
+No actions found,No actions found,Действия не найдены
+Unassigned,Unassigned,Не назначено
+Press a key...,Press a key...,Нажмите клавишу...
+Press a gamepad button...,Press a gamepad button...,Нажмите кнопку геймпада...
+"Conflicts: %s","Conflicts: %s","Конфликты: %s"
+"Conflicts with: %s","Conflicts with: %s","Конфликтует с: %s"
+Left Button,Left Button,Левая кнопка
+Right Button,Right Button,Правая кнопка
+Middle Button,Middle Button,Средняя кнопка
+Wheel Up,Wheel Up,Колесо вверх
+Wheel Down,Wheel Down,Колесо вниз
+Mouse Button 4,Mouse Button 4,Кнопка мыши 4
+Mouse Button 5,Mouse Button 5,Кнопка мыши 5
+Mouse Button %d,Mouse Button %d,Кнопка мыши %d
+Move Up,Move Up,Движение вверх
+Move Down,Move Down,Движение вниз
+Move Left,Move Left,Движение влево
+Move Right,Move Right,Движение вправо
+Run,Run,Бег
+Dash,Dash,Рывок
+Interact,Interact,Взаимодействие
+Toggle Map,Toggle Map,Открыть карту
+Inventory,Inventory,Инвентарь
+Open Chat,Open Chat,Открыть чат
+Hotbar Slot 1,Hotbar Slot 1,Слот панели 1
+Hotbar Slot 2,Hotbar Slot 2,Слот панели 2
+Hotbar Slot 3,Hotbar Slot 3,Слот панели 3
+Hotbar Slot 4,Hotbar Slot 4,Слот панели 4
+Hotbar Slot 5,Hotbar Slot 5,Слот панели 5
+Hotbar Slot 6,Hotbar Slot 6,Слот панели 6
+Hotbar Slot 7,Hotbar Slot 7,Слот панели 7
+Hotbar Slot 8,Hotbar Slot 8,Слот панели 8
+Hotbar Slot 9,Hotbar Slot 9,Слот панели 9
+Gamepad Button %d,Gamepad Button %d,Кнопка геймпада %d
+Gamepad Axis %d %s,Gamepad Axis %d %s,Ось геймпада %d %s
+⚠ Key conflict: %s,⚠ Key conflict: %s,⚠ Конфликт клавиши: %s
+White,White,Белый
+Purple,Purple,Фиолетовый
+Green,Green,Зелёный
+Red,Red,Красный
+Blue,Blue,Синий
+Display Mode,Display Mode,Режим экрана
+Resolution,Resolution,Разрешение
+V-Sync,V-Sync,Верт. синхронизация
+Max FPS,Max FPS,Макс. FPS
+Master Volume,Master Volume,Общая громкость
+Music Volume,Music Volume,Громкость музыки
+SFX Volume,SFX Volume,Громкость эффектов
+Show FPS Counter,Show FPS Counter,Счётчик FPS
+Autosave Interval,Autosave Interval,Интервал автосохранения
+Language,Language,Язык
+Accept,Accept,Принять
+Back,Back,Вернуться
+Reset All,Reset All,Сбросить всё
+Reset to Default,Reset to Default,Сбросить
+Save & Back,Save & Back,Сохранить и назад
+Windowed,Windowed,Оконный
+Borderless,Borderless,Без рамки
+Fullscreen,Fullscreen,Полный экран
+Unlimited,Unlimited,Без ограничения
+Off,Off,Выкл
+1 min,1 min,1 мин
+3 min,3 min,3 мин
+5 min,5 min,5 мин
+10 min,10 min,10 мин
+Create Character,Create Character,Выбор персонажа
+Create,Create,Создать
+Add to favorites,Add to favorites,Добавить в избранное
+Remove from favorites,Remove from favorites,Убрать из избранного
+Classic,Classic,Классика
+Hardcore,Hardcore,Хардкор
+CREATE CHARACTER,CREATE CHARACTER,СОЗДАНИЕ ПЕРСОНАЖА
+NAME,NAME,ИМЯ
+Enter name...,Enter name...,Введите имя...
+GENDER,GENDER,ПОЛ
+Male,Male,Мужской
+Female,Female,Женский
+APPEARANCE,APPEARANCE,ВНЕШНОСТЬ
+HAIR,HAIR,ВОЛОСЫ
+HAIR COLOR,HAIR COLOR,ЦВЕТ ВОЛОС
+EYES,EYES,ГЛАЗА
+SKIN,SKIN,КОЖА
+SHIRT,SHIRT,РУБАШКА
+PANTS,PANTS,ШТАНЫ
+BOOTS,BOOTS,ОБУВЬ
+Random,Random,Случайно
+PREVIEW,PREVIEW,ПРЕДПРОСМОТР
+DIFFICULTY,DIFFICULTY,СЛОЖНОСТЬ
+"CLASSIC
+Balanced gameplay.","CLASSIC
+Balanced gameplay.","КЛАССИКА
+Сбалансированная игра."
+"HARDCORE
+One life. No mercy.","HARDCORE
+One life. No mercy.","ХАРДКОР
+Одна жизнь. Без пощады."
+BACK,BACK,НАЗАД
+CREATE,CREATE,СОЗДАТЬ
+Select World,Select World,Выбор мира
+New,New,Создать
+CREATE WORLD,CREATE WORLD,СОЗДАТЬ МИР
+WORLD NAME:,WORLD NAME:,НАЗВАНИЕ МИРА:
+Enter world name...,Enter world name...,Введите название мира...
+NAME CANNOT BE EMPTY!,NAME CANNOT BE EMPTY!,ИМЯ НЕ МОЖЕТ БЫТЬ ПУСТЫМ!
+SEED:,SEED:,СИД:
+🎲 RANDOM,🎲 RANDOM,🎲 СЛУЧАЙНО
+— DIFFICULTY —,— DIFFICULTY —,— СЛОЖНОСТЬ —
+Easy,Easy,Лёгкая
+Normal,Normal,Обычная
+Hard,Hard,Сложная
+— RESOURCE RICHNESS —,— RESOURCE RICHNESS —,— БОГАТСТВО РЕСУРСОВ —
+Sparse,Sparse,Скудно
+EasyRich,EasyRich,Богато
+Abudant,Abudant,Обильно
+— VEGETATION DENSITY —,— VEGETATION DENSITY —,— ПЛОТНОСТЬ РАСТИТЕЛЬНОСТИ —
+Low,Low,Низкая
+High,High,Высокая
+Network input priority,Network input priority,Приоритет подачи из сети
+Automatic output control,Automatic output control,Автоматический контроль выхода
+Start below: %d%%,Start below: %d%%,Запуск ниже: %d%%
+Stop above: %d%%,Stop above: %d%%,Остановка выше: %d%%
+Stopped by output control,Stopped by output control,Остановлено контролем выхода
+Uses hysteresis to prevent rapid switching,Uses hysteresis to prevent rapid switching,Разные пороги предотвращают частые переключения
+Automatic item output control,Automatic item output control,Автоматический контроль выхода предметов
+Output buffer: %d%%,Output buffer: %d%%,Выходной буфер: %d%%
+Automatic stop,Automatic stop,Автоматическая остановка
+Ready for production,Ready for production,Готово к производству
+Stopped by item output control,Stopped by item output control,Остановлено контролем выхода предметов
+Maintain logistics stock,Maintain logistics stock,Поддерживать запас в логистической сети
+Counts the selected item in output chests connected by inserters and conveyors,Counts the selected item in output chests connected by inserters and conveyors,Считает выбранный предмет в выходных сундуках через манипуляторы и конвейеры
+Network stock: %d / %d (%d chests),Network stock: %d / %d (%d chests),Запас сети: %d / %d (сундуков: %d)
+No connected output storage,No connected output storage,Нет подключённого выходного хранилища
+Stock control needs connected output storage,Stock control needs connected output storage,Для контроля запаса нужно подключённое выходное хранилище
+Stock target reached,Stock target reached,Целевой запас достигнут
+Producer priority,Producer priority,Приоритет производителя
+Waiting for producer slot,Waiting for producer slot,Ожидание свободного производственного слота
+Active producers: %d / %d,Active producers: %d / %d,Активные производители: %d / %d
+Share warehouse production plan,Share warehouse production plan,Общий производственный план склада
+Connected steam assemblers distribute deficient recipes and help each other,Connected steam assemblers distribute deficient recipes and help each other,Подключённые паровые сборщики распределяют дефицитные рецепты и помогают друг другу
+Warehouse plan: %d recipes / %d assemblers,Warehouse plan: %d recipes / %d assemblers,План склада: %d рецептов / %d сборщиков
+Assigned: %s,Assigned: %s,Назначено: %s
+Production plan needs a stock target,Production plan needs a stock target,Для производственного плана нужна цель запаса
+Production plan fulfilled,Production plan fulfilled,Производственный план выполнен
+Waiting to switch recipe output,Waiting to switch recipe output,Ожидание освобождения выхода для смены рецепта
+Request recipe ingredients,Request recipe ingredients,Запрашивать ингредиенты рецепта
+Input inserters take only ingredients missing from the current recipe buffer,Input inserters take only ingredients missing from the current recipe buffer,Входные манипуляторы берут только недостающие ингредиенты для текущего рецепта
+Ingredient requests: %d types / %d items,Ingredient requests: %d types / %d items,Запрос ингредиентов: %d типов / %d предметов
+Ingredients in transit: %d,Ingredients in transit: %d,Ингредиентов в пути: %d
+Requesting ingredients,Requesting ingredients,Запрос ингредиентов
+Waiting for requested ingredient,Waiting for requested ingredient,Ожидание запрошенного ингредиента
+Ingredient demand satisfied,Ingredient demand satisfied,Потребность в ингредиентах закрыта
+Supplying requested ingredient,Supplying requested ingredient,Подача запрошенного ингредиента
+Demand signal: %d types / %d items,Demand signal: %d types / %d items,Сигнал спроса: %d типов / %d предметов
+Demand signal: %d types / %d items / %d in transit,Demand signal: %d types / %d items / %d in transit,Сигнал спроса: %d типов / %d предметов / %d в пути
+Demand signal: no active requests,Demand signal: no active requests,Сигнал спроса: активных запросов нет
+STEAM WATER PUMP,STEAM WATER PUMP,ПАРОВОЙ ВОДЯНОЙ НАСОС
+RESOURCE DISTRIBUTION:,RESOURCE DISTRIBUTION:,РАСПРЕДЕЛЕНИЕ РЕСУРСОВ:
+Balanced,Balanced,Сбалансированно
+Clustered,Clustered,Кластерами
+Extreme,Extreme,Экстремально
+• The world is infinite in all directions.,• The world is infinite in all directions.,• Мир бесконечен во всех направлениях.
+"• Ore deposits form finite, mineable veins.","• Ore deposits form finite, mineable veins.",• Руда образует конечные жилы для добычи.
+• Settings affect generation only and cannot be changed later.,• Settings affect generation only and cannot be changed later.,• Настройки влияют только на генерацию и не могут быть изменены позже.
+MULTIPLAYER,MULTIPLAYER,СЕТЕВАЯ ИГРА
+Create Lobby,Create Lobby,Создать лобби
+Join Game,Join Game,Присоединиться
+World / Server Name:,World / Server Name:,Название мира / сервера:
+My World,My World,Мой мир
+Port:,Port:,Порт:
+Port,Port,Порт
+Max Players:,Max Players:,Макс. игроков:
+Password (optional):,Password (optional):,Пароль (необязательно):
+Leave empty for open server,Leave empty for open server,Оставьте пустым для открытого сервера
+Worlds on your network,Worlds on your network,Миры в вашей сети
+Refresh,Refresh,Обновить
+Password:,Password:,Пароль:
+Required only for locked worlds,Required only for locked worlds,Только для защищённых миров
+Join Selected World,Join Selected World,Войти в выбранный мир
+Direct Connect (IP),Direct Connect (IP),Прямое подключение (IP)
+e.g. 192.168.1.10,e.g. 192.168.1.10,напр. 192.168.1.10
+Connect,Connect,Подключиться
+Searching for worlds on your network...,Searching for worlds on your network...,Поиск миров в вашей сети...
+Enter an IP address.,Enter an IP address.,Введите IP-адрес.
+No worlds found yet. Make sure a host is online on the same network.,No worlds found yet. Make sure a host is online on the same network.,"Миры пока не найдены. Убедитесь, что хост запущен в той же сети."
+This world requires a password — enter it below.,This world requires a password — enter it below.,Для этого мира нужен пароль — введите его ниже.
+Select a world from the list first.,Select a world from the list first.,Сначала выберите мир из списка.
+Invalid server address.,Invalid server address.,Неверный адрес сервера.
+Connected! Entering world...,Connected! Entering world...,Подключено! Входим в мир...
+Disconnected from server.,Disconnected from server.,Отключено от сервера.
+Password required,Password required,Требуется пароль
+Creating lobby on port %d...,Creating lobby on port %d...,Создание лобби на порту %d...
+Found %d world(s).,Found %d world(s).,Найдено миров: %d.
+Connecting to %s:%d...,Connecting to %s:%d...,Подключение к %s:%d...
+Lobby ready on port %d. Entering world...,Lobby ready on port %d. Entering world...,Лобби готово на порту %d. Входим в мир...
+Failed: ,Failed: ,Ошибка: 
+WORLD SETTINGS,WORLD SETTINGS,НАСТРОЙКИ МИРА
+World to host,World to host,Мир для запуска
+SERVER SEARCH,SERVER SEARCH,ПОИСК СЕРВЕРА
+AVAILABLE SERVERS,AVAILABLE SERVERS,ДОСТУПНЫЕ СЕРВЕРЫ
+SERVER INFO,SERVER INFO,ИНФОРМАЦИЯ О СЕРВЕРЕ
+INFORMATION,INFORMATION,ИНФОРМАЦИЯ
+Refresh List,Refresh List,Обновить список
+Return,Return,Вернуться
+Enter IP address...,Enter IP address...,Введите IP-адрес...
+Max players:,Max players:,Максимум игроков:
+Server type:,Server type:,Тип сервера:
+Connection:,Connection:,Соединение:
+Open,Open,Открытый
+Password-protected,Password-protected,По паролю
+Direct,Direct,Прямое
+World name:,World name:,Название мира:
+Players:,Players:,Игроки:
+Address:,Address:,Адрес:
+Yes,Yes,Да
+No,No,Нет
+No worlds — create one in Singleplayer,No worlds — create one in Singleplayer,Нет миров — создайте мир в одиночной игре
+Create a character first.,Create a character first.,Сначала создайте персонажа.
+"Create a world in Singleplayer first, then host it here.","Create a world in Singleplayer first, then host it here.","Сначала создайте мир в одиночной игре, затем захостите его здесь."
+Failed to load the selected world file.,Failed to load the selected world file.,Не удалось загрузить файл мира.
+Connected! Receiving world data...,Connected! Receiving world data...,Подключено! Получаем данные мира...
+World received! Entering...,World received! Entering...,Мир получен! Входим...
+Delete World,Delete World,Удалить мир
+Server,Server,Сервер
+ADVANCED SOLAR PANEL,ADVANCED SOLAR PANEL,ПРОДВИНУТАЯ СОЛНЕЧНАЯ ПАНЕЛЬ
+CENTRIFUGE,CENTRIFUGE,ЦЕНТРИФУГА
+CHEMICAL REACTOR,CHEMICAL REACTOR,ХИМИЧЕСКИЙ РЕАКТОР
+COAL GENERATOR,COAL GENERATOR,УГОЛЬНЫЙ ГЕНЕРАТОР
+COBBLESTONE GENERATOR,COBBLESTONE GENERATOR,ГЕНЕРАТОР БУЛЫЖНИКА
+COKE OVEN,COKE OVEN,КОКСОВАЯ ПЕЧЬ
+COMPRESSOR,COMPRESSOR,КОМПРЕССОР
+CONVEYOR SPLITTER,CONVEYOR SPLITTER,РАЗВЕТВИТЕЛЬ КОНВЕЙЕРА
+CONVEYOR,CONVEYOR,КОНВЕЙЕР
+CRUSHER,CRUSHER,ДРОБИЛКА
+DISTILLATION COLUMN,DISTILLATION COLUMN,РЕКТИФИКАЦИОННАЯ КОЛОННА
+ELECTRIC FURNACE,ELECTRIC FURNACE,ЭЛЕКТРОПЕЧЬ
+ELITE SOLAR PANEL,ELITE SOLAR PANEL,ЭЛИТНАЯ СОЛНЕЧНАЯ ПАНЕЛЬ
+ENERGY STORAGE T1,ENERGY STORAGE T1,ЭНЕРГОХРАНИЛИЩЕ T1
+ENERGY STORAGE T2,ENERGY STORAGE T2,ЭНЕРГОХРАНИЛИЩЕ T2
+ENERGY STORAGE T3,ENERGY STORAGE T3,ЭНЕРГОХРАНИЛИЩЕ T3
+EXTRACTOR,EXTRACTOR,ЭКСТРАКТОР
+FARMING STATION,FARMING STATION,ФЕРМСТАНЦИЯ
+INDUCTION MELTER,INDUCTION MELTER,ИНДУКЦИОННАЯ ПЛАВИЛЬНЯ
+MAGNETIC SEPARATOR,MAGNETIC SEPARATOR,МАГНИТНЫЙ СЕПАРАТОР
+ME CONTROLLER,ME CONTROLLER,ME-КОНТРОЛЛЕР
+MIXER,MIXER,СМЕСИТЕЛЬ
+MOLECULAR TRANSFORMER,MOLECULAR TRANSFORMER,МОЛЕКУЛЯРНЫЙ ТРАНСФОРМЕР
+OIL PUMP,OIL PUMP,НЕФТЕКАЧКА
+ORE WASHER,ORE WASHER,ПРОМЫВОЧНАЯ МАШИНА
+QUANTUM SOLAR PANEL,QUANTUM SOLAR PANEL,КВАНТОВАЯ СОЛНЕЧНАЯ ПАНЕЛЬ
+SOLAR PANEL,SOLAR PANEL,СОЛНЕЧНАЯ ПАНЕЛЬ
+STEAM BOILER,STEAM BOILER,ПАРОВОЙ КОТЁЛ
+STEAM CRUSHER,STEAM CRUSHER,ПАРОВАЯ ДРОБИЛКА
+STEAM FURNACE,STEAM FURNACE,ПАРОВАЯ ПЕЧЬ
+STEAM PRESS,STEAM PRESS,ПАРОВОЙ ПРЕСС
+STEAM TURBINE,STEAM TURBINE,ПАРОВАЯ ТУРБИНА
+ULTIMATE SOLAR PANEL,ULTIMATE SOLAR PANEL,АБСОЛЮТНАЯ СОЛНЕЧНАЯ ПАНЕЛЬ
+WATER PUMP,WATER PUMP,ВОДЯНАЯ ПОМПА
+Processing...,Processing...,Работает...
+No Input,No Input,Нет сырья
+No Steam,No Steam,Нет пара
+Creosote Full,Creosote Full,Бак креозота полон
+No Water,No Water,Нет воды
+No Power,No Power,Нет энергии
+Waiting,Waiting,Ожидание
+Working,Working,Работает
+No power,No power,Нет энергии
+Ready,Ready,Готово
+Mixing...,Mixing...,Смешивание...
+Waiting for fluids,Waiting for fluids,Ожидание жидкостей
+No Fluids,No Fluids,Нет жидкостей
+Tank Empty,Tank Empty,Бак пуст
+Bucket fluid:,Bucket fluid:,Жидкость в ведро:
+Pour bucket into machine,Pour bucket into machine,Вылить ведро в машину
+Fill bucket from machine,Fill bucket from machine,Набрать ведро из машины
+Empty,Empty,Пусто
+Input,Input,Вход
+Recipes,Recipes,Рецепты
+Open machine recipes,Open machine recipes,Открыть рецепты машины
+Machine Recipes,Machine Recipes,Рецепты машины
+Search recipes,Search recipes,Поиск рецептов
+No recipes available,No recipes available,У этой машины нет фиксированных рецептов
+No matching recipes,No matching recipes,Рецепты не найдены
+Consumption: %.0f EU/s,Consumption: %.0f EU/s,Потребление: %.0f EU/с
+Generation: %.0f EU/s,Generation: %.0f EU/s,Генерация: %.0f EU/с
+Steam: %.1f mB/s,Steam: %.1f mB/s,Пар: %.1f мВ/с
+Buffer: %.0f/%.0f EU,Buffer: %.0f/%.0f EU,Буфер: %.0f/%.0f EU
+Buffer: %.0f/%.0f mB,Buffer: %.0f/%.0f mB,Буфер: %.0f/%.0f мВ
+No fuel,No fuel,Нет топлива
+Waiting for network demand,Waiting for network demand,Ожидание потребления сети
+Output blocked,Output blocked,Выход заблокирован
+Missing fluid or ingredient,Missing fluid or ingredient,Не хватает жидкости или ингредиента
+Waiting for ingredients,Waiting for ingredients,Ожидание ингредиентов
+No matching recipe,No matching recipe,Нет подходящего рецепта
+Smelting...,Smelting...,Выплавка...
+Generation,Generation,Генерация
+Burn time: %.1f s,Burn time: %.1f s,Время горения: %.1f с
+Output,Output,Выход
+Storage,Storage,Хранилище
+"Game Data (saves, logs)","Game Data (saves, logs)","Данные игры (сейвы, логи)"
+Open Folder,Open Folder,Открыть папку
+Bug Report,Bug Report,Баг-репорт
+Copy Latest Log,Copy Latest Log,Скопировать свежий лог
+Copied!,Copied!,Скопировано!
+Copy Settings,Copy Settings,Скопировать настройки
+Import Settings,Import Settings,Импортировать настройки
+Imported!,Imported!,Импортировано!
+Invalid settings,Invalid settings,Некорректные настройки
+Log not found,Log not found,Лог не найден
+Leave Feedback,Leave Feedback,Оставить отзыв
+POWER GRID [G]  •  Networks: %d  •  Generation: %.0f EU  •  Demand: %.0f EU  •  Deficit: %.0f EU,POWER GRID [G]  •  Networks: %d  •  Generation: %.0f EU  •  Demand: %.0f EU  •  Deficit: %.0f EU,ЭНЕРГОСЕТЬ [G]  •  Сетей: %d  •  Генерация: %.0f EU  •  Спрос: %.0f EU  •  Дефицит: %.0f EU
+"Main filter (item IDs, comma separated)","Main filter (item IDs, comma separated)","Главный фильтр (ID предметов через запятую)"
+Allow listed,Allow listed,Разрешить перечисленные
+Block listed,Block listed,Запретить перечисленные
+Priority,Priority,Приоритет
+Splitter outputs,Splitter outputs,Выходы распределителя
+Left output filter,Left output filter,Фильтр левого выхода
+Right output filter,Right output filter,Фильтр правого выхода
+Left priority,Left priority,Приоритет слева
+Right priority,Right priority,Приоритет справа
+JAMMED — destination cannot accept item,JAMMED — destination cannot accept item,ЗАТОР — получатель не принимает предмет
+Stopped — no power,Stopped — no power,Остановлен — нет энергии
+Running,Running,Работает
+Higher priority is attempted first. Empty filter accepts every item.,Higher priority is attempted first. Empty filter accepts every item.,Сначала проверяется выход с большим приоритетом. Пустой фильтр принимает всё.
+PHASE %d,PHASE %d,ФАЗА %d
+Rewards:,Rewards:,Награды:
+Chance:,Chance:,Шанс:
+WORLD MAP,WORLD MAP,КАРТА МИРА
+Biomes discovered: %d/%d,Biomes discovered: %d/%d,Открыто биомов: %d/%d
+■ Resources   ◆ Buildings   ◇ Obelisks,■ Resources   ◆ Buildings   ◇ Obelisks,■ Ресурсы   ◆ Постройки   ◇ Обелиски
+☠ Boss alive   ✓ Boss defeated,☠ Boss alive   ✓ Boss defeated,☠ Босс жив   ✓ Босс побеждён
+Mechanical Inserter,Mechanical Inserter,Механический манипулятор
+Filtered Fluid Valve,Filtered Fluid Valve,Фильтрующий клапан
+Fluid filter (empty accepts all),Fluid filter (empty accepts all),Фильтр жидкости (пустой пропускает всё)
+"Use a fluid ID such as water, steam, or creosote.","Use a fluid ID such as water, steam, or creosote.","Используй ID жидкости: water, steam или creosote."
+Open to all fluids,Open to all fluids,Открыт для всех жидкостей
+Filter: %s,Filter: %s,Фильтр: %s
+Valve mode,Valve mode,Режим клапана
+Normal flow,Normal flow,Обычный поток
+Overflow,Overflow,Перелив
+Open above: %d%%,Open above: %d%%,Открывать выше: %d%%
+Overflow opens above %d%%,Overflow opens above %d%%,Перелив открывается выше %d%%
+Fluid network warning,Fluid network warning,Предупреждение жидкостной сети
+Steam consumers without supply: %d,Steam consumers without supply: %d,Потребители без пара: %d
+Fluid pipe network is at capacity: %.0f%%,Fluid pipe network is at capacity: %.0f%%,Трубопровод загружен до предела: %.0f%%
+Enabled,Enabled,Включён
+Rotate left,Rotate left,Повернуть влево
+Rotate right,Rotate right,Повернуть вправо
+Rear input -> front output,Rear input -> front output,Задний вход -> передний выход
+Item filter (IDs separated by commas),Item filter (IDs separated by commas),Фильтр предметов (ID через запятую)
+Empty filter transfers every item. Use item IDs such as iron_ore or coal.,Empty filter transfers every item. Use item IDs such as iron_ore or coal.,Пустой фильтр пропускает всё. Используй ID предметов — например iron_ore или coal.
+Waiting for source,Waiting for source,Ожидает предмет
+Waiting for matching item,Waiting for matching item,Ожидает подходящий предмет
+Destination blocked,Destination blocked,Выход заблокирован
+Transferring,Transferring,Перемещает предмет
+Disabled,Disabled,Выключен
+Direction: %s,Direction: %s,Направление: %s
+North,North,Север
+East,East,Восток
+South,South,Юг
+West,West,Запад
+IRON PRODUCTION LINE,IRON PRODUCTION LINE,ЖЕЛЕЗНАЯ ПРОИЗВОДСТВЕННАЯ ЛИНИЯ
+Crusher,Crusher,Дробилка
+Furnace,Furnace,Печь
+Connected,Connected,Соединено
+Build a Steam Crusher,Build a Steam Crusher,Построй паровую дробилку
+Build a Steam Furnace,Build a Steam Furnace,Построй паровую печь
+Connect an output chest,Connect an output chest,Подключи выходной сундук
+Logistics disconnected,Logistics disconnected,Логистика разорвана
+Conveyor jam,Conveyor jam,Затор на конвейере
+Inserter output blocked,Inserter output blocked,Выход манипулятора заблокирован
+Crusher output blocked,Crusher output blocked,Выход дробилки заблокирован
+Furnace output blocked,Furnace output blocked,Выход печи заблокирован
+Crusher has no steam,Crusher has no steam,В дробилке нет пара
+Furnace has no steam,Furnace has no steam,В печи нет пара
+Add iron ore to the crusher,Add iron ore to the crusher,Загрузи железную руду в дробилку
+Waiting for ore or dust,Waiting for ore or dust,Ожидание руды или пыли
+Iron line is running,Iron line is running,Железная линия работает
+Iron line is ready,Iron line is ready,Железная линия готова
+Steam Crusher limits throughput,Steam Crusher limits throughput,Паровая дробилка ограничивает выпуск
+Bottleneck: %s — %.0f ingots/min,Bottleneck: %s — %.0f ingots/min,Узкое место: %s — %.0f слитков/мин
+Connect machines with at least two inserters.,Connect machines with at least two inserters.,Соедини машины минимум двумя манипуляторами.
+Steam Assembler,Steam Assembler,Паровой сборщик
+Select a component recipe,Select a component recipe,Выберите рецепт компонента
+Input %d,Input %d,Вход %d
+No recipe selected,No recipe selected,Рецепт не выбран
+Invalid recipe,Invalid recipe,Неверный рецепт
+Missing ingredients,Missing ingredients,Не хватает ингредиентов
+Assembling,Assembling,Сборка
+Crafts completed: %d,Crafts completed: %d,Выполнено циклов: %d
+Steam: %.1f/%.1f L,Steam: %.1f/%.1f L,Пар: %.1f/%.1f л
+Steam and ingredients can be supplied automatically with pipes and inserters.,Steam and ingredients can be supplied automatically with pipes and inserters.,Пар и ингредиенты можно подавать автоматически трубами и манипуляторами.
+Паровой сборщик,Steam Assembler,Паровой сборщик
+STEAM RESEARCH LINE,STEAM RESEARCH LINE,ПАРОВАЯ ИССЛЕДОВАТЕЛЬСКАЯ ЛИНИЯ
+Core,Core,Ядро
+Pack,Pack,Набор
+Configure Research Core Assembler,Configure Research Core Assembler,Настрой сборщик исследовательских ядер
+Configure Steam Pack Assembler,Configure Steam Pack Assembler,Настрой сборщик паровых наборов
+Connect Research Output Chest,Connect Research Output Chest,Подключи выходной сундук исследований
+Research logistics disconnected,Research logistics disconnected,Логистика исследовательской линии разорвана
+Research conveyor jam,Research conveyor jam,Затор конвейера исследовательской линии
+Research inserter output blocked,Research inserter output blocked,Выход манипулятора исследовательской линии заблокирован
+Core assembler output blocked,Core assembler output blocked,Выход сборщика ядер заблокирован
+Pack assembler output blocked,Pack assembler output blocked,Выход сборщика наборов заблокирован
+Core assembler has no steam,Core assembler has no steam,В сборщике ядер нет пара
+Pack assembler has no steam,Pack assembler has no steam,В сборщике наборов нет пара
+Core assembler needs precision parts,Core assembler needs precision parts,Сборщику ядер нужны точные детали
+Pack assembler needs core steel and coke,Pack assembler needs core steel and coke,Сборщику наборов нужны ядро сталь и кокс
+Research line is running,Research line is running,Исследовательская линия работает
+Research line is ready,Research line is ready,Исследовательская линия готова
+Steam Assemblers limit throughput,Steam Assemblers limit throughput,Паровые сборщики ограничивают выпуск
+Bottleneck: %s — %.1f packs/min,Bottleneck: %s — %.1f packs/min,Узкое место: %s — %.1f наборов/мин
+Connect both assemblers to an output chest with inserters.,Connect both assemblers to an output chest with inserters.,Соедини оба сборщика с выходным сундуком манипуляторами.
+STEEL PRODUCTION LINE,STEEL PRODUCTION LINE,СТАЛЬНАЯ ПРОИЗВОДСТВЕННАЯ ЛИНИЯ
+Coke,Coke,Кокс
+Blast,Blast,Домна
+Press,Press,Пресс
+Build a Coke Oven,Build a Coke Oven,Построй коксовую печь
+Build a Primitive Blast Furnace,Build a Primitive Blast Furnace,Построй примитивную домну
+Connect a Steam Press,Connect a Steam Press,Подключи паровой пресс
+Connect a Steel Output Chest,Connect a Steel Output Chest,Подключи выходной сундук для стали
+Steel logistics disconnected,Steel logistics disconnected,Логистика стальной линии разорвана
+Steel conveyor jam,Steel conveyor jam,Затор конвейера стальной линии
+Steel inserter output blocked,Steel inserter output blocked,Выход манипулятора стальной линии заблокирован
+Coke oven output blocked,Coke oven output blocked,Выход коксовой печи заблокирован
+Drain creosote from coke oven,Drain creosote from coke oven,Отведи креозот из коксовой печи
+Blast furnace output blocked,Blast furnace output blocked,Выход домны заблокирован
+Steel press output blocked,Steel press output blocked,Выход стального пресса заблокирован
+Steel press has no steam,Steel press has no steam,В стальном прессе нет пара
+Add coal to coke oven,Add coal to coke oven,Добавь уголь в коксовую печь
+Blast furnace needs coke,Blast furnace needs coke,Доменной печи нужен кокс
+Blast furnace needs iron ingots,Blast furnace needs iron ingots,Доменной печи нужны железные слитки
+Steel press is waiting for ingots,Steel press is waiting for ingots,Стальной пресс ожидает слитки
+Steel line is running,Steel line is running,Стальная линия работает
+Steel line is ready,Steel line is ready,Стальная линия готова
+Coke Oven limits steel throughput,Coke Oven limits steel throughput,Коксовая печь ограничивает выпуск стали
+Bottleneck: %s — %.1f plates/min,Bottleneck: %s — %.1f plates/min,Узкое место: %s — %.1f пластин/мин
+"Connect the coke oven, blast furnace, press, and chest with at least three inserters.","Connect the coke oven, blast furnace, press, and chest with at least three inserters.","Соедини коксовую печь, домну, пресс и сундук минимум тремя манипуляторами."
+CREOSOTE RECOVERY LOOP,CREOSOTE RECOVERY LOOP,КРЕОЗОТНЫЙ КОНТУР
+Coke Oven,Coke Oven,Коксовая печь
+Tank,Tank,Резервуар
+Boiler,Boiler,Котёл
+Recovery,Recovery,Утилизация
+Connect a Fluid Tank,Connect a Fluid Tank,Подключи жидкостный резервуар
+Connect a Steam Boiler,Connect a Steam Boiler,Подключи паровой котёл
+Creosote recovery is online,Creosote recovery is online,Креозотный контур работает
+1 L creosote = 2 seconds of boiler burn time.,1 L creosote = 2 seconds of boiler burn time.,1 л креозота = 2 секунды горения котла.
+Creosote recovery: online,Creosote recovery: online,Креозотный контур: работает
+Creosote recovery: connect tank and boiler,Creosote recovery: connect tank and boiler,Креозотный контур: подключи резервуар и котёл
+STEAM NETWORK [K],STEAM NETWORK [K],ПАРОВАЯ СЕТЬ [K]
+No fluid pipe networks detected.,No fluid pipe networks detected.,Жидкостные трубопроводы не обнаружены.
+STEAM NETWORK [K]  •  Networks: %d  •  Boilers: %d  •  Machines: %d,STEAM NETWORK [K]  •  Networks: %d  •  Boilers: %d  •  Machines: %d,ПАРОВАЯ СЕТЬ [K]  •  Сетей: %d  •  Котлов: %d  •  Машин: %d
+Capacity: %.1f/%.1f L/s  •  Demand: %.1f active / %.1f connected,Capacity: %.1f/%.1f L/s  •  Demand: %.1f active / %.1f connected,Мощность: %.1f/%.1f л/с  •  Спрос: %.1f активный / %.1f подключённый
+Steam flow: %.1f L/s  •  Pipe load: %.0f%%  •  Buffer: %.1f L,Steam flow: %.1f L/s  •  Pipe load: %.0f%%  •  Buffer: %.1f L,Поток пара: %.1f л/с  •  Загрузка труб: %.0f%%  •  Буфер: %.1f л
+Steam flow: %.1f L/s  •  Pipe limit: %.1f L/s  •  Load: %.0f%%  •  Buffer: %.1f L,Steam flow: %.1f L/s  •  Pipe limit: %.1f L/s  •  Load: %.0f%%  •  Buffer: %.1f L,Поток пара: %.1f л/с  •  Лимит труб: %.1f л/с  •  Загрузка: %.0f%%  •  Буфер: %.1f л
+All connected steam machines are supplied.,All connected steam machines are supplied.,Все подключённые паровые машины обеспечены паром.
+Without steam: %d — %s,Without steam: %d — %s,Без пара: %d — %s
+Installed boilers cannot cover connected demand.,Installed boilers cannot cover connected demand.,Установленные котлы не покрывают подключённый спрос.
+REQUEST,REQUEST,ЗАПРОС
+Exact item name or ID,Exact item name or ID,Точное название или ID предмета
+TARGET,TARGET,ЗАПАС
+APPLY,APPLY,ПРИМЕНИТЬ
+CLEAR,CLEAR,ОЧИСТИТЬ
+Enter an exact item name or ID.,Enter an exact item name or ID.,Введи точное название или ID предмета.
+Unknown item: %s,Unknown item: %s,Неизвестный предмет: %s
+Warehouse request updated.,Warehouse request updated.,Запрос склада обновлён.
+Warehouse request disabled.,Warehouse request disabled.,Запрос склада отключён.
+Warehouse request cleared.,Warehouse request cleared.,Запрос склада очищен.
+No warehouse request configured.,No warehouse request configured.,Запрос склада не настроен.
+Request disabled: %s • %d / %d stored,Request disabled: %s • %d / %d stored,Запрос отключён: %s • хранится %d / %d
+Requesting %s • %d / %d stored • %d incoming,Requesting %s • %d / %d stored • %d incoming,Запрос %s • хранится %d / %d • в пути %d
+SUPPLY,SUPPLY,ПОСТАВКА
+Item name or ID (blank = all),Item name or ID (blank = all),Название или ID (пусто = все)
+KEEP,KEEP,ОСТАТОК
+Lowest,Lowest,Самый низкий
+Highest,Highest,Самый высокий
+All items,All items,Все предметы
+Warehouse provider updated.,Warehouse provider updated.,Поставщик склада обновлён.
+Warehouse provider disabled.,Warehouse provider disabled.,Поставщик склада отключён.
+Warehouse provider cleared.,Warehouse provider cleared.,Поставщик склада очищен.
+Supplying %s • keep %d • %d available • %s priority,Supplying %s • keep %d • %d available • %s priority,Поставка %s • оставить %d • доступно %d • приоритет: %s
+Waiting for higher priority provider,Waiting for higher priority provider,Ожидание поставщика с более высоким приоритетом
+REQUEST RULE,REQUEST RULE,ПРАВИЛО ЗАПРОСА
+PROVIDER RULE,PROVIDER RULE,ПРАВИЛО ПОСТАВКИ
+Rule %d: %s,Rule %d: %s,Правило %d: %s
+Empty,Empty,Пусто
+%d slots • %d logistics rules,%d slots • %d logistics rules,%d ячеек • правил логистики: %d
+LOGISTICS [L]  •  Requesters: %d  •  Providers: %d  •  Demand routes: %d,LOGISTICS [L]  •  Requesters: %d  •  Providers: %d  •  Demand routes: %d,ЛОГИСТИКА [L]  •  Запросов: %d  •  Поставщиков: %d  •  Маршрутов: %d
+Missing: %d  •  In transit: %d  •  Supply: %d  •  Blocks: %d  •  Priority waits: %d,Missing: %d  •  In transit: %d  •  Supply: %d  •  Blocks: %d  •  Priority waits: %d,Дефицит: %d  •  В пути: %d  •  Доступно: %d  •  Блокировок: %d  •  Ожиданий приоритета: %d
+%s: %d missing / %d incoming / %d supplied,%s: %d missing / %d incoming / %d supplied,%s: дефицит %d / в пути %d / доступно %d
+No active shortages.,No active shortages.,Активного дефицита нет.
+Top shortages: %s,Top shortages: %s,Главный дефицит: %s
+All requested items have a configured supply.,All requested items have a configured supply.,Для всех запрошенных предметов настроена поставка.
+Blocked logistics routes need attention.,Blocked logistics routes need attention.,Заблокированные маршруты требуют внимания.
+Some requested items have no available provider.,Some requested items have no available provider.,Для части запрошенных предметов нет доступного поставщика.
+No logistics problems to navigate.,No logistics problems to navigate.,Нет проблем логистики для навигации.
+Problem %d/%d: %s • tile %d:%d • [ / ] navigate,Problem %d/%d: %s • tile %d:%d • [ / ] navigate,Проблема %d/%d: %s • блок %d:%d • навигация [ / ]
+%d logistics problems • use [ / ] to navigate,%d logistics problems • use [ / ] to navigate,Проблем логистики: %d • используй [ / ] для навигации
+Conveyor jam,Conveyor jam,Затор на конвейере
+Inserter destination blocked,Inserter destination blocked,Выход манипулятора заблокирован
+No provider for %s,No provider for %s,Нет поставщика для %s
+Shortage: %s,Shortage: %s,Дефицит: %s
+Logistics problem,Logistics problem,Проблема логистики
+All problems,All problems,Все проблемы
+Blockages,Blockages,Заторы
+Shortages,Shortages,Дефицит
+Priority waits,Priority waits,Ожидания приоритета
+%d/%d • %s • %s • tile %d:%d • [ / ] navigate • [\] filter,%d/%d • %s • %s • tile %d:%d • [ / ] navigate • [\] filter,%d/%d • %s • %s • блок %d:%d • навигация [ / ] • фильтр [\]
+%s: %d problems • [ / ] navigate • [\] filter,%s: %d problems • [ / ] navigate • [\] filter,%s: проблем %d • навигация [ / ] • фильтр [\]
+%s: no matching problems • [\] filter,%s: no matching problems • [\] filter,%s: подходящих проблем нет • фильтр [\]
+No hidden problems. • [I] hide selected for 60s,No hidden problems. • [I] hide selected for 60s,Скрытых проблем нет • [I] скрыть выбранную на 60 с
+Hidden: %d • next returns in %ds • [I] hide selected,Hidden: %d • next returns in %ds • [I] hide selected,Скрыто: %d • ближайшая вернётся через %d с • [I] скрыть выбранную
+Logistics blockage,Logistics blockage,Затор логистики
+Blocked logistics machines: %d. Press L and use [ / ] to inspect.,Blocked logistics machines: %d. Press L and use [ / ] to inspect.,Заблокировано логистических механизмов: %d. Нажми L и используй [ / ] для проверки.
+Logistics supply missing,Logistics supply missing,Отсутствует логистическая поставка
+No provider configured for: %s. Press L to inspect.,No provider configured for: %s. Press L to inspect.,Не настроен поставщик для: %s. Нажми L для проверки.
+Click to show on map.,Click to show on map.,Нажми, чтобы показать на карте.
+Resolved,Resolved,Решено
+Problem resolved.,Problem resolved.,Проблема устранена.
+All notifications,All notifications,Все уведомления
+Active problems,Active problems,Активные проблемы
+Resolved problems,Resolved problems,Решённые проблемы
+Active: %d • Resolved: %d,Active: %d • Resolved: %d,Активных: %d • Решённых: %d
+No matching notifications.,No matching notifications.,Нет подходящих уведомлений.
+Clear Resolved,Clear Resolved,Удалить решённые

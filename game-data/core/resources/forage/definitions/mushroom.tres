@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ForageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/forage/ForageData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "mushroom"
+display_name = "Грибы"
+resource_item_id = "mushroom"
+required_tool = "none"
+mining_level_required = 1
+mining_interval = 0.25
+yield_amount = 1
+atlas_x = 7
+tile_source_id = 26
+health = 1
+total_resource_amount = 2
+default_spawn_chance = 0.0
+spawn_chance_by_biome = {
+"ForestBiome": 0.02,
+"JungleBiome": 0.022,
+"PrimevalThicketBiome": 0.028,
+"SwampBiome": 0.03
+}
+minimum_spacing = 2
+requires_water = false

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ForageData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://core/resources/forage/ForageData.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+deposit_id = "cactus"
+display_name = "Кактус"
+resource_item_id = "cactus"
+required_tool = "none"
+mining_level_required = 1
+mining_interval = 0.35
+yield_amount = 1
+atlas_x = 2
+tile_source_id = 21
+health = 3
+total_resource_amount = 3
+default_spawn_chance = 0.0
+spawn_chance_by_biome = {
+"DesertBiome": 0.0095
+}
+minimum_spacing = 2
+requires_water = false
