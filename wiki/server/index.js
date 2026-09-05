@@ -5524,6 +5524,10 @@ function handleApi(response, route, searchParams) {
     handleNpcsApi(response, route, language);
     return;
   }
+  if (resource === 'search-index' && route.length === 4) {
+    sendJson(response, 200, { entries: wikiSearchEntries(language) });
+    return;
+  }
   if (resource === 'search' && route.length === 4) {
     sendJson(response, 200, wikiSearch(language, searchParams.get('q')));
     return;

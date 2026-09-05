@@ -3,3 +3,4 @@ node_modules/
 .DS_Store
 game-data.next/
 game-data.previous/
+dist/

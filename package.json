@@ -6,6 +6,8 @@
     "start": "node wiki/server/index.js --open",
     "serve": "node wiki/server/index.js",
     "sync": "node scripts/sync-game-data.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "preview:pages": "node scripts/serve-pages.mjs",
     "test": "node --test wiki/tests/server.test.mjs",
     "check": "node --check wiki/server/index.js && node --check wiki/client/pages/app.js && npm test",
     "wiki": "npm start",
