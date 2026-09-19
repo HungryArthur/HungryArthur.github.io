@@ -55,12 +55,11 @@ func tick(delta: float) -> void:
 	processing_active = power_stored > 0.0 and can_run
 
 	if processing_active:
-		power_stored = maxf(power_stored - POWER_CONSUMPTION * delta, 0.0)
-		process_timer += delta
+		process_timer += consume_processing_power(delta, POWER_CONSUMPTION)
 		if process_timer >= PROCESS_TIME:
-			process_timer = 0.0
+			process_timer -= PROCESS_TIME
 			_complete_process(recipe)
-	else:
+	elif not (can_run):
 		process_timer = 0.0
 
 

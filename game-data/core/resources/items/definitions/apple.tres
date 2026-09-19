@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://0gxl7o7ykens" path="res://core/resources/items/ItemData.gd" id="1_d4m5h"]
 
+[ext_resource type="Texture2D" path="res://assets/textures/generated/items/apple.png" id="generated_art"]
+
 [resource]
 script = ExtResource("1_d4m5h")
+texture = ExtResource("generated_art")
 id = "apple"
 name = "item.apple.name"
 description = "item.apple.desc"

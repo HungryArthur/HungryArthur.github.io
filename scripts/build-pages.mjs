@@ -9,6 +9,7 @@ import {
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateArtManifest, validateCatalogTextures, validateTexture } from './validate-textures.mjs';
 
 const scriptsRoot = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptsRoot, '..');
@@ -60,6 +61,7 @@ const staticShell = originalShell
   .replaceAll('../../assets/', '/assets/');
 const routes = new Set(['', 'ru', 'en']);
 let apiFiles = 0;
+let checkedTextureReferences = 0;
 
 function writeText(relativePath, content) {
   const target = resolve(outputRoot, relativePath);
@@ -68,6 +70,7 @@ function writeText(relativePath, content) {
 }
 
 function writeJson(relativePath, data) {
+  checkedTextureReferences += validateCatalogTextures(data, outputRoot);
   writeText(relativePath, `${JSON.stringify(data)}\n`);
   apiFiles += 1;
 }
@@ -102,10 +105,15 @@ async function stopServer(serverProcess) {
   });
 }
 
+validateArtManifest(gameDataRoot);
+if (dirname(outputRoot) !== repositoryRoot || outputRoot === gameDataRoot) {
+  throw new Error(`Unsafe build output: ${outputRoot}`);
+}
 rmSync(outputRoot, { recursive: true, force: true });
 mkdirSync(outputRoot, { recursive: true });
 cpSync(resolve(gameDataRoot, 'assets'), resolve(outputRoot, 'assets'), { recursive: true });
 cpSync(clientRoot, resolve(outputRoot, 'client'), { recursive: true });
+const checkedArtFiles = validateArtManifest(gameDataRoot, outputRoot);
 
 const output = { value: '' };
 const serverProcess = spawn(process.execPath, ['wiki/server/index.js'], {
@@ -131,6 +139,9 @@ try {
       const catalog = await fetchJson(`/api/v1/${language}/${collection.resource}`);
       writeJson(`api-data/${language}/${collection.resource}.json`, catalog);
       const entries = catalog[collection.key] ?? [];
+      if (collection.resource === 'items' || collection.resource === 'machines') {
+        for (const entry of entries) validateTexture(entry.texture, outputRoot, entry.id);
+      }
       for (const entry of entries) {
         const id = String(collection.id ? collection.id(entry) : entry.id);
         const encodedId = encodeURIComponent(id);
@@ -184,3 +195,4 @@ for (const file of requiredFiles) {
 }
 
 console.log(`GitHub Pages build complete: ${routes.size} routes, ${apiFiles} API files.`);
+console.log(`Textures verified: ${checkedArtFiles} authored files; ${checkedTextureReferences} catalog references.`);

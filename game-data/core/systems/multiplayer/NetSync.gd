@@ -46,6 +46,7 @@ func _ready() -> void:
 	MultiplayerManager.player_left.connect(_on_player_left)
 	MultiplayerManager.player_state_received.connect(_on_player_state)
 	MultiplayerManager.remote_block_placed.connect(_on_remote_block_placed)
+	MultiplayerManager.remote_block_facing_changed.connect(_on_remote_block_facing_changed)
 	MultiplayerManager.remote_block_removed.connect(_on_remote_block_removed)
 	MultiplayerManager.remote_ore_mined.connect(_on_remote_ore_mined)
 	MultiplayerManager.remote_ore_hit.connect(_on_remote_ore_hit)
@@ -379,6 +380,12 @@ func _on_remote_block_removed(anchor: Vector2i) -> void:
 	var im: Variant = _interaction_manager()
 	if im != null:
 		im.apply_remote_destroy(anchor)
+
+
+func _on_remote_block_facing_changed(anchor: Vector2i, facing: int) -> void:
+	var im: Variant = _interaction_manager()
+	if im != null:
+		im.apply_remote_facing(anchor, facing)
 
 
 func _on_remote_ore_mined(global_tile_pos: Vector2i, tool_power: int, tool_type: String) -> void:

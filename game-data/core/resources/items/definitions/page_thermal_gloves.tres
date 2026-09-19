@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
 
+[ext_resource type="Texture2D" path="res://assets/textures/generated/items/page_thermal_gloves.png" id="generated_art"]
+
 [resource]
 script = ExtResource("1_script")
+texture = ExtResource("generated_art")
 id = "page_thermal_gloves"
 name = "item.page_thermal_gloves.name"
 description = "item.page_thermal_gloves.desc"

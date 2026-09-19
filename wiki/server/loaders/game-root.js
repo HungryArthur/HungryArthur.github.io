@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const serverRoot = dirname(fileURLToPath(import.meta.url));
 export const repositoryRoot = resolve(serverRoot, '..', '..', '..');
 
-function isGameRoot(candidate) {
+export function isGameRoot(candidate) {
   return Boolean(
     candidate
     && existsSync(resolve(candidate, 'project.godot'))
@@ -21,9 +21,14 @@ const candidates = [
       ? resolve(process.env.INFINITEFORGE_GAME_ROOT)
       : null,
   },
+  { label: 'parent', path: resolve(repositoryRoot, '..') },
   { label: 'sibling', path: resolve(repositoryRoot, '..', 'InfiniteForge') },
   { label: 'snapshot', path: resolve(repositoryRoot, 'game-data') },
 ];
+
+if (process.env.INFINITEFORGE_GAME_ROOT && !isGameRoot(candidates[0].path)) {
+  throw new Error(`Configured InfiniteForge folder does not contain game data: ${candidates[0].path}`);
+}
 
 const selected = candidates.find((candidate) => isGameRoot(candidate.path));
 

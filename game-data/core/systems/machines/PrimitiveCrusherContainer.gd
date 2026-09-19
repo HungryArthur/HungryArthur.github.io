@@ -61,7 +61,7 @@ func tick(delta: float) -> void:
 	if processing_active:
 		process_timer += delta
 		if process_timer >= PROCESS_TIME:
-			process_timer = 0.0
+			process_timer -= PROCESS_TIME
 			_complete_process(s_in, s_out, recipe)
 	else:
 		process_timer = 0.0

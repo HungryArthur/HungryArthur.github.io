@@ -23,6 +23,10 @@ func _init() -> void:
 
 ## Вызывается из _init подкласса: задаёт рецепты, бак пара и создаёт слоты.
 func configure(p_title: String, p_recipes: Dictionary, p_time: float, p_steam: float) -> void:
+	# Each concrete steam machine configures itself after inherited properties
+	# initialize. Preserve its steam-only drive here as well as in the base init.
+	requires_power = false
+	power_capacity = 0.0
 	# Бак создаём здесь, а не в _init: инициализатор `input_tanks = []` базового
 	# FluidMachineContainer может отработать позже конструктора этого класса и
 	# затереть бак — тогда tick() падал бы на input_tanks[0].
@@ -68,18 +72,27 @@ func tick(delta: float) -> void:
 	processing_active = has_steam() and can_run and not output_blocked
 
 	if processing_active:
-		input_tanks[0].extract(steam_per_second * delta)
+		var powered_duration := consume_processing_steam(delta)
 		fluid_changed.emit()
-		process_timer += delta
+		process_timer += powered_duration
 		if process_timer >= process_time:
-			process_timer = 0.0
+			process_timer -= process_time
 			_complete_process(s_in, s_out, recipe)
-	else:
+	elif not can_run or output_blocked:
 		process_timer = 0.0
 
 
 func has_steam() -> bool:
-	return not input_tanks.is_empty() and input_tanks[0].amount > 0.0
+	return not input_tanks.is_empty() and input_tanks[0].fluid_id == "steam" \
+		and input_tanks[0].amount > 0.0
+
+
+func consume_processing_steam(delta: float) -> float:
+	if not has_steam():
+		return 0.0
+	if steam_per_second <= 0.0:
+		return maxf(delta, 0.0)
+	return input_tanks[0].extract(steam_per_second * maxf(delta, 0.0)) / steam_per_second
 
 
 func steam_progress() -> float:

@@ -371,6 +371,19 @@ func notify_network_config_changed() -> void:
 
 
 func _run_machine_tick(delta: float) -> void:
+	# Catch up long frames with bounded simulation steps. Keep the usual 0.1 s
+	# ticks and distant 0.5 s ticks coarse; never discard paid processing time.
+	var remaining := maxf(delta, 0.0)
+	var max_step := 0.5 / processing_speed_multiplier() if tick_interval > 0.0 else remaining
+	var started := Time.get_ticks_usec()
+	while remaining > 0.0:
+		var step := minf(remaining, max_step)
+		_run_machine_step(step)
+		remaining -= step
+	last_tick_usec = Time.get_ticks_usec() - started
+
+
+func _run_machine_step(delta: float) -> void:
 	if not automation_allows_tick():
 		on_automation_blocked()
 		last_tick_usec = 0
@@ -416,11 +429,13 @@ func _apply_productivity(before: Dictionary) -> void:
 		var extra := floori(_productivity_progress)
 		if extra <= 0:
 			continue
-		_productivity_progress -= extra
 		var extra_stack := slot.item.duplicate(true)
 		extra_stack["count"] = extra
-		slot.insert(extra_stack)
-		slot_changed.emit(index)
+		var leftover := slot.insert(extra_stack)
+		var awarded := extra - int(leftover.get("count", 0))
+		_productivity_progress -= awarded
+		if awarded > 0:
+			slot_changed.emit(index)
 
 
 func _update_distance_sleep(delta: float) -> void:
@@ -484,6 +499,22 @@ func find_input_slot_for(item_id: String) -> int:
 				return i
 	return -1
 
+## Finds room for the complete stack, including its saved container state.
+func find_input_slot_for_stack(stack: Dictionary) -> int:
+	var item_id := str(stack.get("id", ""))
+	for index: int in slots.size():
+		var slot: MachineSlot = slots[index]
+		if slot.role != MachineSlot.Role.OUTPUT and not slot.is_empty() \
+			and slot.accepts(item_id) and InventoryStacking.can_merge(slot.item, stack) \
+			and slot.space_for(item_id) > 0:
+			return index
+	for index: int in slots.size():
+		var slot: MachineSlot = slots[index]
+		if slot.role != MachineSlot.Role.OUTPUT and slot.is_empty() and slot.accepts(item_id):
+			return index
+	return -1
+
+
 ## Returns the first non-empty OUTPUT slot index, or -1.
 func find_output_slot() -> int:
 	for i in slots.size():
@@ -525,7 +556,7 @@ func _push_output_stack(block: WorldBlock, stack: Dictionary) -> Dictionary:
 		var left: Variant = block.chest_inventory.push_item(stack)
 		return left if left is Dictionary else {}
 	if block.machine != null:
-		var input_index := block.machine.find_input_slot_for(str(stack.get("id", "")))
+		var input_index := block.machine.find_input_slot_for_stack(stack)
 		if input_index >= 0:
 			return block.machine.push_item(input_index, stack)
 	return stack
@@ -549,7 +580,7 @@ func from_save_data(data: Dictionary) -> void:
 	if saved_modules is Dictionary:
 		for module_type: String in MODULE_ITEMS:
 			module_levels[module_type] = clampi(int(saved_modules.get(module_type, 0)), 0, MODULE_LIMIT)
-	_productivity_progress = clampf(float(data.get("productivity_progress", 0.0)), 0.0, 0.999)
+	_productivity_progress = maxf(float(data.get("productivity_progress", 0.0)), 0.0)
 	_clear_legacy_automation_settings()
 
 

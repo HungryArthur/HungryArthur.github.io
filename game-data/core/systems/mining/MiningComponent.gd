@@ -35,7 +35,8 @@ var _can_damage: bool = true          # false → swings only flash the bar
 var _reject_reason: String = ""
 
 
-func start_mining(grid_pos: Vector2i, tool_power: int, tool_type: String = "pickaxe") -> void:
+func start_mining(grid_pos: Vector2i, tool_power: int, tool_type: String = "pickaxe",
+		preserve_cadence: bool = false) -> void:
 	var deposit: DepositData = _get_deposit_at(grid_pos)
 	if deposit == null:
 		return
@@ -46,7 +47,8 @@ func start_mining(grid_pos: Vector2i, tool_power: int, tool_type: String = "pick
 	_tool_power = maxi(tool_power, 1)
 	_reject_reason = _rejection_for(grid_pos, deposit, _tool_power, tool_type)
 	_can_damage = _reject_reason == ""
-	_swing_timer = 0.0
+	if not preserve_cadence:
+		_swing_timer = 0.0
 	is_mining = true
 	var remaining := 1.0
 	var world := _get_world()
@@ -54,6 +56,8 @@ func start_mining(grid_pos: Vector2i, tool_power: int, tool_type: String = "pick
 		remaining = float(world.get_mining_health_fraction_at(grid_pos))
 	progress_changed.emit(remaining)
 	mining_started.emit(deposit)
+	if not _can_damage:
+		hit_rejected.emit(_reject_reason)
 
 
 func stop_mining() -> void:

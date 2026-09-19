@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T18:53:11.843Z",
+  "generatedAt": "2026-09-19T17:00:16.244Z",
   "source": ".",
   "entries": [
     "assets",
@@ -41,6 +41,7 @@
     "core/systems/machines/DrillContainer.gd",
     "core/systems/obelisks/ObeliskManager.gd",
     "core/systems/machines/MixerContainer.gd",
+    "docs/generated/texture_art_manifest.json",
     "core/systems/obelisks/ObeliskRegistry.gd",
     "core/systems/machines/MachineContainer.gd",
     "core/systems/power/PowerNetworkManager.gd",

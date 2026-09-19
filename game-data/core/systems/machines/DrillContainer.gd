@@ -124,13 +124,13 @@ func tick(delta: float) -> void:
 	if requires_power:
 		if power_stored <= 0.0:
 			return
-		power_stored = maxf(power_stored - eu_per_s * delta, 0.0)
+		delta = consume_processing_power(delta, eu_per_s)
 	processing_active = true
 
 	_timer += delta
 	if _timer < interval:
 		return
-	_timer = 0.0
+	_timer -= interval
 
 	var result: Dictionary = world.mine_ore_at(source_grid_pos, power, "drill")
 	if not bool(result.get("handled", false)) or bool(result.get("blocked", false)):
@@ -266,7 +266,7 @@ func _push_to(block: WorldBlock, stack: Dictionary) -> Dictionary:
 		var left: Variant = block.chest_inventory.push_item(stack)
 		return left if left is Dictionary else {}
 	if block.machine != null and block.machine.has_method("find_input_slot_for"):
-		var idx: int = block.machine.find_input_slot_for(str(stack.get("id", "")))
+		var idx: int = block.machine.find_input_slot_for_stack(stack)
 		if idx >= 0:
 			return block.machine.push_item(idx, stack)
 	return stack

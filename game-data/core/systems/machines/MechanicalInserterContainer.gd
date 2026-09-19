@@ -134,9 +134,10 @@ func _pull_from_source() -> Dictionary:
 					and accepts_item(str(slot.item.get("id", ""))) \
 					and _request_accepts(str(slot.item.get("id", "")), requests):
 				requested_item_id = str(slot.item.get("id", "")) if request_target_active else ""
+				var item_id := str(slot.item.get("id", ""))
 				return _reserve_requested_stack(
 					source.machine.pull_item(slot_index, 1),
-					str(slot.item.get("id", "")),
+					item_id,
 					request_context
 				)
 	return {}
@@ -256,7 +257,7 @@ func _push_to_target(stack: Dictionary) -> Dictionary:
 		if not leftover is Dictionary or (leftover as Dictionary).is_empty():
 			IngredientDemandReservations.release_stack(stack)
 			return {}
-		return stack
+		return _remaining_after_delivery(stack, leftover as Dictionary)
 	if target.machine != null:
 		if target.machine.has_method("ingredient_request_context"):
 			var context_value: Variant = target.machine.ingredient_request_context()
@@ -264,15 +265,26 @@ func _push_to_target(stack: Dictionary) -> Dictionary:
 				and int(((context_value as Dictionary).get("requests", {}) as Dictionary).get(str(stack.get("id", "")), 0)) <= 0 \
 				and not IngredientDemandReservations.reservation_matches_context(stack, context_value as Dictionary):
 				return stack
-		var input_slot := target.machine.find_input_slot_for(str(stack.get("id", "")))
+		var input_slot := target.machine.find_input_slot_for_stack(stack)
 		if input_slot >= 0:
 			var payload := IngredientDemandReservations.payload_without_reservation(stack)
 			var leftover := target.machine.push_item(input_slot, payload)
 			if leftover.is_empty():
 				IngredientDemandReservations.release_stack(stack)
 				return {}
-			return stack
+			return _remaining_after_delivery(stack, leftover)
 	return stack
+
+
+func _remaining_after_delivery(original: Dictionary, remaining: Dictionary) -> Dictionary:
+	var delivered := int(original.get("count", 0)) - int(remaining.get("count", 0))
+	if delivered <= 0:
+		return original
+	var extracted := IngredientDemandReservations.payload_without_reservation(original)
+	extracted["count"] = delivered
+	var split := IngredientDemandReservations.split_stack(original, extracted, remaining)
+	IngredientDemandReservations.release_stack(split["extracted"])
+	return split["remaining"]
 
 
 func _block_at(grid_pos: Vector2i) -> WorldBlock:
@@ -302,7 +314,10 @@ func accepts_item(item_id: String) -> bool:
 func _sanitized_filter_ids(ids: PackedStringArray) -> PackedStringArray:
 	var result := PackedStringArray()
 	for raw_id: String in ids:
-		var item_id := raw_id.strip_edges().to_lower().replace(" ", "_").left(64)
+		var candidate := raw_id.strip_edges().to_lower().replace(" ", "_").left(64)
+		var item_id := ItemDatabase.find_item_id(candidate)
+		if item_id.is_empty():
+			item_id = candidate
 		if not item_id.is_empty() and not result.has(item_id):
 			result.append(item_id)
 		if result.size() >= MAX_FILTER_IDS:

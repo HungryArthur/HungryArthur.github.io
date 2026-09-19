@@ -269,14 +269,13 @@ func tick(delta: float) -> void:
 		return
 	if not has_steam():
 		last_status = "No Steam"
-		process_timer = 0.0
 		return
 
 	processing_active = true
 	last_status = "Assembling"
-	input_tanks[0].extract(steam_per_second * delta)
+	var powered_duration := consume_processing_steam(delta)
 	fluid_changed.emit()
-	process_timer += delta
+	process_timer += powered_duration
 	if process_timer < process_time:
 		return
 	process_timer = fmod(process_timer, process_time)
@@ -347,8 +346,9 @@ func apply_network_config(config: Dictionary) -> void:
 	super.apply_network_config(config)
 	var requested_recipe := str(config.get("selected_recipe_id", selected_recipe_id))
 	if ASSEMBLY_RECIPES.has(requested_recipe):
+		if selected_recipe_id != requested_recipe:
+			process_timer = 0.0
 		selected_recipe_id = requested_recipe
-		process_timer = 0.0
 	configure_recipe_distribution(false)
 	configure_ingredient_requests(false)
 

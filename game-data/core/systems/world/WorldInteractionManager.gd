@@ -9,6 +9,9 @@ const MANUAL_DROP_PICKUP_DELAY := 0.75
 const BLOCK_DROP_PICKUP_DELAY := 0.35
 ## Tool power of a bare-hand punch (a sword passes its own power instead).
 const HAND_ATTACK_POWER := 1
+const ATTACK_BUFFER_TIME := 0.15
+const DRAG_PREVIEW_TIME := 0.12
+const DRAG_TURN_THRESHOLD := 2
 
 @export var build_radius_tiles: int = 4
 
@@ -29,6 +32,14 @@ var _preview_block_id: String = ""
 var _drag_building := false
 var _drag_last_tile := Vector2i.ZERO
 var _drag_placed: Dictionary = {}  # Vector2i -> true: тайлы текущей протяжки
+var _drag_axis := -1
+var _drag_preview_target := Vector2i.ZERO
+var _drag_path_end := Vector2i.ZERO
+var _drag_preview_timer := 0.0
+var _drag_preview_direction := Vector2i.ZERO
+var _drag_previous_tile := Vector2i.ZERO
+var _buffered_attack: Dictionary = {}
+var _attack_buffer_left := 0.0
 
 ## Цепочки апгрейда «на месте»: ПКМ блоком старшего тира по машине младшего
 ## заменяет её с переносом содержимого и возвратом старого блока в инвентарь.
@@ -71,6 +82,7 @@ func _ready() -> void:
 	call_deferred("_register_existing_blocks")
 	# Пинги «смотри сюда»: свои и от тиммейтов (сигнал эмитится и локально).
 	MultiplayerManager.map_ping_received.connect(_on_map_ping)
+	MultiplayerManager.remote_block_facing_changed.connect(apply_remote_facing)
 
 
 ## Показывает пинг в мире и на карте. Для своих пингов имя не подписываем.
@@ -110,16 +122,40 @@ func _setup_mining_component() -> void:
 
 
 func _process(delta: float) -> void:
-	_update_build_preview()
+	if _player_is_dead():
+		cancel_player_actions()
+		return
+	_update_attack_buffer(delta)
 	_check_mining_state()
 	_check_breaking_state(delta)
-	_update_drag_build()
+	_update_drag_build(delta)
+	_update_build_preview()
 	_update_progress_bar_position()
 	_update_bar_blink(delta)
 
 
+func _player_is_dead() -> bool:
+	var actor := player if is_instance_valid(player) else get_tree().get_first_node_in_group("player") as Node2D
+	return actor is Player and actor._is_dead
+
+
+func cancel_player_actions() -> void:
+	_buffered_attack.clear()
+	_attack_buffer_left = 0.0
+	if is_instance_valid(_mining_component):
+		_mining_component.stop_mining()
+	_stop_breaking()
+	_stop_drag_build()
+	if build_preview_overlay != null:
+		build_preview_overlay.clear_overlay()
+
+
 func _check_mining_state() -> void:
 	if not _mining_component.is_mining:
+		return
+	if GameChat.is_blocking_input() or get_tree().paused or _is_mouse_over_ui() \
+			or (_holding_weapon() and not Input.is_key_pressed(KEY_CTRL)):
+		_mining_component.stop_mining()
 		return
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		_mining_component.stop_mining()
@@ -131,6 +167,10 @@ func _check_mining_state() -> void:
 	# the tile the click started on.
 	var under_cursor: Vector2i = _world_to_grid(_get_mouse_world_position())
 	if under_cursor == _mining_component.mining_target_pos:
+		var tool := _get_mining_tool_data()
+		if str(tool.get("tool_type", "")) != _mining_component._tool_type \
+				or maxi(int(tool.get("power", 0)), 1) != _mining_component._tool_power:
+			_try_start_mining(under_cursor)
 		return
 	if _is_mouse_over_ui() or not _is_grid_in_build_radius(under_cursor):
 		return
@@ -159,9 +199,15 @@ func _update_progress_bar_position() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		_mining_component.stop_mining()
+		_stop_breaking()
+		return
 	if GameChat.is_blocking_input():
 		return
 	if get_tree().paused:
+		return
+	if _player_is_dead():
 		return
 
 	if not event is InputEventMouseButton or not event.pressed:
@@ -177,7 +223,13 @@ func _input(event: InputEvent) -> void:
 			# Alt+ЛКМ — пинг «смотри сюда» (виден тиммейтам в мире и на карте).
 			MultiplayerManager.send_map_ping(world_pos)
 			get_viewport().set_input_as_handled()
+		elif not event.ctrl_pressed and _holding_weapon():
+			_stop_breaking()
+			_mining_component.stop_mining()
+			_try_attack()
+			get_viewport().set_input_as_handled()
 		elif _try_start_breaking(grid_pos):
+			_buffered_attack.clear()
 			get_viewport().set_input_as_handled()
 		elif _try_attack():
 			get_viewport().set_input_as_handled()
@@ -218,15 +270,18 @@ func _try_start_mining(grid_pos: Vector2i) -> bool:
 	if deposit == null:
 		return false
 
-	# Cancel any in-progress mining; the new target starts its own full second.
-	if _mining_component.is_mining:
-		_mining_component.stop_mining()
+	# Switching targets while held preserves the current swing's elapsed time.
+	var preserve_cadence := _mining_component.is_mining or _is_breaking
+	var elapsed := _break_timer if _is_breaking else _mining_component._swing_timer
+	_stop_breaking()
+	_mining_component._swing_timer = elapsed
 
 	var tool_data: Dictionary = _get_mining_tool_data()
 	_mining_component.start_mining(
 		grid_pos,
 		int(tool_data.get("power", 0)),
-		str(tool_data.get("tool_type", ""))
+		str(tool_data.get("tool_type", "")),
+		preserve_cadence
 	)
 	# Play the matching tool action animation toward the mined tile while held.
 	var player_node: Node = get_tree().get_first_node_in_group("player")
@@ -358,8 +413,40 @@ func _try_attack() -> bool:
 		return false
 	var player_node: Node = get_tree().get_first_node_in_group("player")
 	if player_node != null and player_node.has_method("attack_with_weapon"):
-		player_node.attack_with_weapon(weapon_type, int((stack as Dictionary).get("power", 1)))
+		var power := int((stack as Dictionary).get("power", 1))
+		_buffered_attack.clear()
+		if not player_node.attack_with_weapon(weapon_type, power) \
+				and not player_node.get("_is_dead") \
+				and player_node.attack_ready_in() <= ATTACK_BUFFER_TIME:
+			_buffered_attack = {"id": str(stack.get("id", "")), "type": weapon_type, "power": power}
+			_attack_buffer_left = ATTACK_BUFFER_TIME
 	return true
+
+
+func _holding_weapon() -> bool:
+	return _held_tool_type() in ["sword", "spear", "hammer", "wand"]
+
+
+func _update_attack_buffer(delta: float) -> void:
+	if _buffered_attack.is_empty():
+		return
+	_attack_buffer_left -= delta
+	if _attack_buffer_left < 0.0:
+		_buffered_attack.clear()
+		return
+	var stack: Variant = _get_current_stack()
+	var actor := get_tree().get_first_node_in_group("player") as Player
+	if actor == null or actor._is_dead or GameChat.is_blocking_input() \
+			or get_tree().paused or _is_mouse_over_ui() or Input.is_key_pressed(KEY_CTRL) \
+			or not stack is Dictionary \
+			or str(stack.get("id", "")) != str(_buffered_attack["id"]) \
+			or str(stack.get("tool_type", "")) != str(_buffered_attack["type"]) \
+			or int(stack.get("power", 1)) != int(_buffered_attack["power"]):
+		_buffered_attack.clear()
+		return
+	if actor.attack_with_weapon(str(_buffered_attack["type"]), int(_buffered_attack["power"])):
+		_buffered_attack.clear()
+		return
 
 
 ## Bare-hand (or tool-as-club) punch, tried only after mining/breaking so LMB keeps
@@ -507,17 +594,14 @@ func _try_summon_boss(boss_id: String) -> bool:
 	if mgr.has_method("is_alive") and mgr.is_alive(boss_id):
 		return true  # already present — don't waste the totem
 	if mgr.summon(boss_id):
-		if hotbar_ui == null:
-			hotbar_ui = get_tree().get_first_node_in_group("hotbar_ui")
-		if hotbar_ui != null and hotbar_ui.has_method("consume_active_item"):
-			hotbar_ui.consume_active_item(1)
+		_consume_current_stack(1)
 		return true
 	return false
 
 
 # --- Block placement ---
 
-func _try_place_block(grid_pos: Vector2i) -> bool:
+func _try_place_block(grid_pos: Vector2i, facing_override: int = -1) -> bool:
 	var block_id: String = _get_current_block_id()
 	if block_id.is_empty():
 		return false
@@ -536,7 +620,7 @@ func _try_place_block(grid_pos: Vector2i) -> bool:
 		return false
 	var size: Vector2i = _block_size(block_id)
 	var anchor: Vector2i = _anchor_for(grid_pos, size)
-	var facing := _player_facing()
+	var facing := _player_facing() if facing_override < 0 else facing_override
 	placed_blocks_root.add_child(block)
 	block.setup(block_id, anchor, facing)
 	block.apply_placed_item_stack(current_stack)
@@ -563,24 +647,52 @@ func _begin_drag_build(grid_pos: Vector2i) -> void:
 	_drag_building = true
 	_drag_last_tile = grid_pos
 	_drag_placed = {grid_pos: true}
+	_drag_axis = -1
+	_drag_preview_target = grid_pos
+	_drag_path_end = grid_pos
+	_drag_previous_tile = grid_pos
+	_drag_preview_timer = 0.0
+	_drag_preview_direction = Vector2i.ZERO
 
 
 func _stop_drag_build() -> void:
 	_drag_building = false
 	_drag_placed = {}
+	_drag_axis = -1
+	if build_preview_overlay != null:
+		build_preview_overlay.clear_drag_path()
 
 
 ## Пока ПКМ зажата — ставит блоки по пути курсора (шаг только по осям, чтобы
 ## линия была непрерывной даже при быстром движении мыши).
-func _update_drag_build() -> void:
+func _update_drag_build(delta: float) -> void:
 	if not _drag_building:
 		return
-	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if GameChat.is_blocking_input() or get_tree().paused or _is_mouse_over_ui():
 		_stop_drag_build()
 		return
-	if GameChat.is_blocking_input() or get_tree().paused or _is_mouse_over_ui():
+	var cursor := _world_to_grid(_get_mouse_world_position())
+	var target := _drag_project_target(cursor)
+	_show_drag_path(target)
+	_drag_preview_target = target
+	# A quick release commits the visible segment instead of dropping the last tiles.
+	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		_commit_drag_path(target)
+		_stop_drag_build()
 		return
-	var target := _world_to_grid(_get_mouse_world_position())
+	var direction := (target - _drag_last_tile).sign()
+	if direction != Vector2i.ZERO and direction != _drag_preview_direction:
+		_drag_preview_direction = direction
+		_drag_preview_timer = DRAG_PREVIEW_TIME
+		return
+	_drag_preview_timer -= delta
+	if _drag_preview_timer > 0.0:
+		return
+	_commit_drag_path(target)
+	_show_drag_path(target)
+
+
+func _commit_drag_path(target: Vector2i) -> void:
 	while _drag_last_tile != target:
 		var diff := target - _drag_last_tile
 		var step := Vector2i(signi(diff.x), 0) if absi(diff.x) >= absi(diff.y) \
@@ -588,7 +700,43 @@ func _update_drag_build() -> void:
 		var next := _drag_last_tile + step
 		if not _drag_step_to(next):
 			return
+		_drag_previous_tile = _drag_last_tile
 		_drag_last_tile = next
+
+
+func _drag_project_target(cursor: Vector2i) -> Vector2i:
+	var diff := cursor - _drag_last_tile
+	if diff == Vector2i.ZERO:
+		return cursor
+	if _drag_axis < 0:
+		_drag_axis = 0 if absi(diff.x) >= absi(diff.y) else 1
+	else:
+		var along := absi(diff.x) if _drag_axis == 0 else absi(diff.y)
+		var across := absi(diff.y) if _drag_axis == 0 else absi(diff.x)
+		if across >= along + DRAG_TURN_THRESHOLD:
+			_drag_axis = 1 - _drag_axis
+	return Vector2i(cursor.x, _drag_last_tile.y) if _drag_axis == 0 \
+		else Vector2i(_drag_last_tile.x, cursor.y)
+
+
+func _show_drag_path(target: Vector2i) -> void:
+	var points: Array[Vector2i] = [_drag_previous_tile, _drag_last_tile]
+	var at := _drag_last_tile
+	var blocked := false
+	var block_id := _get_current_block_id()
+	# Limit preview work to the reach of this building gesture.
+	for index in range(build_radius_tiles * 2 + 2):
+		if at == target:
+			break
+		var diff := target - at
+		at += Vector2i(signi(diff.x), 0) if diff.x != 0 else Vector2i(0, signi(diff.y))
+		points.append(at)
+		if not can_place_block_at(at, block_id):
+			blocked = true
+			break
+	_drag_path_end = at
+	if build_preview_overlay != null:
+		build_preview_overlay.show_drag_path(points, blocked)
 
 
 ## Один шаг протяжки. false — протяжка остановлена (кончились блоки и т.п.).
@@ -597,10 +745,29 @@ func _drag_step_to(next: Vector2i) -> bool:
 	if block_id.is_empty() or _block_size(block_id) != Vector2i.ONE:
 		_stop_drag_build()
 		return false
-	# Занятый/непригодный тайл не прерывает протяжку — линия продолжится за ним.
-	if _try_place_block(next):
-		_drag_placed[next] = true
+	var direction := next - _drag_last_tile
+	var facing := WorldBlock.FACING_DIRS.find(direction)
+	if not _try_place_block(next, facing):
+		return false
+	var previous := _placed_blocks.get(_drag_last_tile) as WorldBlock
+	if previous != null and _drag_placed.has(_drag_last_tile) \
+			and previous.machine is ConveyorContainer \
+			and not previous.machine is ConveyorSplitterContainer:
+		previous.set_facing(facing)
+		_refresh_connectors_around(_drag_last_tile)
+		MultiplayerManager.broadcast_block_facing(previous.grid_pos, facing)
+	_drag_placed[next] = true
 	return true
+
+
+func apply_remote_facing(anchor: Vector2i, facing: int) -> void:
+	var block := _placed_blocks.get(anchor) as WorldBlock
+	if block == null or not is_instance_valid(block) or facing < 0 or facing > 3:
+		return
+	if not block.machine is ConveyorContainer or block.machine is ConveyorSplitterContainer:
+		return
+	block.set_facing(facing)
+	_refresh_connectors_around(anchor)
 
 
 # --- Апгрейд машин на месте -----------------------------------------------------
@@ -837,6 +1004,33 @@ func serialize_placed_blocks() -> Dictionary:
 	return saved_blocks
 
 
+func serialize_dropped_items() -> Array[Dictionary]:
+	var saved: Array[Dictionary] = []
+	if dropped_items_root == null:
+		return saved
+	for child: Node in dropped_items_root.get_children():
+		if child is DroppedItem and not child.is_queued_for_deletion() \
+				and not child.item_data.is_empty():
+			saved.append(child.to_save_data())
+	return saved
+
+
+func load_dropped_items(saved: Array[Dictionary]) -> void:
+	if dropped_items_root == null:
+		return
+	for child: Node in dropped_items_root.get_children():
+		if child is DroppedItem:
+			dropped_items_root.remove_child(child)
+			child.queue_free()
+	for entry: Dictionary in saved:
+		var stack: Variant = ItemDatabase.stack_from_save(entry.get("stack", {}))
+		if not stack is Dictionary or int(stack.get("count", 0)) <= 0:
+			continue
+		_spawn_dropped_item(stack, entry.get("position", Vector2.ZERO), Vector2.ZERO,
+			maxf(float(entry.get("pickup_delay", 0.0)), 0.0),
+			bool(entry.get("wait_for_player_to_leave", false)))
+
+
 func can_place_block_at(grid_pos: Vector2i, block_id: String = "") -> bool:
 	var world_node: Node = get_tree().get_first_node_in_group("world")
 	var size: Vector2i = _block_size(block_id)
@@ -895,12 +1089,13 @@ func _try_start_breaking(grid_pos: Vector2i) -> bool:
 	if not _is_grid_in_build_radius(grid_pos):
 		return false
 
-	# A fresh click starts a full one-second damage interval on the new tile.
+	var elapsed := _break_timer if _is_breaking else 0.0
 	if _mining_component.is_mining:
+		elapsed = _mining_component._swing_timer
 		_mining_component.stop_mining()
 
 	_breaking_target = grid_pos
-	_break_timer = 0.0
+	_break_timer = elapsed
 	_is_breaking = true
 	# Same swing animation as mining — breaking a block is just hitting it.
 	var player_node: Node = get_tree().get_first_node_in_group("player")
@@ -912,6 +1107,10 @@ func _try_start_breaking(grid_pos: Vector2i) -> bool:
 ## Keeps swinging at the target block while the button is held and it stays valid.
 func _check_breaking_state(delta: float) -> void:
 	if not _is_breaking:
+		return
+	if GameChat.is_blocking_input() or get_tree().paused or _is_mouse_over_ui() \
+			or (_holding_weapon() and not Input.is_key_pressed(KEY_CTRL)):
+		_stop_breaking()
 		return
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		_stop_breaking()
@@ -1217,6 +1416,8 @@ func _update_build_preview() -> void:
 
 	var grid_pos: Vector2i = _world_to_grid(_get_mouse_world_position())
 	var block_id: String = _get_current_block_id()
+	if _drag_building:
+		grid_pos = _drag_path_end
 
 	# Превью появляется только для предмета-блока в активной руке.
 	if not block_id.is_empty():
@@ -1228,7 +1429,8 @@ func _update_build_preview() -> void:
 			block_id,
 			_anchor_for(grid_pos, size),
 			can_place_block_at(grid_pos, block_id),
-			_player_facing(),
+			WorldBlock.FACING_DIRS.find(_drag_preview_direction) if _drag_building \
+				and _drag_preview_direction != Vector2i.ZERO else _player_facing(),
 			_block_rotatable(block_id),
 			size
 		)

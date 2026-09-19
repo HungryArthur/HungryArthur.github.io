@@ -6,8 +6,8 @@
 script = ExtResource("1_script")
 result_item_id = "battery_t1"
 result_count = 1
-ingredient_ids = PackedStringArray("battery_casing", "copper_plate", "circuit_t1")
-ingredient_counts = PackedInt32Array(1, 4, 1)
+ingredient_ids = PackedStringArray("battery_casing", "lead_rod", "copper_plate", "circuit_t1")
+ingredient_counts = PackedInt32Array(1, 2, 2, 1)
 category = "electrical"
 sort_order = 141
 required_age = 4

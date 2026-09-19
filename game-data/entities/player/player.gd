@@ -14,8 +14,7 @@ const EXPOSURE_MAX := 100.0
 const EXPOSURE_RECOVER := 22.0      # points/sec drained when safe or protected
 const EXPOSURE_EJECT_RESET := 55.0  # exposure left right after an eject
 
-## Player health. No damage source exists yet (bosses/enemies come later); combat
-## death respawns at the base spawn with loot intact (pure factory: no item loss).
+## Combat death respawns at the base spawn with loot intact.
 const MAX_HEALTH := 100.0
 const STARVATION_MIN_HEALTH := 1.0
 
@@ -25,6 +24,8 @@ const MAX_HUNGER := 100.0
 const HUNGER_DRAIN := 0.15          # hunger points drained per second
 const HUNGER_LOW := 20.0            # below this the player moves slower
 const HUNGER_SLOW_MULT := 0.6       # speed multiplier while starving-hungry
+const MIN_ENVIRONMENT_SPEED_MULT := 0.4
+const IDLE_HUNGER_DRAIN_MULT := 0.25
 const STARVE_DAMAGE_PER_SEC := 2.0  # HP/sec lost while hunger is empty
 
 ## Melee (sword) attack: a frontal cone that damages + knocks back "hittable"
@@ -35,10 +36,9 @@ const ATTACK_REACH := 46.0
 const ATTACK_CONE_DOT := 0.25            # frontal cone width (dot(facing, toTarget))
 const ATTACK_DAMAGE_PER_POWER := 8.0     # damage = weapon power × this
 const ATTACK_KNOCKBACK := 240.0          # knockback impulse handed to the target
-const ATTACK_RECOIL := 130.0             # backward self-recoil (kick) on the player
+const ATTACK_RECOIL := 45.0              # recoil on a connected sword hit
 const RECOIL_FRICTION := 900.0           # how fast the self-recoil decays
-## Attack animation lock (sec): keep the swing anim playing this long uninterrupted.
-## Slightly under the fastest swing interval so the clip never eats the next swing.
+## Default animation duration for projectile attacks; melee uses its own cadence.
 const ATTACK_ANIM_TIME := 0.3
 
 const DASH_SPEED := 540.0
@@ -102,7 +102,10 @@ var hunger := MAX_HUNGER
 var max_hunger := MAX_HUNGER
 var _starve_accum := 0.0   # accumulates starvation time so damage lands ~1/sec
 var _spawn_position := Vector2.ZERO
+var _has_spawn_point := false
 var _attack_cooldown := 0.0
+var _pending_melee: Dictionary = {}
+var _melee_windup := 0.0
 var _recoil_velocity := Vector2.ZERO
 var _is_dead := false
 var _attack_anim_until := 0   # msec; while Time.get_ticks_msec() < this, keep the swing anim
@@ -189,6 +192,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _local_physics(delta: float) -> void:
+	if _is_dead:
+		velocity = Vector2.ZERO
+		return
 	_update_exposure(delta)
 	_update_hunger(delta)
 	if _attack_cooldown > 0.0:
@@ -196,16 +202,14 @@ func _local_physics(delta: float) -> void:
 	if _dash_cooldown > 0.0:
 		_dash_cooldown = maxf(0.0, _dash_cooldown - delta)
 
-	if _is_dead:
-		velocity = Vector2.ZERO
-		return  # death animation plays; movement/input frozen until respawn
-
 	if GameChat.is_blocking_input():
+		_pending_melee.clear()
 		velocity = Vector2.ZERO
 		if Time.get_ticks_msec() >= _attack_anim_until:
 			_idle()
 		return
 
+	_update_melee_windup(delta)
 	_update_speed()
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if _dash_time <= 0.0 and Input.is_action_just_pressed("dash") and _dash_cooldown <= 0.0:
@@ -221,8 +225,8 @@ func _local_physics(delta: float) -> void:
 
 	if direction != Vector2.ZERO:
 		velocity = direction.normalized() * speed
-		_face(direction)
 		if not attacking:
+			_face(direction)
 			_play_move_anim()
 	else:
 		velocity = Vector2.ZERO
@@ -285,11 +289,18 @@ func apply_network_state(state: Dictionary) -> void:
 func _update_speed() -> void:
 	speed = GameConstants.RUN_SPEED if Input.is_action_pressed("run") else GameConstants.WALK_SPEED
 	speed *= 1.0 + float(_equipment_bonuses.get("move_speed", 0.0))
-	if _is_on_swamp_water():
-		speed *= SWAMP_SPEED_MULT
-	# Being hungry saps stamina: below the low threshold the player trudges along.
-	if hunger < HUNGER_LOW:
-		speed *= HUNGER_SLOW_MULT
+	speed *= environment_speed_multiplier(hunger, _is_on_swamp_water())
+
+
+static func environment_speed_multiplier(satiety: float, in_swamp: bool) -> float:
+	var hunger_mult := lerpf(HUNGER_SLOW_MULT, 1.0, clampf(satiety / HUNGER_LOW, 0.0, 1.0))
+	return maxf(MIN_ENVIRONMENT_SPEED_MULT, hunger_mult * (SWAMP_SPEED_MULT if in_swamp else 1.0))
+
+
+func _hunger_activity_multiplier() -> float:
+	var moving := Input.get_vector("left", "right", "up", "down").length_squared() > 0.01
+	var working := not _tool_action_type.is_empty() or _attack_cooldown > 0.0 or is_dashing()
+	return 1.0 if moving or working else IDLE_HUNGER_DRAIN_MULT
 
 
 ## Drains hunger over time. While hunger sits at 0 the player starves, losing HP at
@@ -299,7 +310,7 @@ func _update_hunger(delta: float) -> void:
 	if _is_dead:
 		return
 	if hunger > 0.0:
-		hunger = maxf(0.0, hunger - HUNGER_DRAIN * delta)
+		hunger = maxf(0.0, hunger - HUNGER_DRAIN * _hunger_activity_multiplier() * delta)
 		hunger_changed.emit(hunger, max_hunger)
 		_starve_accum = 0.0
 		return
@@ -377,9 +388,8 @@ func _has_protection(hazard: Dictionary) -> bool:
 
 
 func _eject_to_safety() -> void:
-	if _last_safe_position != Vector2.ZERO:
-		global_position = _last_safe_position
-		reset_physics_interpolation()  # teleport: don't smear across the map
+	global_position = _last_safe_position
+	reset_physics_interpolation()  # teleport: don't smear across the map
 	velocity = Vector2.ZERO
 
 
@@ -389,6 +399,21 @@ func get_health() -> float:
 
 func get_max_health() -> float:
 	return max_health
+
+
+func set_health(value: float) -> void:
+	# Negative values are legacy saves with no health field.
+	health = max_health if value < 0.0 else clampf(value, 1.0, max_health)
+	health_changed.emit(health, max_health)
+
+
+func get_save_state() -> Dictionary:
+	# Leaving during the death animation resumes the completed respawn.
+	return {
+		"position": (_spawn_position if _has_spawn_point else _last_safe_position) if _is_dead else global_position,
+		"health": max_health if _is_dead else health,
+		"hunger": max_hunger if _is_dead else hunger,
+	}
 
 
 func get_hunger() -> float:
@@ -418,8 +443,8 @@ func add_hunger(amount: float) -> void:
 ## safe position so exposure ejects don't send the player to the origin.
 func set_spawn_point(pos: Vector2) -> void:
 	_spawn_position = pos
-	if _last_safe_position == Vector2.ZERO:
-		_last_safe_position = pos
+	_has_spawn_point = true
+	_last_safe_position = pos
 
 
 ## Applies combat damage. Combat can kill the player and trigger a base respawn.
@@ -448,10 +473,14 @@ func take_starvation_damage(amount: float) -> void:
 
 ## Plays the death animation, then respawns at base. Movement is frozen meanwhile.
 func _die() -> void:
+	_pending_melee.clear()
 	if _is_dead:
 		return
 	_is_dead = true
 	velocity = Vector2.ZERO
+	var interaction := get_tree().get_first_node_in_group("world_interaction")
+	if interaction != null and interaction.has_method("cancel_player_actions"):
+		interaction.cancel_player_actions()
 	anim.flip_h = false
 	anim.speed_scale = 1.0
 	if anim.sprite_frames != null and anim.sprite_frames.has_animation("rip"):
@@ -463,7 +492,7 @@ func _die() -> void:
 
 
 func heal(amount: float) -> void:
-	if amount <= 0.0:
+	if amount <= 0.0 or _is_dead:
 		return
 	health = minf(max_health, health + amount)
 	health_changed.emit(health, max_health)
@@ -480,14 +509,23 @@ func refresh_equipment_bonuses(bonuses: Dictionary = {}) -> void:
 
 ## Combat death: full heal, clear exposure, teleport to the base spawn. No item loss.
 func _respawn() -> void:
+	_pending_melee.clear()
+	_melee_windup = 0.0
+	_tool_action_type = ""
+	_attack_cooldown = 0.0
+	_attack_anim_until = 0
+	_dash_time = 0.0
+	_dash_cooldown = 0.0
+	_damage_invulnerable_until = 0
+	_recoil_velocity = Vector2.ZERO
 	health = max_health
 	exposure = 0.0
+	exposure_changed.emit(exposure, {})
 	# Refill hunger so a starvation death doesn't loop into another one on respawn.
 	set_hunger(max_hunger)
-	var target: Vector2 = _spawn_position if _spawn_position != Vector2.ZERO else _last_safe_position
-	if target != Vector2.ZERO:
-		global_position = target
-		reset_physics_interpolation()  # teleport: don't smear across the map
+	global_position = _spawn_position if _has_spawn_point else _last_safe_position
+	_last_safe_position = global_position
+	reset_physics_interpolation()  # teleport: don't smear across the map
 	velocity = Vector2.ZERO
 	health_changed.emit(health, max_health)
 
@@ -507,6 +545,7 @@ func get_facing_vector() -> Vector2:
 
 
 func _start_dash(input_direction: Vector2) -> void:
+	_pending_melee.clear()
 	_dash_direction = input_direction.normalized() if input_direction.length() > 0.1 else _facing_vector()
 	_dash_time = DASH_DURATION
 	_dash_cooldown = DASH_COOLDOWN * (1.0 - clampf(float(_equipment_bonuses.get("dash_cooldown", 0.0)), 0.0, 0.6))
@@ -528,18 +567,49 @@ func swing_attack(power: int, require_target: bool = false) -> bool:
 
 
 func attack_with_weapon(weapon_type: String, power: int, require_target: bool = false) -> bool:
-	if is_dashing() or _attack_cooldown > 0.0:
+	if _is_dead or is_dashing() or _attack_cooldown > 0.0:
 		return false
 	if weapon_type == "wand":
 		return _cast_arcane_bolt(power)
 	var config := _weapon_config(weapon_type, power)
-	var dir := _facing_vector()
+	var dir := _aim_direction()
 	var targets := _targets_in_cone(dir, float(config["reach"]), float(config["cone_dot"]))
 	if require_target and targets.is_empty():
 		return false
 	_attack_cooldown = ToolTierSystem.swing_interval(power) * float(config["cooldown_mult"])
-	_recoil_velocity = -dir * float(config["recoil"])
-	_play_combat_animation()
+	_face(dir)
+	_play_combat_animation(_attack_cooldown)
+	_pending_melee = {"config": config, "direction": dir, "weapon_type": weapon_type}
+	_melee_windup = float(config["windup"])
+	return true
+
+
+func attack_ready_in() -> float:
+	return maxf(_attack_cooldown, _dash_time)
+
+
+func _aim_direction() -> Vector2:
+	var offset := get_global_mouse_position() - global_position
+	return offset.normalized() if offset.length_squared() > 1.0 else _facing_vector()
+
+
+func _update_melee_windup(delta: float) -> void:
+	if _pending_melee.is_empty():
+		return
+	_melee_windup -= delta
+	if _melee_windup > 0.0:
+		return
+	var attack := _pending_melee
+	_pending_melee = {}
+	_resolve_melee_hit(attack)
+
+
+func _resolve_melee_hit(attack: Dictionary) -> void:
+	var config: Dictionary = attack["config"]
+	var dir: Vector2 = attack["direction"]
+	var weapon_type: String = attack["weapon_type"]
+	# Targets are evaluated at impact, so stepping out of a hammer swing works.
+	var targets := _targets_in_cone(dir, float(config["reach"]), float(config["cone_dot"]))
 	var area_color := Color(0.55, 0.82, 1.0) if weapon_type == "spear" else Color(1.0, 0.72, 0.28)
 	if weapon_type == "hammer":
 		area_color = Color(1.0, 0.46, 0.22)
@@ -549,7 +619,8 @@ func attack_with_weapon(weapon_type: String, power: int, require_target: bool = 
 		var to := target.global_position - global_position
 		var kb_dir := to.normalized() if to.length() > 0.1 else dir
 		target.take_hit(float(config["damage"]), kb_dir * float(config["knockback"]))
-	return true
+	if not targets.is_empty():
+		_recoil_velocity = -dir * float(config["recoil"])
 
 
 func _weapon_config(weapon_type: String, power: int) -> Dictionary:
@@ -558,13 +629,13 @@ func _weapon_config(weapon_type: String, power: int) -> Dictionary:
 	match weapon_type:
 		"spear":
 			return {"reach": SPEAR_REACH, "cone_dot": SPEAR_CONE_DOT, "damage": weapon_power * 7.5 * damage_multiplier,
-				"knockback": 300.0, "recoil": 90.0, "cooldown_mult": 1.15}
+				"knockback": 300.0, "recoil": 65.0, "cooldown_mult": 1.15, "windup": 0.09}
 		"hammer":
 			return {"reach": HAMMER_REACH, "cone_dot": HAMMER_CONE_DOT, "damage": weapon_power * 11.0 * damage_multiplier,
-				"knockback": 460.0, "recoil": 185.0, "cooldown_mult": 1.55}
+				"knockback": 460.0, "recoil": 185.0, "cooldown_mult": 1.55, "windup": 0.24}
 		_:
 			return {"reach": ATTACK_REACH, "cone_dot": ATTACK_CONE_DOT, "damage": weapon_power * ATTACK_DAMAGE_PER_POWER * damage_multiplier,
-				"knockback": ATTACK_KNOCKBACK, "recoil": ATTACK_RECOIL, "cooldown_mult": 1.0}
+				"knockback": ATTACK_KNOCKBACK, "recoil": ATTACK_RECOIL, "cooldown_mult": 0.9, "windup": 0.05}
 
 
 func _cast_arcane_bolt(power: int) -> bool:
@@ -575,16 +646,18 @@ func _cast_arcane_bolt(power: int) -> bool:
 	if parent == null:
 		return false
 	_attack_cooldown = ToolTierSystem.swing_interval(power) * 1.25
+	var dir := _aim_direction()
+	_face(dir)
 	_play_combat_animation()
 	parent.add_child(bolt)
-	bolt.global_position = global_position + _facing_vector() * 22.0
-	bolt.setup(_facing_vector(), float(maxi(power, 1)) * 7.0 * (1.0 + float(_equipment_bonuses.get("attack_damage", 0.0))))
+	bolt.global_position = global_position + dir * 22.0
+	bolt.setup(dir, float(maxi(power, 1)) * 7.0 * (1.0 + float(_equipment_bonuses.get("attack_damage", 0.0))))
 	return true
 
 
-func _play_combat_animation() -> void:
+func _play_combat_animation(duration: float = ATTACK_ANIM_TIME) -> void:
 	AudioManager.play_sfx("sword_swing")
-	anim.speed_scale = 1.0
+	anim.stop()
 	match idle_dir:
 		UP:
 			anim.flip_h = false
@@ -598,7 +671,15 @@ func _play_combat_animation() -> void:
 		_:
 			anim.flip_h = false
 			_play("sword_down", ["idle_down"])
-	_attack_anim_until = Time.get_ticks_msec() + int(ATTACK_ANIM_TIME * 1000.0)
+	# Authored sword clips are two seconds long. Fit the complete clip to this
+	# weapon's recovery rather than repeatedly showing only its opening frames.
+	if anim.sprite_frames != null and anim.sprite_frames.has_animation(anim.animation):
+		var units := 0.0
+		for frame_index in anim.sprite_frames.get_frame_count(anim.animation):
+			units += anim.sprite_frames.get_frame_duration(anim.animation, frame_index)
+		var fps := maxf(anim.sprite_frames.get_animation_speed(anim.animation), 0.01)
+		anim.speed_scale = units / fps / maxf(duration, 0.01)
+	_attack_anim_until = Time.get_ticks_msec() + int(duration * 1000.0)
 
 
 ## Every "hittable" node inside the frontal attack cone, nearest first.
@@ -607,7 +688,7 @@ func _targets_in_cone(dir: Vector2, reach: float = ATTACK_REACH,
 	var hits: Array[Node2D] = []
 	for node: Node in get_tree().get_nodes_in_group("hittable"):
 		var target := node as Node2D
-		if target == null or not target.has_method("take_hit"):
+		if target == null or target.is_queued_for_deletion() or not target.has_method("take_hit"):
 			continue
 		var to: Vector2 = target.global_position - global_position
 		var dist: float = to.length()
@@ -616,6 +697,8 @@ func _targets_in_cone(dir: Vector2, reach: float = ATTACK_REACH,
 		if dist > 0.1 and to.normalized().dot(dir) < cone_dot:
 			continue  # outside the frontal cone
 		hits.append(target)
+	hits.sort_custom(func(a: Node2D, b: Node2D) -> bool:
+		return a.global_position.distance_squared_to(global_position) < b.global_position.distance_squared_to(global_position))
 	return hits
 
 
@@ -639,7 +722,8 @@ func end_tool_action() -> void:
 	if _tool_action_type == "":
 		return
 	_tool_action_type = ""
-	_idle()
+	if not _is_dead:
+		_idle()
 
 
 ## Plays the pickaxe/axe swing for the current facing (flip already set by _face).

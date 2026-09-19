@@ -5,6 +5,8 @@ const SMELT_RECIPES: Dictionary = {
 	"iron_ore":          "iron_ingot",
 	"copper_ore":        "copper_ingot",
 	"gold_ore":          "gold_ingot",
+	"lead_ore":          "lead_ingot",
+	"nickel_ore":        "nickel_ingot",
 	"silver_ore":        "silver_ingot",
 	"tin_ore":           "tin_ingot",
 	"mythril_ore":       "mythril_ingot",
@@ -16,6 +18,8 @@ const SMELT_RECIPES: Dictionary = {
 	"copper_dust":   "copper_ingot",
 	"tin_dust":      "tin_ingot",
 	"gold_dust":     "gold_ingot",
+	"lead_dust":     "lead_ingot",
+	"nickel_dust":   "nickel_ingot",
 	"silver_dust":   "silver_ingot",
 	"titanium_dust": "titanium_ingot",
 	"mythril_dust":  "mythril_ingot",
@@ -77,9 +81,6 @@ func tick(delta: float) -> void:
 		output_blocked = (out_id != result_id) \
 			or (int(s_out.item.get("count", 0)) >= int(s_out.item.get("max_stack", 64)))
 
-	if fuel_remaining > 0.0:
-		fuel_remaining = maxf(fuel_remaining - delta, 0.0)
-
 	# Ignite next fuel unit when current one runs out
 	if fuel_remaining <= 0.0 and can_smelt and not output_blocked:
 		if not s_fuel.is_empty():
@@ -90,14 +91,16 @@ func tick(delta: float) -> void:
 				slot_changed.emit(SLOT_FUEL)
 				fuel_remaining = burn
 
-	is_smelting = fuel_remaining > 0.0 and can_smelt and not output_blocked
+	var burning_duration := minf(maxf(delta, 0.0), maxf(fuel_remaining, 0.0))
+	fuel_remaining = maxf(fuel_remaining - maxf(delta, 0.0), 0.0)
+	is_smelting = burning_duration > 0.0 and can_smelt and not output_blocked
 
 	if is_smelting:
-		smelt_timer += delta
+		smelt_timer += burning_duration
 		if smelt_timer >= smelt_time:
-			smelt_timer = 0.0
+			smelt_timer -= smelt_time
 			_complete_smelt(result_id)
-	else:
+	elif not can_smelt or output_blocked:
 		smelt_timer = 0.0
 
 

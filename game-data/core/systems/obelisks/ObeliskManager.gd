@@ -101,6 +101,11 @@ func teleport_to(id: String) -> void:
 	_teleporting = true
 	AudioManager.play_sfx("teleport", -2.0)
 	await _fade(0.0, 1.0)
+	# Scene changes can remove the player while the fade tween is running.
+	if not is_instance_valid(_player) or _player.is_queued_for_deletion():
+		await _fade(1.0, 0.0)
+		_teleporting = false
+		return
 	_player.global_position = ObeliskRegistry.world_pos(data["tile"])
 	_player.reset_physics_interpolation()
 	_refresh_world_chunks()
@@ -142,7 +147,7 @@ func _ensure_fade_rect() -> void:
 
 
 func _push_to_map() -> void:
-	if _map_system != null and _map_system.has_method("set_obelisks"):
+	if is_instance_valid(_map_system) and _map_system.has_method("set_obelisks"):
 		_map_system.set_obelisks(ObeliskRegistry.get_all(), _discovered)
 
 

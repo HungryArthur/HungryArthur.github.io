@@ -117,6 +117,15 @@ func network_despawn() -> void:
 	queue_free()
 
 
+func to_save_data() -> Dictionary:
+	return {
+		"stack": ItemDatabase.stack_to_save(item_data),
+		"position": global_position,
+		"pickup_delay": _pickup_delay,
+		"wait_for_player_to_leave": _wait_for_player_to_leave,
+	}
+
+
 func _insert_into_inventories(stack: Dictionary) -> Variant:
 	var remaining: Variant = stack
 	var hotbar: Node = get_tree().get_first_node_in_group("hotbar_ui")

@@ -6,6 +6,8 @@ const SMELT_RECIPES: Dictionary = {
 	"iron_ore":           "iron_ingot",
 	"copper_ore":         "copper_ingot",
 	"gold_ore":           "gold_ingot",
+	"lead_ore":           "lead_ingot",
+	"nickel_ore":         "nickel_ingot",
 	"silver_ore":         "silver_ingot",
 	"tin_ore":            "tin_ingot",
 	"mythril_ore":        "mythril_ingot",
@@ -17,6 +19,8 @@ const SMELT_RECIPES: Dictionary = {
 	"copper_dust":   "copper_ingot",
 	"tin_dust":      "tin_ingot",
 	"gold_dust":     "gold_ingot",
+	"lead_dust":     "lead_ingot",
+	"nickel_dust":   "nickel_ingot",
 	"silver_dust":   "silver_ingot",
 	"titanium_dust": "titanium_ingot",
 	"mythril_dust":  "mythril_ingot",
@@ -73,13 +77,12 @@ func tick(delta: float) -> void:
 	processing_active = power_stored > 0.0 and can_run and not output_blocked
 
 	if processing_active:
-		power_stored = maxf(power_stored - POWER_CONSUMPTION * delta, 0.0)
-		process_timer += delta
+		process_timer += consume_processing_power(delta, POWER_CONSUMPTION)
 		if process_timer >= PROCESS_TIME:
-			process_timer = 0.0
+			process_timer -= PROCESS_TIME
 			_complete_smelt(s_in, s_out, result_id)
 			eject_outputs_to(source_grid_pos, facing)
-	else:
+	elif not (can_run and not output_blocked):
 		process_timer = 0.0
 
 

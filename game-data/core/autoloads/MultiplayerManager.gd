@@ -29,6 +29,7 @@ signal player_left(peer_id: int, display_name: String)
 signal player_state_received(peer_id: int, state: Dictionary)
 # Удалённый игрок поставил/сломал блок.
 signal remote_block_placed(anchor: Vector2i, block_id: String, facing: int)
+signal remote_block_facing_changed(anchor: Vector2i, facing: int)
 signal remote_block_removed(anchor: Vector2i)
 # Удалённый игрок сделал тик добычи конечного тайла (руда/дерево/куст).
 signal remote_ore_mined(global_tile_pos: Vector2i, tool_power: int, tool_type: String)
@@ -104,6 +105,7 @@ var _join_attempt := 0
 # к тому же хосту без повторного ввода адреса (см. reconnect()).
 # Очищается только осознанным выходом из сессии (disconnect_net).
 var _last_join: Dictionary = {}
+var _remote_world_key := ""
 
 # --- LAN-обнаружение ---
 var _broadcast_socket: PacketPeerUDP = null
@@ -194,6 +196,7 @@ func reconnect() -> void:
 
 func disconnect_net() -> void:
 	_last_join = {}
+	_remote_world_key = ""
 	_join_attempt += 1  # гасит отложенный таймер подключения
 	_stop_broadcast()
 	_stop_upnp()
@@ -350,7 +353,8 @@ func _on_peer_authenticating(id: int) -> void:
 		# Сервер ждёт пароль клиента — он придёт в _on_auth_received.
 		return
 	# Клиент отправляет свой пароль серверу и доверяет серверу без проверки.
-	sm.send_auth(id, _client_password.to_utf8_buffer())
+	# send_auth rejects empty data, so even an open lobby needs an envelope.
+	sm.send_auth(id, JSON.stringify(_client_password).to_utf8_buffer())
 	sm.complete_auth(id)
 
 
@@ -358,8 +362,8 @@ func _on_auth_received(id: int, data: PackedByteArray) -> void:
 	if not multiplayer.is_server():
 		return  # клиенту проверять нечего
 	var sm: SceneMultiplayer = multiplayer
-	var given := data.get_string_from_utf8()
-	if given == _host_password:
+	var given: Variant = JSON.parse_string(data.get_string_from_utf8())
+	if given is String and given == _host_password:
 		sm.complete_auth(id)
 	elif multiplayer.multiplayer_peer != null:
 		# Неверный пароль — мгновенно отклоняем подключение.
@@ -593,6 +597,7 @@ func _send_world_info(peer_id: int) -> void:
 	TechnologyTree.refresh_unlocks()
 	var save := SaveManager.current_save
 	var info := {
+		"world_key": "%s|%s|%s|%s" % [world.file_path, world.created_at, world.world_seed, world.world_name],
 		"seed": world.world_seed,
 		"name": world.world_name,
 		"difficulty": world.difficulty,
@@ -603,18 +608,29 @@ func _send_world_info(peer_id: int) -> void:
 		"chunk_changes": world.saved_chunk_changes,
 		"minutes": TimeManager.minutes,
 		"weather": WeatherManager.state,
-		"drops": _alive_drops.values(),
+		"drops": _live_drop_snapshot(),
+		"world_age_minutes": TimeManager.world_age_minutes,
 		"discovered_biomes": world.discovered_biomes,
 		"researched_technologies": Array(save.researched_technologies) if save != null else [],
 		"defeated_bosses": Array(save.defeated_bosses) if save != null else [],
 		"unlocked_recipes": Array(save.unlocked_recipes) if save != null else [],
 		"permanent_biome_access": Array(save.permanent_biome_access) if save != null else [],
 	}
-	_rpc_world_info.rpc_id(peer_id, info)
+	_rpc_world_info.rpc_id(peer_id, data_to_net(info))
 
 
 @rpc("authority", "call_remote", "reliable")
 func _rpc_world_info(info: Dictionary) -> void:
+	var key := "%s:%s|%s" % [_last_join.get("ip", ""), _last_join.get("port", DEFAULT_PORT),
+		info.get("world_key", "%s|%s" % [info.get("name", ""), info.get("seed", "")])]
+	var previous_save: WorldSaveData = null
+	if SaveManager.is_remote_session and key == _remote_world_key:
+		SaveManager._sync_inventory_from_ui()
+		previous_save = SaveManager.current_save
+		var player := get_tree().get_first_node_in_group("player") as Node2D
+		if previous_save != null and is_instance_valid(player):
+			SaveManager.sync_player_state(previous_save, player)
+	_remote_world_key = key
 	# Клиент: строим временный WorldData хоста. file_path пустой — этот мир
 	# существует только в памяти и никогда не пишется на диск (см. is_client()).
 	var world := WorldData.new()
@@ -637,9 +653,16 @@ func _rpc_world_info(info: Dictionary) -> void:
 	SaveManager.current_world = world
 	SaveManager.is_remote_session = true
 
-	# Временный сейв-слот в памяти: пустые инвентари, спавн на базе.
-	var save := WorldSaveData.new()
+	# Initial join starts at the base with empty inventories; reconnect resumes.
+	# Reconnect keeps this client's possessions in memory for the same world.
+	# Shared progression still comes from the host's canonical snapshot.
+	var save := previous_save if previous_save != null else WorldSaveData.new()
 	save.world_id = ""
+	save.world_age_minutes = float(info.get("world_age_minutes", 0.0))
+	save.researched_technologies.clear()
+	save.defeated_bosses.clear()
+	save.unlocked_recipes.clear()
+	save.permanent_biome_access.clear()
 	SaveManager._ensure_save_inventories(save)
 	SaveManager.current_save = save
 	SaveManager.current_slot_name = ""
@@ -656,6 +679,7 @@ func _rpc_world_info(info: Dictionary) -> void:
 	pending_world_drops = drops if drops is Array else []
 
 	TimeManager.minutes = float(info.get("minutes", TimeManager.minutes))
+	TimeManager.world_age_minutes = save.world_age_minutes
 	WeatherManager.apply_net_state(int(info.get("weather", 0)))
 	# Свой (клиентский) прогресс квестов для этого мира хоста — из файла,
 	# ключованного именем+сидом мира (см. QuestManager._save_path).
@@ -711,6 +735,17 @@ func broadcast_block_removed(anchor: Vector2i) -> void:
 		_rpc_block_removed.rpc(anchor)
 
 
+func broadcast_block_facing(anchor: Vector2i, facing: int) -> void:
+	if is_active():
+		_rpc_block_facing.rpc(anchor, facing)
+
+
+@rpc("any_peer", "call_remote", "reliable")
+func _rpc_block_facing(anchor: Vector2i, facing: int) -> void:
+	if facing >= 0 and facing < 4:
+		remote_block_facing_changed.emit(anchor, facing)
+
+
 @rpc("any_peer", "call_remote", "reliable")
 func _rpc_block_removed(anchor: Vector2i) -> void:
 	remote_block_removed.emit(anchor)
@@ -747,10 +782,7 @@ func _rpc_ore_hit(global_tile_pos: Vector2i, damage: float) -> void:
 ## Стек для передачи по сети: без полей-объектов (texture/resource) — их
 ## пересоберёт stack_from_net по id на принимающей стороне.
 func stack_to_net(stack: Dictionary) -> Dictionary:
-	var plain := stack.duplicate(true)
-	plain.erase("texture")
-	plain.erase("resource")
-	return plain
+	return data_to_net(stack) as Dictionary
 
 
 ## Восстанавливает полный стек: база из ItemDatabase по id, поверх — все
@@ -762,8 +794,24 @@ func stack_from_net(plain: Dictionary) -> Dictionary:
 	if stack.is_empty():
 		return {}
 	for key: Variant in plain:
-		stack[key] = plain[key]
+		stack[key] = data_from_net(plain[key])
 	return stack
+
+
+## Spawn payloads are historical. Late joiners need the current position and
+## pickup flags after throws, magnet movement and partial inventory pickups.
+func _live_drop_snapshot() -> Array:
+	var drops := _alive_drops.duplicate(true)
+	for node: Node in get_tree().get_nodes_in_group("dropped_items"):
+		if not node is DroppedItem or node.is_queued_for_deletion():
+			continue
+		var drop := node as DroppedItem
+		if not drops.has(drop.net_id):
+			continue
+		drops[drop.net_id] = {"id": drop.net_id, "stack": stack_to_net(drop.item_data),
+			"pos": drop.global_position, "impulse": Vector2.ZERO,
+			"delay": drop._pickup_delay, "wait": drop._wait_for_player_to_leave}
+	return drops.values()
 
 
 ## Регистрирует локально выброшенный дроп и рассылает его. Возвращает net_id

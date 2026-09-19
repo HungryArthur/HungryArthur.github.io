@@ -6,7 +6,7 @@
 script = ExtResource("1_script")
 result_item_id = "sensor_t1"
 result_count = 1
-ingredient_ids = PackedStringArray("circuit_t1", "resonite_shard", "glass_lens", "iron_rod")
+ingredient_ids = PackedStringArray("circuit_t1", "resonite_shard", "glass_lens", "silver_rod")
 ingredient_counts = PackedInt32Array(1, 1, 1, 1)
 category = "components"
 sort_order = 345

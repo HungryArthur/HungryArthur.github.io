@@ -15,9 +15,13 @@ const scriptsRoot = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptsRoot, '..');
 const argumentIndex = process.argv.indexOf('--game-root');
 const argumentGameRoot = argumentIndex >= 0 ? process.argv[argumentIndex + 1] : null;
+if (argumentIndex >= 0 && (!argumentGameRoot || argumentGameRoot.startsWith('--'))) {
+  throw new Error('--game-root requires a game directory.');
+}
 const gameRoot = resolve(
   argumentGameRoot
     ?? process.env.INFINITEFORGE_GAME_ROOT
+    ?? [resolve(repositoryRoot, '..'), resolve(repositoryRoot, '..', 'InfiniteForge')].find(isGameRoot)
     ?? resolve(repositoryRoot, '..', 'InfiniteForge')
 );
 
@@ -42,6 +46,7 @@ const serverSource = sourceFiles
   .join('\n');
 const referencedPaths = [
   'assets',
+  'docs/generated/texture_art_manifest.json',
   ...[...serverSource.matchAll(/resolve\(projectRoot, '([^']+)'/g)]
     .map((match) => match[1].replaceAll('/', sep)),
 ];
@@ -59,6 +64,13 @@ const dataRoot = resolve(repositoryRoot, 'game-data');
 const nextRoot = resolve(repositoryRoot, 'game-data.next');
 const previousRoot = resolve(repositoryRoot, 'game-data.previous');
 
+// These are the only directories this command may replace or remove.
+for (const target of [dataRoot, nextRoot, previousRoot]) {
+  if (dirname(target) !== repositoryRoot || target === gameRoot || gameRoot.startsWith(`${target}${sep}`)) {
+    throw new Error(`Unsafe snapshot destination: ${target}`);
+  }
+}
+
 rmSync(nextRoot, { recursive: true, force: true });
 mkdirSync(nextRoot, { recursive: true });
 
@@ -66,7 +78,10 @@ for (const source of sources) {
   const from = resolve(gameRoot, source);
   const to = resolve(nextRoot, source);
   mkdirSync(dirname(to), { recursive: true });
-  cpSync(from, to, { recursive: true });
+  cpSync(from, to, {
+    recursive: true,
+    filter: (path) => !/\.(import|uid|translation)$/i.test(path),
+  });
 }
 
 writeFileSync(resolve(nextRoot, '.snapshot.json'), `${JSON.stringify({

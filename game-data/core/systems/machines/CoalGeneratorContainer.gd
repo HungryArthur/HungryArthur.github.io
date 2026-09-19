@@ -32,14 +32,17 @@ func _init() -> void:
 
 
 ## Called by PowerNetworkManager when the network needs power.
-func produce(delta: float, _demand: float = INF) -> float:
+func produce(delta: float, demand: float = INF) -> float:
+	var requested_duration := minf(maxf(delta, 0.0), maxf(demand, 0.0) / eu_per_second)
+	if requested_duration <= 0.0:
+		return 0.0
 	# Refuel if needed.
 	if burn_time_remaining <= 0.0:
 		if not _consume_fuel():
 			eu_delivered_last_tick = 0.0
 			return 0.0
 
-	var burn := minf(delta, burn_time_remaining)
+	var burn := minf(requested_duration, burn_time_remaining)
 	burn_time_remaining -= burn
 	return eu_per_second * burn
 

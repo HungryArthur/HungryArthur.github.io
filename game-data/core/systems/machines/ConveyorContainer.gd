@@ -147,7 +147,7 @@ func tick(delta: float) -> void:
 		jam_time = 0.0
 		_sync_jam_visual()
 		return
-	progress = minf(progress + delta / cross_time, 1.0)
+	_advance_progress(delta)
 	_position_item_sprite()
 	if progress >= 1.0:
 		_try_deliver()
@@ -157,6 +157,10 @@ func tick(delta: float) -> void:
 		jammed = false
 		jam_time = 0.0
 	_sync_jam_visual()
+
+
+func _advance_progress(delta: float) -> void:
+	progress = minf(progress + delta / cross_time, 1.0)
 
 
 func configure_filter(ids: PackedStringArray, mode: String = "allow", belt_priority: int = 0) -> void:
@@ -183,7 +187,10 @@ func apply_network_config(config: Dictionary) -> void:
 func _sanitized_filter_ids(ids: PackedStringArray) -> PackedStringArray:
 	var result := PackedStringArray()
 	for raw_id: String in ids:
-		var item_id := raw_id.strip_edges().to_lower().replace(" ", "_").left(64)
+		var candidate := raw_id.strip_edges().to_lower().replace(" ", "_").left(64)
+		var item_id := ItemDatabase.find_item_id(candidate)
+		if item_id.is_empty():
+			item_id = candidate
 		if not item_id.is_empty() and not result.has(item_id):
 			result.append(item_id)
 		if result.size() >= 24:
@@ -316,10 +323,7 @@ func _hand_off(block: WorldBlock, target_tile: Vector2i) -> Dictionary:
 	if block.machine != null and block.machine.has_method("accept_from_belt"):
 		var payload := IngredientDemandReservations.payload_without_reservation(stack)
 		var leftover: Dictionary = block.machine.accept_from_belt(payload, target_tile)
-		if leftover.is_empty():
-			IngredientDemandReservations.release_stack(stack)
-			return {}
-		return stack
+		return _remaining_after_delivery(stack, leftover)
 	# Chest.
 	if block.chest_inventory != null:
 		var context := block.chest_inventory.ingredient_request_context()
@@ -329,10 +333,7 @@ func _hand_off(block: WorldBlock, target_tile: Vector2i) -> Dictionary:
 			return stack
 		var payload := IngredientDemandReservations.payload_without_reservation(stack)
 		var left: Variant = block.chest_inventory.push_item(payload)
-		if not left is Dictionary or (left as Dictionary).is_empty():
-			IngredientDemandReservations.release_stack(stack)
-			return {}
-		return stack
+		return _remaining_after_delivery(stack, left as Dictionary if left is Dictionary else {})
 	# Generic machine input slot.
 	if block.machine != null and block.machine.has_method("find_input_slot_for"):
 		if block.machine.has_method("ingredient_request_context"):
@@ -341,15 +342,43 @@ func _hand_off(block: WorldBlock, target_tile: Vector2i) -> Dictionary:
 				and int(((context_value as Dictionary).get("requests", {}) as Dictionary).get(str(stack.get("id", "")), 0)) <= 0 \
 				and not IngredientDemandReservations.reservation_matches_context(stack, context_value as Dictionary):
 				return stack
-		var slot_idx: int = block.machine.find_input_slot_for(str(stack.get("id", "")))
+		var slot_idx: int = block.machine.find_input_slot_for_stack(stack)
 		if slot_idx >= 0:
 			var payload := IngredientDemandReservations.payload_without_reservation(stack)
 			var leftover := block.machine.push_item(slot_idx, payload)
-			if leftover.is_empty():
-				IngredientDemandReservations.release_stack(stack)
-				return {}
-			return stack
+			return _remaining_after_delivery(stack, leftover)
 	return stack
+
+
+## Only the amount actually inserted leaves the belt, including its reservation.
+func _remaining_after_delivery(original: Dictionary, remaining: Dictionary) -> Dictionary:
+	var delivered := int(original.get("count", 0)) - int(remaining.get("count", 0))
+	if delivered <= 0:
+		return original
+	var extracted := IngredientDemandReservations.payload_without_reservation(original)
+	extracted["count"] = delivered
+	var split := IngredientDemandReservations.split_stack(original, extracted, remaining)
+	IngredientDemandReservations.release_stack(split["extracted"])
+	return split["remaining"]
+
+
+## Read-only routing probe. Insertion is performed only at the exit edge.
+func _can_hand_off(block: WorldBlock, target_tile: Vector2i) -> bool:
+	if block == null or carried.is_empty():
+		return false
+	var item_id := str(carried.get("id", ""))
+	if block.machine is ConveyorContainer:
+		var belt := block.machine as ConveyorContainer
+		return belt.carried.is_empty() and belt.accepts_item(item_id)
+	if block.machine is DrillContainer:
+		var drill := block.machine as DrillContainer
+		return target_tile == drill.source_grid_pos - WorldBlock.FACING_DIRS[drill.facing] \
+			and not drill.buffer_full_for(item_id)
+	if block.chest_inventory != null:
+		return block.chest_inventory.has_space_for(item_id)
+	if block.machine != null:
+		return block.machine.find_input_slot_for_stack(carried) >= 0
+	return false
 
 
 # ── Visuals ───────────────────────────────────────────────────────────────────

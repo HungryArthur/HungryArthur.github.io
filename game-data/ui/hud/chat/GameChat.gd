@@ -54,6 +54,10 @@ func _process(delta: float) -> void:
 	_apply_chat_alpha(maxf(0.0, current_alpha - fade_step))
 
 
+func _exit_tree() -> void:
+	is_open = false
+
+
 static func is_blocking_input() -> bool:
 	return is_open
 
@@ -281,7 +285,15 @@ func _notify_message_shown() -> void:
 
 
 func _scroll_history_to_bottom() -> void:
-	await get_tree().process_frame
+	# A method connection is automatically disconnected if this chat is freed
+	# before the next frame (for example, when leaving the world).
+	if not get_tree().process_frame.is_connected(_apply_history_scroll):
+		get_tree().process_frame.connect(_apply_history_scroll, CONNECT_ONE_SHOT)
+
+
+func _apply_history_scroll() -> void:
+	if not is_inside_tree():
+		return
 	chat_history.scroll_to_line(chat_history.get_line_count())
 
 

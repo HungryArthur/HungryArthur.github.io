@@ -3,9 +3,13 @@ import { spawn } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { after, before, test } from 'node:test';
+import { readFileSync } from 'node:fs';
+import { validateArtManifest, validateTexture } from '../../scripts/validate-textures.mjs';
+import { pixelPerfectGeometry } from '../client/components/pixel-images.js';
 
 const testRoot = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(testRoot, '..', '..');
+const gameRoot = resolve(process.env.INFINITEFORGE_GAME_ROOT ?? resolve(repositoryRoot, 'game-data'));
 const port = 18_000 + Math.floor(Math.random() * 1_000);
 const baseUrl = `http://127.0.0.1:${port}`;
 let serverProcess;
@@ -31,7 +35,7 @@ async function waitForServer() {
 before(async () => {
   serverProcess = spawn(process.execPath, ['wiki/server/index.js'], {
     cwd: repositoryRoot,
-    env: { ...process.env, WIKI_HOST: '127.0.0.1', WIKI_PORT: String(port) },
+    env: { ...process.env, INFINITEFORGE_GAME_ROOT: gameRoot, WIKI_HOST: '127.0.0.1', WIKI_PORT: String(port) },
     stdio: ['ignore', 'pipe', 'pipe'],
   });
   serverProcess.stdout.on('data', (chunk) => { serverOutput += chunk; });
@@ -53,7 +57,7 @@ test('health endpoint reports loaded game catalogs', async () => {
   assert.equal(response.status, 200);
   const data = await response.json();
   assert.equal(data.status, 'ok');
-  assert.ok(['configured', 'sibling', 'snapshot'].includes(data.source));
+  assert.ok(['configured', 'parent', 'sibling', 'snapshot'].includes(data.source));
   assert.ok(data.counts.items > 300);
   assert.ok(data.counts.recipes > 0);
 });
@@ -94,4 +98,36 @@ test('API, assets, HEAD, redirects, and invalid methods behave correctly', async
 
   const traversalResponse = await fetch(`${baseUrl}/client/%2e%2e/server/index.js`);
   assert.equal(traversalResponse.status, 404);
+});
+
+test('all item and machine textures exist with valid sizes and atlas regions', async () => {
+  assert.ok(validateArtManifest(gameRoot) >= 248);
+  const paths = new Set();
+  const itemCatalog = await (await fetch(`${baseUrl}/api/v1/ru/items`)).json();
+  const machineCatalog = await (await fetch(`${baseUrl}/api/v1/ru/machines`)).json();
+  for (const entry of [...itemCatalog.items, ...machineCatalog.machines]) {
+    validateTexture(entry.texture, gameRoot, entry.id);
+    paths.add(entry.texture.path);
+  }
+  const manifest = JSON.parse(readFileSync(resolve(gameRoot, 'docs/generated/texture_art_manifest.json'), 'utf8'));
+  for (const art of manifest.filter(e => e.item && e.kind !== 'connector')) {
+    const item = itemCatalog.items.find(e => e.id === (art.itemId ?? art.id));
+    assert.ok(item, `Missing generated item: ${art.id}`);
+    assert.equal(item.texture.path, `/${art.output}`, `Old placeholder used: ${item.id}`);
+  }
+  for (const path of paths) {
+    const response = await fetch(`${baseUrl}${path}`, { method: 'HEAD' });
+    assert.equal(response.status, 200, path);
+    assert.match(response.headers.get('content-type'), path.endsWith('.svg') ? /image\/svg\+xml/ : /image\/png/);
+  }
+});
+
+test('chests and conveyors show one atlas cell; SVG and tall sprites retain dimensions', async () => {
+  const { items } = await (await fetch(`${baseUrl}/api/v1/en/items`)).json();
+  const byId = new Map(items.map(e => [e.id, e]));
+  assert.deepEqual(byId.get('CHEST_T1').texture.atlas, { x: 0, y: 0, width: 32, height: 32 });
+  assert.deepEqual(byId.get('conveyor').texture.atlas, { x: 0, y: 32, width: 32, height: 32 });
+  assert.ok(byId.get('resonite_shard').texture.dimensions.width > 0);
+  assert.deepEqual(pixelPerfectGeometry(16,16,40), { width:32,height:32,scale:2 });
+  assert.deepEqual(pixelPerfectGeometry(32,48,32), { width:16,height:24,scale:.5 });
 });

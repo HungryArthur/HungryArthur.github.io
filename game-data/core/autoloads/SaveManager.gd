@@ -151,11 +151,22 @@ func save_resource_safe(resource: Resource, path: String) -> bool:
 		save_failed.emit(path, err)
 		return false
 	if FileAccess.file_exists(path):
-		_rotate_backups(path)
-		DirAccess.rename_absolute(path, _bak_path(path, 1))
+		err = _rotate_backups(path)
+		if err == OK:
+			err = DirAccess.rename_absolute(path, _bak_path(path, 1))
+		if err != OK:
+			push_error("SaveManager: не удалось создать резервную копию '%s' (ошибка %d)" % [path, err])
+			DirAccess.remove_absolute(tmp_path)
+			save_failed.emit(path, err)
+			return false
 	err = DirAccess.rename_absolute(tmp_path, path)
 	if err != OK:
+		# Put the last working save back immediately if committing the new file
+		# fails. Keep the backup available if restoration itself is blocked.
+		if not FileAccess.file_exists(path) and FileAccess.file_exists(_bak_path(path, 1)):
+			DirAccess.rename_absolute(_bak_path(path, 1), path)
 		push_error("SaveManager: не удалось подменить '%s' (ошибка %d)" % [path, err])
+		DirAccess.remove_absolute(tmp_path)
 		save_failed.emit(path, err)
 		return false
 	return true
@@ -168,11 +179,18 @@ func _bak_path(path: String, generation: int) -> String:
 
 ## Сдвигает поколения бэкапов на шаг назад (.bak2 -> .bak3, .bak -> .bak2),
 ## освобождая место под свежую копию. Самое старое поколение удаляется.
-func _rotate_backups(path: String) -> void:
-	DirAccess.remove_absolute(_bak_path(path, BAK_GENERATIONS))
+func _rotate_backups(path: String) -> Error:
+	var oldest_path := _bak_path(path, BAK_GENERATIONS)
+	if FileAccess.file_exists(oldest_path) or DirAccess.dir_exists_absolute(oldest_path):
+		var err := DirAccess.remove_absolute(oldest_path)
+		if err != OK:
+			return err
 	for gen in range(BAK_GENERATIONS - 1, 0, -1):
 		if FileAccess.file_exists(_bak_path(path, gen)):
-			DirAccess.rename_absolute(_bak_path(path, gen), _bak_path(path, gen + 1))
+			var err := DirAccess.rename_absolute(_bak_path(path, gen), _bak_path(path, gen + 1))
+			if err != OK:
+				return err
+	return OK
 
 
 ## Загружает ресурс, не роняя игру на битом файле. Если основной файл
@@ -620,8 +638,18 @@ func _list_save_files(dir_path: String) -> PackedStringArray:
 	if dir == null:
 		return result
 	for file_name in dir.get_files():
-		if file_name.ends_with(".tres") and not file_name.ends_with(TMP_SUFFIX):
-			result.append(file_name)
+		var resource_name := file_name
+		for gen in range(1, BAK_GENERATIONS + 1):
+			var suffix := BAK_SUFFIX + ("" if gen == 1 else str(gen))
+			if resource_name.ends_with(".tres" + suffix):
+				resource_name = resource_name.trim_suffix(suffix)
+				break
+		# A crash between the two renames can leave only a backup. Include its
+		# original name so menus can trigger load_resource_safe and recover it.
+		if resource_name.ends_with(".tres") and not resource_name.ends_with(TMP_SUFFIX) \
+				and not result.has(resource_name):
+			result.append(resource_name)
+	result.sort()
 	return result
 
 
@@ -894,9 +922,7 @@ func save_game() -> bool:
 	# 1. Запись данных игрока
 	var player := get_tree().get_first_node_in_group("player") as Node2D
 	if player:
-		current_save.player_position = player.global_position
-		if player.has_method("get_hunger"):
-			current_save.player_hunger = player.get_hunger()
+		sync_player_state(current_save, player)
 	current_save.world_age_minutes = TimeManager.world_age_minutes
 	current_save.saved_at = Time.get_unix_time_from_system()
 	current_save.save_version = SAVE_VERSION
@@ -981,6 +1007,23 @@ func apply_profile_to_player(player_node: Node2D) -> void:
 		player_node.set_armor_color(current_profile.armor_color)
 
 
+func sync_player_state(save: WorldSaveData, player_node: Node2D) -> void:
+	if save == null or not is_instance_valid(player_node):
+		return
+	save.player_position_valid = true
+	if player_node.has_method("get_save_state"):
+		var state: Dictionary = player_node.get_save_state()
+		save.player_position = state["position"]
+		save.player_health = float(state["health"])
+		save.player_hunger = float(state["hunger"])
+	else:
+		save.player_position = player_node.global_position
+		if player_node.has_method("get_health"):
+			save.player_health = player_node.get_health()
+		if player_node.has_method("get_hunger"):
+			save.player_hunger = player_node.get_hunger()
+
+
 func _sync_inventory_from_ui() -> void:
 	if current_save == null:
 		return
@@ -995,6 +1038,7 @@ func _sync_inventory_from_ui() -> void:
 	if chest_ui and chest_ui.visible and chest_ui.has_method("return_held_item"):
 		chest_ui.return_held_item()
 	_return_held_item_to_inventory(inv_ui, hotbar_ui)
+	current_save.held_item = ItemDatabase.stack_to_save(InventorySlot.held_item) if InventorySlot.held_item is Dictionary else {}
 	if inv_ui and inv_ui.has_method("to_save_data"):
 		current_save.player_inventory = inv_ui.to_save_data()
 	if hotbar_ui and hotbar_ui.has_method("to_save_data"):

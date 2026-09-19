@@ -86,13 +86,16 @@ func tick(delta: float) -> void:
 	if not processing_active:
 		return
 
-	burn_time_remaining = maxf(burn_time_remaining - delta * fuel_burn_rate, 0.0)
+	var boiling_duration := minf(maxf(delta, 0.0), burn_time_remaining / fuel_burn_rate)
 	var produced := minf(
-		steam_per_second * delta,
+		steam_per_second * boiling_duration,
 		minf(water.amount, steam.space_for("steam"))
 	)
 	if produced <= 0.0:
 		return
+	# Fuel burns only for the steam actually produced, including when the water
+	# supply, output space or remaining fuel covers only part of this tick.
+	burn_time_remaining = maxf(burn_time_remaining - produced / steam_per_second * fuel_burn_rate, 0.0)
 	water.extract(produced)
 	steam.insert("steam", produced)
 	fluid_changed.emit()

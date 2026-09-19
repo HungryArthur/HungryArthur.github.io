@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://0og83fqk7cpj" path="res://assets/textures/environment/biomes/IcyAbyss.png" id="9_abyss"]
 [ext_resource type="Texture2D" uid="uid://b72idst7v4py4" path="res://assets/textures/environment/biomes/RottingBog.png" id="10_bog"]
 [ext_resource type="Texture2D" uid="uid://dy757cyw6xb5n" path="res://assets/textures/environment/biomes/PrimevalThicket.png" id="11_thicket"]
-[ext_resource type="Texture2D" uid="uid://cxtcdhboajwlg" path="res://assets/textures/environment/structures/StoneFloor.png" id="12_stone_floor"]
+[ext_resource type="Texture2D" uid="uid://bd12ncduwa8ws" path="res://assets/textures/environment/structures/StoneFloor.png" id="12_stone_floor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_water"]
 texture = ExtResource("1_water")

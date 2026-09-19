@@ -13,6 +13,8 @@ class_name ConveyorSplitterContainer
 var _next_output: int = 0
 var output_filters: Array[PackedStringArray] = [PackedStringArray(), PackedStringArray()]
 var output_priorities: Array[int] = [0, 0]
+var _selected_output := -1
+var _returning_to_center := false
 
 
 func _init() -> void:
@@ -85,7 +87,7 @@ func _ingredient_request_context(visited: Dictionary, remaining: int) -> Diction
 	return IngredientDemandReservations.context_from_allocations(active, combined_allocations)
 
 
-func _try_deliver() -> void:
+func _available_outputs() -> Array[int]:
 	var item_id := str(carried.get("id", ""))
 	var requested_outputs: Array[int] = []
 	var passive_outputs: Array[int] = []
@@ -94,7 +96,7 @@ func _try_deliver() -> void:
 			continue
 		var target: Vector2i = source_grid_pos + WorldBlock.FACING_DIRS[dir_value]
 		var block := _block_at(target)
-		if block == null:
+		if not _can_hand_off(block, target):
 			continue
 		var context := _request_context_from_block(
 			block,
@@ -107,22 +109,62 @@ func _try_deliver() -> void:
 				requested_outputs.append(dir_value)
 		else:
 			passive_outputs.append(dir_value)
-	for dir_value: int in requested_outputs + passive_outputs:
-		var target: Vector2i = source_grid_pos + WorldBlock.FACING_DIRS[dir_value]
-		var block := _block_at(target)
-		if block == null:
-			continue
-		var leftover: Dictionary = _hand_off(block, target)
-		if leftover.is_empty():
-			QuestManager.report_event("conveyor_item_moved", "", 1)
-			carried = {}
-			progress = 0.0
-			_clear_item_sprite()
-			# Continue after the side that actually accepted the item. If the preferred
-			# side was blocked, this avoids selecting the fallback side twice in a row.
-			_next_output = 1 - _side_for_direction(dir_value)
+	requested_outputs.append_array(passive_outputs)
+	return requested_outputs
+
+
+func _advance_progress(delta: float) -> void:
+	var travel := delta / cross_time
+	if progress < 0.5:
+		_selected_output = -1
+		_returning_to_center = false
+	if _returning_to_center:
+		progress = maxf(0.5, progress - travel)
+		if progress <= 0.5:
+			_selected_output = -1
+			_returning_to_center = false
+		return
+	if _selected_output < 0:
+		var to_center := maxf(0.5 - progress, 0.0)
+		progress = minf(0.5, progress + travel)
+		travel = maxf(travel - to_center, 0.0)
+		if progress < 0.5:
 			return
-	# Neither side could take it: keep carrying (progress stays pinned at 1.0).
+		var outputs := _available_outputs()
+		if outputs.is_empty():
+			return
+		_selected_output = outputs[0]
+	progress = minf(1.0, progress + travel)
+
+
+func _try_deliver() -> void:
+	if _selected_output < 0 or carried.is_empty():
+		return
+	if not _available_outputs().has(_selected_output):
+		_returning_to_center = true
+		return
+	var target := source_grid_pos + WorldBlock.FACING_DIRS[_selected_output]
+	var before := int(carried.get("count", 0))
+	carried = _hand_off(_block_at(target), target)
+	if int(carried.get("count", 0)) < before:
+		QuestManager.report_event("conveyor_item_moved", "", 1)
+	if carried.is_empty():
+		_next_output = 1 - _side_for_direction(_selected_output)
+		_selected_output = -1
+		progress = 0.0
+		_clear_item_sprite()
+	else:
+		_returning_to_center = true
+
+
+func tick(delta: float) -> void:
+	var previous_jam_time := jam_time
+	super.tick(delta)
+	# A blocked splitter waits at its centre, before choosing a branch.
+	if running and not carried.is_empty() and progress == 0.5 and _selected_output < 0:
+		jammed = true
+		jam_time = previous_jam_time + delta
+		_sync_jam_visual()
 
 
 ## Item travels from the back edge to the centre (0→0.5), then out along whichever
@@ -132,7 +174,7 @@ func _position_item_sprite() -> void:
 		return
 	var half: float = float(GameConstants.TILE_SIZE) * 0.5
 	var in_vec := Vector2(WorldBlock.FACING_DIRS[(facing + 2) % 4])
-	var out_vec := Vector2(WorldBlock.FACING_DIRS[_output_order()[0]])
+	var out_vec := Vector2(WorldBlock.FACING_DIRS[_selected_output]) if _selected_output >= 0 else Vector2.ZERO
 	if progress < 0.5:
 		_item_sprite.position = in_vec * lerpf(half, 0.0, progress * 2.0)
 	else:
@@ -142,18 +184,28 @@ func _position_item_sprite() -> void:
 func to_save_data() -> Dictionary:
 	var data: Dictionary = super.to_save_data()
 	data["next_output"] = _next_output
+	data["selected_output"] = _selected_output
+	data["returning_to_center"] = _returning_to_center
 	data["output_filters"] = [Array(output_filters[0]), Array(output_filters[1])]
 	data["output_priorities"] = output_priorities.duplicate()
 	return data
 
 
 func from_save_data(data: Dictionary) -> void:
+	_selected_output = int(data.get("selected_output", -1))
+	if _selected_output not in [(facing + 3) % 4, (facing + 1) % 4]:
+		_selected_output = -1
+	_returning_to_center = bool(data.get("returning_to_center", false)) and _selected_output >= 0
 	super.from_save_data(data)
+	# Old saves have no committed route: resume from the centre without guessing.
+	if _selected_output < 0:
+		progress = minf(progress, 0.5)
+	_position_item_sprite()
 	_next_output = int(data.get("next_output", 0)) & 1
 	var saved_filters: Array = data.get("output_filters", [])
 	if saved_filters.size() >= 2:
-		output_filters[0] = PackedStringArray(saved_filters[0])
-		output_filters[1] = PackedStringArray(saved_filters[1])
+		output_filters[0] = _sanitized_filter_ids(PackedStringArray(saved_filters[0]))
+		output_filters[1] = _sanitized_filter_ids(PackedStringArray(saved_filters[1]))
 	var saved_priorities: Array = data.get("output_priorities", [])
 	if saved_priorities.size() >= 2:
 		output_priorities[0] = clampi(int(saved_priorities[0]), -10, 10)

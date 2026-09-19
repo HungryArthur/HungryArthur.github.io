@@ -272,8 +272,12 @@ item.lava_canister.desc,Canister filled with molten lava. A source of heat and e
 item.lava_canister.name,Lava Canister,Канистра с лавой
 item.lead_dust.desc,Heavy lead powder. Smelt it into lead components.,Тяжёлый свинцовый порошок. Переплавь в свинцовые компоненты.
 item.lead_dust.name,Lead Dust,Свинцовая пыль
+item.lead_ingot.desc,Dense refined lead used in accumulator plates and radiation shielding.,Плотный очищенный свинец для пластин аккумуляторов и радиационной защиты.
+item.lead_ingot.name,Lead Ingot,Свинцовый слиток
 item.lead_ore.desc,Raw lead ore. Smelt it for heavy metal components.,Сырая свинцовая руда. Переплавь для тяжёлых металлических компонентов.
 item.lead_ore.name,Lead Ore,Свинцовая руда
+item.lead_rod.desc,A dense lead rod used in accumulator cells and radiation-resistant assemblies.,Плотный свинцовый стержень для аккумуляторных ячеек и радиационно-стойких узлов.
+item.lead_rod.name,Lead Rod,Свинцовый стержень
 item.machine_frame.desc,Steel frame on which advanced machines are assembled.,"Стальной каркас, на который собираются продвинутые машины."
 item.machine_frame.name,Machine Frame,Рамка механизма
 item.me_cable.desc,Connects ME network devices. Channels are unlimited — only connectivity matters.,Соединяет устройства ME-сети. Каналы бесконечны — важна только связность.
@@ -338,8 +342,12 @@ item.mythril_ore.desc,An exceptionally durable ore with a cold arcane glow.,Ис
 item.mythril_ore.name,Mythril Ore,Мифриловая руда
 item.nickel_dust.desc,Fine nickel powder. Used in steel alloys and plating.,Мелкий никелевый порошок. Для стальных сплавов и покрытий.
 item.nickel_dust.name,Nickel Dust,Никелевая пыль
+item.nickel_ingot.desc,Refined heat-resistant nickel for thermal machinery and protective equipment.,Очищенный жаростойкий никель для тепловых машин и защитного снаряжения.
+item.nickel_ingot.name,Nickel Ingot,Никелевый слиток
 item.nickel_ore.desc,Raw nickel ore. Used in steel alloys and plating.,Сырая никелевая руда. Для стальных сплавов и покрытий.
 item.nickel_ore.name,Nickel Ore,Никелевая руда
+item.nickel_rod.desc,A heat-resistant nickel rod used in heaters and thermal protection.,Жаростойкий никелевый стержень для нагревателей и тепловой защиты.
+item.nickel_rod.name,Nickel Rod,Никелевый стержень
 item.oil_pump.desc,Powered pumpjack. Must stand on the center of an oil deposit. Buffer: 150 L.,Насос с приводом. Должен стоять в центре нефтяной залежи. Буфер: 150 л.
 item.oil_pump.name,Oil Pump,Нефтяной насос
 item.page_cryo_mantle.desc,A torn codex page. Carry it to unlock the Cryo Mantle recipe.,"Вырванная страница книги. Носи с собой, чтобы разблокировать рецепт Крио Мантии."
@@ -430,6 +438,8 @@ item.silver_ingot.desc,Refined silver. Excellent electrical conductor.,Очищ�
 item.silver_ingot.name,Silver Ingot,Серебряный слиток
 item.silver_ore.desc,Raw silver ore. Smelt it into ingots.,Сырая серебряная руда. Переплавь в слитки.
 item.silver_ore.name,Silver Ore,Серебряная руда
+item.silver_rod.desc,A precise silver conductor used in sensors and signal electronics.,Точный серебряный проводник для датчиков и сигнальной электроники.
+item.silver_rod.name,Silver Rod,Серебряный стержень
 item.solar_panel.desc,Generates 40 EU/s. Place adjacent to cables to power machines.,Вырабатывает 40 EU/с. Ставь рядом с кабелями для питания машин.
 item.solar_panel.name,Basic Solar Panel,Базовая солнечная панель
 item.solid_matter.desc,Matter compressed in a molecular transformer. Ultra-dense end-game material.,Спрессованная в молекулярном преобразователе материя. Сверхплотный материал для конца игры.

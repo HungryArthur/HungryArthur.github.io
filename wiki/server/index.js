@@ -3,6 +3,7 @@ import { extname, relative, resolve } from 'node:path';
 import { exec } from 'node:child_process';
 import { balanceNumber } from './balance/numbers.js';
 import { parseCsvLine } from './loaders/csv.js';
+import { imageDimensions } from './loaders/image-dimensions.js';
 import { assetsRoot, gameDataSource, projectRoot, repositoryRoot } from './loaders/game-root.js';
 import { languages } from './localization/languages.js';
 import { createWikiServer } from './routes/create-server.js';
@@ -461,13 +462,10 @@ function escapeRegExp(value) {
 }
 
 
-function pngDimensions(texturePath) {
-  if (!texturePath.endsWith('.png')) return null;
+function textureDimensions(texturePath) {
   const filePath = resolve(projectRoot, texturePath);
   if (!existsSync(filePath)) return null;
-  const buffer = readFileSync(filePath);
-  if (buffer.length < 24 || buffer.toString('ascii', 1, 4) !== 'PNG') return null;
-  return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+  return imageDimensions(filePath);
 }
 
 
@@ -494,7 +492,7 @@ function itemTexture(content) {
   return {
     path: texturePath ? `/assets/${texturePath.replace(/^assets\//, '')}` : '',
     atlas,
-    dimensions: texturePath ? pngDimensions(texturePath) : null,
+    dimensions: texturePath ? textureDimensions(texturePath) : null,
   };
 }
 
@@ -517,7 +515,7 @@ function buildItemTextureIndex() {
         continue;
       }
       const extension = extname(entry.name).toLowerCase();
-      if (!['.png', '.webp', '.jpg', '.jpeg'].includes(extension)) continue;
+      if (!['.png', '.svg', '.webp', '.jpg', '.jpeg'].includes(extension)) continue;
       const key = entry.name.slice(0, -extension.length).toLowerCase();
       if (!index.has(key)) index.set(key, entryPath);
     }
@@ -533,7 +531,7 @@ function fallbackItemTexture(id) {
   const filePath = itemTextureIndex.get(id.toLowerCase());
   if (!filePath) return { path: '', atlas: null, dimensions: null };
   const pathFromProject = `assets/${relative(assetsRoot, filePath).replaceAll('\\', '/')}`;
-  return { path: `/${pathFromProject}`, atlas: null, dimensions: pngDimensions(pathFromProject) };
+  return { path: `/${pathFromProject}`, atlas: null, dimensions: textureDimensions(pathFromProject) };
 }
 
 
