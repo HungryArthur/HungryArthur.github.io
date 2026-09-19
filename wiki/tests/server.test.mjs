@@ -4,7 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { after, before, test } from 'node:test';
 import { readFileSync } from 'node:fs';
-import { validateArtManifest, validateTexture } from '../../scripts/validate-textures.mjs';
+import { validateArtManifest, validateSprite32 } from '../../scripts/validate-textures.mjs';
 import { pixelPerfectGeometry } from '../client/components/pixel-images.js';
 
 const testRoot = dirname(fileURLToPath(import.meta.url));
@@ -100,13 +100,13 @@ test('API, assets, HEAD, redirects, and invalid methods behave correctly', async
   assert.equal(traversalResponse.status, 404);
 });
 
-test('all item and machine textures exist with valid sizes and atlas regions', async () => {
+test('all item and machine sprites are 32x32 with valid files and atlas regions', async () => {
   assert.ok(validateArtManifest(gameRoot) >= 248);
   const paths = new Set();
   const itemCatalog = await (await fetch(`${baseUrl}/api/v1/ru/items`)).json();
   const machineCatalog = await (await fetch(`${baseUrl}/api/v1/ru/machines`)).json();
   for (const entry of [...itemCatalog.items, ...machineCatalog.machines]) {
-    validateTexture(entry.texture, gameRoot, entry.id);
+    validateSprite32(entry.texture, gameRoot, entry.id);
     paths.add(entry.texture.path);
   }
   const manifest = JSON.parse(readFileSync(resolve(gameRoot, 'docs/generated/texture_art_manifest.json'), 'utf8'));
@@ -122,12 +122,16 @@ test('all item and machine textures exist with valid sizes and atlas regions', a
   }
 });
 
-test('chests and conveyors show one atlas cell; SVG and tall sprites retain dimensions', async () => {
+test('chests and conveyors show one 32px atlas cell; standalone icons are square', async () => {
   const { items } = await (await fetch(`${baseUrl}/api/v1/en/items`)).json();
   const byId = new Map(items.map(e => [e.id, e]));
   assert.deepEqual(byId.get('CHEST_T1').texture.atlas, { x: 0, y: 0, width: 32, height: 32 });
   assert.deepEqual(byId.get('conveyor').texture.atlas, { x: 0, y: 32, width: 32, height: 32 });
   assert.ok(byId.get('resonite_shard').texture.dimensions.width > 0);
+  for (const id of ['water_pump', 'fluid_pipe', 'fluid_valve', 'fluid_tank_t5', 'solar_panel', 'me_controller']) {
+    assert.deepEqual(byId.get(id).texture.dimensions, { width: 32, height: 32 });
+    assert.match(byId.get(id).texture.path, /\/generated\//);
+  }
   assert.deepEqual(pixelPerfectGeometry(16,16,40), { width:32,height:32,scale:2 });
   assert.deepEqual(pixelPerfectGeometry(32,48,32), { width:16,height:24,scale:.5 });
 });

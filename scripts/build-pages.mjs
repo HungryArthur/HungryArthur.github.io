@@ -9,7 +9,7 @@ import {
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { validateArtManifest, validateCatalogTextures, validateTexture } from './validate-textures.mjs';
+import { validateArtManifest, validateCatalogTextures, validateSprite32 } from './validate-textures.mjs';
 
 const scriptsRoot = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptsRoot, '..');
@@ -140,7 +140,7 @@ try {
       writeJson(`api-data/${language}/${collection.resource}.json`, catalog);
       const entries = catalog[collection.key] ?? [];
       if (collection.resource === 'items' || collection.resource === 'machines') {
-        for (const entry of entries) validateTexture(entry.texture, outputRoot, entry.id);
+        for (const entry of entries) validateSprite32(entry.texture, outputRoot, entry.id);
       }
       for (const entry of entries) {
         const id = String(collection.id ? collection.id(entry) : entry.id);

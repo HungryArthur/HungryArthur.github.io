@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/textures/items/machines/solar_panel/quantum_solar_panel.png" id="2_tex"]
+
+[ext_resource type="Texture2D" path="res://assets/textures/generated/normalized/quantum_solar_panel.png" id="generated_art"]
 
 [resource]
 script = ExtResource("1_script")
 id = "quantum_solar_panel"
 name = "item.quantum_solar_panel.name"
 description = "item.quantum_solar_panel.desc"
-texture = ExtResource("2_tex")
+texture = ExtResource("generated_art")
 rarity = "legendary"
 item_color = Color(0.18, 0.55, 0.85, 1)
 max_stack = 99

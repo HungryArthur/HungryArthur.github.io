@@ -48,6 +48,13 @@ export function validateCatalogTextures(catalog, root) {
   return count;
 }
 
+export function validateSprite32(texture, root, label = '') {
+  validateTexture(texture, root, label);
+  const { width, height } = texture.atlas ?? texture.dimensions;
+  assert.equal(width, 32, `Sprite width must be 32: ${label}`);
+  assert.equal(height, 32, `Sprite height must be 32: ${label}`);
+}
+
 export function validateArtManifest(gameRoot, outputRoot = gameRoot) {
   const manifestPath = resolve(gameRoot, 'docs/generated/texture_art_manifest.json');
   assert.ok(existsSync(manifestPath), 'Texture manifest missing. Run the game-data synchronization first.');

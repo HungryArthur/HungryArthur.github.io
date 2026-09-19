@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/textures/items/fluids/fluid_pipe.png" id="2_tex"]
+
+[ext_resource type="Texture2D" path="res://assets/textures/generated/blocks/fluid_valve_icon.png" id="generated_art"]
 
 [resource]
 script = ExtResource("1_script")
 id = "fluid_valve"
 name = "item.fluid_valve.name"
 description = "item.fluid_valve.desc"
-texture = ExtResource("2_tex")
+texture = ExtResource("generated_art")
 item_color = Color(0.95, 0.62, 0.18, 1)
 max_stack = 32
 block_id = "fluid_valve"
