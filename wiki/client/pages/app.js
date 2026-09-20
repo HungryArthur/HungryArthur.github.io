@@ -1,4 +1,5 @@
 import { fetchWikiJson } from '../api/wiki-api.js';
+import { formatRecipeLine, parseRecipeLine } from '../components/recipe-line.js';
 import { showArticlePage } from '../components/article-page.js';
 import { fitLoadedPixelImage, observePixelImages, pixelPerfectGeometry } from '../components/pixel-images.js';
 import { escapeHtml, localizedValue, readableId } from '../components/text.js';
@@ -178,22 +179,24 @@ observePixelImages();
 
     const craftingBalanceUi = {
       ru: {
-        title: 'Баланс крафтов', intro: 'Рабочая панель экономики. Она читает игровые .tres-рецепты, разворачивает полную цепочку ручного изготовления и помогает формулировать точные правки.',
+        title: 'Баланс крафтов', intro: 'Рабочая панель экономики. Редактируй весь рецепт одной строкой и сохраняй изменения с пересчётом цепочки крафта.',
         loading: 'Расчёт цепочек крафта…', loadError: 'Не удалось рассчитать баланс крафтов.', source: 'Источник данных', liveNote: 'Файлы перечитываются при каждом обновлении страницы — отдельной копии рецептов здесь нет. Итоговыми входами считаются предметы, для которых в CraftingDatabase нет отдельного .tres-рецепта; операции станков здесь не разворачиваются.',
         recipes: 'Рецептов', rawResources: 'Видов итоговых входов', warnings: 'Предупреждений', errors: 'Критических ошибок', search: 'Название или ID', allAges: 'Все эпохи', allCategories: 'Все категории', allStatuses: 'Любой статус', onlyWarnings: 'Требуют внимания', onlyErrors: 'Только ошибки', noWarnings: 'Без предупреждений',
         sort: 'Сортировка', sortProgression: 'По прогрессии', sortCostDesc: 'Сначала дорогие', sortCostAsc: 'Сначала дешёвые', sortDepth: 'По длине цепочки', sortName: 'По названию', refresh: 'Обновить', shown: 'Показано', of: 'из',
         recipe: 'Рецепт', age: 'Эпоха', category: 'Категория', direct: 'Прямые ингредиенты', rawCost: 'Итоговые входы', depth: 'Глубина', operations: 'Операций', usage: 'Использований', status: 'Статус', ok: 'В порядке', open: 'Открыть',
         details: 'Разбор рецепта', formula: 'Прямая формула', metrics: 'Метрики цепочки', rawBreakdown: 'Итоговые входы цепочки', chain: 'Дерево изготовления', issues: 'Замечания', usedIn: 'Используется в рецептах', noUses: 'Нигде не используется.', sourceFile: 'Файл рецепта', raw: 'вход', crafts: 'крафтов',
-        copyPrompt: 'Запрос для Codex', promptHint: 'Допиши, что именно нужно изменить, затем скопируй запрос.', copy: 'Скопировать запрос', copied: 'Скопировано', copyFailed: 'Выдели текст и скопируй вручную.', promptChange: 'Нужно изменить: опиши желаемые ингредиенты, количества, выход или эпоху.', promptKeep: 'После правки обнови проверки экономики и не меняй несвязанные рецепты.', noResults: 'По выбранным фильтрам рецептов нет.',
+        edit: 'Редактировать рецепт', editHint: 'Все ингредиенты, выход и эпоха — в одной строке. Формат: wood * 2 + stone * 1 -> primitive_drill * 1; age=1. Enter — сохранить.', save: 'Сохранить', saving: 'Сохранение…', saved: 'Сохранено. Баланс цепочек пересчитан.', staticHint: 'На опубликованной вики можно скопировать все правки одним запросом. Для сохранения прямо в игру открой локальную вики.', copy: 'Скопировать правку', copied: 'Скопировано', copyFailed: 'Не удалось скопировать.', noResults: 'По выбранным фильтрам рецептов нет.',
+        editErrors: { invalid_formula: 'Формат: wood * 2 + stone * 1 -> primitive_drill * 1; age=1', invalid_count: 'Количество должно быть целым числом от 1 до 2147483647.', duplicate_ingredient: 'Объедини повторяющиеся ингредиенты.', invalid_age: 'Эпоха: 1–6 или 99 для особого открытия.', unknown_item: 'Неизвестный ID предмета. Проверь ингредиенты и выход.', recipe_cycle: 'Рецепт создаёт цикл изготовления.', recipe_changed: 'Файл изменился. Обнови страницу и повтори правку.', local_only: 'Сохранение доступно только в локальной вики.', save_failed: 'Не удалось сохранить рецепт. Правка осталась в строке.' },
       },
       en: {
-        title: 'Crafting balance', intro: 'An economy workbench. It reads live .tres recipes, expands the complete hand-crafting chain, and helps you describe precise balance changes.',
+        title: 'Crafting balance', intro: 'An economy workbench. Edit a complete recipe on one line and save changes with recalculated crafting chains.',
         loading: 'Calculating crafting chains…', loadError: 'Could not calculate crafting balance.', source: 'Data source', liveNote: 'Files are read again on every refresh, so this page does not maintain a separate recipe copy. A terminal input is an item without its own .tres recipe in CraftingDatabase; machine operations are not expanded here.',
         recipes: 'Recipes', rawResources: 'Terminal input types', warnings: 'Warnings', errors: 'Critical errors', search: 'Name or ID', allAges: 'All ages', allCategories: 'All categories', allStatuses: 'Any status', onlyWarnings: 'Needs attention', onlyErrors: 'Errors only', noWarnings: 'No warnings',
         sort: 'Sort', sortProgression: 'Progression order', sortCostDesc: 'Most expensive first', sortCostAsc: 'Cheapest first', sortDepth: 'Chain depth', sortName: 'Name', refresh: 'Refresh', shown: 'Showing', of: 'of',
         recipe: 'Recipe', age: 'Age', category: 'Category', direct: 'Direct ingredients', rawCost: 'Terminal inputs', depth: 'Depth', operations: 'Operations', usage: 'Uses', status: 'Status', ok: 'OK', open: 'Open',
         details: 'Recipe analysis', formula: 'Direct formula', metrics: 'Chain metrics', rawBreakdown: 'Terminal chain inputs', chain: 'Crafting tree', issues: 'Issues', usedIn: 'Used by recipes', noUses: 'Not used anywhere.', sourceFile: 'Recipe file', raw: 'input', crafts: 'crafts',
-        copyPrompt: 'Prompt for Codex', promptHint: 'Describe the desired change, then copy the prompt.', copy: 'Copy prompt', copied: 'Copied', copyFailed: 'Select the text and copy it manually.', promptChange: 'Change requested: describe the desired ingredients, counts, output, or age.', promptKeep: 'After the change, update economy checks and do not modify unrelated recipes.', noResults: 'No recipes match the selected filters.',
+        edit: 'Edit recipe', editHint: 'All ingredients, output and age on one line. Format: wood * 2 + stone * 1 -> primitive_drill * 1; age=1. Press Enter to save.', save: 'Save', saving: 'Saving…', saved: 'Saved. Crafting chains recalculated.', staticHint: 'On the published wiki, copy all edits as one request. Open the local wiki to save directly to the game.', copy: 'Copy change', copied: 'Copied', copyFailed: 'Could not copy.', noResults: 'No recipes match the selected filters.',
+        editErrors: { invalid_formula: 'Format: wood * 2 + stone * 1 -> primitive_drill * 1; age=1', invalid_count: 'Counts must be integers from 1 to 2147483647.', duplicate_ingredient: 'Combine duplicate ingredients.', invalid_age: 'Age must be 1–6 or 99 for a special unlock.', unknown_item: 'Unknown item ID. Check ingredients and output.', recipe_cycle: 'This recipe creates a crafting cycle.', recipe_changed: 'The file changed. Refresh the page before editing again.', local_only: 'Saving is available only in the local wiki.', save_failed: 'Could not save. Your edit remains in the input.' },
       },
     };
 
@@ -745,15 +748,6 @@ observePixelImages();
       return `<details${root ? ' open' : ''}><summary>${itemIcon(node.item, 24)} <strong>${title}</strong> · ${balanceNumberText(node.crafts, language)} ${labels.crafts} ${recipeLink}</summary>${node.children.map((child) => renderBalanceChainNode(child, language, labels)).join('')}</details>`;
     }
 
-    function balancePrompt(recipe, language, labels) {
-      const direct = recipe.ingredients.map((ingredient) => `${ingredient.id} × ${balanceNumberText(ingredient.count, language)}`).join(' + ');
-      const raw = recipe.rawResources.map((resource) => `${resource.id} × ${balanceNumberText(resource.count, language)}`).join(', ');
-      if (language === 'ru') {
-        return `Измени рецепт \`${recipe.id}\` (${recipe.title}).\n\nСейчас: ${direct} → ${recipe.result.id} × ${recipe.resultCount}.\nЭпоха: ${recipe.requiredAge}. Категория: ${recipe.category}.\nИтоговые входы цепочки крафта: ${balanceNumberText(recipe.rawTotal, language)} ед. (${raw || 'нет данных'}).\nФайл: ${recipe.sourcePath}.\n\n${labels.promptChange}\n\n${labels.promptKeep}`;
-      }
-      return `Change recipe \`${recipe.id}\` (${recipe.title}).\n\nCurrent: ${direct} → ${recipe.result.id} × ${recipe.resultCount}.\nAge: ${recipe.requiredAge}. Category: ${recipe.category}.\nTerminal crafting-chain inputs: ${balanceNumberText(recipe.rawTotal, language)} units (${raw || 'no data'}).\nFile: ${recipe.sourcePath}.\n\n${labels.promptChange}\n\n${labels.promptKeep}`;
-    }
-
     async function renderCraftingBalance(language) {
       const labels = craftingBalanceUi[language];
       const article = document.querySelector('#crafting-balance-page');
@@ -799,6 +793,7 @@ observePixelImages();
           detail.hidden = false;
           detail.innerHTML = `<p class="loading-message">${labels.loading}</p>`;
           const response = await fetchWikiJson(`/api/v1/${language}/crafting-balance/${encodeURIComponent(recipeId)}`);
+          if (selectedRecipeId !== recipeId) return;
           const recipe = response.recipe;
           const warningMarkup = recipe.warnings.length
             ? recipe.warnings.map((warning) => `<li class="balance-warning is-${escapeHtml(warning.severity)}"><strong>${escapeHtml(warning.severity.toUpperCase())}</strong> — ${escapeHtml(warning.message)}</li>`).join('')
@@ -806,27 +801,57 @@ observePixelImages();
           const usedIn = recipe.usedIn.length
             ? `<div class="catalog-grid">${recipe.usedIn.map((entry) => `<a class="catalog-card" href="${recipeUrl(entry.id, language)}">${itemIcon(entry.result, 48)}<span><strong>${escapeHtml(entry.title)}</strong><small><code>${escapeHtml(entry.id)}</code></small></span></a>`).join('')}</div>`
             : `<p class="empty-section">${labels.noUses}</p>`;
-          const prompt = balancePrompt(recipe, language, labels);
+          const isStatic = document.documentElement.dataset.staticWiki === 'true';
           detail.innerHTML = `
             <div class="balance-detail__heading"><div><h2>${labels.details}: ${escapeHtml(recipe.title)}</h2><p>${labels.sourceFile}: <code>${escapeHtml(recipe.sourcePath)}</code></p></div><a class="balance-button is-secondary" href="${recipeUrl(recipe.id, language)}">${labels.open}</a></div>
+            <section class="biome-section balance-editor"><h2>${labels.edit}</h2><p id="balance-edit-hint">${isStatic ? labels.staticHint : labels.editHint}</p><form id="balance-edit-form" class="balance-edit-form"><input class="balance-recipe-line" id="balance-recipe-line" aria-label="${labels.edit}" aria-describedby="balance-edit-hint" value="${escapeHtml(formatRecipeLine(recipe))}" spellcheck="false" autocomplete="off" required><button class="balance-button" type="submit">${isStatic ? labels.copy : labels.save}</button></form><p id="balance-edit-status" role="status" aria-live="polite"></p></section>
             <section class="biome-section"><h2>${labels.formula}</h2><div class="balance-formula"><div class="balance-formula__items">${recipe.ingredients.map((ingredient) => balanceItemChip(ingredient, ingredient.count, language)).join('')}</div><span class="balance-formula__arrow">→</span><div class="balance-formula__items">${balanceItemChip(recipe.result, recipe.resultCount, language)}</div></div></section>
             <section class="biome-section"><h2>${labels.metrics}</h2><div class="balance-stats"><div class="balance-stat"><strong>${labels.rawCost}</strong><span>${balanceNumberText(recipe.rawTotal, language)}</span></div><div class="balance-stat"><strong>${labels.rawResources}</strong><span>${recipe.rawKinds}</span></div><div class="balance-stat"><strong>${labels.depth}</strong><span>${recipe.depth}</span></div><div class="balance-stat"><strong>${labels.operations}</strong><span>${balanceNumberText(recipe.operations, language)}</span></div></div></section>
             <section class="biome-section"><h2>${labels.issues}</h2><ul class="balance-warning-list">${warningMarkup}</ul></section>
             <section class="biome-section"><h2>${labels.rawBreakdown}</h2><div class="balance-raw-grid">${recipe.rawResources.map((resource) => balanceItemChip(resource, resource.count, language)).join('') || `<p class="empty-section">—</p>`}</div></section>
             <section class="biome-section"><h2>${labels.chain}</h2><div class="balance-chain">${renderBalanceChainNode(recipe.chain, language, labels, true)}</div></section>
             <section class="biome-section"><h2>${labels.usedIn}</h2>${usedIn}</section>
-            <section class="biome-section"><h2>${labels.copyPrompt}</h2><p>${labels.promptHint}</p><textarea class="balance-prompt" id="balance-prompt">${escapeHtml(prompt)}</textarea><div class="balance-prompt-actions"><button class="balance-button" id="balance-copy" type="button">${labels.copy}</button><span class="balance-copy-status" id="balance-copy-status"></span></div></section>`;
-          const copyButton = detail.querySelector('#balance-copy');
-          copyButton.addEventListener('click', async () => {
-            const textarea = detail.querySelector('#balance-prompt');
-            const copyStatus = detail.querySelector('#balance-copy-status');
+            `;
+          const form = detail.querySelector('#balance-edit-form');
+          form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const input = form.querySelector('input');
+            const button = form.querySelector('button');
+            const statusMessage = detail.querySelector('#balance-edit-status');
             try {
-              if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(textarea.value);
-              else { textarea.select(); document.execCommand('copy'); }
-              copyStatus.textContent = labels.copied;
+              parseRecipeLine(input.value);
+              button.disabled = true;
+              if (isStatic) {
+                const request = language === 'ru'
+                  ? `Измени рецепт ${recipe.id} (${recipe.sourcePath}): ${input.value}. Обнови проверки экономики; не меняй несвязанные рецепты.`
+                  : `Change recipe ${recipe.id} (${recipe.sourcePath}): ${input.value}. Update economy checks; do not change unrelated recipes.`;
+                await navigator.clipboard.writeText(request);
+                statusMessage.textContent = labels.copied;
+                return;
+              }
+              statusMessage.textContent = labels.saving;
+              const saved = await fetch(`/api/v1/${language}/crafting-balance/${encodeURIComponent(recipe.id)}`, {
+                method: 'PUT', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ line: input.value, revision: recipe.revision }),
+              });
+              const result = await saved.json();
+              if (!saved.ok) throw new Error(result.error);
+              // Keep current filters and selection while refreshing every affected chain.
+              Object.assign(data, await fetchWikiJson(`/api/v1/${language}/crafting-balance`));
+              const totals = [data.count, data.rawResourceCount, data.warningCount, data.errorCount];
+              article.querySelectorAll(':scope > .balance-stats .balance-stat span').forEach((span, index) => { span.textContent = totals[index]; });
+              const previousAge = age.value;
+              age.innerHTML = `<option value="">${labels.allAges}</option>${data.ages.map((value) => `<option value="${value}">${value > 6 ? '—' : value}</option>`).join('')}`;
+              age.value = data.ages.map(String).includes(previousAge) ? previousAge : '';
+              applyFilters();
+              if (selectedRecipeId === recipe.id) {
+                await openRecipe(recipe.id, false);
+                detail.querySelector('#balance-edit-status').textContent = labels.saved;
+              }
             } catch (error) {
-              textarea.select();
-              copyStatus.textContent = labels.copyFailed;
+              statusMessage.textContent = labels.editErrors[error.message] ?? (isStatic ? labels.copyFailed : labels.editErrors.save_failed);
+            } finally {
+              button.disabled = false;
             }
           });
           const url = new URL(window.location.href);

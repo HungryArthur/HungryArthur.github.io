@@ -191,8 +191,10 @@
     .balance-chain summary { padding: 5px 8px; cursor: pointer; }
     .balance-chain__leaf { margin: 4px 0 4px 20px; padding: 5px 8px; border-left: 2px solid #58aacf; }
     .balance-chain__raw { color: #007f1d; font-weight: 700; }
-    .balance-prompt { width: 100%; min-height: 130px; margin-top: 9px; padding: 10px; resize: vertical; border: 1px solid #75adca; background: white; font: 14px/1.4 Consolas, monospace; }
-    .balance-prompt-actions { display: flex; align-items: center; gap: 9px; margin-top: 8px; }
+    .balance-edit-form { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
+    .balance-recipe-line { flex: 1 1 500px; min-width: 0; width: 100%; padding: 10px; border: 1px solid #75adca; background: white; font: 14px/1.4 Consolas, monospace; }
+    .balance-recipe-line:focus { outline: 2px solid #006d9a; outline-offset: 2px; }
+    .balance-button:disabled { cursor: wait; opacity: .6; }
     .balance-copy-status { color: #007f1d; font-weight: 700; }
     .item-icon { display: inline-grid; place-items: center; flex: 0 0 auto; overflow: hidden; background-color: #ccebf3; image-rendering: pixelated; }
     .item-icon img, .item-icon__sprite { display: block; max-width: none; max-height: none; image-rendering: pixelated; }

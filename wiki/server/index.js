@@ -1,4 +1,5 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { editRecipeContent, recipeRevision } from './balance/recipe-editor.js';
 import { extname, relative, resolve } from 'node:path';
 import { exec } from 'node:child_process';
 import { balanceNumber } from './balance/numbers.js';
@@ -898,7 +899,33 @@ function craftingBalanceDetails(recipeId, language) {
   const recipe = liveRecipes.find((entry) => entry.id === recipeId);
   if (!recipe) return null;
   const { analyze } = analyzeCraftingRecipes(liveRecipes, language);
-  return analyze(recipe, true);
+  const content = readFileSync(resolve(recipeDefinitionsRoot, `${recipe.id}.tres`), 'utf8');
+  return { ...analyze(recipe, true), revision: recipeRevision(content) };
+}
+
+function handleRecipeEdit(response, language, recipeId, payload) {
+  const liveRecipes = loadRecipes();
+  const current = liveRecipes.find((entry) => entry.id === recipeId);
+  if (!current) return sendJson(response, 404, { error: 'recipe_not_found' });
+  const path = resolve(recipeDefinitionsRoot, `${current.id}.tres`);
+  const original = readFileSync(path, 'utf8');
+  if (payload?.revision !== recipeRevision(original)) return sendJson(response, 409, { error: 'recipe_changed' });
+  let edited;
+  try {
+    edited = editRecipeContent(original, payload.line, itemsById);
+  } catch (error) {
+    return sendJson(response, 400, { error: error.message });
+  }
+  const candidate = liveRecipes.map((recipe) => recipe.id === recipeId ? { ...recipe, ...edited.recipe } : recipe);
+  const before = analyzeCraftingRecipes(liveRecipes, language).analyses;
+  const after = analyzeCraftingRecipes(candidate, language).analyses;
+  const existingCycles = new Set(before.filter((recipe) => recipe.warnings.some((warning) => warning.kind === 'cycle')).map((recipe) => recipe.id));
+  if (after.some((recipe) => !existingCycles.has(recipe.id) && recipe.warnings.some((warning) => warning.kind === 'cycle'))) {
+    return sendJson(response, 400, { error: 'recipe_cycle' });
+  }
+  writeFileSync(path, edited.content, 'utf8');
+  recipes.splice(0, recipes.length, ...loadRecipes());
+  sendJson(response, 200, { recipe: craftingBalanceDetails(recipeId, language) });
 }
 
 
@@ -5610,6 +5637,7 @@ const server = createWikiServer({
     },
   }),
   handleApi,
+  handleRecipeEdit,
   host,
   isWikiPageRoute,
   wikiPage,
