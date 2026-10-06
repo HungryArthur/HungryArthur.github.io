@@ -106,6 +106,12 @@ const fluidMachinePaths = {
   reactor: resolve(projectRoot, 'core/systems/machines/ChemicalReactorContainer.gd'),
   melter: resolve(projectRoot, 'core/systems/machines/OreMelterContainer.gd'),
 };
+const meNetworkPath = resolve(projectRoot, 'core/systems/me/MENetworkManager.gd');
+const meControllerPath = resolve(projectRoot, 'core/systems/me/MEControllerContainer.gd');
+const meCraftingTerminalPath = resolve(projectRoot, 'core/systems/me/MECraftingTerminalContainer.gd');
+const meNetworkSource = readFileSync(meNetworkPath, 'utf8');
+const meControllerSource = readFileSync(meControllerPath, 'utf8');
+const meCraftingTerminalSource = readFileSync(meCraftingTerminalPath, 'utf8');
 const questTranslationsPath = resolve(assetsRoot, 'locale/quests.csv');
 const menuTranslationsPath = resolve(assetsRoot, 'locale/menu.csv');
 const balanceReportPath = resolve(projectRoot, 'docs/generated/overworld_balance_report.md');
@@ -127,7 +133,7 @@ const biomeDefinitions = [
 
 const biomeText = {
   forest: {
-    description: { ru: 'Густой лес занимает весь безопасный центр Верхнего мира. Между деревьями появляются три вида противников, а глубже находится арена Энта.', en: 'Dense forest fills the entire safe centre of the Overworld. Three enemy species roam between the trees, with the Ent arena farther inside.' },
+    description: { ru: 'Лес занимает безопасный центр Верхнего мира. Обычные противники здесь не появляются: это место для первой базы и подготовки к экспедициям. Глубже находится арена Энта.', en: 'Forest fills the safe centre of the Overworld. Regular enemies do not spawn here, making it a place for your first base and expedition preparation. The Ent arena lies farther inside.' },
     preparation: { ru: 'Возьмите оружие, еду и топор. Перед боем с Энтом полезно расчистить пространство для уклонений и подготовить свободные ячейки под добычу.', en: 'Bring a weapon, food, and an axe. Clear room to dodge before fighting the Ent and leave inventory slots free for its loot.' },
   },
   desert: {
@@ -273,25 +279,96 @@ const systemGuides = [
   {
     id: 'me-network', color: [0.55, 0.30, 0.88, 1],
     title: { ru: 'ME-сеть', en: 'ME network' },
-    subtitle: { ru: 'Цифровое хранение предметов и жидкостей, терминалы и шины.', en: 'Digital item and fluid storage, terminals, and buses.' },
+    subtitle: { ru: 'Хранение, автокрафт, модули и беспроводной доступ.', en: 'Storage, autocrafting, upgrades, and wireless access.' },
     intro: { ru: 'ME-сеть объединяет контроллер, кабели, дисководы, терминалы, шины, интерфейсы и молекулярные сборщики, соприкасающиеся сторонами. Каналы не ограничены: важны только связность и работающий контроллер.', en: 'An ME network joins orthogonally adjacent controllers, cables, drives, terminals, buses, interfaces, and molecular assemblers. Channels are unlimited; only connectivity and an online controller matter.' },
     facts: [
-      { label: { ru: 'Контроллер', en: 'Controller' }, value: { ru: '12 EU/с', en: '12 EU/s' } },
-      { label: { ru: 'Цикл шин', en: 'Bus interval' }, value: { ru: '0,4 с', en: '0.4 s' } },
-      { label: { ru: 'Перенос предметов', en: 'Item transfer' }, value: { ru: 'до 64 за цикл', en: 'up to 64 per cycle' } },
-      { label: { ru: 'Перенос жидкостей', en: 'Fluid transfer' }, value: { ru: 'до 50 л за цикл', en: 'up to 50 L per cycle' } },
+      { label: { ru: 'Базовый расход сети', en: 'Base network draw' }, value: { ru: `${numericAssignment(meControllerSource, 'IDLE_DRAIN', 12)} EU/с + устройства`, en: `${numericAssignment(meControllerSource, 'IDLE_DRAIN', 12)} EU/s + devices` } },
+      { label: { ru: 'Цикл шин', en: 'Bus interval' }, value: { ru: `${numericAssignment(meNetworkSource, 'SERVICE_INTERVAL', 0.4)} с`, en: `${numericAssignment(meNetworkSource, 'SERVICE_INTERVAL', 0.4)} s` } },
+      { label: { ru: 'Перенос предметов без модулей', en: 'Item transfer without upgrades' }, value: { ru: `до ${numericAssignment(meNetworkSource, 'MOVE_AMOUNT', 64)} за цикл`, en: `up to ${numericAssignment(meNetworkSource, 'MOVE_AMOUNT', 64)} per cycle` } },
+      { label: { ru: 'Перенос жидкостей без модулей', en: 'Fluid transfer without upgrades' }, value: { ru: `до ${numericAssignment(meNetworkSource, 'MOVE_LITERS', 50)} л за цикл`, en: `up to ${numericAssignment(meNetworkSource, 'MOVE_LITERS', 50)} L per cycle` } },
     ],
     stages: [
       { title: { ru: '1. Запитайте контроллер', en: '1. Power the controller' }, text: { ru: 'Подключите ME-контроллер к обычной энергосети. Пока во внутреннем буфере есть энергия, связанный компонент ME считается активным.', en: 'Connect the ME controller to the regular power grid. Its connected ME component remains online while the controller has energy in its internal buffer.' }, links: ['me_controller', 'copper_wire'] },
       { title: { ru: '2. Соберите связный компонент', en: '2. Build one connected component' }, text: { ru: 'Соединяйте блоки сторонами напрямую или через ME-кабель. Диагональное касание не соединяет сеть; ограничений по числу каналов нет.', en: 'Connect blocks along their sides directly or with ME cable. Diagonal contact does not connect the network, and there is no channel limit.' }, links: ['me_cable', 'me_drive', 'me_terminal', 'me_crafting_terminal'] },
       { title: { ru: '3. Установите ячейки', en: '3. Install storage cells' }, text: { ru: 'Дисковод принимает предметные и жидкостные ячейки. Ёмкость ограничена одновременно общим количеством и числом разных типов, поэтому большие объёмы одного материала и много редких предметов требуют разного планирования.', en: 'A drive accepts item and fluid cells. Capacity is limited by both total quantity and distinct types, so bulk materials and many rare items require different planning.' }, links: ['me_drive', 'me_item_cell_1k', 'me_item_cell_64k', 'me_fluid_cell_1k', 'me_fluid_cell_64k'] },
       { title: { ru: '4. Автоматизируйте ввод и вывод', en: '4. Automate import and export' }, text: { ru: 'Шина импорта забирает предметы и жидкости из соседнего блока; пустой фильтр означает «всё». Шина экспорта отправляет только перечисленные фильтром ресурсы. Для каждой категории доступно до четырёх фильтров.', en: 'An import bus pulls items and fluids from an adjacent block; an empty filter means everything. An export bus pushes only resources listed in its filters. Each bus supports up to four item and four fluid filters.' }, links: ['me_import_bus', 'me_export_bus', 'me_interface', 'me_molecular_assembler'] },
+      { title: { ru: '5. Установите модули', en: '5. Install upgrades' }, text: { ru: 'Меню контроллера, сборщика и шины открывается клавишей взаимодействия. Сборщик поддерживает скорость и эффективность; шина — скорость, ёмкость и эффективность; контроллер — эффективность и ёмкость энергетического буфера. Максимум — три модуля каждого поддерживаемого типа.', en: 'Open the controller, assembler, or bus menu with the interaction key. Assemblers support speed and efficiency; buses support speed, capacity, and efficiency; controllers support efficiency and energy-buffer capacity. Each supported upgrade type accepts up to three modules.' }, links: ['machine_module_speed', 'machine_module_efficiency', 'machine_module_capacity'] },
+      { title: { ru: '6. Подключитесь без проводов', en: '6. Connect wirelessly' }, text: { ru: `ПКМ с беспроводным терминалом открывает ближайшую запитанную сеть с контроллером в радиусе ${numericAssignment(meNetworkSource, 'WIRELESS_RANGE_TILES', 24)} клеток. При наличии терминала крафта доступны заказы. Сеанс добавляет 4 EU/с; выход из радиуса или разрыв связи закрывает меню.`, en: `Right-click with a wireless terminal to open the nearest powered network with a controller within ${numericAssignment(meNetworkSource, 'WIRELESS_RANGE_TILES', 24)} tiles. Orders are available when a crafting terminal is connected. Each session adds 4 EU/s; leaving range or losing the connection closes the menu.` }, links: ['me_wireless_terminal', 'me_crafting_terminal'] },
     ],
     tips: [
       { ru: 'Ячейка 1K хранит 2 000 предметов пяти типов; 64K — 128 000 предметов пятидесяти типов.', en: 'A 1K item cell holds 2,000 items across five types; a 64K cell holds 128,000 items across fifty types.' },
       { ru: 'Жидкостные ячейки хранят и газы: 1K вмещает 4 000 л двух типов, 64K — 256 000 л девяти типов.', en: 'Fluid cells also store gases: 1K holds 4,000 L across two types, while 64K holds 256,000 L across nine types.' },
+      { ru: 'Терминал и меню контроллера показывают полный расход сети. Подключённые устройства, активные сборщики, шины и беспроводные сеансы увеличивают нагрузку; запитанные контроллеры делят её между собой.', en: 'The terminal and controller menu show total network draw. Connected devices, active assemblers, buses, and wireless sessions increase demand; powered controllers share the load.' },
     ],
-    equipment: ['me_controller', 'me_cable', 'me_drive', 'me_terminal', 'me_crafting_terminal', 'me_import_bus', 'me_export_bus', 'me_interface', 'me_molecular_assembler', 'me_item_cell_1k', 'me_item_cell_64k', 'me_fluid_cell_1k', 'me_fluid_cell_64k'],
+    equipment: ['me_controller', 'me_cable', 'me_drive', 'me_terminal', 'me_crafting_terminal', 'me_wireless_terminal', 'me_import_bus', 'me_export_bus', 'me_interface', 'me_molecular_assembler', 'me_item_cell_1k', 'me_item_cell_64k', 'me_fluid_cell_1k', 'me_fluid_cell_64k'],
+  },
+  {
+    id: 'me-autocrafting', color: [0.60, 0.36, 0.90, 1],
+    title: { ru: 'МЭ-автокрафт', en: 'ME autocrafting' },
+    subtitle: { ru: 'Заказы, параллельные машины, резервы и диагностика.', en: 'Orders, parallel machines, reservations, and diagnostics.' },
+    intro: { ru: 'Вкладка «Автокрафт» терминала крафта рассчитывает производственную цепочку, а затем создаёт предметы и возвращает их в МЭ-хранилище. Независимые ветки и несколько подходящих машин выполняются параллельно.', en: 'The crafting terminal’s Autocrafting tab plans a production chain, then produces items and returns them to ME storage. Independent branches and multiple compatible machines run in parallel.' },
+    facts: [
+      { label: { ru: 'Очередь одного терминала', en: 'Queue per terminal' }, value: { ru: `до ${numericAssignment(meCraftingTerminalSource, 'MAX_JOBS', 16)} заказов`, en: `up to ${numericAssignment(meCraftingTerminalSource, 'MAX_JOBS', 16)} orders` } },
+      { label: { ru: 'Предпросмотр', en: 'Preview' }, value: { ru: 'Без расхода ресурсов', en: 'Consumes no resources' } },
+      { label: { ru: 'Производство', en: 'Production' }, value: { ru: 'Целыми партиями', en: 'Whole batches' } },
+      { label: { ru: 'Сырьё', en: 'Inputs' }, value: { ru: 'Предметы и жидкости', en: 'Items and fluids' } },
+    ],
+    stages: [
+      { title: { ru: '1. Подготовьте исполнителей', en: '1. Prepare workers' }, text: { ru: 'Подключите молекулярные сборщики для обычного крафта. Для обработки поставьте МЭ-интерфейс вплотную к машине и закодируйте рецепт. Одинаковые паттерны на нескольких машинах распределяют партии между ними; новые подходящие машины могут подключиться к уже запущенному заказу.', en: 'Connect molecular assemblers for regular crafting. For processing, place an ME interface against the machine and encode its recipe. Identical patterns across several machines distribute batches between them; newly connected compatible machines can join an active order.' }, links: ['me_molecular_assembler', 'me_interface', 'me_pattern_terminal'] },
+      { title: { ru: '2. Проверьте расчёт', en: '2. Review the plan' }, text: { ru: 'Выберите результат и количество. Перед запуском видны исходные предметы и жидкости, недостающие ресурсы, катализаторы, цепочка и число операций. Нажатие «Заказать» пересчитывает план и резервирует доступное сырьё; излишки целых партий остаются в сети.', en: 'Choose the result and quantity. The preview lists items, fluids, missing resources, catalysts, production steps, and operation counts. Ordering recalculates the plan and reserves available inputs; extra output from whole batches stays in the network.' }, links: ['me_crafting_terminal', 'me_drive'] },
+      { title: { ru: '3. Запустите жидкостную цепочку', en: '3. Run a fluid chain' }, text: { ru: 'Жидкостная ячейка хранит сырьё и промежуточные жидкости. Заказы поддерживают промывку, реактор, плавильню и смеситель. Формы установите заранее в слот катализатора: они не расходуются. Питание, пар и топливо машин обеспечьте обычным способом.', en: 'A fluid cell stores inputs and intermediate fluids. Orders support washing, the chemical reactor, induction melter, and mixer. Install casting molds in the catalyst slot beforehand; they are not consumed. Supply machine power, steam, and fuel through the usual systems.' }, links: ['me_fluid_cell_1k', 'ore_washer', 'chemical_reactor', 'ore_melter', 'mixer'] },
+      { title: { ru: '4. Найдите причину ожидания', en: '4. Diagnose a wait' }, text: { ru: 'Кнопка «Подробнее» показывает машины, координаты, прогресс и причины ожидания: нет энергии, пара или топлива, занят исполнитель, отсоединён интерфейс, изменён паттерн, отсутствует катализатор или заполнено хранилище. Здесь же видны резервы и недоступное сырьё.', en: 'Details shows machines, coordinates, progress, and waiting reasons: missing power, steam, or fuel; a busy worker; a disconnected interface; a changed pattern; a missing catalyst; or full storage. Reservations and unavailable inputs are listed here too.' }, links: ['me_crafting_terminal', 'me_controller'] },
+    ],
+    tips: [
+      { ru: 'Резервы остаются в ячейках. Терминал, шины и другие крафты не могут забрать занятое сырьё; подсказка предмета показывает доступное и зарезервированное количество.', en: 'Reserved inputs remain in cells. Terminals, buses, and other crafts cannot take them; item tooltips show available and reserved quantities.' },
+      { ru: 'Отключение питания, снятие ячейки или разрыв сети приостанавливают заказ. При полном хранилище готовый выход ждёт в машине. Заказы, резервы и незавершённые партии сохраняются вместе с миром.', en: 'A power outage, removed cell, or broken network pauses the order. If storage is full, finished output waits in the machine. Orders, reservations, and unfinished batches persist with world saves.' },
+      { ru: 'Отмена освобождает резерв и сохраняет изготовленные ресурсы. Уже поданная в машину партия остаётся в ней и завершается обычной автоматизацией.', en: 'Cancellation releases reservations and keeps produced resources. A batch already supplied to a machine stays there and finishes through normal automation.' },
+    ],
+    equipment: ['me_crafting_terminal', 'me_molecular_assembler', 'me_interface', 'me_pattern_terminal', 'me_fluid_cell_1k', 'mixer'],
+  },
+  {
+    id: 'fluid-containers', color: [0.26, 0.71, 0.87, 1],
+    title: { ru: 'Жидкостные капсулы и МЭ-ячейки', en: 'Fluid capsules and ME cells' },
+    subtitle: { ru: 'Ручное переливание, газы, расплавы и цифровое хранение.', en: 'Manual transfers, gases, molten metals, and digital storage.' },
+    intro: { ru: 'Многоразовая жидкостная капсула переносит одно вещество между машинами и МЭ-хранилищем. Она подходит для жидкостей, газов и расплавов и сохраняет содержимое в инвентаре и сохранениях.', en: 'A reusable fluid capsule carries one substance between machines and ME storage. It supports liquids, gases, and molten metals and retains its contents in inventories and saves.' },
+    facts: [
+      { label: { ru: 'Капсула', en: 'Capsule' }, value: { ru: '100 л одного вещества', en: '100 L of one substance' } },
+      { label: { ru: '1K / 4K', en: '1K / 4K' }, value: { ru: '4 000 / 16 000 л', en: '4,000 / 16,000 L' } },
+      { label: { ru: '16K / 64K', en: '16K / 64K' }, value: { ru: '64 000 / 256 000 л', en: '64,000 / 256,000 L' } },
+      { label: { ru: 'Типы в ячейках 1K–64K', en: 'Types in 1K–64K cells' }, value: { ru: '2 / 4 / 6 / 9', en: '2 / 4 / 6 / 9' } },
+    ],
+    stages: [
+      { title: { ru: '1. Сделайте капсулу', en: '1. Craft a capsule' }, text: { ru: 'В третьей эпохе соедините две стальные пластины, два стекла и одну резину. Разные вещества в одной капсуле не смешиваются; обычные вёдра, канистры и баллоны сохраняют свои ограничения.', en: 'In the third age, combine two steel plates, two glass, and one rubber. Different substances cannot mix in a capsule; regular buckets, canisters, and cylinders retain their substance restrictions.' }, links: ['fluid_capsule', 'steel_plate', 'glass', 'rubber'] },
+      { title: { ru: '2. Перелейте через машину', en: '2. Transfer through a machine' }, text: { ru: 'Используйте ПКМ с капсулой для переливания. В меню смесителя можно выбрать также заполненный входной бак и вернуть жидкость в совместимую ёмкость.', en: 'Right-click with a capsule to transfer fluids. The mixer menu also lets you select a filled input tank and return its fluid to a compatible container.' }, links: ['fluid_capsule', 'mixer'] },
+      { title: { ru: '3. Перелейте через терминал', en: '3. Transfer through a terminal' }, text: { ru: 'Установите жидкостную ячейку в дисковод и выберите вещество в разделе хранилища терминала. Возьмите капсулу на курсор или выберите совместимую ёмкость в хотбаре, затем нажмите «Набрать из МЭ» или «Слить в МЭ». Shift-клик по заполненной ёмкости в инвентаре переносит её жидкость, оставляя сам предмет в слоте.', en: 'Install a fluid cell in a drive and select the substance in the terminal storage view. Hold a capsule on the cursor or select a compatible hotbar container, then withdraw from or deposit into ME. Shift-clicking a filled inventory container transfers its fluid while keeping the container in its slot.' }, links: ['me_drive', 'me_terminal', 'me_crafting_terminal', 'me_fluid_cell_1k'] },
+    ],
+    tips: [
+      { ru: 'При частичном переносе остаток остаётся в капсуле. Зарезервированные жидкости нельзя забрать, а отключённая сеть не переливает.', en: 'A partial transfer leaves the remainder in the capsule. Reserved fluids cannot be withdrawn, and an offline network cannot transfer fluids.' },
+      { ru: 'Снятая жидкостная ячейка сохраняет вещества. Её улучшение через обычный крафт также сохраняет содержимое.', en: 'Removed fluid cells retain their substances. Upgrading a cell through regular crafting also preserves its contents.' },
+    ],
+    equipment: ['fluid_capsule', 'me_drive', 'me_terminal', 'me_fluid_cell_1k', 'me_fluid_cell_4k', 'me_fluid_cell_16k', 'me_fluid_cell_64k'],
+  },
+  {
+    id: 'mixer', color: [0.55, 0.50, 0.75, 1],
+    title: { ru: 'Смеситель', en: 'Mixer' },
+    subtitle: { ru: 'Сплавы и три варианта топливной смеси.', en: 'Alloys and three fuel-blend variants.' },
+    intro: { ru: 'Смеситель занимает 2×2 клетки и объединяет от двух до четырёх жидкостей. Выберите рецепт заранее, чтобы машина дождалась всех ингредиентов; автоматический режим запускает самый широкий из уже доступных рецептов.', en: 'The mixer occupies 2×2 tiles and combines two to four fluids. Select a recipe beforehand so it waits for every ingredient; automatic mode chooses the widest currently available recipe.' },
+    facts: [
+      { label: { ru: 'Входы', en: 'Inputs' }, value: { ru: '4 бака по 200 л', en: '4 tanks of 200 L' } },
+      { label: { ru: 'Выход', en: 'Output' }, value: { ru: '400 л', en: '400 L' } },
+      { label: { ru: 'Цикл без модулей', en: 'Cycle without upgrades' }, value: { ru: '5 с · 50 EU/с', en: '5 s · 50 EU/s' } },
+      { label: { ru: 'Энергетический буфер', en: 'Energy buffer' }, value: { ru: '500 EU', en: '500 EU' } },
+    ],
+    stages: [
+      { title: { ru: '1. Подайте жидкости', en: '1. Supply fluids' }, text: { ru: 'Используйте трубы, капсулы или МЭ-интерфейс. Каждое вещество занимает отдельный входной бак. Трубы забирают только готовый результат.', en: 'Use pipes, capsules, or an ME interface. Each substance uses a separate input tank. Pipes extract only the finished output.' }, links: ['mixer', 'fluid_pipe', 'fluid_capsule', 'me_interface'] },
+      { title: { ru: '2. Смешайте топливо', en: '2. Blend fuel' }, text: { ru: '40 л бензина + 40 л дизеля дают 100 л смеси. По 30 л бензина, дизеля и керосина дают 120 л. По 25 л этих трёх веществ и мазута дают 150 л. При постепенной подаче заранее выберите нужный вариант.', en: '40 L gasoline + 40 L diesel yields 100 L blend. 30 L each of gasoline, diesel, and kerosene yields 120 L. 25 L each of those three substances and heavy oil yields 150 L. Select the intended variant beforehand when feeding ingredients gradually.' }, links: ['mixer'] },
+      { title: { ru: '3. Получите сплав', en: '3. Make an alloy' }, text: { ru: '45 л расплавленной меди + 45 л расплавленного олова дают 90 л бронзы. 45 л расплавленного золота + 45 л расплавленного серебра дают 90 л электрума. Подготовьте расплавы в индукционной плавильне.', en: '45 L molten copper + 45 L molten tin yields 90 L bronze. 45 L molten gold + 45 L molten silver yields 90 L electrum. Prepare molten metals in the induction melter.' }, links: ['ore_melter', 'mixer', 'chemical_reactor'] },
+    ],
+    tips: [
+      { ru: 'При отключении энергии или заполнении выхода прогресс сохраняется. Смена рецепта сбрасывает прогресс, оставляя жидкости в баках.', en: 'A power outage or full output tank preserves progress. Changing the recipe resets progress while keeping fluids in the tanks.' },
+      { ru: 'МЭ-заказ выбирает точный закодированный рецепт и блокирует ручную смену и извлечение ингредиентов до завершения заказа. Выбранный рецепт и баки сохраняются вместе с миром.', en: 'An ME order selects the exact encoded recipe and locks manual changes and ingredient extraction until completion. The selected recipe and tanks persist with world saves.' },
+    ],
+    equipment: ['mixer', 'fluid_capsule', 'fluid_pipe', 'me_interface', 'ore_melter', 'chemical_reactor'],
   },
 ];
 
@@ -1301,7 +1378,7 @@ function machineMetrics(id, block) {
   const fluidCapacity = { fluid_tank_t1: 200, fluid_tank_t2: 350, fluid_tank_t3: 500, fluid_tank_t4: 750, fluid_tank_t5: 1000 }[id];
   if (fluidCapacity) metrics.fluidCapacity = fluidCapacity;
   const generation = {
-    coal_generator: 30, solar_panel: 40, advanced_solar_panel: 120, elite_solar_panel: 360,
+    coal_generator: numericAssignment(readFileSync(coalGeneratorPath, 'utf8'), 'EU_PER_SECOND', 40), solar_panel: 40, advanced_solar_panel: 120, elite_solar_panel: 360,
     ultimate_solar_panel: 1080, quantum_solar_panel: 3240, steam_turbine: 40,
   }[id];
   if (generation) metrics.energyOutput = generation;
@@ -1310,6 +1387,34 @@ function machineMetrics(id, block) {
     metrics.energyUse = 20;
     metrics.processTime = 3;
     metrics.outputItem = 'stone';
+  }
+  const machineSourcePath = {
+    primitive_crusher: oreProcessingPaths.primitiveCrusher,
+    crusher: oreProcessingPaths.crusher,
+    furnace: oreProcessingPaths.furnace,
+    electric_furnace: oreProcessingPaths.electricFurnace,
+    ore_washer: oreProcessingPaths.washer,
+    magnetic_separator: oreProcessingPaths.separator,
+    centrifuge: oreProcessingPaths.centrifuge,
+    ore_melter: oreProcessingPaths.melter,
+    mixer: fluidMachinePaths.mixer,
+    chemical_reactor: fluidMachinePaths.reactor,
+    distillation_column: fluidMachinePaths.distillation,
+    steam_crusher: steamMachinePaths.crusher,
+    steam_furnace: steamMachinePaths.furnace,
+    steam_press: steamMachinePaths.press,
+    steam_assembler: steamMachinePaths.assembler,
+  }[id];
+  if (machineSourcePath) {
+    const source = readFileSync(machineSourcePath, 'utf8');
+    const power = numericAssignment(source, 'POWER_CONSUMPTION', undefined);
+    const time = numericAssignment(source, 'PROCESS_TIME', numericAssignment(source, 'SMELT_TIME', undefined));
+    if (power !== undefined) metrics.energyUse = power;
+    if (time !== undefined) metrics.processTime = time;
+    if (id === 'mixer') {
+      metrics.fluidCapacity = numericAssignment(source, 'OUTPUT_CAPACITY', 400);
+      metrics.energyBuffer = numericAssignment(source, 'power_capacity', 500);
+    }
   }
   return metrics;
 }
@@ -1540,7 +1645,9 @@ const npcs = loadNpcs();
 
 
 function gdConstBlock(source, name, openingCharacter, closingCharacter) {
-  const declarationIndex = source.indexOf(`const ${name}`);
+  const declarationIndex = source.indexOf(`const ${name}`) >= 0
+    ? source.indexOf(`const ${name}`)
+    : source.indexOf(`const DEFAULT_${name}`);
   if (declarationIndex < 0) return '';
   const equalsIndex = source.indexOf('=', declarationIndex);
   const openingIndex = source.indexOf(openingCharacter, equalsIndex > declarationIndex ? equalsIndex : declarationIndex);
@@ -1589,7 +1696,10 @@ const achievements = loadAchievements();
 
 function numericConstants(source) {
   const values = {};
-  for (const match of source.matchAll(/^const ([A-Z][A-Z0-9_]*) := (\d+(?:\.\d+)?)/gm)) values[match[1]] = Number(match[2]);
+  for (const match of source.matchAll(/^(?:const|static var) ([A-Z][A-Z0-9_]*)\b/gm)) {
+    const value = numericAssignment(source, match[1], undefined);
+    if (value !== undefined) values[match[1]] = value;
+  }
   return values;
 }
 
@@ -1744,6 +1854,8 @@ const oreProcessingDefinitions = [
 
 
 function numericAssignment(source, name, fallback) {
+  const tuned = source.match(new RegExp(`\\b${name}\\b[^=\\n]*=\\s*GameTuning\\.number\\(\\s*"[^"]+"\\s*,\\s*"[^"]+"\\s*,\\s*"[^"]+"\\s*,\\s*(-?\\d+(?:\\.\\d+)?)\\s*\\)`))?.[1];
+  if (tuned !== undefined) return Number(tuned);
   const value = source.match(new RegExp(`(?:const\\s+${name}\\s*(?::=|=)|${name}[^=\\n]*=)\\s*(-?\\d+(?:\\.\\d+)?)`))?.[1];
   return value === undefined ? fallback : Number(value);
 }
@@ -2074,7 +2186,7 @@ function loadOreProcessingMechanics() {
   const sources = Object.fromEntries(Object.entries(oreProcessingPaths).map(([id, path]) => [id, readFileSync(path, 'utf8')]));
   const steamFurnace = readFileSync(steamMachinePaths.furnace, 'utf8');
   const recipeCount = (source, name) => {
-    const block = source.match(new RegExp(`const\\s+${name}[\\s\\S]*?=\\s*\\{([\\s\\S]*?)\\n\\}`))?.[1] ?? '';
+    const block = gdConstBlock(source, name, '{', '}');
     return (block.match(/^\s*"[^"]+"\s*:/gm) ?? []).length;
   };
   return {

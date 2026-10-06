@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/exploration/heatproof_canister.svg" id="2"]
+[resource]
+script = ExtResource("1")
+texture = ExtResource("2")
+id = "heatproof_canister"
+name = "Жаростойкая ёмкость"
+description = "20 л лавы или расплавленного металла."
+max_stack = 1
+fluid_capacity = 20.0

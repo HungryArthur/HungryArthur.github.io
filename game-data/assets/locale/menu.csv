@@ -599,3 +599,22 @@ Resolved problems,Resolved problems,Решённые проблемы
 Active: %d • Resolved: %d,Active: %d • Resolved: %d,Активных: %d • Решённых: %d
 No matching notifications.,No matching notifications.,Нет подходящих уведомлений.
 Clear Resolved,Clear Resolved,Удалить решённые
+Character,Character,Персонаж
+Style,Style,Стиль
+Random appearance,Random appearance,Случайный облик
+Copy color,Copy color,Копировать цвет
+Paste color,Paste color,Вставить цвет
+Random color,Random color,Случайный цвет
+Hardcore defeat,Hardcore defeat,Гибель в хардкоре
+This character has died. Create a new character to continue; your worlds are preserved.,This character has died. Create a new character to continue; your worlds are preserved.,"Этот персонаж погиб. Создайте нового персонажа, чтобы продолжить; ваши миры сохранены."
+Hardcore — deceased,Hardcore — deceased,Хардкор — погиб
+This hardcore character has died. Choose another character.,This hardcore character has died. Choose another character.,Этот персонаж погиб в хардкоре. Выберите другого персонажа.
+Unable to save. Free disk space and try again.,Unable to save. Free disk space and try again.,Не удалось сохранить. Освободите место на диске и повторите попытку.
+Overworld complete,Overworld complete,Верхний мир пройден
+You conquered all nine biomes and completed the six factory chapters.,You conquered all nine biomes and completed the six factory chapters.,Вы покорили все девять биомов и завершили шесть глав фабрики.
+Quantum logistics is yours. Your factory can keep growing.,Quantum logistics is yours. Your factory can keep growing.,Квантовая логистика освоена. Ваша фабрика может развиваться дальше.
+Thank you for playing!,Thank you for playing!,Спасибо за игру!
+Created with Godot Engine,Created with Godot Engine,Создано на Godot Engine
+Thanks to the Godot contributors and the InfiniteForge playtesters.,Thanks to the Godot contributors and the InfiniteForge playtesters.,Спасибо участникам проекта Godot и тестировщикам InfiniteForge.
+Continue building,Continue building,Продолжить строительство
+Popup hints,Popup hints,Всплывающие подсказки

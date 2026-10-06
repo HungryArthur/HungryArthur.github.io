@@ -4,7 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { after, before, test } from 'node:test';
 import { readFileSync } from 'node:fs';
-import { validateArtManifest, validateSprite32 } from '../../scripts/validate-textures.mjs';
+import { loadArtManifest, validateArtManifest, validateSprite32 } from '../../scripts/validate-textures.mjs';
 import { pixelPerfectGeometry } from '../client/components/pixel-images.js';
 
 const testRoot = dirname(fileURLToPath(import.meta.url));
@@ -109,7 +109,7 @@ test('all item and machine sprites are 32x32 with valid files and atlas regions'
     validateSprite32(entry.texture, gameRoot, entry.id);
     paths.add(entry.texture.path);
   }
-  const manifest = JSON.parse(readFileSync(resolve(gameRoot, 'docs/generated/texture_art_manifest.json'), 'utf8'));
+  const manifest = loadArtManifest(gameRoot);
   for (const art of manifest.filter(e => e.item && e.kind !== 'connector')) {
     const item = itemCatalog.items.find(e => e.id === (art.itemId ?? art.id));
     assert.ok(item, `Missing generated item: ${art.id}`);
@@ -134,4 +134,48 @@ test('chests and conveyors show one 32px atlas cell; standalone icons are square
   }
   assert.deepEqual(pixelPerfectGeometry(16,16,40), { width:32,height:32,scale:2 });
   assert.deepEqual(pixelPerfectGeometry(32,48,32), { width:16,height:24,scale:.5 });
+});
+
+test('current game snapshot exposes new containers, ME guides and complete mixer variants in both languages', async () => {
+  for (const language of ['ru', 'en']) {
+    const get = async (resource) => {
+      const response = await fetch(`${baseUrl}/api/v1/${language}/${resource}`);
+      assert.equal(response.status, 200, resource);
+      return response.json();
+    };
+    const { item: capsule } = await get('items/fluid_capsule');
+    assert.equal(capsule.fluidCapacity, 100);
+    assert.equal(capsule.maxStack, 1);
+    assert.notEqual(capsule.title, capsule.nameKey);
+    const { item: wireless } = await get('items/me_wireless_terminal');
+    assert.equal(wireless.useAction, 'open_me_wireless');
+    const systems = await get('systems');
+    for (const id of ['me-network', 'me-autocrafting', 'fluid-containers', 'mixer']) {
+      assert.ok(systems.systems.some((guide) => guide.id === id), id);
+      const detail = await get(`systems/${id}`);
+      const guide = detail.system;
+      assert.ok(guide.stages.length >= 3, id);
+      for (const item of [...guide.equipment, ...guide.stages.flatMap((stage) => stage.links)]) {
+        assert.ok(item.exists, `Missing guide item: ${id}/${item.id}`);
+      }
+    }
+    const { machine, fluidProcesses } = await get('machines/mixer');
+    assert.deepEqual(machine.size, { x: 2, y: 2 });
+    assert.equal(machine.metrics.energyUse, 50);
+    assert.equal(machine.metrics.processTime, 5);
+    assert.equal(machine.metrics.fluidCapacity, 400);
+    assert.equal(fluidProcesses.length, 5);
+    const blends = fluidProcesses.filter((recipe) => recipe.outputs.some((output) => output.id === 'fuel_blend'));
+    assert.deepEqual(blends.map((recipe) => recipe.inputs.length).sort(), [2, 3, 4]);
+    assert.deepEqual(blends.map((recipe) => recipe.outputs[0].amount).sort((a, b) => a - b), [100, 120, 150]);
+    const { machine: furnace } = await get('machines/electric_furnace');
+    assert.equal(furnace.metrics.energyUse, 15);
+    assert.equal(furnace.metrics.processTime, 2);
+    const { machine: generator } = await get('machines/coal_generator');
+    assert.equal(generator.metrics.energyOutput, 40);
+    const { fluid: bronze } = await get('fluids/molten_bronze');
+    assert.ok(bronze.sources.some((recipe) => recipe.machine.id === 'mixer'));
+    const { mobs } = await get('mobs');
+    assert.equal(mobs.filter((mob) => mob.biomeResource === 'ForestBiome').length, 0);
+  }
 });

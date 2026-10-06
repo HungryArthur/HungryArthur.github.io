@@ -4,7 +4,7 @@ class_name OreWasherContainer
 ## Промывочная машина: руда + вода -> две обычные пыли металла + одна
 ## обычная побочная пыль. Отдельных дроблёных/промытых форм руды нет.
 
-const RECIPES: Dictionary = {
+const DEFAULT_RECIPES: Dictionary = {
 	"iron_ore":     {"output": "iron_dust",     "byproduct": "nickel_dust"},
 	"copper_ore":   {"output": "copper_dust",   "byproduct": "gold_dust"},
 	"tin_ore":      {"output": "tin_dust",      "byproduct": "iron_dust"},
@@ -14,11 +14,10 @@ const RECIPES: Dictionary = {
 	"mythril_ore":  {"output": "mythril_dust",  "byproduct": "titanium_dust"},
 }
 const OUTPUT_COUNT := 2
-const POWER_CONSUMPTION := 15.0
-const PROCESS_TIME := 4.0
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "ore_washer", "POWER_CONSUMPTION", 15.0)
+static var PROCESS_TIME: float = GameTuning.number("machines", "ore_washer", "PROCESS_TIME", 4.0)
 const WATER_PER_OP := 10.0
-const WATER_TANK_CAPACITY := 100.0
-
+static var WATER_TANK_CAPACITY: float = GameTuning.number("machines", "ore_washer", "WATER_TANK_CAPACITY", 100.0)
 const SLOT_INPUT := 0
 const SLOT_OUTPUT := 1
 const SLOT_BYPRODUCT := 2
@@ -127,3 +126,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var RECIPES: Dictionary = GameTuning.recipe_map("ore_washer", DEFAULT_RECIPES)

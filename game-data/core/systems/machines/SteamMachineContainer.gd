@@ -5,8 +5,7 @@ class_name SteamMachineContainer
 ## плюс маленький бак пара, который наполняется по трубам от котла. Пар
 ## расходуется только пока идёт обработка — как EU у электрических машин.
 
-const STEAM_TANK_CAPACITY := 50.0
-
+static var STEAM_TANK_CAPACITY: float = GameTuning.number("machines", "steam_machine", "STEAM_TANK_CAPACITY", 50.0)
 const SLOT_INPUT := 0
 const SLOT_OUTPUT := 1
 

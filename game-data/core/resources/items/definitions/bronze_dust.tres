@@ -11,3 +11,6 @@ name = "item.bronze_dust.name"
 description = "item.bronze_dust.desc"
 item_color = Color(0.72, 0.47, 0.20, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Legacy alloy dust. Survival obtains bronze ingots through the existing alloy recipe; old dust can still be smelted."

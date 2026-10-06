@@ -10,4 +10,4 @@ ingredient_ids = PackedStringArray("resonite_shard", "insulated_copper_wire", "i
 ingredient_counts = PackedInt32Array(2, 4, 1, 1)
 category = "electrical"
 sort_order = 130
-required_age = 2
+required_age = 1

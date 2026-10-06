@@ -4,7 +4,7 @@ class_name SteamCrusherContainer
 ## Паровая дробилка: превращает руду сразу в пыль с удвоением выхода,
 ## но медленнее и на пару. Мостик между примитивной (×1) и электрической.
 
-const RECIPES: Dictionary = {
+const DEFAULT_RECIPES: Dictionary = {
 	"iron_ore":     {"output": "iron_dust",     "output_count": 2, "input_count": 1},
 	"copper_ore":   {"output": "copper_dust",   "output_count": 2, "input_count": 1},
 	"tin_ore":      {"output": "tin_dust",      "output_count": 2, "input_count": 1},
@@ -20,9 +20,10 @@ const RECIPES: Dictionary = {
 	"gravel":      {"output": "sand",               "output_count": 1, "input_count": 1},
 	"silver_ore":  {"output": "silver_dust", "output_count": 2, "input_count": 1},
 }
-const PROCESS_TIME := 6.0
-const STEAM_PER_SECOND := 2.0
-
-
+static var PROCESS_TIME: float = GameTuning.number("machines", "steam_crusher", "PROCESS_TIME", 6.0)
+static var STEAM_PER_SECOND: float = GameTuning.number("machines", "steam_crusher", "STEAM_PER_SECOND", 2.0)
 func _init() -> void:
 	configure("STEAM CRUSHER", RECIPES, PROCESS_TIME, STEAM_PER_SECOND)
+
+
+static var RECIPES: Dictionary = GameTuning.recipe_map("steam_crusher", DEFAULT_RECIPES)

@@ -41,6 +41,10 @@ static func get_age_info(age: int) -> Dictionary:
 
 
 static func get_all_quests() -> Array[QuestData]:
+	return QuestCatalog.load_book().quests
+
+
+static func get_builtin_quests() -> Array[QuestData]:
 	var quests: Array[QuestData] = []
 	quests.append_array(_chapter_1())
 	quests.append_array(_tutorials_chapter_1())
@@ -144,6 +148,7 @@ static func _refine_main_progression(quests: Array[QuestData]) -> void:
 				}.get(quest.tab, quest.tab)
 
 	_set_layout(quests, ["lead_vein"], 4, "VI. Снежные руды")
+	_set_layout(quests, ["conveyor_splitters"], 4, "V. Исследование автоматизации")
 	_set_layout(quests, ["silver_vein", "silver_smelting"], 4, "VI. Снежные руды")
 	_set_layout(quests, ["red_dust_source", "magnetic_rods"], 4, "I. Первый ток")
 	_set_layout(quests, ["gold_rush", "gold_smelting", "nickel_discovery"], 5, "II. Руды болот")
@@ -196,7 +201,7 @@ static func _quest_precedes(a: QuestData, b: QuestData, original_order: Dictiona
 	return int(original_order.get(a.quest_id, 0)) < int(original_order.get(b.quest_id, 0))
 
 
-## Independent combat quests shown in the Farming tab. Age 0 keeps them out of
+## Independent combat quests shown in the Mobs and bosses tab. Age 0 keeps them out of
 ## progression chapters; optional keeps every hunt available independently.
 static func _farming_quests() -> Array[QuestData]:
 	var quests: Array[QuestData] = []
@@ -208,7 +213,7 @@ static func _farming_quests() -> Array[QuestData]:
 			var quest := _quest(
 				"farm_%s" % mob_id,
 				0,
-				"Фармилка",
+				"Мобы и боссы",
 				"mob.%s.name" % mob_id,
 				"Убей 100 мобов этого вида.",
 				[_obj("Убить 100 мобов", "mob_defeated", mob_id, 100)],
@@ -231,7 +236,7 @@ static func _boss_quests() -> Array[QuestData]:
 		var quest := _quest(
 			quest_id,
 			0,
-			"Боссы",
+			"Мобы и боссы",
 			"boss.%s.name" % boss_id,
 			"Победи этого босса один раз.",
 			[_obj("Убить босса", "boss_defeated", boss_id, 1)],
@@ -243,14 +248,7 @@ static func _boss_quests() -> Array[QuestData]:
 
 
 static func _tutorials_chapter_1() -> Array[QuestData]:
-	return [
-		_tutorial(
-			"tutorial_technology_tree", 1, "Обучение: технологии", "Путь развития",
-			"Нажми N и открой дерево технологий. Новые биомы открывают направления исследований, а победы над боссами снимают блокировку со следующих уровней фабрики.",
-			[_obj("Открыть дерево технологий [N]", "technology_tree_opened", "technology_tree", 1)],
-			["Изучено: как открываются технологии"]
-		),
-	]
+	return []
 
 
 static func _tutorials_chapter_4() -> Array[QuestData]:
@@ -310,9 +308,9 @@ static func _chapter_1() -> Array[QuestData]:
 			[_obj("Добыть древесину", "mine_yield", "wood", 10)],
 			["Доски и палки"]),
 
-		_quest("gather_stone", 1, "I. Первые шаги", "Собери камни",
-			"Набей камней для первых инструментов.",
-			[_obj("Добыть камень", "mine_yield", "stone", 10)],
+		_quest("gather_stone", 1, "I. Первые шаги", "Собери кремень",
+			"Подбери кремень с земли для первых инструментов.",
+			[_obj("Собрать кремень", "mine_yield", "flint", 10)],
 			["Примитивные инструменты"]),
 
 		_quest("gather_sticks", 1, "I. Первые шаги", "Собери палки",
@@ -326,9 +324,14 @@ static func _chapter_1() -> Array[QuestData]:
 			["Верстак и сундуки"]),
 
 		_quest("primitive_axe", 1, "I. Первые шаги", "Примитивный топор",
-			"Свяжи камень и палку — получи топор.",
+			"Свяжи кремень и палку растительным волокном — получи топор.",
 			[_obj("Скрафтить топор", "item_crafted", "primitive_axe", 1)],
 			["Быстрая добыча дерева"]),
+
+		_quest("stone_pickaxe", 1, "I. Первые шаги", "Кремнёвая кирка",
+			"Сделай кирку из кремня. Добудь камень из жилы в лесу для верстака и печи.",
+			[_obj("Скрафтить кирку", "item_crafted", "primitive_pickaxe", 1)],
+			["Добыча камня, руды и угля"]),
 
 		_quest("lumberjack", 1, "I. Первые шаги", "Дровосек",
 			"С топором дело идёт быстрее. Заготовь дров впрок.",
@@ -344,11 +347,6 @@ static func _chapter_1() -> Array[QuestData]:
 			"Поставь верстак и загляни в него.",
 			[_obj("Открыть верстак", "machine_opened", "workbench", 1)],
 			["Меню крафта"]),
-
-		_quest("stone_pickaxe", 1, "I. Первые шаги", "Каменная кирка",
-			"Сделай кирку, чтобы добывать руду.",
-			[_obj("Скрафтить кирку", "item_crafted", "primitive_pickaxe", 1)],
-			["Добыча руды и угля"]),
 
 		_quest("primitive_bucket", 1, "I. Первые шаги", "Деревянное ведро",
 			"Сколоти ведро — пригодится для жидкостей.",
@@ -1289,10 +1287,10 @@ static func _chapter_4() -> Array[QuestData]:
 			["Резина и изоляция"]),
 
 		_quest("rubber_harvest", 4, "II. Дробилка и резонит", "Сбор латекса",
-			"Надрежь деревья: смола и латекс пойдут в экстрактор.",
+			"Получи смолу с существ джунглей. Переработай её в латекс, затем в резину в экстракторе.",
 			[
-				_obj("Собрать латекс", "mine_yield", "latex", 10),
-				_obj("Собрать смолу", "mine_yield", "tree_resin", 10),
+				_obj("Получить латекс", "item_processed", "latex", 10),
+				_obj("Получить резину", "item_processed", "rubber", 10),
 			],
 			["Сырьё для резины"]),
 
@@ -2044,14 +2042,14 @@ static func _chapter_6() -> Array[QuestData]:
 
 		# ── VII. Жидкостные сплавы ──────────────────────────────────────────
 		_quest("mixer_quest", 6, "VII. Жидкостные сплавы", "Смеситель",
-			"Собери смеситель — огромную машину для сплавления жидкостей.",
+			"Собери смеситель — машину 2×2 для смешивания жидкостей.",
 			[_obj("Скрафтить смеситель", "item_crafted", "mixer", 1)],
 			["Смешивание 2-4 жидкостей"]),
 
-		_quest("mixer_placed", 6, "VII. Жидкостные сплавы", "Место под гиганта",
-			"Расчисти площадку 3×3 и установи смеситель.",
+		_quest("mixer_placed", 6, "VII. Жидкостные сплавы", "Место под смеситель",
+			"Расчисти площадку 2×2 и установи смеситель.",
 			[_obj("Поставить смеситель", "block_placed", "mixer", 1)],
-			["Машина занимает 9 клеток"]),
+			["Машина занимает 4 клетки"]),
 
 		_quest("mixer_opened", 6, "VII. Жидкостные сплавы", "Пуск смесителя",
 			"Подведи трубы с расплавами и запитай машину.",

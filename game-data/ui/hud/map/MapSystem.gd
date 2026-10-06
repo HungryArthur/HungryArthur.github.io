@@ -90,6 +90,7 @@ const ORE_MAP_COLORS: Dictionary = {
 	11: Color(0.78, 0.80, 0.70),  # nickel
 	12: Color(0.82, 0.90, 0.95),  # platinum
 	13: Color(0.63, 0.38, 0.95),  # resonite
+	14: Color(0.55, 0.55, 0.55),  # stone
 }
 const CRUDE_OIL_COLOR := Color(0.10, 0.10, 0.13)
 const LAVA_COLOR := Color(1.00, 0.42, 0.12)
@@ -107,6 +108,8 @@ func _ready() -> void:
 		"bottom": offset_bottom
 	}
 
+	# Bind to this instance after its viewport exists. A serialized ViewportTexture
+	# resolves against the enclosing scene root when the editor restores Game.tscn.
 	var map_texture := sub_viewport.get_texture()
 	circular_map_container.texture = map_texture
 

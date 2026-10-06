@@ -2,8 +2,8 @@ extends RefCounted
 class_name ProductionChainAnalyzer
 
 const IRON_LINE_CAPACITY_PER_MINUTE := 20.0
-const RESEARCH_LINE_CAPACITY_PER_MINUTE := 60.0 / SteamAssemblerContainer.PROCESS_TIME
-const STEEL_LINE_CAPACITY_PER_MINUTE := 60.0 / (CokeOvenContainer.PROCESS_TIME * 2.0) * 2.0
+static var RESEARCH_LINE_CAPACITY_PER_MINUTE :=  60.0 / SteamAssemblerContainer.PROCESS_TIME
+static var STEEL_LINE_CAPACITY_PER_MINUTE :=  60.0 / (CokeOvenContainer.PROCESS_TIME * 2.0) * 2.0
 
 
 static func iron_line_snapshot(tree: SceneTree) -> Dictionary:

@@ -26,6 +26,9 @@ func _ready() -> void:
 	for i in range(TOTAL_HOTBAR_SLOTS):
 		hints.append(i + 1)
 	_init_container(TOTAL_HOTBAR_SLOTS, hotbar_grid, hints)
+	# These widgets proxy InventoryUI. Keeping nine null entries here would let
+	# crafting's capacity check invent nine extra empty storage slots.
+	slots.clear()
 	# Инвентарь — соседний узел HUD: подключаемся после построения сцены.
 	call_deferred("_late_init")
 
@@ -223,6 +226,9 @@ func _update_hotbar_selection() -> void:
 
 
 func update_item_preview(item_data: Variant) -> void:
+	# Closing a chest can return a held item while the game tree is exiting.
+	if not is_inside_tree():
+		return
 	var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
 	if inv_ui and inv_ui.has_method("update_item_preview"):
 		inv_ui.update_item_preview(item_data)

@@ -11,3 +11,6 @@ name = "item.iron_wire.name"
 description = "item.iron_wire.desc"
 item_color = Color(0.60, 0.60, 0.63, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Legacy wire item without a placeable block; use the actual copper and advanced conductors."

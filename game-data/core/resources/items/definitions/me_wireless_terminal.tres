@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/textures/generated/normalized/me_terminal.png" id="2"]
+
+[resource]
+script = ExtResource("1")
+id = "me_wireless_terminal"
+name = "item.me_wireless_terminal.name"
+description = "item.me_wireless_terminal.desc"
+texture = ExtResource("2")
+item_color = Color(0.72, 0.42, 0.96, 1)
+max_stack = 1
+use_action = "open_me_wireless"

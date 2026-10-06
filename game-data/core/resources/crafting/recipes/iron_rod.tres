@@ -10,4 +10,4 @@ ingredient_ids = PackedStringArray("iron_ingot")
 ingredient_counts = PackedInt32Array(1)
 category = "components"
 sort_order = 301
-required_age = 2
+required_age = 1

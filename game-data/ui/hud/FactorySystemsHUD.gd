@@ -3,9 +3,6 @@ class_name FactorySystemsHUD
 
 const ALERT_COOLDOWN := 12.0
 
-var _tech_backdrop: ColorRect
-var _tech_panel: PanelContainer
-var _tech_list: VBoxContainer
 var _alerts: VBoxContainer
 var _iron_line_panel: PanelContainer
 var _iron_line_steps: Label
@@ -39,9 +36,7 @@ func _ready() -> void:
 	_build_iron_line_panel()
 	_build_research_line_panel()
 	_build_steel_line_panel()
-	_build_tech_tree()
 	MultiplayerManager.factory_alert_received.connect(_on_remote_factory_alert)
-	MultiplayerManager.factory_progression_received.connect(_on_progression_sync)
 	set_process(true)
 	set_process_unhandled_input(true)
 
@@ -58,31 +53,6 @@ func _process(delta: float) -> void:
 		if not MultiplayerManager.is_client():
 			TechnologyTree.refresh_unlocks()
 			_poll_factory_faults()
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if GameChat.is_blocking_input() or get_tree().paused:
-		return
-	if event.is_action_pressed("technology_tree"):
-		set_tech_visible(not _tech_panel.visible)
-		get_viewport().set_input_as_handled()
-	elif _tech_panel.visible and event.is_action_pressed("ui_cancel"):
-		set_tech_visible(false)
-		get_viewport().set_input_as_handled()
-
-
-func set_tech_visible(open: bool) -> void:
-	_tech_backdrop.visible = open
-	_tech_panel.visible = open
-	mouse_filter = Control.MOUSE_FILTER_STOP if open else Control.MOUSE_FILTER_IGNORE
-	if open:
-		QuestManager.report_event("technology_tree_opened", "technology_tree", 1)
-		_refresh_tech_cards()
-
-
-func _on_progression_sync(_state: Dictionary) -> void:
-	if _tech_panel.visible:
-		call_deferred("_refresh_tech_cards")
 
 
 func _build_alerts() -> void:
@@ -426,110 +396,6 @@ func _set_bottleneck_highlight(block: WorldBlock, severe: bool, source: String =
 			true,
 			Color(1.0, 0.25, 0.16) if selected_severe else Color(1.0, 0.70, 0.20)
 		)
-
-
-func _build_tech_tree() -> void:
-	_tech_backdrop = ColorRect.new()
-	_tech_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_tech_backdrop.color = Color(0, 0, 0, 0.72)
-	_tech_backdrop.mouse_filter = Control.MOUSE_FILTER_STOP
-	_tech_backdrop.gui_input.connect(func(event: InputEvent) -> void:
-		if event is InputEventMouseButton and event.pressed:
-			set_tech_visible(false)
-	)
-	add_child(_tech_backdrop)
-	_tech_panel = PanelContainer.new()
-	_tech_panel.set_anchors_preset(Control.PRESET_CENTER)
-	_tech_panel.offset_left = -440.0
-	_tech_panel.offset_top = -310.0
-	_tech_panel.offset_right = 440.0
-	_tech_panel.offset_bottom = 310.0
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.055, 0.045, 0.075, 0.99)
-	style.border_color = Color(0.38, 0.72, 1.0, 0.9)
-	style.set_border_width_all(2)
-	style.set_corner_radius_all(9)
-	style.set_content_margin_all(18)
-	_tech_panel.add_theme_stylebox_override("panel", style)
-	add_child(_tech_panel)
-	var root := VBoxContainer.new()
-	root.add_theme_constant_override("separation", 10)
-	_tech_panel.add_child(root)
-	var title_row := HBoxContainer.new()
-	var title := Label.new()
-	title.text = tr("TECHNOLOGY TREE") + "  [N]"
-	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	title.add_theme_font_size_override("font_size", 22)
-	title_row.add_child(title)
-	var close := Button.new()
-	close.text = "X"
-	close.pressed.connect(set_tech_visible.bind(false))
-	title_row.add_child(close)
-	root.add_child(title_row)
-	var intro := Label.new()
-	intro.text = tr("Build production lines, defeat bosses, and consume research packs to unlock each era.")
-	intro.add_theme_color_override("font_color", Color(0.72, 0.76, 0.86))
-	root.add_child(intro)
-	var scroll := ScrollContainer.new()
-	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	root.add_child(scroll)
-	_tech_list = VBoxContainer.new()
-	_tech_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_tech_list.add_theme_constant_override("separation", 8)
-	scroll.add_child(_tech_list)
-	set_tech_visible(false)
-
-
-func _refresh_tech_cards() -> void:
-	for child: Node in _tech_list.get_children():
-		child.queue_free()
-	for index in TechnologyTree.STAGES.size():
-		var stage: Dictionary = TechnologyTree.STAGES[index]
-		var unlocks := PackedStringArray(stage.get("machines", []))
-		unlocks.append_array(PackedStringArray(stage.get("components", [])))
-		var unlocked := TechnologyTree.is_stage_unlocked(str(stage["id"]))
-		var card := PanelContainer.new()
-		var style := StyleBoxFlat.new()
-		style.bg_color = Color(0.08, 0.14, 0.12, 0.96) if unlocked else Color(0.10, 0.085, 0.13, 0.94)
-		style.border_color = Color(0.30, 0.92, 0.50) if unlocked else Color(0.30, 0.28, 0.38)
-		style.set_border_width_all(1)
-		style.set_corner_radius_all(6)
-		style.set_content_margin_all(10)
-		card.add_theme_stylebox_override("panel", style)
-		_tech_list.add_child(card)
-		var row := HBoxContainer.new()
-		card.add_child(row)
-		var badge := Label.new()
-		badge.text = "✓" if unlocked else "%d" % (index + 1)
-		badge.custom_minimum_size = Vector2(42, 42)
-		badge.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		badge.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		badge.add_theme_font_size_override("font_size", 20)
-		badge.add_theme_color_override("font_color", Color(0.38, 1.0, 0.58) if unlocked else Color(0.60, 0.58, 0.68))
-		row.add_child(badge)
-		var description := RichTextLabel.new()
-		description.fit_content = true
-		description.bbcode_enabled = true
-		description.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		description.text = "[font_size=17][b]%s[/b][/font_size]  %s\n%s\n[color=#8eb5d9]%s[/color]\n[color=#a7a2b3]%s[/color]" % [tr(str(stage["title"])), tr("UNLOCKED") if unlocked else tr("LOCKED"), tr(str(stage["description"])), TechnologyTree.requirement_text(stage), ", ".join(unlocks)]
-		row.add_child(description)
-		if not unlocked and str(stage.get("id", "")) != "foundation":
-			var stage_id := str(stage["id"])
-			var analyze := Button.new()
-			analyze.custom_minimum_size.x = 180.0
-			if not TechnologyTree.is_stage_world_condition_met(stage):
-				analyze.text = tr("Requirements not met")
-				analyze.disabled = true
-			else:
-				analyze.text = "%s\n%s" % [tr("Analyze"), InventoryCost.describe(ResearchSystem.requirements(stage_id))]
-				analyze.disabled = not ResearchSystem.can_analyze(stage_id)
-			analyze.pressed.connect(_on_analyze_pressed.bind(stage_id))
-			row.add_child(analyze)
-
-
-func _on_analyze_pressed(stage_id: String) -> void:
-	if ResearchSystem.analyze(stage_id):
-		_refresh_tech_cards()
 
 
 func _poll_factory_faults() -> void:

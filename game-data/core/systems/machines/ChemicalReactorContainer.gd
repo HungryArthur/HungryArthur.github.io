@@ -10,7 +10,7 @@ class_name ChemicalReactorContainer
 
 ## Рецепт: {item, item_count, catalyst, fluids: {id: liters}, output, output_count}.
 ## item == "" — предмет не нужен; catalyst == "" — форма не нужна.
-const RECIPES: Array[Dictionary] = [
+const DEFAULT_RECIPES: Array[Dictionary] = [
 	# ── Литьё: пластины (90 л = 1 слиток) ──
 	{"catalyst": "mold_plate", "fluids": {"molten_iron": 90.0},   "output": "iron_plate"},
 	{"catalyst": "mold_plate", "fluids": {"molten_copper": 90.0}, "output": "copper_plate"},
@@ -42,10 +42,9 @@ const RECIPES: Array[Dictionary] = [
 		"output": "dense_iron_plate"},
 ]
 
-const POWER_CONSUMPTION := 30.0
-const PROCESS_TIME := 4.0
-const TANK_CAPACITY := 200.0
-
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "chemical_reactor", "POWER_CONSUMPTION", 30.0)
+static var PROCESS_TIME: float = GameTuning.number("machines", "chemical_reactor", "PROCESS_TIME", 4.0)
+static var TANK_CAPACITY: float = GameTuning.number("machines", "chemical_reactor", "TANK_CAPACITY", 200.0)
 const SLOT_INPUT := 0
 const SLOT_OUTPUT := 1
 const SLOT_CATALYST := 2  # в меню занимает место побочного слота
@@ -214,3 +213,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var RECIPES: Array[Dictionary] = GameTuning.recipe_array("chemical_reactor", DEFAULT_RECIPES)

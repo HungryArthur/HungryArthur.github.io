@@ -11,3 +11,6 @@ name = "item.uranium_dust.name"
 description = "item.uranium_dust.desc"
 item_color = Color(0.35, 0.75, 0.25, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Legacy dust. Survival uranium uses uranium_ore, uranium_raw and uranium_processed."

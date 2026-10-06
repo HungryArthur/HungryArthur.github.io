@@ -120,13 +120,15 @@ func _transfer_network(
 		if network_budget <= 0.0001:
 			break
 		var producer := producer_value as FluidMachineContainer
+		if producer.me_request_fluid_output_locked:
+			continue
 		for fluid_id: String in producer.get_output_fluid_ids():
 			var producer_budget := minf(network_budget, producer.get_available_output(fluid_id))
 			if producer_budget <= 0.0:
 				continue
 			var consumers: Array[FluidMachineContainer] = []
 			for candidate: FluidMachineContainer in machines:
-				if candidate == producer or not candidate.can_accept_fluid(fluid_id):
+				if candidate == producer or not candidate.can_accept_fluid(fluid_id) or (candidate.me_request_output_locked and (candidate is ChemicalReactorContainer or candidate is MixerContainer or candidate is OreWasherContainer)):
 					continue
 				if producer.is_storage_machine() and candidate.is_storage_machine():
 					continue

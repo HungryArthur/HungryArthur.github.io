@@ -10,6 +10,6 @@ texture = ExtResource("generated_art")
 block_id = "wood_block"
 display_name = "Wood Plank"
 color = Color(0.55, 0.38, 0.15, 1)
-health = 2
+health = 1
 required_tool = "axe"
 drop_item_id = "wood_plank"

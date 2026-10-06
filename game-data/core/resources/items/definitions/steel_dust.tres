@@ -11,3 +11,6 @@ name = "item.steel_dust.name"
 description = "item.steel_dust.desc"
 item_color = Color(0.48, 0.50, 0.55, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Legacy dust. Survival steel is produced by the primitive blast furnace."

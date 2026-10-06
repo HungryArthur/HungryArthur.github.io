@@ -5,14 +5,17 @@ enum { DOWN, UP, LEFT, RIGHT }
 
 @onready var anim = $AnimatedSprite2D
 
+var character_renderer: CharacterRenderer
+var _appearance: CharacterAppearance
+var _last_character_pose := ""
+
 ## Movement multiplier while wading through swamp water pools.
 const SWAMP_SPEED_MULT := 0.45
 
 ## Hard-biome exposure: rises while standing in a hazard without the matching suit,
-## recovers when safe/protected, and ejects the player at 100. See HazardConfig.
+## recovers when safe/protected and causes damage at 80. See HazardConfig.
 const EXPOSURE_MAX := 100.0
-const EXPOSURE_RECOVER := 22.0      # points/sec drained when safe or protected
-const EXPOSURE_EJECT_RESET := 55.0  # exposure left right after an eject
+const EXPOSURE_RECOVER := 4.0
 
 ## Combat death respawns at the base spawn with loot intact.
 const MAX_HEALTH := 100.0
@@ -36,8 +39,6 @@ const ATTACK_REACH := 46.0
 const ATTACK_CONE_DOT := 0.25            # frontal cone width (dot(facing, toTarget))
 const ATTACK_DAMAGE_PER_POWER := 8.0     # damage = weapon power × this
 const ATTACK_KNOCKBACK := 240.0          # knockback impulse handed to the target
-const ATTACK_RECOIL := 45.0              # recoil on a connected sword hit
-const RECOIL_FRICTION := 900.0           # how fast the self-recoil decays
 ## Default animation duration for projectile attacks; melee uses its own cadence.
 const ATTACK_ANIM_TIME := 0.3
 
@@ -94,6 +95,11 @@ var _net_target_pos := Vector2.ZERO
 var _net_frame := 0
 
 var exposure := 0.0
+var environment_hazard: Dictionary = {}
+var warm_food_seconds := 0.0
+var _environment_damage_time := 0.0
+var _water_kind := ""
+var _rafting := false
 var _last_safe_position := Vector2.ZERO
 
 var health := MAX_HEALTH
@@ -106,7 +112,6 @@ var _has_spawn_point := false
 var _attack_cooldown := 0.0
 var _pending_melee: Dictionary = {}
 var _melee_windup := 0.0
-var _recoil_velocity := Vector2.ZERO
 var _is_dead := false
 var _attack_anim_until := 0   # msec; while Time.get_ticks_msec() < this, keep the swing anim
 var _tool_action_type := ""   # "pickaxe"/"axe" while mining/harvesting; "" when idle
@@ -145,6 +150,14 @@ func _ready() -> void:
 		_play("idle_down", ["idle_font", "down"])
 	else:
 		_add_shadow()  # fallback: texture not imported yet, keep old look
+	# Preserve the authored animation clock and gameplay callbacks. Only replace
+	# its drawing: independent AnimatedSprite2D layers would drift during attacks.
+	character_renderer = CharacterRenderer.new()
+	character_renderer.name = "CharacterRenderer"
+	add_child(character_renderer)
+	set_appearance(_appearance if _appearance != null else CharacterAppearance.for_template(load(CharacterLegacyAdapter.DEFAULT_TEMPLATE)))
+	anim.frame_changed.connect(_sync_character_pose)
+	anim.animation_changed.connect(_sync_character_pose)
 	health_changed.emit(health, max_health)
 	hunger_changed.emit(hunger, max_hunger)
 	call_deferred("refresh_equipment_bonuses")
@@ -185,8 +198,10 @@ func _add_shadow() -> void:
 func _physics_process(delta: float) -> void:
 	if is_puppet:
 		_puppet_physics(delta)
+		_sync_character_pose()
 		return
 	_local_physics(delta)
+	_sync_character_pose()
 	if MultiplayerManager.is_active():
 		_broadcast_state()
 
@@ -202,7 +217,8 @@ func _local_physics(delta: float) -> void:
 	if _dash_cooldown > 0.0:
 		_dash_cooldown = maxf(0.0, _dash_cooldown - delta)
 
-	if GameChat.is_blocking_input():
+	var focused_control := get_viewport().gui_get_focus_owner()
+	if GameChat.is_blocking_input() or focused_control is LineEdit or focused_control is TextEdit:
 		_pending_melee.clear()
 		velocity = Vector2.ZERO
 		if Time.get_ticks_msec() >= _attack_anim_until:
@@ -211,6 +227,8 @@ func _local_physics(delta: float) -> void:
 
 	_update_melee_windup(delta)
 	_update_speed()
+	var attacking: bool = Time.get_ticks_msec() < _attack_anim_until
+	# Only movement sets facing; actions retain the character's current direction.
 	var direction = Input.get_vector("left", "right", "up", "down")
 	if _dash_time <= 0.0 and Input.is_action_just_pressed("dash") and _dash_cooldown <= 0.0:
 		_start_dash(direction)
@@ -221,28 +239,17 @@ func _local_physics(delta: float) -> void:
 		_play_move_anim()
 		move_and_slide()
 		return
-	var attacking: bool = Time.get_ticks_msec() < _attack_anim_until
 
-	if direction != Vector2.ZERO:
-		velocity = direction.normalized() * speed
-		if not attacking:
+	velocity = direction.normalized() * speed
+	if not attacking:
+		if _tool_action_type != "":
+			# Keep the tool clip and target facing while held, even when moving.
+			_play_tool_anim()
+		elif direction != Vector2.ZERO:
 			_face(direction)
 			_play_move_anim()
-	else:
-		velocity = Vector2.ZERO
-		if not attacking:
-			# While mining/harvesting and standing still, keep the tool swing looping
-			# (re-issuing the same anim doesn't restart it) instead of idling.
-			if _tool_action_type != "":
-				_play_tool_anim()
-			else:
-				_idle()
-
-	# Sword self-recoil ("отдача"): kicks the player back on a swing, decaying each
-	# frame and layered on top of normal movement.
-	if _recoil_velocity.length() > 1.0:
-		velocity += _recoil_velocity
-		_recoil_velocity = _recoil_velocity.move_toward(Vector2.ZERO, RECOIL_FRICTION * delta)
+		else:
+			_idle()
 
 	move_and_slide()
 
@@ -263,22 +270,35 @@ func _broadcast_state() -> void:
 	_net_frame += 1
 	if _net_frame % 2 != 0:
 		return
-	MultiplayerManager.send_player_state({
+	var state := {
 		"p": global_position,
 		"a": String(anim.animation),
 		"f": anim.flip_h,
 		"s": anim.speed_scale,
-	})
+		"water": _water_kind,
+		"raft": _rafting,
+	}
+	# Repeated low-rate snapshots also cover late joiners and packet loss without
+	# sending textures or Resources over the existing unreliable state channel.
+	if _appearance != null and _net_frame % 60 == 2:
+		state["look"] = _appearance.network_data()
+	MultiplayerManager.send_player_state(state)
 
 
 ## Применяет сетевое состояние к пупету (позиция — целью для лерпа, анимация —
 ## сразу). Неизвестные анимации молча игнорируются.
 func apply_network_state(state: Dictionary) -> void:
+	if _appearance != null and state.get("look") is Dictionary:
+		_appearance.apply_network_data(state.look)
 	var pos: Variant = state.get("p")
 	if pos is Vector2:
 		_net_target_pos = pos
 	if anim == null or anim.sprite_frames == null:
 		return
+	_water_kind=str(state.get("water",""))
+	_rafting=bool(state.get("raft",false))
+	anim.position.y=-10.0 if not _water_kind.is_empty() and not _rafting else -16.0
+	queue_redraw()
 	anim.flip_h = bool(state.get("f", anim.flip_h))
 	anim.speed_scale = float(state.get("s", anim.speed_scale))
 	var anim_name := str(state.get("a", ""))
@@ -289,8 +309,27 @@ func apply_network_state(state: Dictionary) -> void:
 func _update_speed() -> void:
 	speed = GameConstants.RUN_SPEED if Input.is_action_pressed("run") else GameConstants.WALK_SPEED
 	speed *= 1.0 + float(_equipment_bonuses.get("move_speed", 0.0))
-	speed *= environment_speed_multiplier(hunger, _is_on_swamp_water())
+	_water_kind = ""
+	if is_instance_valid(_world) and _world.has_method("water_kind_at"):
+		_water_kind = _world.water_kind_at(Vector2i((global_position / GameConstants.TILE_SIZE).floor()))
+	_rafting = not _water_kind.is_empty() and InventoryCost.count_item(get_tree().get_first_node_in_group("inventory_ui"), "wooden_raft") > 0
+	speed *= environment_speed_multiplier(hunger, _water_kind == "swamp" and not _rafting)
+	if _water_kind == "shallow" and not _rafting: speed *= 0.7
+	if _water_kind == "deep" and not _rafting: speed *= 0.5
+	if _rafting: speed = GameConstants.RUN_SPEED * 1.15
+	if exposure >= 50.0: speed *= 0.9
+	anim.position.y = -10.0 if not _water_kind.is_empty() and not _rafting else -16.0
+	queue_redraw()
 
+func is_swimming() -> bool:
+	return _water_kind == "deep" and not _rafting
+
+func _draw() -> void:
+	if _rafting:
+		for i: int in 4:
+			draw_rect(Rect2(-20, -5 + i * 5, 40, 4), Color(0.48,0.29,0.12))
+	elif not _water_kind.is_empty():
+		draw_arc(Vector2(0, 3), 12.0, 0.0, PI, 12, Color(0.65,0.85,1.0,0.7), 2.0)
 
 static func environment_speed_multiplier(satiety: float, in_swamp: bool) -> float:
 	var hunger_mult := lerpf(HUNGER_SLOW_MULT, 1.0, clampf(satiety / HUNGER_LOW, 0.0, 1.0))
@@ -310,7 +349,8 @@ func _update_hunger(delta: float) -> void:
 	if _is_dead:
 		return
 	if hunger > 0.0:
-		hunger = maxf(0.0, hunger - HUNGER_DRAIN * _hunger_activity_multiplier() * delta)
+		var heat_cost := 1.25 if exposure >= 50.0 and environment_hazard.get("kind", "") == "heat" else 1.0
+		hunger = maxf(0.0, hunger - HUNGER_DRAIN * _hunger_activity_multiplier() * heat_cost * delta)
 		hunger_changed.emit(hunger, max_hunger)
 		_starve_accum = 0.0
 		return
@@ -334,25 +374,55 @@ func _is_on_swamp_water() -> bool:
 	return _world.is_swamp_water_tile(tile)
 
 
-## Drives the hard-biome exposure meter. Safe tiles (and biomes the player has the
-## matching suit for) drain it; unprotected hazard tiles fill it and, at the cap,
-## teleport the player back to the last safe tile — no death, no item loss.
+## Integrates exposure in bounded steps, including recovery and environmental damage.
 func _update_exposure(delta: float) -> void:
 	var hazard := _get_hazard_here()
+	var remaining := maxf(delta,0.0)
+	while remaining > 0.0 and not _is_dead:
+		var step := minf(remaining,1.0)
+		remaining -= step
+		warm_food_seconds=maxf(0.0,warm_food_seconds-step)
+		var protected := not hazard.is_empty() and _has_protection(hazard)
+		var comfort := 0.0
+		if not hazard.is_empty() and is_instance_valid(_world) and _world.has_method("environment_comfort_at"):
+			comfort=_world.environment_comfort_at(global_position,str(hazard.get("kind","")))
+		var recovering := hazard.is_empty() or protected or comfort>=1.0
+		# Do not instantly turn accumulated frost into heat at a border.
+		if not environment_hazard.is_empty() and not hazard.is_empty() and environment_hazard.get("kind") != hazard.get("kind"):
+			recovering=true
+		if recovering:
+			exposure=maxf(0.0,exposure-EXPOSURE_RECOVER*step)
+		else:
+			environment_hazard=hazard.duplicate()
+			var rate := float(hazard.get("rate",0.8))*float(hazard.get("intensity",1.0))
+			if warm_food_seconds>0.0 and hazard.get("kind")=="cold": rate*=0.5
+			exposure=minf(EXPOSURE_MAX,exposure+rate*step)
+		if hazard.is_empty(): _last_safe_position=global_position
+		_environment_damage_time+=step
+		if _environment_damage_time>=1.0:
+			_environment_damage_time-=1.0
+			if exposure>=80.0 and not recovering: _take_environment_damage(1.0)
+			if is_instance_valid(_world) and _world.has_method("get_fluid_id_at"):
+				var tile := Vector2i((global_position/GameConstants.TILE_SIZE).floor())
+				if _world.get_fluid_id_at(tile)=="lava": _take_environment_damage(12.0)
+		if exposure<=0.0:
+			environment_hazard={}
+		else:
+			environment_hazard["recovering"]=recovering
+	exposure_changed.emit(exposure,environment_hazard)
 
-	if hazard.is_empty() or _has_protection(hazard):
-		if hazard.is_empty():
-			_last_safe_position = global_position
-		exposure = maxf(0.0, exposure - EXPOSURE_RECOVER * delta)
-		# Unprotected biomes still surface a "danger" bar; protected ones stay calm.
-		exposure_changed.emit(exposure, {} if hazard.is_empty() or exposure <= 0.0 else hazard)
-		return
+func _take_environment_damage(amount: float) -> void:
+	if _is_dead: return
+	health=maxf(0.0,health-amount)
+	health_changed.emit(health,max_health)
+	if health<=0.0: _die()
 
-	exposure = minf(EXPOSURE_MAX, exposure + float(hazard.get("rate", 14.0)) * delta)
-	if exposure >= EXPOSURE_MAX:
-		_eject_to_safety()
-		exposure = EXPOSURE_EJECT_RESET
-	exposure_changed.emit(exposure, hazard)
+func restore_environment(state: Dictionary) -> void:
+	exposure=clampf(float(state.get("exposure",0.0)),0.0,EXPOSURE_MAX)
+	warm_food_seconds=clampf(float(state.get("warm_food_seconds",0.0)),0.0,180.0)
+	environment_hazard=HazardConfig.for_biome(str(state.get("biome",""))).duplicate()
+	if environment_hazard.is_empty(): exposure=0.0
+	exposure_changed.emit(exposure,environment_hazard)
 
 
 func _get_hazard_here() -> Dictionary:
@@ -387,12 +457,6 @@ func _has_protection(hazard: Dictionary) -> bool:
 	return equipped is Dictionary and str(equipped.get("id", "")) == item_id
 
 
-func _eject_to_safety() -> void:
-	global_position = _last_safe_position
-	reset_physics_interpolation()  # teleport: don't smear across the map
-	velocity = Vector2.ZERO
-
-
 func get_health() -> float:
 	return health
 
@@ -413,6 +477,7 @@ func get_save_state() -> Dictionary:
 		"position": (_spawn_position if _has_spawn_point else _last_safe_position) if _is_dead else global_position,
 		"health": max_health if _is_dead else health,
 		"hunger": max_hunger if _is_dead else hunger,
+		"environment": {} if _is_dead else {"exposure":exposure,"warm_food_seconds":warm_food_seconds,"biome":environment_hazard.get("biome","")},
 	}
 
 
@@ -440,7 +505,7 @@ func add_hunger(amount: float) -> void:
 
 
 ## Forest-base respawn point, set by World at world start. Also seeds the initial
-## safe position so exposure ejects don't send the player to the origin.
+## safe position for legacy saves without an explicit base spawn.
 func set_spawn_point(pos: Vector2) -> void:
 	_spawn_position = pos
 	_has_spawn_point = true
@@ -477,6 +542,11 @@ func _die() -> void:
 	if _is_dead:
 		return
 	_is_dead = true
+	var hardcore := SaveManager.current_profile != null and SaveManager.current_profile.difficulty == "Hardcore"
+	if hardcore:
+		# Persist immediately, even if the player quits during the death animation.
+		SaveManager.current_profile.hardcore_dead = true
+		SaveManager.save_current_profile()
 	velocity = Vector2.ZERO
 	var interaction := get_tree().get_first_node_in_group("world_interaction")
 	if interaction != null and interaction.has_method("cancel_player_actions"):
@@ -486,6 +556,10 @@ func _die() -> void:
 	if anim.sprite_frames != null and anim.sprite_frames.has_animation("rip"):
 		anim.play("rip")
 		await anim.animation_finished
+	if hardcore:
+		var defeat := preload("res://ui/menus/HardcoreDefeat.gd").new()
+		get_parent().add_child(defeat)
+		return
 	_respawn()
 	_is_dead = false
 	_idle()
@@ -517,9 +591,10 @@ func _respawn() -> void:
 	_dash_time = 0.0
 	_dash_cooldown = 0.0
 	_damage_invulnerable_until = 0
-	_recoil_velocity = Vector2.ZERO
 	health = max_health
 	exposure = 0.0
+	environment_hazard = {}
+	warm_food_seconds = 0.0
 	exposure_changed.emit(exposure, {})
 	# Refill hunger so a starvation death doesn't loop into another one on respawn.
 	set_hunger(max_hunger)
@@ -545,12 +620,13 @@ func get_facing_vector() -> Vector2:
 
 
 func _start_dash(input_direction: Vector2) -> void:
+	if is_swimming():
+		return
 	_pending_melee.clear()
 	_dash_direction = input_direction.normalized() if input_direction.length() > 0.1 else _facing_vector()
 	_dash_time = DASH_DURATION
 	_dash_cooldown = DASH_COOLDOWN * (1.0 - clampf(float(_equipment_bonuses.get("dash_cooldown", 0.0)), 0.0, 0.6))
 	_damage_invulnerable_until = Time.get_ticks_msec() + int(DASH_INVULNERABILITY * 1000.0)
-	_recoil_velocity = Vector2.ZERO
 
 
 func is_dashing() -> bool:
@@ -567,7 +643,7 @@ func swing_attack(power: int, require_target: bool = false) -> bool:
 
 
 func attack_with_weapon(weapon_type: String, power: int, require_target: bool = false) -> bool:
-	if _is_dead or is_dashing() or _attack_cooldown > 0.0:
+	if _is_dead or is_swimming() or is_dashing() or _attack_cooldown > 0.0:
 		return false
 	if weapon_type == "wand":
 		return _cast_arcane_bolt(power)
@@ -577,7 +653,6 @@ func attack_with_weapon(weapon_type: String, power: int, require_target: bool = 
 	if require_target and targets.is_empty():
 		return false
 	_attack_cooldown = ToolTierSystem.swing_interval(power) * float(config["cooldown_mult"])
-	_face(dir)
 	_play_combat_animation(_attack_cooldown)
 	_pending_melee = {"config": config, "direction": dir, "weapon_type": weapon_type}
 	_melee_windup = float(config["windup"])
@@ -619,8 +694,6 @@ func _resolve_melee_hit(attack: Dictionary) -> void:
 		var to := target.global_position - global_position
 		var kb_dir := to.normalized() if to.length() > 0.1 else dir
 		target.take_hit(float(config["damage"]), kb_dir * float(config["knockback"]))
-	if not targets.is_empty():
-		_recoil_velocity = -dir * float(config["recoil"])
 
 
 func _weapon_config(weapon_type: String, power: int) -> Dictionary:
@@ -629,13 +702,13 @@ func _weapon_config(weapon_type: String, power: int) -> Dictionary:
 	match weapon_type:
 		"spear":
 			return {"reach": SPEAR_REACH, "cone_dot": SPEAR_CONE_DOT, "damage": weapon_power * 7.5 * damage_multiplier,
-				"knockback": 300.0, "recoil": 65.0, "cooldown_mult": 1.15, "windup": 0.09}
+				"knockback": 300.0, "cooldown_mult": 1.15, "windup": 0.09}
 		"hammer":
 			return {"reach": HAMMER_REACH, "cone_dot": HAMMER_CONE_DOT, "damage": weapon_power * 11.0 * damage_multiplier,
-				"knockback": 460.0, "recoil": 185.0, "cooldown_mult": 1.55, "windup": 0.24}
+				"knockback": 460.0, "cooldown_mult": 1.55, "windup": 0.24}
 		_:
 			return {"reach": ATTACK_REACH, "cone_dot": ATTACK_CONE_DOT, "damage": weapon_power * ATTACK_DAMAGE_PER_POWER * damage_multiplier,
-				"knockback": ATTACK_KNOCKBACK, "recoil": ATTACK_RECOIL, "cooldown_mult": 0.9, "windup": 0.05}
+				"knockback": ATTACK_KNOCKBACK, "cooldown_mult": 0.9, "windup": 0.05}
 
 
 func _cast_arcane_bolt(power: int) -> bool:
@@ -647,7 +720,6 @@ func _cast_arcane_bolt(power: int) -> bool:
 		return false
 	_attack_cooldown = ToolTierSystem.swing_interval(power) * 1.25
 	var dir := _aim_direction()
-	_face(dir)
 	_play_combat_animation()
 	parent.add_child(bolt)
 	bolt.global_position = global_position + dir * 22.0
@@ -703,16 +775,14 @@ func _targets_in_cone(dir: Vector2, reach: float = ATTACK_REACH,
 
 
 ## Begins the looping swing animation for a mining/harvest tool (pickaxe → ore,
-## axe → trees). Faces the mined tile and keeps the clip playing until
+## axe → trees). Keeps the current facing and the clip playing until
 ## `end_tool_action` is called. Driven by WorldInteractionManager while the LMB
 ## is held on a deposit.
-func begin_tool_action(tool_type: String, target: Vector2) -> void:
+func begin_tool_action(tool_type: String, _target: Vector2) -> void:
 	if _is_dead:
 		return
-	var dir: Vector2 = target - global_position
-	if dir.length() > 0.1:
-		_face(dir.normalized())
-	_tool_action_type = tool_type
+	# Empty hands use the fallback swing too; "" is reserved for no active action.
+	_tool_action_type = "axe" if tool_type.is_empty() else tool_type
 	anim.speed_scale = 1.0
 	_play_tool_anim()
 
@@ -745,7 +815,7 @@ func _play_tool_anim() -> void:
 			_play(prefix + "_down", ["idle_down"])
 
 
-## Updates facing (idle_dir + horizontal flip) from a movement vector — no anim play.
+## Updates facing (idle_dir + horizontal flip) from a direction vector — no anim play.
 func _face(direction: Vector2) -> void:
 	if absf(direction.x) > absf(direction.y):
 		idle_dir = LEFT if direction.x < 0 else RIGHT
@@ -807,11 +877,43 @@ func _play(anim_name: String, fallbacks: Array = []) -> void:
 
 
 func set_skin(_skin_id: String, _skin_color: Color = Color.WHITE) -> void:
-	pass
+	if _appearance != null:
+		var part := _appearance.template.find_part(&"body")
+		if part != null:
+			var choice := _appearance.selection(part)
+			var colors: Array = choice.colors.duplicate()
+			colors[0] = _skin_color
+			_appearance.set_part(part.part_id, choice.style, colors, choice.enabled)
 
 
 func set_armor_color(_color: Color) -> void:
-	pass
+	if _appearance != null:
+		var part := _appearance.template.find_part(&"shirt")
+		if part != null:
+			var choice := _appearance.selection(part)
+			var colors: Array = choice.colors.duplicate()
+			colors[0] = _color
+			_appearance.set_part(part.part_id, choice.style, colors, choice.enabled)
+
+
+func set_appearance(value: CharacterAppearance) -> void:
+	_appearance = value
+	if character_renderer == null: return
+	character_renderer.set_appearance(value)
+	anim.self_modulate.a = 0.0 if value != null and value.template != null else 1.0
+	_last_character_pose = ""
+	_sync_character_pose()
+
+
+func _sync_character_pose() -> void:
+	if character_renderer == null or _appearance == null: return
+	character_renderer.position = anim.position
+	character_renderer.modulate = anim.modulate
+	var pose := CharacterLegacyAdapter.pose(anim.animation, anim.flip_h)
+	var key := "%s/%s/%d" % [pose[0], pose[1], anim.frame]
+	if key != _last_character_pose:
+		_last_character_pose = key
+		character_renderer.set_pose(pose[0], pose[1], anim.frame)
 
 
 ## Builds the player's SpriteFrames from player.png (6×10 grid of 32×32 cells).

@@ -55,10 +55,17 @@ export function validateSprite32(texture, root, label = '') {
   assert.equal(height, 32, `Sprite height must be 32: ${label}`);
 }
 
+export function loadArtManifest(gameRoot) {
+  const manifestPath = [
+    resolve(gameRoot, 'tools/pixel_art/data/texture_art_manifest.json'),
+    resolve(gameRoot, 'docs/generated/texture_art_manifest.json'),
+  ].find(existsSync);
+  assert.ok(manifestPath, 'Texture manifest missing. Run the game-data synchronization first.');
+  return JSON.parse(readFileSync(manifestPath, 'utf8'));
+}
+
 export function validateArtManifest(gameRoot, outputRoot = gameRoot) {
-  const manifestPath = resolve(gameRoot, 'docs/generated/texture_art_manifest.json');
-  assert.ok(existsSync(manifestPath), 'Texture manifest missing. Run the game-data synchronization first.');
-  const entries = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  const entries = loadArtManifest(gameRoot);
   for (const e of entries) {
     validateTexture({ path: `/${e.output}`, dimensions: { width: e.width, height: e.height }, atlas: null }, outputRoot, e.id);
     if (gameRoot !== outputRoot) {

@@ -56,9 +56,8 @@ const UPGRADE_CHAINS: Array = [
 ]
 
 # Mining subsystem
+var _interaction_canvas: CanvasLayer
 var _mining_component: MiningComponent
-var _progress_canvas: CanvasLayer
-var _progress_bar: ProgressBar
 var _world_label_root: Node2D
 var _damage_overlay: MiningDamageOverlay
 
@@ -67,13 +66,10 @@ var _is_breaking: bool = false
 var _breaking_target: Vector2i = Vector2i(-9999, -9999)
 var _break_timer: float = 0.0
 
-# Rejected-hit feedback: the bar flashes red instead of draining when the held tool
-# is too weak / of the wrong type, with the floating label throttled to one per
-# REJECT_LABEL_COOLDOWN so a held mouse button doesn't spam the screen.
-const BAR_BLINK_TIME := 0.18
+# Rejected-hit labels are throttled while the mouse button is held.
 const REJECT_LABEL_COOLDOWN := 1.5
-var _bar_blink: float = 0.0
 var _reject_label_timer: float = 0.0
+var _fluid_hint: Label
 
 
 func _ready() -> void:
@@ -103,22 +99,21 @@ func _setup_mining_component() -> void:
 	add_child(_mining_component)
 	_mining_component.mining_yield.connect(_on_mining_yield)
 	_mining_component.mining_blocked.connect(_on_mining_blocked)
-	_mining_component.mining_started.connect(_on_mining_started)
 	_mining_component.mining_stopped.connect(_on_mining_stopped)
-	_mining_component.progress_changed.connect(_on_mining_progress_changed)
 	_mining_component.hit_rejected.connect(_on_mining_hit_rejected)
 	_mining_component.hit_landed.connect(_on_mining_hit_landed)
 
-	_progress_canvas = CanvasLayer.new()
-	_progress_canvas.layer = 10
-	add_child(_progress_canvas)
+	_interaction_canvas = CanvasLayer.new()
+	_interaction_canvas.layer = 10
+	add_child(_interaction_canvas)
 
-	_progress_bar = ProgressBar.new()
-	_progress_bar.custom_minimum_size = Vector2(64, 8)
-	_progress_bar.size = Vector2(64, 8)
-	_progress_bar.show_percentage = false
-	_progress_bar.visible = false
-	_progress_canvas.add_child(_progress_bar)
+	_fluid_hint=Label.new()
+	_fluid_hint.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	_fluid_hint.add_theme_font_size_override("font_size",14)
+	_fluid_hint.add_theme_color_override("font_shadow_color",Color.BLACK)
+	_fluid_hint.add_theme_constant_override("shadow_offset_x",2)
+	_fluid_hint.add_theme_constant_override("shadow_offset_y",2)
+	_interaction_canvas.add_child(_fluid_hint)
 
 
 func _process(delta: float) -> void:
@@ -130,8 +125,10 @@ func _process(delta: float) -> void:
 	_check_breaking_state(delta)
 	_update_drag_build(delta)
 	_update_build_preview()
-	_update_progress_bar_position()
-	_update_bar_blink(delta)
+	_update_mining_target_label()
+	_reject_label_timer = maxf(0.0, _reject_label_timer - delta)
+	_fluid_hint.text="" if _is_mouse_over_ui() else fluid_interaction_hint(_world_to_grid(_get_mouse_world_position()))
+	_fluid_hint.position=get_viewport().get_mouse_position()+Vector2(18,20)
 
 
 func _player_is_dead() -> bool:
@@ -154,6 +151,7 @@ func _check_mining_state() -> void:
 	if not _mining_component.is_mining:
 		return
 	if GameChat.is_blocking_input() or get_tree().paused or _is_mouse_over_ui() \
+			or (player is Player and player.is_swimming()) \
 			or (_holding_weapon() and not Input.is_key_pressed(KEY_CTRL)):
 		_mining_component.stop_mining()
 		return
@@ -179,23 +177,26 @@ func _check_mining_state() -> void:
 	_try_start_mining(under_cursor)
 
 
-func _update_progress_bar_position() -> void:
-	if _progress_bar == null:
+func _update_mining_target_label() -> void:
+	var label := get_tree().get_first_node_in_group("mining_target_label") as Label
+	if label == null:
 		return
-	var target_pos: Vector2i
+	var target_name := ""
 	if _mining_component.is_mining:
-		target_pos = _mining_component.mining_target_pos
+		var deposit := _mining_component._current_deposit
+		if deposit != null:
+			# Ore uses the localized item name; finite objects keep their own name.
+			var item := ItemDatabase.registry.get(deposit.resource_item_id) as ItemData
+			target_name = tr(item.name) if item != null and deposit is OreDefinition else tr(deposit.display_name)
 	elif _is_breaking:
-		target_pos = _breaking_target
-	else:
-		_progress_bar.visible = false
-		return
-
-	var canvas_transform: Transform2D = get_viewport().get_canvas_transform()
-	var world_pos: Vector2 = _grid_to_world_center(target_pos)
-	var screen_pos: Vector2 = canvas_transform * world_pos
-	_progress_bar.position = screen_pos + Vector2(-32.0, -float(GameConstants.TILE_SIZE) - 12.0)
-	_progress_bar.visible = true
+		var block := _placed_blocks.get(_breaking_target) as WorldBlock
+		if is_instance_valid(block):
+			var data := BlockDatabase.get_block(block.block_id)
+			if data != null:
+				var item := ItemDatabase.registry.get(data.drop_item_id) as ItemData
+				target_name = tr(item.name) if item != null else tr(data.display_name)
+	label.text = target_name
+	label.visible = not target_name.is_empty()
 
 
 func _input(event: InputEvent) -> void:
@@ -219,6 +220,9 @@ func _input(event: InputEvent) -> void:
 	var grid_pos: Vector2i = _world_to_grid(world_pos)
 
 	if event.button_index == MOUSE_BUTTON_LEFT:
+		if player is Player and player.is_swimming() and not event.alt_pressed:
+			get_viewport().set_input_as_handled()
+			return
 		if event.alt_pressed:
 			# Alt+ЛКМ — пинг «смотри сюда» (виден тиммейтам в мире и на карте).
 			MultiplayerManager.send_map_ping(world_pos)
@@ -245,6 +249,8 @@ func _input(event: InputEvent) -> void:
 	elif event.button_index == MOUSE_BUTTON_RIGHT:
 		if _try_use_bucket(grid_pos):
 			get_viewport().set_input_as_handled()
+		elif _try_camp_action(grid_pos):
+			get_viewport().set_input_as_handled()
 		elif _try_till(grid_pos):
 			get_viewport().set_input_as_handled()
 		elif _try_plant(grid_pos):
@@ -259,6 +265,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _try_start_mining(grid_pos: Vector2i) -> bool:
+	if player is Player and player.is_swimming(): return false
 	if not _is_grid_in_build_radius(grid_pos):
 		return false
 
@@ -346,50 +353,21 @@ func _on_mining_blocked(reason: String) -> void:
 	FloatingMiningLabel.spawn_blocked(reason, world_pos, _get_label_root())
 
 
-func _on_mining_started(_deposit: DepositData) -> void:
-	pass
-
-
 func _on_mining_stopped() -> void:
-	if _progress_bar != null:
-		_progress_bar.visible = false
+	_update_mining_target_label()
 	var player_node: Node = get_tree().get_first_node_in_group("player")
 	if player_node != null and player_node.has_method("end_tool_action"):
 		player_node.end_tool_action()
 
 
-## `progress` is the tile's REMAINING health (1 = untouched), so the bar drains.
-func _on_mining_progress_changed(progress: float) -> void:
-	if _progress_bar != null:
-		_progress_bar.value = progress * 100.0
-
-
-## A swing that bounced off: flash the bar, and remind why once in a while.
+## Remind the player why the tool cannot mine this target.
 func _on_mining_hit_rejected(reason: String) -> void:
-	_flash_progress_bar()
 	if _reject_label_timer > 0.0:
 		return
 	_reject_label_timer = REJECT_LABEL_COOLDOWN
 	FloatingMiningLabel.spawn_blocked(
 		reason, _grid_to_world_center(_mining_component.mining_target_pos), _get_label_root()
 	)
-
-
-## Turns the progress bar red for a moment — the "this tool can't dent it" tell.
-func _flash_progress_bar() -> void:
-	_bar_blink = BAR_BLINK_TIME
-	if _progress_bar != null:
-		_progress_bar.modulate = Color(1.0, 0.45, 0.35)
-
-
-func _update_bar_blink(delta: float) -> void:
-	if _reject_label_timer > 0.0:
-		_reject_label_timer = maxf(0.0, _reject_label_timer - delta)
-	if _bar_blink <= 0.0:
-		return
-	_bar_blink = maxf(0.0, _bar_blink - delta)
-	if _bar_blink <= 0.0 and _progress_bar != null:
-		_progress_bar.modulate = Color.WHITE
 
 
 func _get_label_root() -> Node2D:
@@ -479,6 +457,22 @@ func _try_use_item() -> bool:
 	if action.begins_with("unlock_biome_access:"):
 		return _try_unlock_biome_access(action.trim_prefix("unlock_biome_access:"), stack as Dictionary)
 	match action:
+		"open_me_wireless":
+			var net := get_tree().get_first_node_in_group("me_network") as MENetworkManager
+			if net == null or not is_instance_valid(player):
+				return true
+			var connection := net.wireless_terminal_for(player.global_position)
+			if connection.is_empty():
+				var chat := get_tree().get_first_node_in_group("game_chat") as GameChat
+				if chat != null:
+					chat.add_colored_message(tr("No powered ME terminal within 24 tiles."), Color(0.96, 0.46, 0.46))
+				return true
+			var terminal := connection["terminal"] as WorldBlock
+			var group := "me_craft_terminal_ui" if terminal.block_id == "me_crafting_terminal" else "me_terminal_ui"
+			var menu := get_tree().get_first_node_in_group(group) as METerminalBase
+			if menu != null:
+				menu.open_wireless(terminal, connection["controller"] as WorldBlock)
+			return true
 		"open_codex":
 			var codex: Node = get_tree().get_first_node_in_group("codex_ui")
 			if codex != null and codex.has_method("open"):
@@ -577,9 +571,11 @@ func _try_eat_food(stack: Dictionary) -> bool:
 		return false
 	# Don't waste food when already full.
 	if player_node.has_method("get_hunger") and player_node.has_method("get_max_hunger"):
-		if float(player_node.get_hunger()) >= float(player_node.get_max_hunger()):
+		if float(player_node.get_hunger()) >= float(player_node.get_max_hunger()) and not (player_node is Player and player_node.exposure>0.0):
 			return false
 	player_node.add_hunger(float(food_value))
+	if player_node is Player and str(stack.get("id","")) in ["baked_potato","veggie_stew","harvest_feast","infinity_stew"]:
+		player_node.warm_food_seconds=180.0
 	_consume_current_stack(1)
 	return true
 
@@ -975,7 +971,7 @@ func load_placed_blocks(saved_blocks: Dictionary) -> void:
 		if not saved_extra_data.is_empty():
 			block.load_extra_save_data(saved_extra_data)
 		if saved_health > 0:
-			block.health = saved_health
+			block.health = mini(saved_health, block.max_health)
 		_register_block_footprint(block)
 		_update_map_block(block.center_tile(), block_id)
 
@@ -1049,7 +1045,7 @@ func can_place_block_at(grid_pos: Vector2i, block_id: String = "") -> bool:
 			and world_node.has_method("is_oil_center_at")
 			and bool(world_node.is_oil_center_at(grid_pos))
 		)
-	if block_id == "water_pump" or block_id == "mechanical_water_pump":
+	if block_id in ["water_pump", "mechanical_water_pump", "steam_water_pump", "wooden_bridge"]:
 		return (
 			world_node != null
 			and world_node.has_method("is_water_tile")
@@ -1084,6 +1080,7 @@ func can_place_block_at(grid_pos: Vector2i, block_id: String = "") -> bool:
 ## ЛКМ по установленному игроком блоку начинает разбор. Удержание продолжает
 ## удары в том же ритме, что и обычная добыча.
 func _try_start_breaking(grid_pos: Vector2i) -> bool:
+	if player is Player and player.is_swimming(): return false
 	if not _placed_blocks.has(grid_pos):
 		return false
 	if not _is_grid_in_build_radius(grid_pos):
@@ -1109,6 +1106,7 @@ func _check_breaking_state(delta: float) -> void:
 	if not _is_breaking:
 		return
 	if GameChat.is_blocking_input() or get_tree().paused or _is_mouse_over_ui() \
+			or (player is Player and player.is_swimming()) \
 			or (_holding_weapon() and not Input.is_key_pressed(KEY_CTRL)):
 		_stop_breaking()
 		return
@@ -1156,8 +1154,6 @@ func _breaking_swing() -> void:
 		return
 	if overlay != null:
 		overlay.mark_hit(_breaking_target, block.health_fraction())
-	if _progress_bar != null:
-		_progress_bar.value = block.health_fraction() * 100.0
 
 
 func _stop_breaking() -> void:
@@ -1166,8 +1162,7 @@ func _stop_breaking() -> void:
 	_is_breaking = false
 	_breaking_target = Vector2i(-9999, -9999)
 	_break_timer = 0.0
-	if _progress_bar != null and not _mining_component.is_mining:
-		_progress_bar.visible = false
+	_update_mining_target_label()
 	var player_node: Node = get_tree().get_first_node_in_group("player")
 	if player_node != null and player_node.has_method("end_tool_action"):
 		player_node.end_tool_action()
@@ -1442,8 +1437,6 @@ func _update_build_preview() -> void:
 func _try_use_bucket(grid_pos: Vector2i) -> bool:
 	if not _is_grid_in_build_radius(grid_pos):
 		return false
-	if _placed_blocks.has(grid_pos):
-		return false
 	var stack_value: Variant = _get_current_stack()
 	if not (stack_value is Dictionary):
 		return false
@@ -1451,6 +1444,28 @@ func _try_use_bucket(grid_pos: Vector2i) -> bool:
 	var capacity := float(stack.get("fluid_capacity", 0.0))
 	if capacity <= 0.0:
 		return false
+	if int(stack.get("count",1))!=1: return true
+	var target := get_block_at(grid_pos)
+	if target != null:
+		if not target.machine is FluidMachineContainer: return false
+		var machine := target.machine as FluidMachineContainer
+		var carried_fluid := str(stack.get("fluid_id",""))
+		var carried_amount := float(stack.get("fluid_amount",0.0))
+		if carried_amount>0.0 and machine.can_accept_fluid(carried_fluid):
+			stack.fluid_amount=carried_amount-machine.push_fluid(carried_fluid,carried_amount)
+			_set_current_stack(FluidDatabase.apply_bucket_display(stack))
+			MultiplayerManager.broadcast_machine_state(target.grid_pos,target.get_extra_save_data())
+			return true
+		for output: String in machine.get_output_fluid_ids():
+			if not FluidDatabase.container_error(stack,output).is_empty(): continue
+			var taken := machine.pull_fluid(output,capacity-carried_amount)
+			if taken<=0.0: continue
+			stack.fluid_id=output
+			stack.fluid_amount=carried_amount+taken
+			_set_current_stack(FluidDatabase.apply_bucket_display(stack))
+			MultiplayerManager.broadcast_machine_state(target.grid_pos,target.get_extra_save_data())
+			return true
+		return true
 	var current_amount := float(stack.get("fluid_amount", 0.0))
 	if current_amount >= capacity:
 		return false
@@ -1458,6 +1473,12 @@ func _try_use_bucket(grid_pos: Vector2i) -> bool:
 	var world_node := get_tree().get_first_node_in_group("world")
 	if world_node == null or not world_node.has_method("collect_fluid_at"):
 		return false
+	var source_id: String = "water" if world_node.is_water_tile(grid_pos) else world_node.get_fluid_id_at(grid_pos)
+	if source_id.is_empty(): return false
+	var problem := FluidDatabase.container_error(stack,source_id)
+	if not problem.is_empty():
+		NotificationCenter.push("fluid","Набор жидкости",problem,"warning")
+		return true
 	var collected: Dictionary = world_node.collect_fluid_at(
 		grid_pos, capacity - current_amount
 	) as Dictionary
@@ -1470,6 +1491,54 @@ func _try_use_bucket(grid_pos: Vector2i) -> bool:
 	stack["fluid_amount"] = current_amount + float(collected.get("amount", 0.0))
 	_set_current_stack(FluidDatabase.apply_bucket_display(stack))
 	return true
+
+func fluid_interaction_hint(tile: Vector2i) -> String:
+	var stack: Variant=_get_current_stack()
+	if not stack is Dictionary: return ""
+	if str(stack.get("id",""))=="wood" and get_block_at(tile)!=null and get_block_at(tile).machine is CampfireContainer:
+		return "ПКМ: подложить дрова — 30 с тепла"
+	if str(stack.get("id",""))=="sapling": return "ПКМ: посадить саженец на свободной земле"
+	if float(stack.get("fluid_capacity",0.0))<=0.0: return ""
+	if not _is_grid_in_build_radius(tile): return "Подойди ближе к источнику"
+	var target := get_block_at(tile)
+	var source := ""
+	if target!=null and target.machine is FluidMachineContainer:
+		var machine := target.machine as FluidMachineContainer
+		if float(stack.get("fluid_amount",0.0))>0.0 and machine.can_accept_fluid(str(stack.get("fluid_id",""))):
+			return "ПКМ: перелить %s в механизм" % FluidDatabase.get_display_name(stack.fluid_id)
+		var ids := machine.get_output_fluid_ids()
+		if ids.is_empty(): return "В механизме нет жидкости для отбора"
+		for id: String in ids:
+			if FluidDatabase.container_error(stack,id).is_empty(): source=id; break
+		if source.is_empty(): return FluidDatabase.container_error(stack,ids[0])
+	else:
+		var world_node := get_tree().get_first_node_in_group("world")
+		if world_node==null: return ""
+		source="water" if world_node.is_water_tile(tile) else world_node.get_fluid_id_at(tile)
+	if source.is_empty(): return ""
+	var problem := FluidDatabase.container_error(stack,source)
+	if not problem.is_empty(): return problem
+	return "ПКМ: набрать %s · до %.0f л" % [FluidDatabase.get_display_name(source),float(stack.fluid_capacity)-float(stack.get("fluid_amount",0.0))]
+
+func _try_camp_action(tile: Vector2i) -> bool:
+	if not _is_grid_in_build_radius(tile): return false
+	var stack: Variant=_get_current_stack()
+	if not stack is Dictionary: return false
+	var id := str(stack.get("id",""))
+	var target := get_block_at(tile)
+	if id=="wood" and target!=null and target.machine is CampfireContainer:
+		if target.machine.fire_seconds>=300.0: return true
+		target.machine.fire_seconds+=30.0
+		target.machine.wake()
+		_consume_current_stack(1)
+		MultiplayerManager.broadcast_machine_state(target.grid_pos,target.get_extra_save_data())
+		return true
+	if id=="sapling":
+		var world_node := get_tree().get_first_node_in_group("world")
+		if world_node!=null and world_node.plant_sapling_at(tile):
+			_consume_current_stack(1)
+			return true
+	return false
 
 
 func _set_current_stack(stack: Variant) -> void:

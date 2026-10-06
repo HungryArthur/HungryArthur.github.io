@@ -13,3 +13,6 @@ description = "item.gas_filter.desc"
 rarity = "common"
 item_color = Color(0.55, 0.7, 0.4, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Reserved filter prototype; current protective equipment uses other ingredients."

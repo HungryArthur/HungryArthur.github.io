@@ -3,7 +3,7 @@ class_name MobRegistry
 
 ## Reusable enemy species for the dangerous biomes. The central forest is a
 ## peaceful starting biome; its former enemies now live farther from spawn.
-const ENTRIES := {
+const DEFAULT_ENTRIES := {
 	"ForestBiome": [],
 	"DesertBiome": [
 		{"id": "sand_scarab", "name": "Sand Scarab", "role": "rusher", "hp": 54.0, "damage": 7.0, "speed": 125.0, "color": Color(0.82, 0.61, 0.24), "loot": "sand"},
@@ -49,6 +49,9 @@ const ENTRIES := {
 		{"id": "primal_beetle", "name": "Primal Beetle", "role": "skirmisher", "hp": 96.0, "damage": 13.0, "speed": 118.0, "color": Color(0.62, 0.18, 0.12), "loot": "titanium_ore"},
 	],
 }
+
+
+static var ENTRIES: Dictionary = GameTuning.mob_entries(DEFAULT_ENTRIES)
 
 
 static func has_biome(biome: String) -> bool:

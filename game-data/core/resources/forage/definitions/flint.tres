@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_script")
-deposit_id = "pebble"
-display_name = "Камушки"
-resource_item_id = "stone"
+deposit_id = "flint"
+display_name = "Кремень"
+resource_item_id = "flint"
 required_tool = "none"
 mining_level_required = 1
 mining_interval = 0.2

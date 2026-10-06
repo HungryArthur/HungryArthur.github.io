@@ -1,3 +1,4 @@
+@tool
 # res://core/systems/generation/generators/BiomeGenerator.gd
 extends RefCounted
 class_name BiomeGenerator
@@ -24,17 +25,29 @@ func _load_biomes_automatically(folder_path: String) -> void:
 
 # Width (tiles) of the sandy beach ring at the outer world boundary.
 const BOUNDARY_BEACH := 22.0
+const TRANSITION_WIDTH := 32.0
+
+## Strength grows over the first 32 tiles, including directional borders.
+func hazard_intensity_at(tile: Vector2i) -> float:
+	var radius := _radius(tile.x,tile.y)
+	if radius < forest_radius: return 0.0
+	var depth := radius - (sector_radius if radius>=sector_radius else forest_radius)
+	var nx := float(tile.x)+noise_manager.get_moisture(tile.x,tile.y)*sector_warp
+	var ny := float(tile.y)+noise_manager.get_temperature(tile.x,tile.y)*sector_warp
+	depth=minf(depth,absf(absf(nx)-absf(ny))*0.7071)
+	var edge_intensity := 0.6 if radius >= sector_radius else 0.2
+	return lerpf(edge_intensity,1.0,smoothstep(0.0,TRANSITION_WIDTH,depth))
 
 # --- FINITE radial world, centred on spawn (origin 0,0). Concentric rings out
 # from the centre, then a hard infinite-ocean boundary. All in tiles; static so
 # the live preview tool (tools/BiomePreview) can tune them — bake chosen values
 # back here. Ratios mirror the 500/1500/4000/8000 design brief, scaled down to a
 # traversable size. ---
-static var forest_radius := 480.0   # Forest hub around spawn (outer edge)
-static var sector_radius := 1280.0  # outer edge of the NORMAL directional sectors
-static var hard_radius := 2560.0    # outer edge of the HARD sectors; beyond = ocean
-static var radial_warp := 45.0      # noise wobble on the ring radii (jagged rings)
-static var sector_warp := 70.0      # noise wobble on the N/S/W/E sector borders
+static var forest_radius: float = GameTuning.number("world", "geometry", "forest_radius", 480.0)   # Forest hub around spawn (outer edge)
+static var sector_radius: float = GameTuning.number("world", "geometry", "sector_radius", 1280.0)  # outer edge of the NORMAL directional sectors
+static var hard_radius: float = GameTuning.number("world", "geometry", "hard_radius", 2560.0)    # outer edge of the HARD sectors; beyond = ocean
+static var radial_warp: float = GameTuning.number("world", "geometry", "radial_warp", 45.0)      # noise wobble on the ring radii (jagged rings)
+static var sector_warp: float = GameTuning.number("world", "geometry", "sector_warp", 70.0)      # noise wobble on the N/S/W/E sector borders
 
 # Sector ids.
 const SECTOR_NORTH := 0
@@ -90,7 +103,7 @@ func get_zone_tier(x: int, y: int) -> int:
 
 
 ## `altitude`/`ocean_level` are accepted for call-site compatibility but the
-## finite radial layout no longer uses altitude — land biomes have NO lakes.
+## finite radial layout no longer uses altitude — the starter pond and swamp pools are added by ChunkGenerator.
 ## All open water is the world-boundary ocean (here) or small swamp pools
 ## (handled in ChunkGenerator).
 func get_biome_at(

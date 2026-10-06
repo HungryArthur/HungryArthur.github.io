@@ -37,6 +37,28 @@ const BUCKET_WATER_TEXTURES: Dictionary = {
 func exists(fluid_id: String) -> bool:
 	return FLUIDS.has(fluid_id)
 
+func container_accepts(stack: Dictionary, fluid_id: String) -> bool:
+	if not exists(fluid_id) or float(stack.get("fluid_capacity",0.0))<=0.0: return false
+	var id := str(stack.get("id",""))
+	if id == "fluid_capsule": return true
+	if id=="pressure_cylinder": return fluid_id in ["steam","refinery_gas"]
+	if id=="heatproof_canister" or id=="lava_canister": return fluid_id=="lava" or fluid_id.begins_with("molten_")
+	if id=="empty_canister" or id=="crude_oil_canister": return fluid_id not in ["steam","refinery_gas","lava"] and not fluid_id.begins_with("molten_")
+	if id=="primitive_bucket": return fluid_id=="water"
+	if id in ["bronze_bucket","steel_bucket","iron_bucket"]: return fluid_id in ["water","creosote"]
+	return false
+
+func container_error(stack: Dictionary, fluid_id: String) -> String:
+	if int(stack.get("count",1))!=1: return "Отдели одну ёмкость от стопки"
+	if not container_accepts(stack,fluid_id):
+		if fluid_id in ["steam","refinery_gas"]: return "Нужен герметичный баллон"
+		if fluid_id=="lava" or fluid_id.begins_with("molten_"): return "Нужна жаростойкая ёмкость"
+		return "Нужна подходящая канистра"
+	var stored := str(stack.get("fluid_id",""))
+	if not stored.is_empty() and stored!=fluid_id: return "В ёмкости другая жидкость"
+	if float(stack.get("fluid_amount",0.0))>=float(stack.get("fluid_capacity",0.0)): return "Ёмкость заполнена"
+	return ""
+
 
 func get_display_name(fluid_id: String) -> String:
 	var data: Dictionary = FLUIDS.get(fluid_id, {}) as Dictionary

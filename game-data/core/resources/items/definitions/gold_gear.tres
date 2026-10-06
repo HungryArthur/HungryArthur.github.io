@@ -11,3 +11,6 @@ name = "item.gold_gear.name"
 description = "item.gold_gear.desc"
 item_color = Color(0.95, 0.78, 0.20, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Unused gear prototype; not part of the current factory progression."

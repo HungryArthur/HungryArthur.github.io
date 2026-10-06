@@ -4,7 +4,7 @@ class_name MagneticSeparatorContainer
 ## Магнитный сепаратор работает напрямую с рудой и выдаёт две обычные пыли
 ## основного металла плюс одну обычную магнитную побочную пыль.
 
-const RECIPES: Dictionary = {
+const DEFAULT_RECIPES: Dictionary = {
 	"iron_ore":     {"output": "iron_dust",     "byproduct": "nickel_dust"},
 	"copper_ore":   {"output": "copper_dust",   "byproduct": "gold_dust"},
 	"tin_ore":      {"output": "tin_dust",      "byproduct": "iron_dust"},
@@ -15,9 +15,8 @@ const RECIPES: Dictionary = {
 }
 const OUTPUT_COUNT := 2
 const BYPRODUCT_COUNT := 1
-const POWER_CONSUMPTION := 25.0
-const PROCESS_TIME := 5.0
-
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "magnetic_separator", "POWER_CONSUMPTION", 25.0)
+static var PROCESS_TIME: float = GameTuning.number("machines", "magnetic_separator", "PROCESS_TIME", 5.0)
 const SLOT_INPUT := 0
 const SLOT_OUTPUT := 1
 const SLOT_BYPRODUCT := 2
@@ -104,3 +103,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var RECIPES: Dictionary = GameTuning.recipe_map("magnetic_separator", DEFAULT_RECIPES)

@@ -4,7 +4,7 @@ class_name SteamFurnaceContainer
 ## Паровая печь: плавит то же, что каменная, но быстрее и без топлива в слоте —
 ## жар даёт пар из котла.
 
-const RECIPES: Dictionary = {
+const DEFAULT_RECIPES: Dictionary = {
 	"iron_ore":           {"output": "iron_ingot",     "output_count": 1, "input_count": 1},
 	"copper_ore":         {"output": "copper_ingot",   "output_count": 1, "input_count": 1},
 	"gold_ore":           {"output": "gold_ingot",     "output_count": 1, "input_count": 1},
@@ -27,10 +27,8 @@ const RECIPES: Dictionary = {
 	"mythril_dust":  {"output": "mythril_ingot",  "output_count": 1, "input_count": 1},
 	"bronze_dust":   {"output": "bronze_ingot",   "output_count": 1, "input_count": 1},
 }
-const PROCESS_TIME := 2.5
-const STEAM_PER_SECOND := 2.0
-
-
+static var PROCESS_TIME: float = GameTuning.number("machines", "steam_furnace", "PROCESS_TIME", 2.5)
+static var STEAM_PER_SECOND: float = GameTuning.number("machines", "steam_furnace", "STEAM_PER_SECOND", 2.0)
 func _init() -> void:
 	configure("STEAM FURNACE", RECIPES, PROCESS_TIME, STEAM_PER_SECOND)
 
@@ -38,3 +36,6 @@ func _init() -> void:
 func _complete_process(s_in: MachineSlot, s_out: MachineSlot, recipe: Dictionary) -> void:
 	super._complete_process(s_in, s_out, recipe)
 	QuestManager.report_event("item_smelted", str(recipe.get("output", "")), 1)
+
+
+static var RECIPES: Dictionary = GameTuning.recipe_map("steam_furnace", DEFAULT_RECIPES)

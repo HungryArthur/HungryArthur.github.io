@@ -11,3 +11,6 @@ name = "item.copper_gear.name"
 description = "item.copper_gear.desc"
 item_color = Color(0.78, 0.42, 0.10, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Superseded generic gear; production uses the named bronze and steel components."

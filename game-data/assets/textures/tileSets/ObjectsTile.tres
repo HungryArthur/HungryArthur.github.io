@@ -1,12 +1,13 @@
 [gd_resource type="TileSet" format=3 uid="uid://ci063sx1x0iej"]
 
-[ext_resource type="Texture2D" path="res://assets/textures/environment/structures/Tree.png" id="1_tree"]
+[ext_resource type="Texture2D" path="res://assets/textures/environment/trees/forest_4.png" id="1_tree"]
 [ext_resource type="Texture2D" path="res://assets/textures/environment/structures/stick.png" id="4_stick"]
 [ext_resource type="Texture2D" uid="uid://c3piqy5cjipuc" path="res://assets/textures/environment/liquids/Oil.png" id="5_oil"]
 [ext_resource type="Texture2D" uid="uid://uvum8vginlku" path="res://assets/textures/items/blocks/gold_ore_block.png" id="6_ore_gold"]
 [ext_resource type="Texture2D" uid="uid://bped6vgynjvk8" path="res://assets/textures/items/blocks/silver_ore_block.png" id="7_ore_silver"]
 [ext_resource type="Texture2D" uid="uid://cdfne11dm5mm0" path="res://assets/textures/items/blocks/nickle_ore_block.png" id="8_ore_nickel"]
 [ext_resource type="Texture2D" path="res://assets/textures/items/blocks/resonite_ore_block.svg" id="18_ore_resonite"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/blocks/stone.png" id="20_ore_stone"]
 [ext_resource type="Texture2D" path="res://assets/textures/environment/structures/DrillHole.png" id="9_drill_hole"]
 [ext_resource type="Texture2D" uid="uid://dwlurnrqa0lfi" path="res://assets/textures/environment/liquids/Lava.png" id="10_lava"]
 [ext_resource type="Texture2D" path="res://assets/textures/environment/structures/stone.png" id="11_stone"]
@@ -20,7 +21,7 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tree"]
 texture = ExtResource("1_tree")
-margins = Vector2i(0, 17)
+margins = Vector2i(16, 64)
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
@@ -29,7 +30,7 @@ texture = ExtResource("4_stick")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stone"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_flint"]
 texture = ExtResource("11_stone")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -87,6 +88,12 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/z_index = -2
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ore_stone"]
+texture = ExtResource("20_ore_stone")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/z_index = -2
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ore_silver"]
 texture = ExtResource("7_ore_silver")
 texture_region_size = Vector2i(32, 32)
@@ -130,8 +137,9 @@ sources/5 = SubResource("TileSetAtlasSource_ore_gold")
 sources/6 = SubResource("TileSetAtlasSource_ore_silver")
 sources/7 = SubResource("TileSetAtlasSource_ore_nickel")
 sources/13 = SubResource("TileSetAtlasSource_ore_resonite")
+sources/14 = SubResource("TileSetAtlasSource_ore_stone")
 sources/8 = SubResource("TileSetAtlasSource_drill_hole")
-sources/20 = SubResource("TileSetAtlasSource_stone")
+sources/20 = SubResource("TileSetAtlasSource_flint")
 sources/21 = SubResource("TileSetAtlasSource_cactus")
 sources/22 = SubResource("TileSetAtlasSource_reeds")
 sources/23 = SubResource("TileSetAtlasSource_watermelon")

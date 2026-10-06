@@ -37,6 +37,7 @@ const OBJECT_ORE_BLOCK_GOLD := 5
 const OBJECT_ORE_BLOCK_SILVER := 6
 const OBJECT_ORE_BLOCK_NICKEL := 7
 const OBJECT_ORE_BLOCK_RESONITE := 13
+const OBJECT_ORE_BLOCK_STONE := 14
 # Drill hole drawn at a vein's centre (where a drill is placed).
 const OBJECT_DRILL_HOLE := 8
 # Fluid pools. Oil (Oil.png) and lava (Lava.png) each have their own single-tile
@@ -54,6 +55,7 @@ const ORE_BLOCK_SOURCE := {
 	6: OBJECT_ORE_BLOCK_SILVER,
 	11: OBJECT_ORE_BLOCK_NICKEL,
 	13: OBJECT_ORE_BLOCK_RESONITE,
+	14: OBJECT_ORE_BLOCK_STONE,
 }
 
 const WALK_SPEED := 100.0

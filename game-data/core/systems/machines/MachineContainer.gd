@@ -47,6 +47,9 @@ var module_levels: Dictionary = {
 	"productivity": 0,
 }
 var simulation_sleeping := false
+## A processing order must collect its result before normal facing-side ejection.
+var me_request_output_locked := false
+var me_request_fluid_output_locked := false
 var last_tick_usec := 0
 var _distance_check_timer := 0.0
 var _productivity_progress := 0.0
@@ -299,12 +302,16 @@ func _me_stock_snapshot(item_id: String) -> Dictionary:
 
 
 func install_module(module_type: String) -> bool:
-	if not module_levels.has(module_type) or int(module_levels[module_type]) >= MODULE_LIMIT:
+	if not supports_module(module_type) or not module_levels.has(module_type) or int(module_levels[module_type]) >= MODULE_LIMIT:
 		return false
 	module_levels[module_type] = int(module_levels[module_type]) + 1
 	wake()
 	notify_network_config_changed()
 	QuestManager.report_event("module_installed", module_type, 1)
+	return true
+
+
+func supports_module(_module_type: String) -> bool:
 	return true
 
 
@@ -526,7 +533,7 @@ func find_output_slot() -> int:
 ## Push every OUTPUT slot into the block on a machine's facing side. Processing
 ## machines call this from tick(); belts never pull, so the producer owns output.
 func eject_outputs_to(source_grid_pos: Vector2i, facing: int, distance: int = 1) -> void:
-	if not is_inside_tree():
+	if me_request_output_locked or not is_inside_tree():
 		return
 	var wim: Node = get_tree().get_first_node_in_group("world_interaction")
 	if wim == null or not wim.has_method("get_block_at"):
@@ -571,6 +578,12 @@ func to_save_data() -> Dictionary:
 			data[str(i)] = slots[i].to_save_data()
 	data["modules"] = module_levels.duplicate(true)
 	data["productivity_progress"] = _productivity_progress
+	# Keep an in-flight processing result inside the machine on the first tick
+	# after loading, before the ME manager has rebuilt its order claims.
+	if me_request_output_locked:
+		data["me_request_output_locked"] = true
+	if me_request_fluid_output_locked:
+		data["me_request_fluid_output_locked"] = true
 	return data
 
 func from_save_data(data: Dictionary) -> void:
@@ -581,6 +594,8 @@ func from_save_data(data: Dictionary) -> void:
 		for module_type: String in MODULE_ITEMS:
 			module_levels[module_type] = clampi(int(saved_modules.get(module_type, 0)), 0, MODULE_LIMIT)
 	_productivity_progress = maxf(float(data.get("productivity_progress", 0.0)), 0.0)
+	me_request_output_locked = bool(data.get("me_request_output_locked", false))
+	me_request_fluid_output_locked = bool(data.get("me_request_fluid_output_locked", false))
 	_clear_legacy_automation_settings()
 
 

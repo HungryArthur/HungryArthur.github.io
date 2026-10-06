@@ -9,6 +9,6 @@ block_id = "stone_block"
 display_name = "Stone Block"
 texture = ExtResource("2_tex")
 color = Color(0.55, 0.55, 0.55, 1)
-health = 3
+health = 1
 required_tool = "pickaxe"
 drop_item_id = "stone"

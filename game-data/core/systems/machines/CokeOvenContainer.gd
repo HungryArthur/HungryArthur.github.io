@@ -5,13 +5,12 @@ class_name CokeOvenContainer
 ## Без энергии и топлива — просто время. Креозот уходит по трубам
 ## (например, в котёл как жидкое топливо).
 
-const RECIPES: Dictionary = {
+const DEFAULT_RECIPES: Dictionary = {
 	"coal": {"output": "coke", "output_count": 1, "input_count": 1},
 }
-const PROCESS_TIME := 15.0
+static var PROCESS_TIME: float = GameTuning.number("machines", "coke_oven", "PROCESS_TIME", 15.0)
 const CREOSOTE_PER_COKE := 1.0
-const CREOSOTE_TANK_CAPACITY := 100.0
-
+static var CREOSOTE_TANK_CAPACITY: float = GameTuning.number("machines", "coke_oven", "CREOSOTE_TANK_CAPACITY", 100.0)
 const SLOT_INPUT := 0
 const SLOT_OUTPUT := 1
 
@@ -117,3 +116,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var RECIPES: Dictionary = GameTuning.recipe_map("coke_oven", DEFAULT_RECIPES)

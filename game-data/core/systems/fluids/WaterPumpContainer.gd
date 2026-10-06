@@ -1,14 +1,13 @@
 extends FluidMachineContainer
 class_name WaterPumpContainer
 
-const POWER_CONSUMPTION := 10.0
-const PUMP_RATE := 8.0
-const MECHANICAL_PUMP_RATE := 4.0
-const STEAM_PUMP_RATE := 16.0
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "water_pump", "POWER_CONSUMPTION", 10.0)
+static var PUMP_RATE: float = GameTuning.number("machines", "water_pump", "PUMP_RATE", 8.0)
+static var MECHANICAL_PUMP_RATE: float = GameTuning.number("machines", "water_pump", "MECHANICAL_PUMP_RATE", 4.0)
+static var STEAM_PUMP_RATE: float = GameTuning.number("machines", "water_pump", "STEAM_PUMP_RATE", 16.0)
 const STEAM_PER_WATER := 1.0 / 16.0
-const STEAM_BUFFER_CAPACITY := 30.0
-const STEAM_PUMP_OUTPUT_CAPACITY := 300.0
-
+static var STEAM_BUFFER_CAPACITY: float = GameTuning.number("machines", "water_pump", "STEAM_BUFFER_CAPACITY", 30.0)
+static var STEAM_PUMP_OUTPUT_CAPACITY: float = GameTuning.number("machines", "water_pump", "STEAM_PUMP_OUTPUT_CAPACITY", 300.0)
 var pump_rate := PUMP_RATE
 var drive_type := "electric"
 var _quest_report_timer := 0.0
@@ -65,6 +64,8 @@ func tick(delta: float) -> void:
 	processing_active = can_run
 	if not can_run:
 		return
+	if requires_power:
+		delta = consume_processing_power(minf(delta, buffer.space_for("water") / pump_rate), POWER_CONSUMPTION)
 	var produced := minf(minf(pump_rate * delta, buffer.space_for("water")), available_drive_water)
 	buffer.insert("water", produced)
 	if drive_type == "steam":
@@ -73,8 +74,6 @@ func tick(delta: float) -> void:
 		if _quest_report_timer <= 0.0:
 			_quest_report_timer = 1.0
 			QuestManager.report_event("steam_pump_online", "water", 1)
-	elif requires_power:
-		power_stored = maxf(power_stored - POWER_CONSUMPTION * delta, 0.0)
 	fluid_changed.emit()
 
 

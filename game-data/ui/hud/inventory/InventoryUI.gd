@@ -28,6 +28,14 @@ func _ready() -> void:
 	_apply_layout()
 
 	_build_player_preview()
+	get_node("Background").visibility_changed.connect(_sync_preview_visibility)
+	%HandCraftButton.pressed.connect(_open_hand_crafting)
+	%RecipeBookButton.pressed.connect(_open_recipe_book)
+	for button: Button in [%HandCraftButton, %RecipeBookButton]:
+		for state: String in ["normal", "hover", "pressed", "disabled"]:
+			var style := button.get_theme_stylebox(state).duplicate() as StyleBox
+			style.set_content_margin_all(6.0)
+			button.add_theme_stylebox_override(state, style)
 
 	if has_node("Background"):
 		get_node("Background").hide()
@@ -199,34 +207,37 @@ func _build_player_preview() -> void:
 	player_preview.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	player_preview.offset_left = -190.0
 	player_preview.offset_right = 190.0
-	player_preview.offset_top = -498.0
-	player_preview.offset_bottom = -250.0
+	player_preview.offset_top = -536.0
+	player_preview.offset_bottom = -288.0
 	add_child(player_preview)
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if GameChat.is_blocking_input():
-		return
-	var chest_ui: Node = get_tree().get_first_node_in_group("chest_ui")
-	if chest_ui and chest_ui.visible:
-		return
-	# Don't toggle while a menu has borrowed the inventory slots (embed).
-	var recipe_book: Node = get_tree().get_first_node_in_group("recipe_book_ui")
-	if recipe_book and recipe_book.visible:
-		return
-	if event is InputEventKey and event.pressed and not event.is_echo() and event.is_action("inventory"):
-		if has_node("Background"):
-			var bg = get_node("Background")
-			bg.visible = !bg.visible
-			if player_preview:
-				player_preview.visible = bg.visible
-				if bg.visible:
-					player_preview.refresh()
-			if not bg.visible:
-				AudioManager.play_sfx("ui_close", -4.0)
-				InventorySlot._hide_tooltip()
-				_return_held_item_to_inventory()
-		get_viewport().set_input_as_handled()
+## Called by the global inventory hotkey before GUI focus navigation.
+func set_inventory_open(open: bool) -> void:
+	get_node("Background").visible = open
+	if not open:
+		AudioManager.play_sfx("ui_close", -4.0)
+		InventorySlot._hide_tooltip()
+		_return_held_item_to_inventory()
+
+
+func _open_hand_crafting() -> void:
+	var menu := get_tree().get_first_node_in_group("crafting_ui")
+	if menu != null:
+		menu.open_hand_crafting()
+
+
+func _sync_preview_visibility() -> void:
+	if is_instance_valid(player_preview):
+		player_preview.visible = get_node("Background").visible
+		if player_preview.visible:
+			player_preview.refresh()
+
+
+func _open_recipe_book() -> void:
+	var book := get_tree().get_first_node_in_group("recipe_book_ui")
+	if book != null:
+		book.open()
 
 
 func _return_held_item_to_inventory() -> void:

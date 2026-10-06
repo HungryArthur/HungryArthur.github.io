@@ -78,6 +78,12 @@ func _input(event: InputEvent) -> void:
 
 	if not event is InputEventKey or not event.pressed:
 		return
+	# Tab belongs to command completion, including auto-repeat and an empty list.
+	if event.keycode == KEY_TAB:
+		if not event.is_echo() and not _suggestions.is_empty():
+			_apply_selected_suggestion()
+		get_viewport().set_input_as_handled()
+		return
 	if event.is_echo() and event.keycode != KEY_UP and event.keycode != KEY_DOWN:
 		return
 
@@ -88,11 +94,7 @@ func _input(event: InputEvent) -> void:
 
 	if _suggestions.is_empty():
 		return
-
-	if event.keycode == KEY_TAB:
-		_apply_selected_suggestion()
-		get_viewport().set_input_as_handled()
-	elif event.keycode == KEY_UP:
+	if event.keycode == KEY_UP:
 		_cycle_suggestion(-1)
 		get_viewport().set_input_as_handled()
 	elif event.keycode == KEY_DOWN:

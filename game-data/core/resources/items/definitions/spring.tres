@@ -13,3 +13,6 @@ description = "item.spring.desc"
 rarity = "common"
 item_color = Color(0.7, 0.72, 0.75, 1)
 max_stack = 99
+
+availability = "legacy"
+availability_note = "Superseded generic spring; production uses iron_spring."

@@ -46,6 +46,7 @@ const serverSource = sourceFiles
   .join('\n');
 const referencedPaths = [
   'assets',
+  'tools/pixel_art/data/texture_art_manifest.json',
   'docs/generated/texture_art_manifest.json',
   ...[...serverSource.matchAll(/resolve\(projectRoot, '([^']+)'/g)]
     .map((match) => match[1].replaceAll('/', sep)),

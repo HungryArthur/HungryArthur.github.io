@@ -140,6 +140,9 @@ func _ready() -> void:
 # ─────────────────────────────────────────────
 
 func host(port: int = DEFAULT_PORT, max_players: int = MAX_PLAYERS, server_name: String = "", password: String = "") -> void:
+	if SaveManager.current_profile != null and SaveManager.current_profile.hardcore_dead:
+		join_failed.emit(tr("This hardcore character has died. Choose another character."))
+		return
 	_cleanup_peer()
 	_host_password = password.strip_edges()
 	_peer = _create_host_peer(port, max_players)
@@ -159,6 +162,9 @@ func host(port: int = DEFAULT_PORT, max_players: int = MAX_PLAYERS, server_name:
 
 
 func join(ip: String, port: int = DEFAULT_PORT, password: String = "") -> void:
+	if SaveManager.current_profile != null and SaveManager.current_profile.hardcore_dead:
+		join_failed.emit(tr("This hardcore character has died. Choose another character."))
+		return
 	_cleanup_peer()
 	_last_join = {"ip": ip, "port": port, "password": password}
 	_client_password = password
@@ -211,11 +217,11 @@ func disconnect_net() -> void:
 
 
 func is_server() -> bool:
-	return multiplayer.is_server()
+	return is_active() and multiplayer.is_server()
 
 
 func my_peer_id() -> int:
-	return multiplayer.get_unique_id()
+	return multiplayer.get_unique_id() if multiplayer.multiplayer_peer != null else 0
 
 
 ## Сессия реально активна (хост поднят или клиент подключён).
@@ -604,6 +610,7 @@ func _send_world_info(peer_id: int) -> void:
 		"resource_richness": world.resource_richness,
 		"vegetation_density": world.vegetation_density,
 		"resource_distribution": world.resource_distribution,
+		"generation_version": world.generation_version,
 		"placed_blocks": world.saved_placed_blocks,
 		"chunk_changes": world.saved_chunk_changes,
 		"minutes": TimeManager.minutes,
@@ -636,6 +643,7 @@ func _rpc_world_info(info: Dictionary) -> void:
 	var world := WorldData.new()
 	world.world_name = str(info.get("name", "Host World"))
 	world.world_seed = str(info.get("seed", "0"))
+	world.generation_version = int(info.get("generation_version", 1))
 	world.difficulty = str(info.get("difficulty", "Normal"))
 	world.resource_richness = str(info.get("resource_richness", "Normal"))
 	world.vegetation_density = str(info.get("vegetation_density", "Normal"))
@@ -1054,3 +1062,15 @@ func send_chat(text: String) -> void:
 @rpc("any_peer", "call_remote", "reliable")
 func _rpc_chat(text: String) -> void:
 	chat_received.emit(multiplayer.get_remote_sender_id(), text)
+
+
+## Sapling growth deadlines use the synchronized world clock, like crops.
+func broadcast_sapling_planted(tile: Vector2i, mature_at: float) -> void:
+	if is_active():
+		_rpc_sapling_planted.rpc(tile,mature_at)
+
+@rpc("any_peer", "call_remote", "reliable")
+func _rpc_sapling_planted(tile: Vector2i, mature_at: float) -> void:
+	var world_node:=get_tree().get_first_node_in_group("world")
+	if world_node!=null and is_finite(mature_at):
+		world_node.apply_remote_sapling(tile,clampf(mature_at,TimeManager.world_age_minutes,TimeManager.world_age_minutes+300.0))

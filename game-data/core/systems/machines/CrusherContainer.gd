@@ -1,7 +1,7 @@
 extends PoweredMachineContainer
 class_name CrusherContainer
 
-const CRUSHER_RECIPES: Dictionary = {
+const DEFAULT_CRUSHER_RECIPES: Dictionary = {
 	"iron_ore":     {"output": "iron_dust",     "output_count": 2, "input_count": 1},
 	"copper_ore":   {"output": "copper_dust",   "output_count": 2, "input_count": 1},
 	"tin_ore":      {"output": "tin_dust",      "output_count": 2, "input_count": 1},
@@ -17,8 +17,8 @@ const CRUSHER_RECIPES: Dictionary = {
 	"gravel":      {"output": "sand",               "output_count": 1, "input_count": 1},
 	"silver_ore":  {"output": "silver_dust",        "output_count": 2, "input_count": 1},
 }
-const POWER_CONSUMPTION := 15.0  # EU/second
-const PROCESS_TIME       := 4.0  # seconds
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "crusher", "POWER_CONSUMPTION", 15.0) # EU/second
+static var PROCESS_TIME: float = GameTuning.number("machines", "crusher", "PROCESS_TIME", 4.0) # seconds
 
 const SLOT_INPUT  := 0
 const SLOT_OUTPUT := 1
@@ -116,3 +116,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var CRUSHER_RECIPES: Dictionary = GameTuning.recipe_map("crusher", DEFAULT_CRUSHER_RECIPES)

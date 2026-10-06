@@ -13,19 +13,17 @@ const FUEL_BURN_TIME: Dictionary = {
 	"coke_dust": 16.0,
 	"compressed_coal": 64.0,
 }
-const STEAM_PER_SECOND := 4.0   # л/с пара; вода расходуется 1:1
-const WATER_TANK_CAPACITY := 100.0
-const STEAM_TANK_CAPACITY := 200.0
-const HIGH_PRESSURE_STEAM_PER_SECOND := 12.0
-const HIGH_PRESSURE_FUEL_BURN_RATE := 2.0
-const HIGH_PRESSURE_WATER_TANK_CAPACITY := 300.0
-const HIGH_PRESSURE_STEAM_TANK_CAPACITY := 600.0
-const HIGH_PRESSURE_CREOSOTE_TANK_CAPACITY := 200.0
-## Жидкое топливо: креозот из коксовой печи, 1 л = 2 с горения.
+static var STEAM_PER_SECOND: float = GameTuning.number("machines", "steam_boiler", "STEAM_PER_SECOND", 4.0) # л/с пара; вода расходуется 1:1
+static var WATER_TANK_CAPACITY: float = GameTuning.number("machines", "steam_boiler", "WATER_TANK_CAPACITY", 100.0)
+static var STEAM_TANK_CAPACITY: float = GameTuning.number("machines", "steam_boiler", "STEAM_TANK_CAPACITY", 200.0)
+static var HIGH_PRESSURE_STEAM_PER_SECOND: float = GameTuning.number("machines", "steam_boiler", "HIGH_PRESSURE_STEAM_PER_SECOND", 12.0)
+static var HIGH_PRESSURE_FUEL_BURN_RATE: float = GameTuning.number("machines", "steam_boiler", "HIGH_PRESSURE_FUEL_BURN_RATE", 2.0)
+static var HIGH_PRESSURE_WATER_TANK_CAPACITY: float = GameTuning.number("machines", "steam_boiler", "HIGH_PRESSURE_WATER_TANK_CAPACITY", 300.0)
+static var HIGH_PRESSURE_STEAM_TANK_CAPACITY: float = GameTuning.number("machines", "steam_boiler", "HIGH_PRESSURE_STEAM_TANK_CAPACITY", 600.0)
+static var HIGH_PRESSURE_CREOSOTE_TANK_CAPACITY: float = GameTuning.number("machines", "steam_boiler", "HIGH_PRESSURE_CREOSOTE_TANK_CAPACITY", 200.0) ## Жидкое топливо: креозот из коксовой печи, 1 л = 2 с горения.
 ## Твёрдое топливо в слоте имеет приоритет; креозот — резерв.
 const CREOSOTE_BURN_PER_LITER := 2.0
-const CREOSOTE_TANK_CAPACITY := 100.0
-
+static var CREOSOTE_TANK_CAPACITY: float = GameTuning.number("machines", "steam_boiler", "CREOSOTE_TANK_CAPACITY", 100.0)
 const SLOT_FUEL := 0
 const TANK_WATER := 0
 const TANK_CREOSOTE := 1

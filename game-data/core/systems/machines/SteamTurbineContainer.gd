@@ -9,11 +9,10 @@ class_name SteamTurbineContainer
 ## бак с паром вплотную) во внутренний буфер — как ME-интерфейс работает
 ## с соседней машиной.
 
-const EU_PER_SECOND := 40.0
-const EU_PER_LITER := 10.0            # 4 л/с пара при полной нагрузке
-const INTAKE_RATE := 8.0              # л/с всасывания из соседей
-const BUFFER_CAPACITY := 100.0
-
+static var EU_PER_SECOND: float = GameTuning.number("machines", "steam_turbine", "EU_PER_SECOND", 40.0)
+static var EU_PER_LITER: float = GameTuning.number("machines", "steam_turbine", "EU_PER_LITER", 10.0) # 4 л/с пара при полной нагрузке
+static var INTAKE_RATE: float = GameTuning.number("machines", "steam_turbine", "INTAKE_RATE", 8.0) # л/с всасывания из соседей
+static var BUFFER_CAPACITY: float = GameTuning.number("machines", "steam_turbine", "BUFFER_CAPACITY", 100.0)
 const DIRS: Array[Vector2i] = [
 	Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1),
 ]

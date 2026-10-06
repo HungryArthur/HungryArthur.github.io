@@ -1,0 +1,2453 @@
+{
+  "version": 1,
+  "method": "locally authored pixel raster; no API",
+  "tile_size": [
+    32,
+    32
+  ],
+  "direction_mode": "right-facing, mirrored horizontally in runtime",
+  "assets": [
+    {
+      "id": "sand_scarab",
+      "name": "Sand Scarab",
+      "display_name": "Песчаный скарабей",
+      "biome": "DesertBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "sand_scarab.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "cactus_stalker",
+      "name": "Cactus Stalker",
+      "display_name": "Кактусовый охотник",
+      "biome": "DesertBiome",
+      "kind": "large",
+      "frame_size": [
+        48,
+        64
+      ],
+      "anchor": [
+        24,
+        56
+      ],
+      "file": "cactus_stalker.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "dust_wisp",
+      "name": "Dust Wisp",
+      "display_name": "Пылевой огонёк",
+      "biome": "DesertBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "dust_wisp.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "frost_wolf",
+      "name": "Frost Wolf",
+      "display_name": "Морозный волк",
+      "biome": "SnowBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "frost_wolf.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "ice_wisp",
+      "name": "Ice Wisp",
+      "display_name": "Ледяной огонёк",
+      "biome": "SnowBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "ice_wisp.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "snow_golem",
+      "name": "Snow Golem",
+      "display_name": "Снежный голем",
+      "biome": "SnowBiome",
+      "kind": "large",
+      "frame_size": [
+        48,
+        64
+      ],
+      "anchor": [
+        24,
+        56
+      ],
+      "file": "snow_golem.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "bark_beetle",
+      "name": "Bark Beetle",
+      "display_name": "Короед",
+      "biome": "SwampBiome",
+      "kind": "large",
+      "frame_size": [
+        48,
+        64
+      ],
+      "anchor": [
+        24,
+        56
+      ],
+      "file": "bark_beetle.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "mire_leech",
+      "name": "Mire Leech",
+      "display_name": "Болотная пиявка",
+      "biome": "SwampBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "mire_leech.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "bog_slime",
+      "name": "Bog Slime",
+      "display_name": "Топкая слизь",
+      "biome": "SwampBiome",
+      "kind": "large",
+      "frame_size": [
+        48,
+        64
+      ],
+      "anchor": [
+        24,
+        56
+      ],
+      "file": "bog_slime.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "mosquito_swarm",
+      "name": "Mosquito Swarm",
+      "display_name": "Рой москитов",
+      "biome": "SwampBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "mosquito_swarm.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "woodling",
+      "name": "Woodling",
+      "display_name": "Древесник",
+      "biome": "JungleBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "woodling.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "jungle_panther",
+      "name": "Jungle Panther",
+      "display_name": "Пантера джунглей",
+      "biome": "JungleBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "jungle_panther.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "vine_lurker",
+      "name": "Vine Lurker",
+      "display_name": "Лиановый ловчий",
+      "biome": "JungleBiome",
+      "kind": "large",
+      "frame_size": [
+        48,
+        64
+      ],
+      "anchor": [
+        24,
+        56
+      ],
+      "file": "vine_lurker.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "sporeling",
+      "name": "Sporeling",
+      "display_name": "Споровик",
+      "biome": "JungleBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "sporeling.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "ember_beetle",
+      "name": "Ember Beetle",
+      "display_name": "Угольный жук",
+      "biome": "SunnyCanyonBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "ember_beetle.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "ash_hound",
+      "name": "Ash Hound",
+      "display_name": "Пепельная гончая",
+      "biome": "SunnyCanyonBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "ash_hound.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "flare_wisp",
+      "name": "Flare Wisp",
+      "display_name": "Пламенный огонёк",
+      "biome": "SunnyCanyonBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "flare_wisp.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "ice_stalker",
+      "name": "Ice Stalker",
+      "display_name": "Ледяной охотник",
+      "biome": "IcyAbyssBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "ice_stalker.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "shardling",
+      "name": "Shardling",
+      "display_name": "Осколочник",
+      "biome": "IcyAbyssBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "shardling.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "frost_golem",
+      "name": "Frost Golem",
+      "display_name": "Морозный голем",
+      "biome": "IcyAbyssBiome",
+      "kind": "large",
+      "frame_size": [
+        48,
+        64
+      ],
+      "anchor": [
+        24,
+        56
+      ],
+      "file": "frost_golem.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "toxic_slime",
+      "name": "Toxic Slime",
+      "display_name": "Ядовитая слизь",
+      "biome": "RottingBogBiome",
+      "kind": "large",
+      "frame_size": [
+        48,
+        64
+      ],
+      "anchor": [
+        24,
+        56
+      ],
+      "file": "toxic_slime.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "rot_hound",
+      "name": "Rot Hound",
+      "display_name": "Гончая гнили",
+      "biome": "RottingBogBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "rot_hound.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "bog_witch",
+      "name": "Bog Witch",
+      "display_name": "Болотная ведьма",
+      "biome": "RottingBogBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "bog_witch.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "forest_wolf",
+      "name": "Forest Wolf",
+      "display_name": "Лесной волк",
+      "biome": "PrimevalThicketBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "forest_wolf.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "razor_raptor",
+      "name": "Razor Raptor",
+      "display_name": "Бритвенный раптор",
+      "biome": "PrimevalThicketBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "razor_raptor.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "ancient_vine",
+      "name": "Ancient Vine",
+      "display_name": "Древняя лоза",
+      "biome": "PrimevalThicketBiome",
+      "kind": "large",
+      "frame_size": [
+        48,
+        64
+      ],
+      "anchor": [
+        24,
+        56
+      ],
+      "file": "ancient_vine.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "primal_beetle",
+      "name": "Primal Beetle",
+      "display_name": "Первобытный жук",
+      "biome": "PrimevalThicketBiome",
+      "kind": "regular",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "primal_beetle.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "ent",
+      "name": "Энт",
+      "display_name": "Энт",
+      "biome": "ForestBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "ent.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "sweep": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "roots": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "saplings": {
+          "row": 11,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "dune_colossus",
+      "name": "Песчаный колосс",
+      "display_name": "Песчаный колосс",
+      "biome": "DesertBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "dune_colossus.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "special": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "phase_two_special": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "frost_warden",
+      "name": "Ледяной страж",
+      "display_name": "Ледяной страж",
+      "biome": "SnowBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "frost_warden.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "special": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "phase_two_special": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "mire_hydra",
+      "name": "Болотная гидра",
+      "display_name": "Болотная гидра",
+      "biome": "SwampBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "mire_hydra.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "special": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "phase_two_special": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "thorn_matriarch",
+      "name": "Шипастая матриархиня",
+      "display_name": "Шипастая матриархиня",
+      "biome": "JungleBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "thorn_matriarch.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "special": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "phase_two_special": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "solar_tyrant",
+      "name": "Солнечный тиран",
+      "display_name": "Солнечный тиран",
+      "biome": "SunnyCanyonBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "solar_tyrant.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "special": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "phase_two_special": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "abyss_leviathan",
+      "name": "Левиафан бездны",
+      "display_name": "Левиафан бездны",
+      "biome": "IcyAbyssBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "abyss_leviathan.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "special": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "phase_two_special": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "rot_king",
+      "name": "Король гнили",
+      "display_name": "Король гнили",
+      "biome": "RottingBogBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "rot_king.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "special": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "phase_two_special": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "primal_guardian",
+      "name": "Первобытный страж",
+      "display_name": "Первобытный страж",
+      "biome": "PrimevalThicketBiome",
+      "kind": "boss",
+      "frame_size": [
+        96,
+        128
+      ],
+      "anchor": [
+        48,
+        113
+      ],
+      "file": "primal_guardian.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "slam": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "lunge": {
+          "row": 4,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 5,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 6,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 7,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        },
+        "enrage": {
+          "row": 8,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "special": {
+          "row": 9,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "phase_two_special": {
+          "row": 10,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "ent_sapling",
+      "name": "Росток Энта",
+      "display_name": "Росток Энта",
+      "biome": "ForestBiome",
+      "kind": "summon",
+      "frame_size": [
+        32,
+        32
+      ],
+      "anchor": [
+        16,
+        27
+      ],
+      "file": "ent_sapling.png",
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 4,
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "row": 1,
+          "frames": 6,
+          "fps": 10,
+          "loop": true
+        },
+        "windup": {
+          "row": 2,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "attack": {
+          "row": 3,
+          "frames": 6,
+          "fps": 8,
+          "loop": false
+        },
+        "recover": {
+          "row": 4,
+          "frames": 4,
+          "fps": 8,
+          "loop": false
+        },
+        "hurt": {
+          "row": 5,
+          "frames": 3,
+          "fps": 18,
+          "loop": false
+        },
+        "death": {
+          "row": 6,
+          "frames": 7,
+          "fps": 10,
+          "loop": false
+        }
+      }
+    }
+  ]
+}

@@ -240,6 +240,14 @@ func _validated_machine_config(machine: MachineContainer, requested: Dictionary)
 		var recipe_id := str(requested.get("selected_recipe_id", validated.get("selected_recipe_id", "")))
 		if SteamAssemblerContainer.ASSEMBLY_RECIPES.has(recipe_id):
 			validated["selected_recipe_id"] = recipe_id
+	if machine is MixerContainer and not machine.me_request_output_locked:
+		var selection: Variant = requested.get("mixer_recipe", validated.get("mixer_recipe", {}))
+		if selection is Dictionary:
+			var valid := (selection as Dictionary).is_empty()
+			for recipe: Dictionary in MixerContainer.RECIPES:
+				valid = valid or MixerContainer._same_recipe(recipe, selection as Dictionary)
+			if valid:
+				validated["mixer_recipe"] = (selection as Dictionary).duplicate(true)
 	return validated
 
 

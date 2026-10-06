@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/resources/items/ItemData.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/exploration/field_shelter.svg" id="2"]
+[resource]
+script = ExtResource("1")
+texture = ExtResource("2")
+id = "field_shelter"
+name = "Походный навес"
+description = "Защищает от жары и холода в радиусе трёх клеток."
+max_stack = 1
+block_id = "field_shelter"

@@ -11,3 +11,6 @@ name = "item.me_storage_part_64k.name"
 description = "item.me_storage_part_64k.desc"
 item_color = Color(0.27, 0.78, 0.82, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Unused intermediate prototype; ME cells use direct ingredients and the previous cell tier."

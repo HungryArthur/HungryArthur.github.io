@@ -3,14 +3,14 @@ class_name SteamAssemblerContainer
 
 const INPUT_SLOT_COUNT := 4
 const ASSEMBLY_OUTPUT_SLOT := INPUT_SLOT_COUNT
-const PROCESS_TIME := 5.0
-const STEAM_PER_SECOND := 1.5
+static var PROCESS_TIME: float = GameTuning.number("machines", "steam_assembler", "PROCESS_TIME", 5.0)
+static var STEAM_PER_SECOND: float = GameTuning.number("machines", "steam_assembler", "STEAM_PER_SECOND", 1.5)
 const INGREDIENT_REQUEST_BATCHES := 4
 const RECIPE_DISTRIBUTION_SCAN_INTERVAL_MSEC := 500
 const RECIPE_DISTRIBUTION_CLAIM_TIMEOUT_MSEC := 1200
 static var _recipe_distribution_claims: Dictionary = {}
 
-const RECIPE_ORDER := [
+const DEFAULT_RECIPE_ORDER := [
 	"bronze_rod",
 	"bronze_ring",
 	"bronze_bolt",
@@ -35,7 +35,7 @@ const RECIPE_ORDER := [
 	"steam_science_pack",
 ]
 
-const ASSEMBLY_RECIPES := {
+const DEFAULT_ASSEMBLY_RECIPES := {
 	"bronze_rod": {
 		"inputs": {"bronze_ingot": 1},
 		"output_count": 2,
@@ -598,3 +598,8 @@ static func normalized_recipes() -> Array[Dictionary]:
 			"output_count": int(recipe.get("output_count", 1)),
 		})
 	return result
+
+
+static var ASSEMBLY_RECIPES: Dictionary = GameTuning.recipe_map("steam_assembler", DEFAULT_ASSEMBLY_RECIPES)
+
+static var RECIPE_ORDER: PackedStringArray = GameTuning.recipe_order("steam_assembler", Array(DEFAULT_RECIPE_ORDER), DEFAULT_ASSEMBLY_RECIPES)

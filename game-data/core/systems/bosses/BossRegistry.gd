@@ -4,7 +4,7 @@ class_name BossRegistry
 
 ## Static data for the biome bosses (roadmap step 7). Killing a biome's boss drops
 ## the page that unlocks the NEXT biome (see
-## docs/normal_world_design.md §3). Positions derive from BiomeGenerator's ring radii,
+## docs/design/normal_world_design.md §3). Positions derive from BiomeGenerator's ring radii,
 ## like [[project_npcs]] (NpcRegistry) — the boss stands well inside its biome band on
 ## a clear axis (away from the Forest NPC at -60° and the obelisks).
 ##
@@ -12,7 +12,7 @@ class_name BossRegistry
 ## stubs to be filled as their art/design lands.
 
 # angle (rad, y points down) + radius (px) → world tile, per boss.
-const _ENTRIES := {
+const DEFAULT_ENTRIES := {
 	"ent": {
 		"biome": "ForestBiome",
 		"name": "Энт",
@@ -99,6 +99,9 @@ const _ENTRIES := {
 		"phase_two_special": {"type": "dash", "range": 450.0, "hit_radius": 60.0, "damage_mult": 1.4, "telegraph": 0.46, "duration": 0.55, "recover": 0.7, "cooldown": 6.8, "speed": 590.0, "fx": "primal_pounce", "fx_radius": 106.0},
 	},
 }
+
+
+static var _ENTRIES: Dictionary = GameTuning.collection("bosses", DEFAULT_ENTRIES)
 
 
 static func has_boss(id: String) -> bool:

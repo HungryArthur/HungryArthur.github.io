@@ -4,7 +4,7 @@ class_name CentrifugeContainer
 ## Центрифуга работает напрямую с рудой и разделяет её на две обычные пыли
 ## основного металла плюс одну обычную побочную пыль.
 
-const RECIPES: Dictionary = {
+const DEFAULT_RECIPES: Dictionary = {
 	"iron_ore":     {"output": "iron_dust",     "byproduct": "tin_dust",      "output_count": 2},
 	"copper_ore":   {"output": "copper_dust",   "byproduct": "nickel_dust",   "output_count": 2},
 	"tin_ore":      {"output": "tin_dust",      "byproduct": "copper_dust",   "output_count": 2},
@@ -14,9 +14,8 @@ const RECIPES: Dictionary = {
 	"mythril_ore":  {"output": "mythril_dust",  "byproduct": "platinum_dust", "output_count": 2},
 }
 const BYPRODUCT_COUNT := 1
-const POWER_CONSUMPTION := 30.0
-const PROCESS_TIME := 5.0
-
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "centrifuge", "POWER_CONSUMPTION", 30.0)
+static var PROCESS_TIME: float = GameTuning.number("machines", "centrifuge", "PROCESS_TIME", 5.0)
 const SLOT_INPUT := 0
 const SLOT_OUTPUT := 1
 const SLOT_BYPRODUCT := 2
@@ -103,3 +102,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var RECIPES: Dictionary = GameTuning.recipe_map("centrifuge", DEFAULT_RECIPES)

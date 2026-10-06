@@ -10,7 +10,7 @@ class_name ConveyorContainer
 ## from the electrical network; an unpowered belt stops and freezes its animation.
 
 ## Default seconds to move an item across the tile (overridden per tier).
-const CROSS_TIME := 0.8
+static var CROSS_TIME: float = GameTuning.number("machines", "conveyor", "CROSS_TIME", 0.8)
 const INGREDIENT_DEMAND_MAX_NODES := 128
 
 var source_grid_pos: Vector2i = Vector2i.ZERO

@@ -1,0 +1,12 @@
+{
+  "id": "sand_scarab",
+  "version": 2,
+  "width": 32,
+  "height": 32,
+  "frames": 1,
+  "alpha": true,
+  "method": "manually authored pixel clusters; local Node.js raster",
+  "runtime_binding": false,
+  "animation": false,
+  "source": "tools/pixel_art/draw-scarab-v2.mjs"
+}

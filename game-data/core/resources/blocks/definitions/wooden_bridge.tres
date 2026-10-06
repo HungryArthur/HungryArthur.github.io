@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BlockData" load_steps=3 format=3]
+[ext_resource type="Script" path="res://core/resources/blocks/BlockData.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/textures/items/exploration/wooden_bridge.svg" id="2"]
+[resource]
+script = ExtResource("1")
+texture = ExtResource("2")
+block_id = "wooden_bridge"
+display_name = "Деревянный мост"
+drop_item_id = "wooden_bridge"
+health = 5
+required_tool = "axe"

@@ -1,8 +1,8 @@
 extends FluidMachineContainer
 class_name DistillationColumnContainer
 
-const POWER_CONSUMPTION := 60.0
-const PROCESS_TIME := 5.0
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "distillation_column", "POWER_CONSUMPTION", 60.0)
+static var PROCESS_TIME: float = GameTuning.number("machines", "distillation_column", "PROCESS_TIME", 5.0)
 const CRUDE_PER_BATCH := 10.0
 const PRODUCTS: Dictionary = {
 	"refinery_gas": 1.0,
@@ -27,19 +27,19 @@ func _init() -> void:
 func tick(delta: float) -> void:
 	var input: FluidTank = input_tanks[0]
 	var can_run := (
-		power_stored > 0.0
-		and input.fluid_id == "crude_oil"
+		input.fluid_id == "crude_oil"
 		and input.amount >= CRUDE_PER_BATCH
 		and _outputs_have_space()
 	)
-	processing_active = can_run
+	processing_active = can_run and power_stored > 0.0
 	if not can_run:
 		process_timer = 0.0
 		return
-	power_stored = maxf(power_stored - POWER_CONSUMPTION * delta, 0.0)
-	process_timer += delta
+	if not processing_active:
+		return
+	process_timer += consume_processing_power(delta, POWER_CONSUMPTION)
 	if process_timer >= PROCESS_TIME:
-		process_timer = 0.0
+		process_timer -= PROCESS_TIME
 		input.extract(CRUDE_PER_BATCH)
 		var index := 0
 		for fluid_id: String in PRODUCTS:

@@ -4,7 +4,7 @@ Make room in your inventory for all rewards.,Make room in your inventory for all
 Close,Close,Закрыть
 Search…,Search…,Поиск…
 ME PATTERN TERMINAL,ME PATTERN TERMINAL,ME-ТЕРМИНАЛ ШАБЛОНОВ
-"Set the desired network stock. Connected Molecular Assemblers will craft missing items automatically.","Set the desired network stock. Connected Molecular Assemblers will craft missing items automatically.","Задайте желаемый запас в сети. Подключённые молекулярные сборщики автоматически создадут недостающие предметы."
+Set the desired network stock. Connected Molecular Assemblers will craft missing items automatically.,Set the desired network stock. Connected Molecular Assemblers will craft missing items automatically.,Задайте желаемый запас в сети. Подключённые молекулярные сборщики автоматически создадут недостающие предметы.
 Configured autocrafting,Configured autocrafting,Настроенный автокрафт
 Available recipes,Available recipes,Доступные рецепты
 No autocrafting patterns configured,No autocrafting patterns configured,Шаблоны автокрафта не настроены
@@ -22,10 +22,10 @@ No assembler,No assembler,Нет сборщика
 Offline,Offline,Оффлайн
 Paused,Paused,Приостановлено
 Waiting,Waiting,Ожидание
-"POWER GRID [G]  •  Networks: %d  •  Generation: %.0f EU  •  Demand: %.0f EU  •  Deficit: %.0f EU  •  Cable limit: %.0f EU/s","POWER GRID [G]  •  Networks: %d  •  Generation: %.0f EU  •  Demand: %.0f EU  •  Deficit: %.0f EU  •  Cable limit: %.0f EU/s","ЭНЕРГОСЕТЬ [G]  •  Сетей: %d  •  Генерация: %.0f EU  •  Спрос: %.0f EU  •  Дефицит: %.0f EU  •  Лимит проводов: %.0f EU/с"
+POWER GRID [G]  •  Networks: %d  •  Generation: %.0f EU  •  Demand: %.0f EU  •  Deficit: %.0f EU  •  Cable limit: %.0f EU/s,POWER GRID [G]  •  Networks: %d  •  Generation: %.0f EU  •  Demand: %.0f EU  •  Deficit: %.0f EU  •  Cable limit: %.0f EU/s,ЭНЕРГОСЕТЬ [G]  •  Сетей: %d  •  Генерация: %.0f EU  •  Спрос: %.0f EU  •  Дефицит: %.0f EU  •  Лимит проводов: %.0f EU/с
 Campfire,Campfire,Костёр
 Cooking chain,Cooking chain,Цепочка блюд
-"Put ingredients into any of the six slots. Their order does not matter.","Put ingredients into any of the six slots. Their order does not matter.","Положите ингредиенты в любые из шести слотов. Порядок не важен."
+Put ingredients into any of the six slots. Their order does not matter.,Put ingredients into any of the six slots. Their order does not matter.,Положите ингредиенты в любые из шести слотов. Порядок не важен.
 Ingredient %d,Ingredient %d,Ингредиент %d
 Result,Result,Результат
 Cook,Cook,Приготовить
@@ -329,10 +329,167 @@ Abundant arena,Abundant arena,Изобильная арена
 "Build a bronze workshop, generate steam, press precision parts, and produce coke.","Build a bronze workshop, generate steam, press precision parts, and produce coke.",Постройте бронзовую мастерскую вырабатывайте пар прессуйте точные детали и производите кокс.
 "Prove the steam line works before introducing generators, rubber, and low-voltage circuits.","Prove the steam line works before introducing generators, rubber, and low-voltage circuits.",Подтвердите работу паровой линии прежде чем переходить к генераторам резине и низковольтным схемам.
 "Mass-produce electrical parts to unlock routing, compression, and fluid mixing.","Mass-produce electrical parts to unlock routing, compression, and fluid mixing.",Наладьте массовый выпуск электрических деталей для открытия маршрутизации прессования и смешивания жидкостей.
-"Automate components and dense materials before building multi-step ore processing.","Automate components and dense materials before building multi-step ore processing.",Автоматизируйте компоненты и плотные материалы перед созданием многоступенчатой переработки руды.
+Automate components and dense materials before building multi-step ore processing.,Automate components and dense materials before building multi-step ore processing.,Автоматизируйте компоненты и плотные материалы перед созданием многоступенчатой переработки руды.
 "Use crushing, washing, separation, or centrifuging to turn ore directly into dust before chemistry.","Use crushing, washing, separation, or centrifuging to turn ore directly into dust before chemistry.",Используйте дробление промывку сепарацию или центрифугирование чтобы напрямую превращать руду в пыль перед химической эрой.
-"Convert oil and coke products into advanced materials for renewable production.","Convert oil and coke products into advanced materials for renewable production.",Перерабатывайте нефтепродукты и кокс в продвинутые материалы для возобновляемого производства.
+Convert oil and coke products into advanced materials for renewable production.,Convert oil and coke products into advanced materials for renewable production.,Перерабатывайте нефтепродукты и кокс в продвинутые материалы для возобновляемого производства.
 "Combine agricultural output, productivity modules, and electronics into sustainable industry.","Combine agricultural output, productivity modules, and electronics into sustainable industry.",Объедините сельскохозяйственную продукцию модули продуктивности и электронику в устойчивую промышленность.
-"Scale solar generation and energy storage before attempting molecular processing.","Scale solar generation and energy storage before attempting molecular processing.",Масштабируйте солнечную генерацию и накопление энергии перед молекулярной переработкой.
-"Feed dense matter and high-tier electronics into a stable late-game production line.","Feed dense matter and high-tier electronics into a stable late-game production line.",Подавайте плотную материю и электронику высокого уровня в стабильную производственную линию поздней игры.
-"Complete the Overworld factory chain to unlock quantum storage and logistics.","Complete the Overworld factory chain to unlock quantum storage and logistics.",Завершите фабричную цепочку основного мира чтобы открыть квантовые хранилища и логистику.
+Scale solar generation and energy storage before attempting molecular processing.,Scale solar generation and energy storage before attempting molecular processing.,Масштабируйте солнечную генерацию и накопление энергии перед молекулярной переработкой.
+Feed dense matter and high-tier electronics into a stable late-game production line.,Feed dense matter and high-tier electronics into a stable late-game production line.,Подавайте плотную материю и электронику высокого уровня в стабильную производственную линию поздней игры.
+Complete the Overworld factory chain to unlock quantum storage and logistics.,Complete the Overworld factory chain to unlock quantum storage and logistics.,Завершите фабричную цепочку основного мира чтобы открыть квантовые хранилища и логистику.
+Hand Crafting,Hand Crafting,Ручной крафт
+Workbench,Workbench,Верстак
+Cooking,Cooking,Готовка
+Hint History,Hint History,История подсказок
+First steps,First steps,Первые шаги
+Gather resources,Gather resources,Соберите ресурсы
+Your first craft,Your first craft,Первый крафт
+Build a workbench,Build a workbench,Постройте верстак
+Find a recipe,Find a recipe,Поиск рецептов
+What next?,What next?,Что дальше?
+Next hint,Next hint,Следующая подсказка
+Got it,Got it,Понятно
+Skip tutorial,Skip tutorial,Пропустить обучение
+Restart tutorial,Restart tutorial,Повторить обучение
+No hints viewed yet. Start the tutorial to see the first steps.,No hints viewed yet. Start the tutorial to see the first steps.,"Вы ещё не смотрели подсказки. Нажмите «Повторить обучение», затем вернитесь в игру."
+tutorial.movement,"Move with {up}, {left}, {down}, {right}. Context hints appear when you try something new. Disable them in Settings.","Двигайтесь клавишами {up}, {left}, {down}, {right}. Подсказки появляются при новых действиях. Их можно выключить в настройках."
+tutorial.gathering,"Hold the left mouse button on a nearby resource to gather it. Start with wood, stones, branches and plant fiber for your first tools.","Удерживайте левую кнопку мыши на ресурсе рядом с персонажем, чтобы добыть его. Собирайте древесину, камни, ветки и растительное волокно для первых инструментов."
+tutorial.crafting,Open inventory ({inventory}) → Hand Crafting. Select a recipe and press Craft. Make planks and primitive tools here without a workbench. Ingredient counts show what is missing.,"Откройте инвентарь ({inventory}) → «Ручной крафт». Выберите рецепт и нажмите «Создать». Здесь можно сделать доски и примитивные инструменты без верстака. Счётчики ингредиентов покажут, чего не хватает."
+tutorial.workbench,"Craft a workbench from 8 planks and 4 stones. Put it in the hotbar, select its slot and right-click a free tile to place it. Stand nearby and press {interact} for more recipes.","Сделайте верстак из 8 досок и 4 камней. Перенесите его на панель быстрого доступа, выберите слот и нажмите ПКМ на свободной клетке. Подойдите к верстаку и нажмите {interact}, чтобы открыть остальные рецепты."
+tutorial.recipes,Recipe Book ({recipes}) shows ingredients and the machine needed for each recipe. The Hand Crafting button opens starter crafting; advanced items are made at their stations.,Книга рецептов ({recipes}) показывает ингредиенты и нужный станок. Кнопка «Ручной крафт» открывает стартовые рецепты; сложные предметы создаются на соответствующих станках.
+tutorial.quests,"Quest Book ({quests}) contains main chapters and optional villagers, farming and boss chapters.","Книга заданий ({quests}) содержит основные главы и побочные разделы жителей, фармилки и боссов."
+
+Tree,Tree,Дерево
+Fallen Stick,Fallen Stick,Упавшая ветка
+Hints appear as you play. You can disable them in Settings.,Hints appear as you play. You can disable them in Settings.,Подсказки появляются во время игры. Их можно выключить в настройках.
+Побочные главы,Side chapters,Побочные главы
+Автокрафт,Autocrafting,Автокрафт
+Выберите предмет для заказа,Select an item to order,Выберите предмет для заказа
+Количество:,Quantity:,Количество:
+Заказать,Order,Заказать
+Заказ создаёт новые предметы и помещает их в хранилище.,Orders produce new items and place them in network storage.,Заказ создаёт новые предметы и помещает их в хранилище.
+Операций: %d · Этапов: %d,Operations: %d · Steps: %d,Операций: %d · Этапов: %d
+Из хранилища: %s,From storage: %s,Из хранилища: %s
+Не хватает: %s,Missing: %s,Не хватает: %s
+Цепочка производства:,Production chain:,Цепочка производства:
+машина,machine,машина
+сборщик,assembler,сборщик
+Рецепты выполняются целыми партиями. Излишки остаются в сети.,Recipes run in whole batches. Surplus stays in the network.,Рецепты выполняются целыми партиями. Излишки остаются в сети.
+"Машинам нужны собственные питание, пар или топливо.","Machines need their own power, steam or fuel.","Машинам нужны собственные питание, пар или топливо."
+Заказы,Orders,Заказы
+Отменить,Cancel,Отменить
+Убрать,Dismiss,Убрать
+Этап %d/%d: %s · %d/%d операций,Step %d/%d: %s · %d/%d operations,Этап %d/%d: %s · %d/%d операций
+Список заказов заполнен. Уберите завершённые заказы.,The order list is full. Dismiss finished orders.,Список заказов заполнен. Уберите завершённые заказы.
+Предметы для автокрафта,Autocraftable items,Предметы для автокрафта
+Выбрать,Select,Выбрать
+Для остальных предметов используйте поиск.,Use search to find more items.,Для остальных предметов используйте поиск.
+Заказ #%d добавлен. Ресурсы зарезервированы.,Order #%d added. Materials reserved.,Заказ #%d добавлен. Ресурсы зарезервированы.
+Заказ не создан. Проверьте ресурсы и состояние сети.,Order could not be created. Check materials and network status.,Заказ не создан. Проверьте ресурсы и состояние сети.
+В очереди,Queued,В очереди
+Обработка в машине,Processing in a machine,Обработка в машине
+Готово,Complete,Готово
+Отменён,Cancelled,Отменён
+Нет питания МЭ сети,ME network has no power,Нет питания МЭ сети
+Нет места в хранилище,Network storage is full,Нет места в хранилище
+Зарезервированные ресурсы недоступны,Reserved materials are unavailable,Зарезервированные ресурсы недоступны
+Ожидание свободной машины,Waiting for a free machine,Ожидание свободной машины
+Машина или интерфейс отсоединены,Machine or interface disconnected,Машина или интерфейс отсоединены
+Паттерн обработки удалён или изменён,Processing pattern removed or changed,Паттерн обработки удалён или изменён
+Подключите молекулярный сборщик,Connect a Molecular Assembler,Подключите молекулярный сборщик
+Нет доступного рецепта,No available recipe,Нет доступного рецепта
+Циклическая цепочка рецептов,Cyclic recipe chain,Циклическая цепочка рецептов
+Слишком большая цепочка рецептов,Recipe chain is too large,Слишком большая цепочка рецептов
+ME network: %.1f EU/s,ME network: %.1f EU/s,МЭ-сеть: %.1f EU/с
+Fluids from storage: %s,Fluids from storage: %s,Жидкости из хранилища: %s
+Missing fluids: %s,Missing fluids: %s,Не хватает жидкостей: %s
+Catalyst: %s,Catalyst: %s,Катализатор: %s
+Active workers: %d,Active workers: %d,Работающих машин: %d
+Install the catalyst in the machine,Install the catalyst in the machine,Установите катализатор в машину
+No powered ME terminal within 24 tiles.,No powered ME terminal within 24 tiles.,В радиусе 24 клеток нет запитанного МЭ-терминала.
+ME Molecular Assembler,ME Molecular Assembler,МЭ молекулярный сборщик
+ME transfer: %d items / %.0f L per pass,ME transfer: %d items / %.0f L per pass,Перенос: %d предметов / %.0f л за такт
+"Wireless ME · controller (%d, %d)","Wireless ME · controller (%d, %d)","Беспроводная МЭ · контроллер (%d, %d)"
+MACHINE MODULES — click with a module to install; click empty-handed to remove,MACHINE MODULES — click with a module to install; click empty-handed to remove,"МОДУЛИ — нажмите с модулем на курсоре, чтобы установить; пустой рукой — снять"
+Speed,Speed,Скорость
+Efficiency,Efficiency,Экономия
+Capacity,Capacity,Ёмкость
+Products,Products,Выход
+Transfer ×%.2f · Energy %d%%,Transfer ×%.2f · Energy %d%%,Перенос ×%.2f · Энергия %d%%
+Speed +%d%% · Energy %d%%,Speed +%d%% · Energy %d%%,Скорость +%d%% · Энергия %d%%
+Energy %d%% · Buffer +%d%%,Energy %d%% · Buffer +%d%%,Энергия %d%% · Буфер +%d%%
+This slot accepts only the matching module.,This slot accepts only the matching module.,Этот слот принимает только соответствующий модуль.
+Maximum module level reached.,Maximum module level reached.,Достигнут предел улучшения.
+Hold a module to install it.,Hold a module to install it.,"Возьмите модуль на курсор, чтобы установить."
+Module installed.,Module installed.,Модуль установлен.
+Module removed.,Module removed.,Модуль снят.
+Water,Water,Вода
+Steam,Steam,Пар
+Creosote,Creosote,Креозот
+Crude Oil,Crude Oil,Сырая нефть
+Lava,Lava,Лава
+Refinery Gas,Refinery Gas,Нефтяной газ
+Gasoline,Gasoline,Бензин
+Kerosene,Kerosene,Керосин
+Diesel,Diesel,Дизель
+Heavy Fuel Oil,Heavy Fuel Oil,Мазут
+Bitumen,Bitumen,Битум
+Molten Iron,Molten Iron,Расплав железа
+Molten Copper,Molten Copper,Расплав меди
+Molten Tin,Molten Tin,Расплав олова
+Molten Gold,Molten Gold,Расплав золота
+Molten Silver,Molten Silver,Расплав серебра
+Molten Steel,Molten Steel,Расплав стали
+Molten Bronze,Molten Bronze,Расплав бронзы
+Molten Titanium,Molten Titanium,Расплав титана
+Molten Mythril,Molten Mythril,Расплав мифрила
+Molten Electrum,Molten Electrum,Расплав электрума
+Fuel Blend,Fuel Blend,Топливная смесь
+Available: %d · Reserved: %d,Available: %d · Reserved: %d,Доступно: %d · В резерве: %d
+• Reserved for orders. Hover to see available amounts.,• Reserved for orders. Hover to see available amounts.,• Резерв заказов. Наведите курсор для просмотра доступного количества.
+%s: %.1f L · Available %.1f · Reserved %.1f,%s: %.1f L · Available %.1f · Reserved %.1f,%s: %.1f л · Доступно %.1f · В резерве %.1f
+Fluid storage: %.1f / %.1f L,Fluid storage: %.1f / %.1f L,Жидкостное хранилище: %.1f / %.1f л
+Assigned workers: %d,Assigned workers: %d,Занятых машин: %d
+Details,Details,Подробнее
+Hide details,Hide details,Свернуть
+Stage %d: %s,Stage %d: %s,Этап %d: %s
+Order reserve: %s,Order reserve: %s,Резерв заказа: %s
+Order fluid reserve: %s,Order fluid reserve: %s,Жидкости в резерве: %s
+Unavailable reserved items: %s,Unavailable reserved items: %s,Недоступные предметы из резерва: %s
+Unavailable reserved fluids: %s,Unavailable reserved fluids: %s,Недоступные жидкости из резерва: %s
+Waiting for earlier stages,Waiting for earlier stages,Ожидание предыдущих этапов
+Worker assigned to another batch,Worker assigned to another batch,Машина занята другой партией
+Ready for dispatch,Ready for dispatch,Готово к подаче ингредиентов
+Result ready for collection,Result ready for collection,Результат готов к возврату в МЭ
+Machine contains previous ingredients,Machine contains previous ingredients,В машине остались прежние ингредиенты
+No ME space to empty ingredient tanks,No ME space to empty ingredient tanks,В МЭ нет места для остатков из входных баков
+Machine waiting,Machine waiting,Машина ожидает
+Pour into ME,Pour into ME,Слить в МЭ
+Fill from ME,Fill from ME,Набрать из МЭ
+No stored fluids,No stored fluids,Жидкости отсутствуют
+Hold a capsule on the cursor or select a container in the hotbar.,Hold a capsule on the cursor or select a container in the hotbar.,Возьмите капсулу на курсор или выберите ёмкость в хотбаре.
+Container: %s · %.1f / %.0f L,Container: %s · %.1f / %.0f L,Ёмкость: %s · %.1f / %.0f л
+Stored %.1f L in ME; the container is retained.,Stored %.1f L in ME; the container is retained.,В МЭ внесено %.1f л; ёмкость сохранена.
+Filled %.1f L from ME.,Filled %.1f L from ME.,Из МЭ набрано %.1f л.
+Install a fluid cell in the ME drive.,Install a fluid cell in the ME drive.,Установите жидкостную ячейку в МЭ-накопитель.
+No space for this fluid in ME.,No space for this fluid in ME.,В МЭ нет места для этой жидкости.
+This fluid is reserved for orders.,This fluid is reserved for orders.,Эта жидкость зарезервирована для заказов.
+The container holds a different fluid.,The container holds a different fluid.,В ёмкости другая жидкость.
+The container is full.,The container is full.,Ёмкость заполнена.
+The container is empty.,The container is empty.,Ёмкость пуста.
+No available fluid in ME.,No available fluid in ME.,В МЭ нет доступной жидкости.
+Use one compatible fluid container.,Use one compatible fluid container.,Используйте одну подходящую ёмкость для жидкости.
+No stored items,No stored items,Предметы в хранилище отсутствуют
+Отдели одну ёмкость от стопки,Separate one container from the stack,Отдели одну ёмкость от стопки
+Нужен герметичный баллон,A sealed container is required,Нужен герметичный баллон
+Нужна жаростойкая ёмкость,A heatproof container is required,Нужна жаростойкая ёмкость
+Нужна подходящая канистра,A compatible container is required,Нужна подходящая канистра
+В ёмкости другая жидкость,The container holds a different fluid,В ёмкости другая жидкость
+Ёмкость заполнена,The container is full,Ёмкость заполнена
+Automatic mixing,Automatic mixing,Автоматическое смешивание
+Select a recipe to wait for all its ingredients.,Select a recipe to wait for all its ingredients.,Выберите рецепт: смеситель дождётся всех его ингредиентов.
+Recipe unavailable,Recipe unavailable,Рецепт недоступен
+Controlled by ME order,Controlled by ME order,Управляется МЭ-заказом
+Container fluid:,Container fluid:,Жидкость в ёмкости:
+Pour container into machine,Pour container into machine,Залить из ёмкости в машину
+Fill container from machine,Fill container from machine,Набрать из машины в ёмкость
+L,L,л

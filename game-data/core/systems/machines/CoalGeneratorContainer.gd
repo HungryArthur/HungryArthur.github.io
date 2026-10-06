@@ -4,9 +4,7 @@ class_name CoalGeneratorContainer
 ## Burns solid fuel to generate EU. Only burns while its network has demand
 ## (PowerNetworkManager calls produce(delta) only when consumers need power).
 
-const EU_PER_SECOND := 40.0
-
-## Fuel item id → seconds of burn time per item.
+static var EU_PER_SECOND: float = GameTuning.number("machines", "coal_generator", "EU_PER_SECOND", 40.0) ## Fuel item id → seconds of burn time per item.
 const FUEL_BURN_TIME: Dictionary = {
 	"coal":      10.0,
 	"coal_dust": 10.0,

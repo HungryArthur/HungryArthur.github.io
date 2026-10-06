@@ -13,3 +13,6 @@ description = "item.motor.desc"
 rarity = "common"
 item_color = Color(0.45, 0.47, 0.52, 1)
 max_stack = 64
+
+availability = "legacy"
+availability_note = "Superseded generic motor; production uses electric_motor_t1 and later tiers."

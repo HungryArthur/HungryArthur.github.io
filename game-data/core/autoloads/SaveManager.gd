@@ -19,6 +19,8 @@ const BAK_SUFFIX := ".bak"
 # .bak (свежая), .bak2, .bak3 (самая старая). Ротация — при каждой записи.
 const BAK_GENERATIONS := 3
 const MAX_NOTIFICATION_LOG_ENTRIES := 120
+const WORLD_MENU_FIELDS := ["world_name", "world_seed", "created_at", "difficulty"]
+const WORLD_MENU_HEADER_BYTES := 64 * 1024
 
 # Текущая версия формата сохранений. Повышается на 1 при каждом несовместимом
 # изменении структуры сейва/мира; на загрузке старые файлы прогоняются через
@@ -169,6 +171,8 @@ func save_resource_safe(resource: Resource, path: String) -> bool:
 		DirAccess.remove_absolute(tmp_path)
 		save_failed.emit(path, err)
 		return false
+	if resource is WorldData:
+		_save_world_menu_metadata(resource, path)
 	return true
 
 
@@ -200,8 +204,11 @@ func _rotate_backups(path: String) -> Error:
 ## файл, ни одну из копий.
 func load_resource_safe(path: String) -> Resource:
 	if FileAccess.file_exists(path):
-		var res: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REPLACE)
-		if res != null:
+		# REPLACE refreshes existing instances but leaves mutated properties that
+		# were omitted from .tres because they had default values when saved.
+		# A save load must reconstruct both the resource and its subresources.
+		var res: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if _matches_save_resource(res, path):
 			return res
 		push_error("SaveManager: файл повреждён: '%s'" % path)
 		DirAccess.remove_absolute(path + ".corrupt")
@@ -212,16 +219,27 @@ func load_resource_safe(path: String) -> Resource:
 			continue
 		if DirAccess.copy_absolute(bak_path, path) != OK:
 			continue
-		var restored: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_REPLACE)
-		if restored != null:
+		var restored: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+		if _matches_save_resource(restored, path):
 			push_warning("SaveManager: '%s' восстановлен из резервной копии №%d." % [path, gen])
 			return restored
 	return null
 
 
+func _matches_save_resource(resource: Resource, path: String) -> bool:
+	if path.begins_with(PROFILES_DIR):
+		return resource is ProfileData
+	if path.begins_with(WORLDS_DIR):
+		return resource is WorldData
+	if path.begins_with(SAVES_DIR):
+		return resource is WorldSaveData
+	return resource != null
+
+
 ## Удаляет файл сохранения вместе со служебными копиями (.bak*/.corrupt),
 ## иначе load_resource_safe «воскресит» удалённый файл из бэкапа.
 func delete_resource_file(path: String) -> void:
+	DirAccess.remove_absolute(path + ".menu.cfg")
 	DirAccess.remove_absolute(path)
 	for gen in range(1, BAK_GENERATIONS + 1):
 		DirAccess.remove_absolute(_bak_path(path, gen))
@@ -307,6 +325,7 @@ func set_default_settings_dict() -> void:
 		"sfx_volume": 85.0,
 		# Геймплей
 		"show_fps": false,
+		"popup_hints": true,
 		"autosave_minutes": 5,
 		# Язык интерфейса ("en" / "ru"). См. LocalizationManager.LANGUAGES
 		"language": "en",
@@ -674,15 +693,39 @@ func load_last_profile() -> void:
 func create_world(world_name: String, world_seed: int = 0) -> WorldData:
 	var world := WorldData.new()
 	world.save_version = SAVE_VERSION
-	world.world_name = world_name
+	world.generation_version = 2
+	world.world_name = get_available_world_name(world_name)
 	world.world_seed = str(randi()) if world_seed == 0 else str(world_seed)
 	world.created_at = Time.get_unix_time_from_system()
 	
-	var safe_name := world_name.validate_filename()
+	var safe_name := world.world_name.validate_filename()
 	world.file_path = WORLDS_DIR + safe_name + "_world.tres"
 
 	save_resource_safe(world, world.file_path)
 	return world
+
+
+## Display names also identify save/quest slots. Reserve both live worlds and
+## leftover slots, including case-insensitive/sanitized filename collisions.
+func get_available_world_name(requested_name: String) -> String:
+	var base := requested_name.strip_edges()
+	if base.is_empty():
+		base = "World"
+	var reserved: Dictionary = {}
+	for world: WorldData in get_world_summaries():
+		reserved[world.world_name.validate_filename().to_lower()] = true
+	for file_name: String in _list_save_files(WORLDS_DIR):
+		var stem := file_name.get_basename().to_lower()
+		reserved[stem] = true
+		reserved[stem.trim_suffix("_world")] = true
+	for file_name: String in _list_save_files(SAVES_DIR):
+		reserved[file_name.get_basename().trim_suffix("_save").to_lower()] = true
+	var candidate := base
+	var suffix := 2
+	while reserved.has(candidate.validate_filename().to_lower()):
+		candidate = "%s (%d)" % [base, suffix]
+		suffix += 1
+	return candidate
 
 
 func load_world(world_id_or_path: String) -> WorldData:
@@ -711,6 +754,92 @@ func get_all_worlds() -> Array[WorldData]:
 		if world:
 			worlds.append(world)
 	return worlds
+
+
+## Menu rows must never deserialize terrain, machines or chunk edits.
+## New saves have a tiny sidecar; legacy saves only need their text header.
+func get_world_summaries() -> Array[WorldData]:
+	var worlds: Array[WorldData] = []
+	for file_name in _list_save_files(WORLDS_DIR):
+		var path := WORLDS_DIR + file_name
+		var summary := _read_world_summary(path)
+		if summary == null:
+			for generation in range(1, BAK_GENERATIONS + 1):
+				summary = _read_world_summary(_bak_path(path, generation))
+				if summary != null:
+					break
+		if summary != null:
+			# Keep the primary identity, even for a backup-only world. Recovery
+			# happens after the loading screen is visible, when the player enters.
+			summary.file_path = path
+			worlds.append(summary)
+	return worlds
+
+
+func _save_world_menu_metadata(world: WorldData, path: String) -> void:
+	var config := ConfigFile.new()
+	for field: String in WORLD_MENU_FIELDS:
+		config.set_value("world", field, world.get(field))
+	config.set_value("source", "modified", FileAccess.get_modified_time(path))
+	var file := FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		return
+	config.set_value("source", "size", file.get_length())
+	# This is a disposable display cache; a failed write must not invalidate
+	# the successfully committed game save.
+	config.save(path + ".menu.cfg")
+
+
+func _read_world_summary(path: String) -> WorldData:
+	var file := FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		return null
+	var summary := WorldData.new()
+	summary.file_path = path
+	var config := ConfigFile.new()
+	if config.load(path + ".menu.cfg") == OK \
+			and config.get_value("source", "modified", -1) == FileAccess.get_modified_time(path) \
+			and config.get_value("source", "size", -1) == file.get_length():
+		for field: String in WORLD_MENU_FIELDS:
+			summary.set(field, config.get_value("world", field, summary.get(field)))
+		return summary
+
+	# Bound both IO and memory even if a legacy file contains large subresources
+	# before [resource]. Its filename is still enough to offer a playable row.
+	var header_bytes := file.get_buffer(mini(file.get_length(), WORLD_MENU_HEADER_BYTES))
+	if file.get_length() > WORLD_MENU_HEADER_BYTES:
+		var last_newline := header_bytes.size() - 1
+		while last_newline >= 0 and header_bytes[last_newline] != 10:
+			last_newline -= 1
+		header_bytes.resize(last_newline + 1)
+	var header := header_bytes.get_string_from_utf8()
+	if not header.begins_with("[gd_resource ") \
+			or not (header.contains('script_class="WorldData"') or header.contains("WorldData.gd")):
+		return null
+	var in_resource := false
+	var lines := header.split("\n")
+	for raw_line: String in lines:
+		var line := raw_line.strip_edges()
+		if line == "[resource]":
+			in_resource = true
+			continue
+		if not in_resource:
+			continue
+		if line.begins_with("saved_") or line.begins_with("discovered_"):
+			break
+		var separator := line.find(" = ")
+		if separator < 0:
+			continue
+		var field := line.left(separator)
+		if WORLD_MENU_FIELDS.has(field):
+			var value: Variant = str_to_var(line.substr(separator + 3))
+			if field == "created_at" and value is int:
+				value = float(value)
+			if typeof(value) == typeof(summary.get(field)):
+				summary.set(field, value)
+	if not in_resource:
+		summary.world_name = path.get_file().trim_suffix(".bak3").trim_suffix(".bak2").trim_suffix(".bak").get_basename().trim_suffix("_world")
+	return summary
 
 
 # ============================================
@@ -836,22 +965,42 @@ func get_save_slot_name(world: WorldData) -> String:
 	return world.world_name.validate_filename() + "_save"
 
 
-func start_game_session(profile: ProfileData, world: WorldData) -> void:
+func can_play_profile(profile: ProfileData) -> bool:
+	return profile != null and not profile.hardcore_dead
+
+
+## IO only: safe to run on one loading worker. Session state, migrations and
+## QuestManager stay on the main thread when start_game_session commits it.
+func read_game_session(world: WorldData) -> Dictionary:
+	if world == null:
+		return {}
+	if not world.file_path.is_empty():
+		world = load_resource_safe(world.file_path) as WorldData
+		if world == null:
+			return {}
+	var save_path := SAVES_DIR + get_save_slot_name(world) + ".tres"
+	return {"world": world, "save": load_resource_safe(save_path) as WorldSaveData}
+
+
+func start_game_session(profile: ProfileData, world: WorldData, session_data: Dictionary = {}) -> bool:
 	if profile == null or world == null:
 		push_error("SaveManager.start_game_session: profile or world is null")
-		return
+		return false
+	if not can_play_profile(profile):
+		return false
 
 	# Reload the world straight from disk, bypassing Godot's resource cache, so a
 	# new session never reuses a stale in-memory WorldData (old runtime chunks or
 	# the previous world after a name reuse) — that was the "same world" bug.
-	if not world.file_path.is_empty() and ResourceLoader.exists(world.file_path):
-		var fresh := ResourceLoader.load(
-			world.file_path, "", ResourceLoader.CACHE_MODE_REPLACE
-		) as WorldData
-		if fresh != null:
-			world = fresh
+	if session_data.is_empty():
+		session_data = read_game_session(world)
+	world = session_data.get("world") as WorldData
+	if world == null:
+		return false
 	_migrate_world(world)
 	world.loaded_chunks = {}
+	if not world.file_path.is_empty():
+		_save_world_menu_metadata(world, world.file_path)
 
 	current_profile = profile
 	current_world = world
@@ -861,9 +1010,12 @@ func start_game_session(profile: ProfileData, world: WorldData) -> void:
 	current_slot_name = get_save_slot_name(world)
 	var save_path := SAVES_DIR + current_slot_name + ".tres"
 
-	current_save = load_resource_safe(save_path) as WorldSaveData
+	current_save = session_data.get("save") as WorldSaveData
 	if current_save != null:
 		_migrate_save(current_save)
+		# A world can be continued with another selected character. Its next save
+		# must point to that character, including after a Hardcore predecessor died.
+		current_save.profile_id = profile.profile_id
 	else:
 		# Файла нет, либо и основной, и .bak повреждены — начинаем слот заново.
 		if FileAccess.file_exists(save_path):
@@ -873,6 +1025,7 @@ func start_game_session(profile: ProfileData, world: WorldData) -> void:
 	# Прогресс квестов лежит в отдельном файле на слот — перечитываем под
 	# новую сессию (автолоад QuestManager живёт весь запуск приложения).
 	QuestManager.reload_progress()
+	return true
 
 
 ## Сохраняет текущую сессию. Возвращает false, если хотя бы одна запись
@@ -881,7 +1034,7 @@ func save_game() -> bool:
 	# Клиент мультиплеера играет в чужом (пришедшем по сети) мире — на диск
 	# ничего не пишем, иначе затрём собственные сейвы временными данными.
 	if is_remote_session:
-		return true
+		return QuestManager.flush_progress()
 
 	_sync_inventory_from_ui()
 
@@ -898,6 +1051,7 @@ func save_game() -> bool:
 
 		if current_world == null:
 			current_world = WorldData.new()
+			current_world.generation_version = 2
 			current_world.world_name = "DebugWorld"
 			current_world.file_path = WORLDS_DIR + "auto_debug_save_world.tres"
 			save_resource_safe(current_world, current_world.file_path)
@@ -939,6 +1093,7 @@ func save_game() -> bool:
 			world_path = WORLDS_DIR + current_slot_name + "_world.tres"
 			current_world.file_path = world_path
 		ok = save_resource_safe(current_world, world_path) and ok
+	ok = QuestManager.flush_progress() and ok
 	if ok:
 		game_saved.emit()
 	return ok
@@ -950,10 +1105,16 @@ func load_save(slot_name: String) -> WorldSaveData:
 	if save == null:
 		return null
 	_migrate_save(save)
-	current_profile = load_profile(save.profile_id)
+	var profile := load_resource_safe(PROFILES_DIR + save.profile_id + ".tres") as ProfileData
+	if not can_play_profile(profile):
+		return null
+	current_profile = profile
+	save_last_profile()
 	current_world = load_world(save.world_id)
 	current_save = save
 	current_slot_name = slot_name
+	is_remote_session = false
+	QuestManager.reload_progress()
 	return save
 
 
@@ -962,7 +1123,9 @@ func get_all_saves() -> Array[Dictionary]:
 	for file_name in _list_save_files(SAVES_DIR):
 		var save := load_resource_safe(SAVES_DIR + file_name) as WorldSaveData
 		if save:
-			var profile := load_profile(save.profile_id)
+			# A list is read-only: load_profile would switch the selected character
+			# and overwrite last_profile.cfg for every row.
+			var profile := load_resource_safe(PROFILES_DIR + save.profile_id + ".tres") as ProfileData
 			var world := load_world(save.world_id)
 			saves.append({
 				"slot_name": file_name.replace(".tres", ""),
@@ -985,12 +1148,18 @@ func _setup_autosave_timer() -> void:
 
 
 func _on_autosave_timeout() -> void:
+	if is_remote_session:
+		return
 	# Проверяем, что игрок в мире и идет игровой процесс
 	if current_save and current_world and not current_slot_name.is_empty():
 		# Variant: map_system — динамическое свойство узла мира.
 		var world_node: Variant = get_tree().get_first_node_in_group("world")
 		if not world_node:
 			world_node = get_tree().root.find_child("World", true, false)
+		if not world_node:
+			# Session resources outlive the gameplay scene. Saving them from a
+			# menu would capture absent UI/cursor state over the last valid save.
+			return
 			
 		if world_node and world_node.map_system and world_node.map_system.has_method("save_current_map"):
 			world_node.map_system.save_current_map(current_world)
@@ -1000,6 +1169,11 @@ func _on_autosave_timeout() -> void:
 
 func apply_profile_to_player(player_node: Node2D) -> void:
 	if current_profile == null:
+		return
+	if player_node.has_method("set_appearance"):
+		# Resolve UI/appearance scripts at runtime. Eager references from this
+		# first autoload retain their dependency graph at engine shutdown.
+		player_node.set_appearance(load("res://characters/CharacterLegacyAdapter.gd").from_profile(current_profile))
 		return
 	if player_node.has_method("set_skin"):
 		player_node.set_skin(current_profile.skin_id, current_profile.skin_color)
@@ -1016,6 +1190,7 @@ func sync_player_state(save: WorldSaveData, player_node: Node2D) -> void:
 		save.player_position = state["position"]
 		save.player_health = float(state["health"])
 		save.player_hunger = float(state["hunger"])
+		save.player_environment = state.get("environment", {}).duplicate(true)
 	else:
 		save.player_position = player_node.global_position
 		if player_node.has_method("get_health"):
@@ -1038,7 +1213,8 @@ func _sync_inventory_from_ui() -> void:
 	if chest_ui and chest_ui.visible and chest_ui.has_method("return_held_item"):
 		chest_ui.return_held_item()
 	_return_held_item_to_inventory(inv_ui, hotbar_ui)
-	current_save.held_item = ItemDatabase.stack_to_save(InventorySlot.held_item) if InventorySlot.held_item is Dictionary else {}
+	var slot_script := load("res://ui/hud/inventory/InventorySlot.gd")
+	current_save.held_item = ItemDatabase.stack_to_save(slot_script.held_item) if slot_script.held_item is Dictionary else {}
 	if inv_ui and inv_ui.has_method("to_save_data"):
 		current_save.player_inventory = inv_ui.to_save_data()
 	if hotbar_ui and hotbar_ui.has_method("to_save_data"):
@@ -1049,21 +1225,22 @@ func _sync_inventory_from_ui() -> void:
 
 
 func _return_held_item_to_inventory(inv_ui: Node, hotbar_ui: Node) -> void:
-	if InventorySlot.held_item == null or not (InventorySlot.held_item is Dictionary):
+	var slot_script := load("res://ui/hud/inventory/InventorySlot.gd")
+	if not (slot_script.held_item is Dictionary):
 		return
 
-	var remaining: Variant = InventorySlot.held_item.duplicate(true)
+	var remaining: Variant = slot_script.held_item.duplicate(true)
 	if inv_ui and inv_ui.has_method("auto_insert_item"):
 		remaining = inv_ui.auto_insert_item(remaining)
 		if remaining == null or int(remaining.get("count", 0)) <= 0:
-			InventorySlot.clear_held_item_static()
+			slot_script.clear_held_item_static()
 			return
 
 	if hotbar_ui and hotbar_ui.has_method("auto_insert_item"):
 		remaining = hotbar_ui.auto_insert_item(remaining)
 		if remaining == null or int(remaining.get("count", 0)) <= 0:
-			InventorySlot.clear_held_item_static()
+			slot_script.clear_held_item_static()
 			return
 
-	InventorySlot.held_item = remaining
-	InventorySlot._update_held_preview_static()
+	slot_script.held_item = remaining
+	slot_script._update_held_preview_static()

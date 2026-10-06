@@ -6,7 +6,8 @@
 script = ExtResource("1_script")
 result_item_id = "primitive_pickaxe"
 result_count = 1
-ingredient_ids = PackedStringArray("stone", "stick", "plant_fiber")
+ingredient_ids = PackedStringArray("flint", "stick", "plant_fiber")
 ingredient_counts = PackedInt32Array(2, 1, 2)
 category = "tools"
 sort_order = 40
+hand_craftable = true

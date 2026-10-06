@@ -4,7 +4,7 @@ class_name PrimitiveCrusherContainer
 ## Hand-cranked tier-1 crusher. No electricity required, but slow (8 s).
 ## Electric crushers process the same recipes faster and with more slots.
 
-const CRUSHER_RECIPES: Dictionary = {
+const DEFAULT_CRUSHER_RECIPES: Dictionary = {
 	"iron_ore":    {"output": "iron_dust",          "output_count": 1, "input_count": 1},
 	"copper_ore":  {"output": "copper_dust",        "output_count": 1, "input_count": 1},
 	"coal":        {"output": "coal_dust",          "output_count": 1, "input_count": 1},
@@ -12,7 +12,7 @@ const CRUSHER_RECIPES: Dictionary = {
 	"stone":       {"output": "gravel",             "output_count": 1, "input_count": 1},
 	"gravel":      {"output": "sand",               "output_count": 1, "input_count": 1},
 }
-const PROCESS_TIME := 8.0  # seconds (2× slower than electric crusher)
+static var PROCESS_TIME: float = GameTuning.number("machines", "primitive_crusher", "PROCESS_TIME", 8.0) # seconds (2× slower than electric crusher)
 
 const SLOT_INPUT  := 0
 const SLOT_OUTPUT := 1
@@ -99,3 +99,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var CRUSHER_RECIPES: Dictionary = GameTuning.recipe_map("primitive_crusher", DEFAULT_CRUSHER_RECIPES)

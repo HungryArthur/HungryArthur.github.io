@@ -8,7 +8,7 @@ class_name OreMelterContainer
 const INGOT_L := 90.0
 
 ## item_id -> {fluid, liters}
-const MELT_RECIPES: Dictionary = {
+const DEFAULT_MELT_RECIPES: Dictionary = {
 	# Слитки
 	"iron_ingot":     {"fluid": "molten_iron",     "liters": INGOT_L},
 	"copper_ingot":   {"fluid": "molten_copper",   "liters": INGOT_L},
@@ -38,9 +38,9 @@ const MELT_RECIPES: Dictionary = {
 	"bronze_dust":   {"fluid": "molten_bronze",   "liters": INGOT_L},
 }
 
-const POWER_CONSUMPTION := 40.0
-const PROCESS_TIME := 4.0
-const TANK_CAPACITY := 540.0  # 6 слитков расплава
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "ore_melter", "POWER_CONSUMPTION", 40.0)
+static var PROCESS_TIME: float = GameTuning.number("machines", "ore_melter", "PROCESS_TIME", 4.0)
+static var TANK_CAPACITY: float = GameTuning.number("machines", "ore_melter", "TANK_CAPACITY", 540.0) # 6 слитков расплава
 
 const SLOT_INPUT := 0
 const SLOT_OUTPUT := 1  # не используется; нужен меню электромашины
@@ -116,3 +116,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var MELT_RECIPES: Dictionary = GameTuning.recipe_map("ore_melter", DEFAULT_MELT_RECIPES)

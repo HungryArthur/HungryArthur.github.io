@@ -10,3 +10,4 @@ ingredient_ids = PackedStringArray("wood")
 ingredient_counts = PackedInt32Array(2)
 category = "materials"
 sort_order = 10
+hand_craftable = true

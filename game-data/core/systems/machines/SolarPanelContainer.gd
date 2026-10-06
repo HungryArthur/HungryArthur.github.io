@@ -7,8 +7,7 @@ class_name SolarPanelContainer
 ## сколько нужно, без потерь. Тиры (Advanced/Elite/…) наследуют механику,
 ## меняя только eu_per_second.
 
-const EU_PER_SECOND := 40.0
-## Ёмкость буфера в секундах номинальной выработки.
+static var EU_PER_SECOND: float = GameTuning.number("machines", "solar_panel", "EU_PER_SECOND", 40.0) ## Ёмкость буфера в секундах номинальной выработки.
 const BUFFER_SECONDS := 30.0
 
 var buffer_stored: float = 0.0

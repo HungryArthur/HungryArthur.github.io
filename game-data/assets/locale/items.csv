@@ -284,7 +284,7 @@ item.me_cable.desc,Connects ME network devices. Channels are unlimited — only 
 item.me_cable.name,ME Cable,ME-кабель
 item.me_controller.desc,The core of the ME network. Consumes power; without it the whole network shuts down.,Ядро ME-сети. Потребляет энергию; без питания вся сеть отключается.
 item.me_controller.name,ME Controller,ME-контроллер
-item.me_crafting_terminal.desc,Crafting terminal: crafts recipes straight from ME network resources.,Терминал создания: крафтит рецепты прямо из ресурсов ME-сети.
+item.me_crafting_terminal.desc,"Crafts from network resources and queues autocrafting orders with a production plan, reserved materials and progress.","Создаёт предметы из ресурсов сети и принимает заказы автокрафта с расчётом цепочки, резервированием материалов и прогрессом."
 item.me_crafting_terminal.name,ME Crafting Terminal,ME-терминал крафта
 item.me_pattern_terminal.desc,"Configures stock targets and distributes autocrafting jobs among Molecular Assemblers in the connected ME network.","Настраивает целевой запас и распределяет задания автокрафта между молекулярными сборщиками подключённой ME-сети."
 item.me_pattern_terminal.name,ME Pattern Terminal,ME-терминал шаблонов
@@ -464,7 +464,9 @@ item.steel_spring.desc,Elastic spring from a steel rod. Part of motors and advan
 item.steel_spring.name,Steel Spring,Стальная пружина
 item.stick.desc,A fallen branch used to make primitive tools.,Упавшая ветка для изготовления примитивных инструментов.
 item.stick.name,Stick,Палка
-item.stone.desc,Rough stone for primitive tools.,Грубый камень для примитивных инструментов.
+item.flint.name,Flint,Кремень
+item.flint.desc,Sharp flint gathered from the ground for primitive tools.,Кремень с земли для примитивных инструментов.
+item.stone.desc,Stone mined from veins for machines and construction.,Камень из жил для механизмов и строительства.
 item.stone.name,Stone,Камень
 item.sun_crown.desc,Deflects searing heat. Equip it to safely enter the Sunny Canyon.,"Отражает испепеляющий зной. Надень, чтобы безопасно входить в Солнечный Каньон."
 item.sun_crown.name,Sun Crown,Солнечная Корона
@@ -629,8 +631,8 @@ item.bronze_sword.desc,Bronze blade for early combat.,"Бронзовый кли
 item.bronze_sword.name,Bronze Sword,Бронзовый меч
 item.steel_sword.desc,Sharp steel blade.,"Острый стальной клинок."
 item.steel_sword.name,Steel Sword,Стальной меч
-item.primitive_spear.desc,Stone-tipped spear with extended reach.,Каменное копьё с увеличенной дальностью.
-item.primitive_spear.name,Stone Spear,Каменное копьё
+item.primitive_spear.desc,Flint-tipped spear with extended reach.,Кремнёвое копьё с увеличенной дальностью.
+item.primitive_spear.name,Flint Spear,Кремнёвое копьё
 item.bronze_spear.desc,Bronze-tipped spear with extended reach.,Бронзовое копьё с увеличенной дальностью.
 item.bronze_spear.name,Bronze Spear,Бронзовое копьё
 item.steel_spear.desc,Steel-tipped spear with extended reach.,Стальное копьё с увеличенной дальностью.
@@ -672,7 +674,7 @@ item.silicon_wafer.desc,A thin polished wafer cut from a silicon ingot.,"Тон�
 item.transistor.name,Transistor,Транзистор
 item.transistor.desc,Basic switching element of modern processors.,Базовый переключающий элемент современных процессоров.
 item.mixer.name,Mixer,Смеситель
-item.mixer.desc,"A large 3x3 machine that blends 2-4 fluids into one: bronze, electrum, fuel blends. 50 EU/s.","Большая машина 3×3, сплавляющая 2-4 жидкости в одну: бронза, электрум, топливные смеси. 50 EU/с."
+item.mixer.desc,"A 2x2 machine that blends 2-4 fluids into one: bronze, electrum, fuel blends. Four input tanks, one output. 50 EU/s.","Машина 2×2, смешивающая 2-4 жидкости в одну: бронза, электрум, топливные смеси. Четыре входных бака и один выходной. 50 EU/с."
 item.coke_dust.name,Coke Dust,Коксовая пыль
 item.coke_dust.desc,"Crushed coke. Burns as long as solid coke and feeds carbon chemistry.","Дроблёный кокс. Горит как цельный кокс и идёт в углехимию."
 item.steam_science_pack.name,Steam Research Pack,Паровой исследовательский набор
@@ -723,3 +725,7 @@ item.thermal_unit.name,Thermal Unit,Тепловой узел
 item.thermal_unit.desc,A replaceable furnace and heat-exchanger assembly for boilers and industrial heating.,Сменный блок печи и теплообменника для котлов и промышленного нагрева.
 item.fluid_manifold.name,Fluid Manifold,Жидкостный коллектор
 item.fluid_manifold.desc,A valved bronze manifold that distributes steam between machine subsystems.,Бронзовый коллектор с клапаном распределяющий пар между узлами машины.
+item.me_wireless_terminal.name,ME Wireless Terminal,МЭ беспроводной терминал
+item.me_wireless_terminal.desc,Right-click to open the nearest powered ME network within 24 tiles. An installed crafting terminal also allows orders.,"ПКМ открывает ближайшую запитанную МЭ-сеть в радиусе 24 клеток. Если подключён терминал крафта, доступны заказы."
+item.fluid_capsule.name,Fluid Capsule,Жидкостная капсула
+item.fluid_capsule.desc,"Reusable sealed capsule for 100 L of a liquid, gas or molten metal. Fill and pour through machines and ME terminals.","Многоразовая герметичная капсула на 100 л жидкости, газа или расплава. Наполняется и опустошается через машины и МЭ-терминалы."

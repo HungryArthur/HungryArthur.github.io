@@ -10,6 +10,6 @@ script = ExtResource("1_script")
 block_id = "fluid_pipe_t2"
 display_name = "High-Pressure Fluid Pipe"
 texture = ExtResource("generated_art")
-health = 9
+health = 3
 required_tool = "pickaxe"
 drop_item_id = "fluid_pipe_t2"

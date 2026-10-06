@@ -6,7 +6,7 @@ class_name MiningComponent
 ##
 ## LMB works on everything: ore, trees, forage — with any tool and with bare hands.
 ## Ore vein tiles require a pickaxe of the authored level. They pay out when their
-## bar reaches zero and immediately reset, so the same tile can be mined forever.
+## health reaches zero and immediately reset, so the same tile can be mined forever.
 ## Only the central borehole is drill-only.
 
 signal mining_started(deposit: DepositData)
@@ -31,7 +31,7 @@ var _current_deposit: DepositData = null
 var _tool_type: String = ""
 var _tool_power: int = 0
 var _swing_timer: float = 0.0
-var _can_damage: bool = true          # false → swings only flash the bar
+var _can_damage: bool = true          # false → swings show rejection feedback
 var _reject_reason: String = ""
 
 
@@ -182,9 +182,12 @@ func _execute_mine_at(
 	var extra_stack: Dictionary = result.get("extra_yield_stack", {}) as Dictionary
 	if not extra_stack.is_empty():
 		mining_yield.emit(extra_stack, world_pos, false)
+	var sapling_stack: Dictionary = result.get("sapling_yield_stack", {}) as Dictionary
+	if not sapling_stack.is_empty():
+		mining_yield.emit(sapling_stack, world_pos, false)
 
 	# Finite resources (trees, forage) vanish once exhausted. Stop right away so
-	# the progress bar doesn't run an extra empty cycle on the cleared tile.
+	# the target label doesn't linger through an empty cycle on the cleared tile.
 	# Infinite ore deposits keep returning a deposit here, so mining continues.
 	if _get_deposit_at(grid_pos) == null:
 		stop_mining()

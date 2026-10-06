@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=2 format=3]
+[ext_resource type="Script" path="res://core/resources/crafting/CraftingRecipe.gd" id="1"]
+[resource]
+script = ExtResource("1")
+result_item_id = "wooden_raft"
+ingredient_ids = PackedStringArray("wood", "plant_fiber")
+ingredient_counts = PackedInt32Array(24, 12)
+category = "tools"
+required_age = 1
+hand_craftable = false

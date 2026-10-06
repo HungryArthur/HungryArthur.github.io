@@ -2,7 +2,7 @@ extends PoweredMachineContainer
 class_name ElectricFurnaceContainer
 
 ## Early electric smelter balanced for one 40 EU/s starter grid.
-const SMELT_RECIPES: Dictionary = {
+const DEFAULT_SMELT_RECIPES: Dictionary = {
 	"iron_ore":           "iron_ingot",
 	"copper_ore":         "copper_ingot",
 	"gold_ore":           "gold_ingot",
@@ -26,8 +26,8 @@ const SMELT_RECIPES: Dictionary = {
 	"mythril_dust":  "mythril_ingot",
 	"bronze_dust":   "bronze_ingot",
 }
-const POWER_CONSUMPTION := 15.0  # EU/second
-const PROCESS_TIME       := 2.0  # seconds
+static var POWER_CONSUMPTION: float = GameTuning.number("machines", "electric_furnace", "POWER_CONSUMPTION", 15.0) # EU/second
+static var PROCESS_TIME: float = GameTuning.number("machines", "electric_furnace", "PROCESS_TIME", 2.0) # seconds
 
 const SLOT_INPUT  := 0
 const SLOT_OUTPUT := 1
@@ -115,3 +115,6 @@ func to_save_data() -> Dictionary:
 func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	process_timer = float(data.get("process_timer", 0.0))
+
+
+static var SMELT_RECIPES: Dictionary = GameTuning.recipe_map("electric_furnace", DEFAULT_SMELT_RECIPES)

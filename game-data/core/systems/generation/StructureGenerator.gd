@@ -95,7 +95,7 @@ func generate_into(world: WorldData) -> void:
 	var placed_origins: Array[Vector2] = []
 	var placed_count := 0
 	for _attempt in range(MAX_ATTEMPTS):
-		if placed_count >= TARGET_COUNT:
+		if placed_count >= int(GameTuning.number("world", "geometry", "structure_count", TARGET_COUNT)):
 			break
 		if _try_place_structure(world, placed_origins):
 			placed_count += 1
@@ -204,6 +204,20 @@ func _area_clear(world: WorldData, anchor: Vector2i, w: int, h: int) -> bool:
 ## (мимо set_slot_data_at), чтобы не дёргать квест-событие items_stored.
 func _make_loot_chest_data(zone_tier: int) -> Dictionary:
 	var chest := ChestData.create_for_tier(mini(zone_tier, ChestData.Tier.TIER_3))
+	if GameTuning.has_loot("chest:" + str(zone_tier)):
+		var rolled := GameTuning.roll_loot("chest:" + str(zone_tier), _rng)
+		var index := 0
+		for entry: Dictionary in rolled:
+			var remaining := int(entry.count)
+			while remaining > 0 and index < chest.slot_count:
+				var stack := ItemDatabase.create_existing_stack(str(entry.item_id), remaining)
+				if stack.is_empty():
+					break
+				stack.count = mini(remaining, int(stack.get("max_stack", 64)))
+				chest.inventory_slots[index] = stack
+				remaining -= int(stack.count)
+				index += 1
+		return chest.to_save_data()
 	var table: Array = LOOT_TABLES.get(zone_tier, LOOT_TABLES[1])
 	var stacks := _rng.randi_range(LOOT_STACKS_MIN, LOOT_STACKS_MAX)
 	var slot := 0

@@ -10,3 +10,4 @@ ingredient_ids = PackedStringArray("wood_plank", "stone")
 ingredient_counts = PackedInt32Array(8, 4)
 category = "misc"
 sort_order = 5
+hand_craftable = true

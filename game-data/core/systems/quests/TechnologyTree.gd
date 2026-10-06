@@ -1,7 +1,7 @@
 extends RefCounted
 class_name TechnologyTree
 
-const STAGES: Array[Dictionary] = [
+const DEFAULT_STAGES: Array[Dictionary] = [
 	{"id": "foundation", "title": "Foundation", "biome": "", "boss": "", "description": "From hand tools to the first complete automated ore line.", "machines": ["furnace", "primitive_drill", "primitive_blast_furnace", "coal_generator", "crusher", "electric_furnace", "conveyor", "bronze_drill"]},
 	{"id": "steam", "title": "Steam Age", "biome": "ForestBiome", "boss": "", "research": {"wood": 40, "copper_ore": 20}, "description": "Scale the first electric workshop with steam processing and precision parts.", "machines": ["primitive_crusher", "mechanical_water_pump", "steam_water_pump", "mechanical_inserter", "steam_boiler", "high_pressure_steam_boiler", "steam_furnace", "steam_crusher", "steam_press", "steam_assembler", "steam_turbine", "coke_oven", "fluid_tank_t1"], "components": ["fluid_pipe", "fluid_pipe_t2", "fluid_valve", "steam_machine_casing", "bronze_boiler_tube", "pressure_valve", "steam_piston", "precision_flywheel", "steam_research_core", "steam_science_pack"]},
 	{"id": "electricity", "title": "Electricity", "biome": "ForestBiome", "boss": "ent", "research": {"ent_heart": 1, "steam_science_pack": 6}, "description": "Expand the starter grid with rubber, faster belts, and low-voltage electronics.", "machines": ["extractor", "conveyor_t2", "machine_module_efficiency"], "components": ["electrical_science_pack"]},
@@ -14,6 +14,9 @@ const STAGES: Array[Dictionary] = [
 	{"id": "frontier", "title": "Frontier Technology", "biome": "RottingBogBiome", "boss": "rot_king", "research": {"rot_crown": 1, "abyss_science_pack": 18}, "description": "Feed dense matter and high-tier electronics into a stable late-game production line.", "machines": ["ultimate_solar_panel", "conveyor_t5"], "components": ["frontier_science_pack"]},
 	{"id": "quantum", "title": "Quantum Logistics", "biome": "PrimevalThicketBiome", "boss": "primal_guardian", "research": {"primal_core": 1, "frontier_science_pack": 20}, "description": "Complete the Overworld factory chain to unlock quantum storage and logistics.", "machines": ["quantum_solar_panel", "me_controller", "me_drive", "me_terminal", "me_crafting_terminal", "me_pattern_terminal", "me_molecular_assembler", "me_interface", "me_import_bus", "me_export_bus", "me_cable", "me_item_cell_1k", "me_item_cell_4k", "me_item_cell_16k", "me_item_cell_64k", "me_fluid_cell_1k", "me_fluid_cell_4k", "me_fluid_cell_16k", "me_fluid_cell_64k"]},
 ]
+
+
+static var STAGES: Array[Dictionary] = GameTuning.stages(DEFAULT_STAGES)
 
 
 static func refresh_unlocks() -> void:
@@ -34,6 +37,7 @@ static func refresh_unlocks() -> void:
 					TranslationServer.translate(str(stage["title"])),
 					"success"
 				)
+	QuestManager.check_campaign_completion()
 
 
 static func is_stage_unlocked(stage_id: String) -> bool:
@@ -51,6 +55,9 @@ static func is_stage_condition_met(stage: Dictionary) -> bool:
 
 
 static func is_stage_world_condition_met(stage: Dictionary) -> bool:
+	for required: String in stage.get("prerequisites", []):
+		if SaveManager.current_save == null or not SaveManager.current_save.researched_technologies.has(required):
+			return false
 	if str(stage.get("id", "")) == "foundation":
 		return true
 	var biome := str(stage.get("biome", ""))

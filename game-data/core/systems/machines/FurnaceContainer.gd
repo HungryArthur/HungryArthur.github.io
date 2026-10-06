@@ -1,7 +1,7 @@
 extends MachineContainer
 class_name FurnaceContainer
 
-const SMELT_RECIPES: Dictionary = {
+const DEFAULT_SMELT_RECIPES: Dictionary = {
 	"iron_ore":          "iron_ingot",
 	"copper_ore":        "copper_ingot",
 	"gold_ore":          "gold_ingot",
@@ -30,8 +30,7 @@ const FUEL_BURN_TIMES: Dictionary = {
 	"coke": 16.0,
 	"coke_dust": 16.0,
 }
-const SMELT_TIME := 3.0
-
+static var SMELT_TIME: float = GameTuning.number("machines", "furnace", "SMELT_TIME", 3.0)
 const SLOT_INPUT  := 0
 const SLOT_FUEL   := 1
 const SLOT_OUTPUT := 2
@@ -147,3 +146,6 @@ func from_save_data(data: Dictionary) -> void:
 	super.from_save_data(data)
 	smelt_timer = float(data.get("smelt_timer", 0.0))
 	fuel_remaining = float(data.get("fuel_remaining", 0.0))
+
+
+static var SMELT_RECIPES: Dictionary = GameTuning.recipe_map("furnace", DEFAULT_SMELT_RECIPES)
