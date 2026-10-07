@@ -101,7 +101,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hub-links { padding: 12px; gap: 6px; }
 .hub-links a { min-height: 54px; padding: 7px 9px; gap: 10px; color: #274f63; font-size: .87rem; line-height: 1.35; }
 .hub-links a:hover { color: #14394c; background: #edf4f6; }
-.hub-links img { flex-basis: 40px; width: 40px; height: 40px; padding: 4px; border: 1px solid #dae5eb; border-radius: 4px; background: #f3f7f8; }
+.hub-links img { flex: 0 0 auto; width: 40px; height: 40px; padding: 4px; border: 1px solid #dae5eb; border-radius: 4px; background: #f3f7f8; }
 
 .overworld-page, .item-page { padding: 8px 0 24px; }
 .article-heading { padding: 0 0 18px; border-color: var(--forge-line); color: var(--forge-ink); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; }
