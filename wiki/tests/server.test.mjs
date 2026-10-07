@@ -6,6 +6,7 @@ import { after, before, test } from 'node:test';
 import { readFileSync } from 'node:fs';
 import { loadArtManifest, validateArtManifest, validateSprite32 } from '../../scripts/validate-textures.mjs';
 import { pixelPerfectGeometry } from '../client/components/pixel-images.js';
+import { rankSearchSuggestions } from '../client/components/search-suggestions.js';
 
 const testRoot = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(testRoot, '..', '..');
@@ -98,6 +99,27 @@ test('API, assets, HEAD, redirects, and invalid methods behave correctly', async
 
   const traversalResponse = await fetch(`${baseUrl}/client/%2e%2e/server/index.js`);
   assert.equal(traversalResponse.status, 404);
+});
+
+test('live search index supports five title suggestions and the Russian multiplayer alias', async () => {
+  for (const language of ['ru', 'en']) {
+    const response = await fetch(`${baseUrl}/api/v1/${language}/search-index`);
+    assert.equal(response.status, 200);
+    const { entries } = await response.json();
+    const suggestions = rankSearchSuggestions(entries, language === 'ru' ? 'пар' : 'steam', language);
+    assert.equal(suggestions.length, 5);
+    assert.equal(new Set(suggestions.map((entry) => entry.title)).size, 5);
+    for (const entry of suggestions) {
+      assert.equal((await fetch(`${baseUrl}${entry.url}`)).status, 200, entry.url);
+    }
+    if (language === 'ru') {
+      const multiplayer = rankSearchSuggestions(entries, 'мульти', language);
+      assert.equal(multiplayer.length, 5);
+      assert.equal(multiplayer[0].url, '/ru/multiplayer');
+      const search = await (await fetch(`${baseUrl}/api/v1/ru/search?q=мульти`)).json();
+      assert.ok(search.results.some((entry) => entry.url === '/ru/multiplayer'));
+    }
+  }
 });
 
 test('all item and machine sprites are 32x32 with valid files and atlas regions', async () => {

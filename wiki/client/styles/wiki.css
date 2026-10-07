@@ -56,6 +56,15 @@
     .search { display: flex; width: min(46vw, 360px); height: 36px; }
     .search input { width: 100%; padding: 6px 10px; color: #1b2d3c; border: 1px solid #9ec6df; border-radius: 2px; outline: 0; font-size: .92rem; }
     .search input:focus { border-color: #ffe04d; box-shadow: 0 0 0 1px #ffe04d; }
+    .search-autocomplete { position: relative; flex: 1; min-width: 0; }
+    .search-autocomplete input { width: 100%; height: 100%; }
+    .search-suggestions { position: absolute; z-index: 30; top: calc(100% + 4px); right: 0; left: 0; max-height: min(360px, 55vh); overflow-y: auto; color: var(--text); border: 1px solid #58aacf; border-radius: 3px; background: #fff; box-shadow: 0 6px 18px rgba(3, 36, 68, .25); }
+    .search-suggestion { display: block; padding: 10px 12px; border-bottom: 1px solid #e1eef5; color: #053777; line-height: 1.3; overflow-wrap: anywhere; }
+    .search-suggestion:last-child { border-bottom: 0; }
+    .search-suggestion strong { display: block; font-size: .94rem; }
+    .search-suggestion small { display: block; margin-top: 3px; color: #4b6375; font-size: .76rem; }
+    .search-suggestion:hover, .search-suggestion[aria-selected="true"] { color: #053777; background: #e1f4ff; text-decoration: none; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
     .page { margin-top: 0; padding: 0 18px 25px; background: rgba(205, 240, 251, .88); border-left: 1px solid #4e97bc; border-right: 1px solid #4e97bc; }
     .hero { position: relative; display: flex; min-height: 420px; overflow: hidden; align-items: center; padding: 42px 7%; color: white; border: 1px solid var(--border); border-top: 0; background: url("../../assets/branding/itch-banner-v1.png") center / cover no-repeat; }
     .hero::before { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, rgba(3,20,39,.96) 0%, rgba(4,23,40,.90) 35%, rgba(4,24,42,.38) 62%, rgba(4,24,42,.04) 100%); }

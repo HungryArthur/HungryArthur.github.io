@@ -3,6 +3,7 @@ import { formatRecipeLine, parseRecipeLine } from '../components/recipe-line.js'
 import { showArticlePage } from '../components/article-page.js';
 import { fitLoadedPixelImage, observePixelImages, pixelPerfectGeometry } from '../components/pixel-images.js';
 import { escapeHtml, localizedValue, readableId } from '../components/text.js';
+import { attachSearchAutocomplete } from '../components/search-autocomplete.js';
 import { localizedPath, readWikiRoute } from './router.js';
 
 window.fitLoadedPixelImage = fitLoadedPixelImage;
@@ -2291,6 +2292,8 @@ observePixelImages();
       return `<span class="search-result__icon" aria-hidden="true">${escapeHtml(result.title.slice(0, 1))}</span>`;
     }
 
+    attachSearchAutocomplete(searchInput, currentLanguage, searchUi[currentLanguage].types);
+
     async function renderSearchPage(language) {
       const labels = searchUi[language];
       const article = document.querySelector('#search-page');
@@ -2298,17 +2301,18 @@ observePixelImages();
       showArticlePage(article);
       searchInput.value = query;
       const form = `<form class="search-page-form" action="/${language}/search" method="get"><input name="q" type="search" value="${escapeHtml(query)}" placeholder="${labels.input}" aria-label="${labels.input}" autofocus><button type="submit">${labels.button}</button></form>`;
+      article.innerHTML = `<h1 class="article-heading">${labels.title}</h1><p class="catalog-intro">${labels.intro}</p>${form}<div id="search-page-results"><p class="loading-message">${query ? labels.loading : labels.prompt}</p></div>`;
+      attachSearchAutocomplete(article.querySelector('input[name="q"]'), language, labels.types);
+      const resultContainer = article.querySelector('#search-page-results');
       if (!query) {
-        article.innerHTML = `<h1 class="article-heading">${labels.title}</h1><p class="catalog-intro">${labels.intro}</p>${form}<p class="loading-message">${labels.prompt}</p>`;
         document.title = `${labels.title} — InfiniteForge Wiki`;
         updateLanguageLinks('search');
         return;
       }
-      article.innerHTML = `<h1 class="article-heading">${labels.title}</h1><p class="catalog-intro">${labels.intro}</p>${form}<p class="loading-message">${labels.loading}</p>`;
       try {
         const data = await fetchWikiJson(`/api/v1/${language}/search?q=${encodeURIComponent(query)}`);
         if (!data.results.length) {
-          article.innerHTML = `<h1 class="article-heading">${labels.title}</h1><p class="catalog-intro">${labels.intro}</p>${form}<p class="loading-message">${labels.noResults}</p>`;
+          resultContainer.innerHTML = `<p class="loading-message">${labels.noResults}</p>`;
         } else {
           const groups = new Map();
           data.results.forEach((result) => {
@@ -2321,12 +2325,12 @@ observePixelImages();
           const groupMarkup = [...groups.entries()].map(([type, results]) => {
             return `<section class="search-group"><h2>${labels.types[type]} · ${results.length}</h2><div class="search-results-grid">${results.map((result) => `<a class="search-result" href="${escapeHtml(result.url)}">${searchResultIcon(result)}<span><strong>${escapeHtml(result.title)}</strong><p>${escapeHtml(result.description)}</p><small>${escapeHtml(result.meta || result.id)}</small></span></a>`).join('')}</div></section>`;
           }).join('');
-          article.innerHTML = `<h1 class="article-heading">${labels.title}</h1><p class="catalog-intro">${labels.intro}</p>${form}<p class="search-summary">${summary}</p>${groupMarkup}`;
+          resultContainer.innerHTML = `<p class="search-summary">${summary}</p>${groupMarkup}`;
         }
         document.title = `${query} — ${labels.title} — InfiniteForge Wiki`;
         updateLanguageLinks(`search?q=${encodeURIComponent(query)}`);
       } catch (error) {
-        article.innerHTML = `<h1 class="article-heading">${labels.title}</h1><p class="catalog-intro">${labels.intro}</p>${form}<p class="loading-message">${labels.loadError}</p>`;
+        resultContainer.innerHTML = `<p class="loading-message">${labels.loadError}</p>`;
       }
     }
 

@@ -5153,6 +5153,15 @@ function wikiSearchEntries(language) {
     meta: language === 'ru' ? 'Руководство для новых игроков' : 'New player guide',
     url: `/${language}/guides/getting-started`,
   });
+  if (language === 'ru') {
+    for (const entry of entries) {
+      if (entry.type === 'multiplayer') {
+        entry.aliases = [entry.id === 'multiplayer' ? 'Мультиплеер' : `Мультиплеер: ${entry.title}`];
+      } else if (entry.type === 'interface' && entry.id === 'saves-multiplayer') {
+        entry.aliases = ['Сохранения и мультиплеер'];
+      }
+    }
+  }
   return entries;
 }
 
@@ -5169,7 +5178,8 @@ function wikiSearch(language, rawQuery) {
     const description = entry.description.toLocaleLowerCase(language);
     const meta = entry.meta.toLocaleLowerCase(language);
     const searchText = (entry.searchText ?? '').toLocaleLowerCase(language);
-    const haystack = `${title} ${id} ${description} ${meta} ${searchText}`;
+    const aliases = (entry.aliases ?? []).join(' ').toLocaleLowerCase(language);
+    const haystack = `${title} ${aliases} ${id} ${description} ${meta} ${searchText}`;
     if (!terms.every((term) => haystack.includes(term))) continue;
     let score = 0;
     if (title === normalizedQuery) score += 120;
@@ -5180,6 +5190,7 @@ function wikiSearch(language, rawQuery) {
     else if (id.includes(normalizedQuery)) score += 45;
     for (const term of terms) {
       if (title.includes(term)) score += 12;
+      if (aliases.includes(term)) score += 10;
       if (id.includes(term)) score += 9;
       if (meta.includes(term)) score += 4;
       if (description.includes(term)) score += 2;

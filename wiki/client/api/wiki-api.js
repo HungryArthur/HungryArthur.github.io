@@ -1,3 +1,16 @@
+const searchIndexes = new Map();
+
+export function fetchWikiSearchIndex(language) {
+  if (!searchIndexes.has(language)) {
+    const pending = fetchWikiJson(`/api/v1/${language}/search-index`).catch((error) => {
+      searchIndexes.delete(language);
+      throw error;
+    });
+    searchIndexes.set(language, pending);
+  }
+  return searchIndexes.get(language);
+}
+
 function searchStaticIndex(entries, query, language) {
   const normalizedQuery = String(query ?? '').trim().slice(0, 100).toLocaleLowerCase(language);
   if (!normalizedQuery) return { query: '', total: 0, count: 0, results: [] };
@@ -10,7 +23,8 @@ function searchStaticIndex(entries, query, language) {
     const description = entry.description.toLocaleLowerCase(language);
     const meta = entry.meta.toLocaleLowerCase(language);
     const searchText = (entry.searchText ?? '').toLocaleLowerCase(language);
-    const haystack = `${title} ${id} ${description} ${meta} ${searchText}`;
+    const aliases = (entry.aliases ?? []).join(' ').toLocaleLowerCase(language);
+    const haystack = `${title} ${aliases} ${id} ${description} ${meta} ${searchText}`;
     if (!terms.every((term) => haystack.includes(term))) continue;
     let score = 0;
     if (title === normalizedQuery) score += 120;
@@ -21,6 +35,7 @@ function searchStaticIndex(entries, query, language) {
     else if (id.includes(normalizedQuery)) score += 45;
     for (const term of terms) {
       if (title.includes(term)) score += 12;
+      if (aliases.includes(term)) score += 10;
       if (id.includes(term)) score += 9;
       if (meta.includes(term)) score += 4;
       if (description.includes(term)) score += 2;
@@ -40,11 +55,7 @@ async function fetchStaticWikiJson(path) {
   const language = route[2] === 'en' ? 'en' : 'ru';
 
   if (route[3] === 'search') {
-    const indexResponse = await fetch(`/api-data/${language}/search-index.json`, {
-      headers: { Accept: 'application/json' },
-    });
-    if (!indexResponse.ok) throw new Error(`Wiki search index returned ${indexResponse.status}`);
-    const index = await indexResponse.json();
+    const index = await fetchWikiSearchIndex(language);
     return searchStaticIndex(index.entries, url.searchParams.get('q'), language);
   }
 
