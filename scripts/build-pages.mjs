@@ -189,6 +189,7 @@ const requiredFiles = [
   'api-data/ru/items.json',
   'api-data/ru/search-index.json',
   'assets/branding/infinity-forge-emblem-v1.png',
+  ...[...staticShell.matchAll(/src="(\/client\/icons\/[^\"]+)"/g)].map((match) => match[1].slice(1)),
 ];
 for (const file of requiredFiles) {
   if (!existsSync(resolve(outputRoot, file))) throw new Error(`Static build is missing ${file}`);
