@@ -11,11 +11,34 @@
   <header class="topbar">
     <div class="topbar__inner">
       <a class="wiki-logo" href="#top"><img class="wiki-logo__emblem" src="../../assets/branding/infinity-forge-emblem-v1.png" alt=""><span>INFINITEFORGE</span> <small>WIKI</small></a>
-      <div class="header-tools"><div class="header-languages" aria-label="Язык"><a data-language-link href="/ru/home" lang="ru">RU</a><a data-language-link href="/en/home" lang="en">EN</a></div><form class="search" id="wiki-search"><input id="search-input" type="search" placeholder="Поиск по InfiniteForge Wiki" aria-label="Поиск по вики"></form></div>
+      <div class="header-tools"><form class="search" id="wiki-search"><input id="search-input" type="search" placeholder="Поиск по InfiniteForge Wiki" aria-label="Поиск по вики"></form></div>
     </div>
   </header>
 
-  <main class="page is-home" id="top">
+  <div class="wiki-layout">
+    <aside class="wiki-sidebar" aria-label="Выбор языка">
+      <details class="language-picker" open>
+        <summary><span id="wiki-languages-title">На других языках</span> <small class="language-current" data-current-language>Русский</small></summary>
+        <nav aria-labelledby="wiki-languages-title">
+          <ul class="language-list">
+            <li><a data-language-link href="/ru/home" lang="ru" aria-current="page">Русский</a></li>
+            <li><a data-language-link href="/en/home" lang="en">English</a></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="de">Deutsch</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="es">Español</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="fr">Français</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="it">Italiano</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="ja">日本語</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="ko">한국어</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="hu">Magyar</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="pt">Português</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="tr">Türkçe</span><small>Позже</small></span></li>
+            <li><span class="language-placeholder" aria-disabled="true"><span lang="zh">中文</span><small>Позже</small></span></li>
+          </ul>
+          <p class="language-note">Перевод появится позже.</p>
+        </nav>
+      </details>
+    </aside>
+    <main class="page is-home" id="top">
     <section class="hero">
       <div><div class="game-brand"><img class="game-emblem" src="../../assets/branding/infinity-forge-emblem-v1.png" alt="Эмблема InfiniteForge"><div class="game-name"><span>INFINITE</span><span>FORGE</span><small>Вики сообщества</small></div></div><div class="welcome"><h1>Добро пожаловать в InfiniteForge Wiki</h1><p>Здесь собрана информация о фабрике, технологиях, предметах, биомах и опасностях мира InfiniteForge.</p></div></div>
     </section>
@@ -24,7 +47,7 @@
       <div class="platform-box"><div class="platform-links"><a href="#about">Об игре</a><a href="#main">Начать играть</a><a href="#items">Список предметов</a><a href="#world">Биомы</a></div><div class="platform-content"><a class="featured-banner" href="#main" aria-label="InfiniteForge"></a></div></div>
       <div class="version-box"><p>Версия игры: <strong>0.0.1</strong></p><p>Основной мир: <a href="#world">биомы и боссы</a></p><p>Прогрессия: <a href="#main">6 эпох технологий</a></p><p>Режимы: <a href="#about">одиночная игра и кооператив</a></p></div>
     </section>
-    <div class="language-row"><a href="/ru/home" lang="ru">Русский</a> · <a href="/en/home" lang="en">English</a> <span aria-hidden="true">•</span> Материалы вики обновляются вместе с игрой</div>
+    <div class="wiki-update-note">Материалы вики обновляются вместе с игрой</div>
 
     <div class="columns is-single" id="about">
       <section class="box"><h2 class="box-title">Об игре</h2><div class="about"><img src="../../assets/branding/infinity-forge-emblem-v1.png" alt="Эмблема InfiniteForge"><p><strong>InfiniteForge</strong> — игра о добыче ресурсов, строительстве производственных линий и экспедициях в опасные биомы. Начните с дерева и камня, создайте первые механизмы, освойте энергию и готовьтесь к боям с боссами. Каждая технология помогает сделать базу эффективнее и открывает путь к новым ресурсам.</p></div></section>
@@ -77,6 +100,7 @@
     <article class="item-page" id="search-page" hidden></article>
     <article class="item-page" id="guide-page" hidden></article>
   </main>
+  </div>
 
   <section class="site-directory" aria-label="Разделы вики">
     <div class="site-directory__inner">

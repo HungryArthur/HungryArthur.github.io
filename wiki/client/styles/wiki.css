@@ -40,20 +40,34 @@
       background: linear-gradient(180deg, #063b7d, #003777);
       border-bottom: 2px solid #06316a;
     }
-    .topbar__inner, .page { width: min(1440px, calc(100% - 38px)); margin: 0 auto; }
-    .page.is-home { width: min(1280px, calc(100% - 38px)); }
-    @media (max-width: 760px) { .page.is-home { width: calc(100% - 14px); } }
-    .topbar__inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 64px; gap: 24px; }
+    .topbar__inner, .wiki-layout { width: min(1440px, calc(100% - 38px)); margin: 0 auto; }
+    .wiki-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); align-items: start; gap: 14px; }
+    .wiki-layout > .page { min-width: 0; width: 100%; margin: 0; }
+    .wiki-sidebar { position: sticky; top: 16px; margin-top: 16px; border: 1px solid #4d9dcc; background: rgba(229, 249, 255, .92); box-shadow: inset 0 1px rgba(255,255,255,.82); }
+    .language-picker summary { padding: 10px; color: white; background: linear-gradient(180deg, #1476c8, #0753a5); font-size: .88rem; font-weight: 700; cursor: pointer; }
+    .language-picker summary:focus-visible, .language-list a:focus-visible { outline: 2px solid #ffda70; outline-offset: -2px; }
+    .language-current { display: none; }
+    .language-list { margin: 0; padding: 8px; list-style: none; }
+    .language-list a, .language-placeholder { display: flex; align-items: center; justify-content: space-between; min-height: 32px; padding: 5px 7px; gap: 7px; border-radius: 3px; font-size: .88rem; }
+    .language-list a[aria-current="page"] { color: #053777; background: #c5eafb; font-weight: 700; }
+    .language-list a:hover { color: #043b7a; background: #d3edfa; text-decoration: none; }
+    .language-placeholder { color: #526c7b; }
+    .language-placeholder small { color: #637b88; font-size: .68rem; }
+    .language-note { margin: 0; padding: 9px 14px 12px; border-top: 1px solid #b1d7e7; color: #526c7b; font-size: .74rem; line-height: 1.4; }
+    @media (max-width: 760px) {
+      .wiki-layout { width: calc(100% - 14px); grid-template-columns: minmax(0, 1fr); gap: 8px; }
+      .wiki-sidebar { position: static; margin-top: 8px; }
+      .language-current { display: inline; float: right; margin-left: 12px; color: #ffda70; font-size: .8rem; }
+      .language-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .topbar__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; min-height: 64px; gap: 24px; }
     .wiki-logo { display: inline-flex; align-items: baseline; justify-self: start; color: white; font-size: 1.08rem; font-weight: 800; letter-spacing: .06em; text-decoration: none; }
     .topbar .wiki-logo { grid-column: 2; align-items: center; justify-self: center; }
     .wiki-logo__emblem { width: 42px; height: 42px; margin-right: 10px; object-fit: contain; filter: drop-shadow(0 2px 3px rgba(0,0,0,.45)); }
     .wiki-logo small { margin-left: 7px; padding: 2px 5px; color: #ffda70; border: 1px solid rgba(255,218,112,.68); border-radius: 2px; font-size: .64rem; letter-spacing: .13em; }
     .wiki-logo:hover { color: white; text-decoration: none; }
-    .header-tools { display: flex; grid-column: 3; align-items: center; justify-self: end; gap: 9px; }
-    .header-languages { display: flex; gap: 3px; }
-    .header-languages a { padding: 5px; color: #d9efff; font-size: .78rem; }
-    .header-languages a[aria-current="true"] { color: #ffda70; font-weight: 700; }
-    .search { display: flex; width: min(46vw, 360px); height: 36px; }
+    .header-tools { display: flex; grid-column: 3; align-items: center; justify-content: flex-end; justify-self: end; width: 100%; min-width: 0; }
+    .search { display: flex; width: 100%; max-width: 360px; min-width: 0; height: 36px; }
     .search input { width: 100%; padding: 6px 10px; color: #1b2d3c; border: 1px solid #9ec6df; border-radius: 2px; outline: 0; font-size: .92rem; }
     .search input:focus { border-color: #ffe04d; box-shadow: 0 0 0 1px #ffe04d; }
     .search-autocomplete { position: relative; flex: 1; min-width: 0; }
@@ -88,7 +102,7 @@
     .version-box { padding: 10px 16px; text-align: center; }
     .version-box p { margin: 6px 0; }
     .version-box strong { color: #003c8c; }
-    .language-row { padding: 8px; border: 1px solid #4d9dcc; border-top: 0; background: rgba(229, 249, 255, .86); text-align: center; font-size: .9rem; }
+    .wiki-update-note { padding: 8px; border: 1px solid #4d9dcc; border-top: 0; background: rgba(229, 249, 255, .86); text-align: center; font-size: .9rem; }
     .columns { display: grid; grid-template-columns: minmax(0, 1fr) 385px; gap: 8px; margin-top: 8px; }
     .columns.is-single { grid-template-columns: 1fr; }
     .box { border: 1px solid #4d9dcc; background: linear-gradient(180deg, rgba(226, 248, 255, .94), rgba(199, 237, 251, .9)); box-shadow: inset 0 1px rgba(255,255,255,.82); }
@@ -424,3 +438,9 @@
     @media (max-width: 1120px) { .columns { grid-template-columns: 1fr; } .balance-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); } .site-directory__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 760px) { body { font-size: 15px; } .topbar__inner { grid-template-columns: 1fr; justify-items: center; gap: 8px; padding: 9px 0 10px; } .topbar .wiki-logo, .header-tools { grid-column: 1; justify-self: center; } .header-tools { width: min(100%, 430px); } .search { flex: 1; width: 100%; } .page, .topbar__inner { width: calc(100% - 14px); } .page { padding: 0 5px 18px; } .hero { min-height: 360px; padding: 34px 24px; background-position: 65% center; } .hero::before { background: linear-gradient(90deg, rgba(3,20,39,.96), rgba(4,23,40,.79)); } .game-brand { gap: 15px; } .game-emblem { width: 118px; } .platform-row, .biome-cards, .quest-age-grid, .system-grid, .mechanic-grid { grid-template-columns: repeat(2, 1fr); } .home-hub { grid-template-columns: 1fr; } .hub-section.is-wide { grid-column: auto; } .hub-section.is-wide > .hub-links { grid-template-columns: repeat(2, minmax(0, 1fr)); } .system-facts, .mechanic-facts, .balance-stats { grid-template-columns: repeat(2, 1fr); } .article-layout { grid-template-columns: 1fr; gap: 18px; } .infobox { max-width: 360px; width: 100%; } .ability-grid { grid-template-columns: 1fr; } .platform-row { gap: 5px; } .platform-content { min-height: 120px; } .catalog-toolbar { align-items: stretch; flex-direction: column; } .catalog-count { white-space: normal; } .wiki-data-table { display: block; overflow-x: auto; } .balance-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); } .balance-formula { grid-template-columns: 1fr; } .balance-formula__arrow { transform: rotate(90deg); justify-self: center; } .balance-detail__heading { align-items: flex-start; flex-direction: column; } .footer__inner { justify-content: center; min-height: 92px; } .footer-copy { text-align: center; } }
     @media (max-width: 450px) { .platform-row, .biome-cards, .article-pagination, .quest-age-grid, .search-results-grid, .system-grid, .system-facts, .mechanic-grid, .mechanic-facts, .mechanic-entries, .mechanic-entries.is-ore-catalog, .site-directory__grid, .hub-links, .hub-section.is-wide > .hub-links { grid-template-columns: 1fr; } .ore-stats { grid-template-columns: 1fr; } .directory-group nav { grid-template-columns: 1fr; } .overworld-page, .item-page { padding: 20px 13px 26px; } .article-heading { font-size: 1.7rem; } .article-pagination a:last-child { text-align: left; } .technology-card { grid-template-columns: 46px minmax(0, 1fr); } .technology-meta { grid-column: 2; text-align: left; } .search-page-form { align-items: stretch; flex-direction: column; } .npc-quest { padding-left: 16px; padding-top: 60px; } }
+    @media (max-width: 450px) {
+      .hero { padding: 26px 14px; }
+      .game-brand { gap: 12px; }
+      .game-emblem { width: clamp(56px, 16vw, 72px); }
+      .game-name span { font-size: clamp(1.65rem, 7.5vw, 2rem); }
+    }

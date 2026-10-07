@@ -15,7 +15,7 @@ observePixelImages();
       'Здесь собрана информация о фабрике, технологиях, предметах, биомах и опасностях мира InfiniteForge.': 'Find information about factories, technologies, items, biomes, and the dangers of the InfiniteForge world.',
       'Об игре': 'About', 'Начать играть': 'Getting started', 'Список предметов': 'Item list', 'Биомы': 'Biomes',
       'Версия игры:': 'Game version:', 'Основной мир:': 'Main world:', 'биомы и боссы': 'biomes and bosses', 'Прогрессия:': 'Progression:', '6 эпох технологий': '6 technological ages', 'Режимы:': 'Modes:', 'одиночная игра и кооператив': 'single-player and co-op',
-      'Русский · English': 'Russian · English', 'Материалы вики обновляются вместе с игрой': 'Wiki pages are updated with the game.',
+      'На других языках': 'Other languages', 'Позже': 'Later', 'Перевод появится позже.': 'Translations will be added later.', 'Материалы вики обновляются вместе с игрой': 'Wiki pages are updated with the game.',
       'InfiniteForge': 'InfiniteForge', '— игра о добыче ресурсов, строительстве производственных линий и экспедициях в опасные биомы. Начните с дерева и камня, создайте первые механизмы, освойте энергию и готовьтесь к боям с боссами. Каждая технология помогает сделать базу эффективнее и открывает путь к новым ресурсам.': 'is a game about resource gathering, production lines, and expeditions into dangerous biomes. Start with wood and stone, build your first machines, master power, and prepare to fight bosses. Every technology makes your base more efficient and opens access to new resources.',
       'Справка': 'Resources', 'Быстрый доступ': 'Quick access', 'Как начать игру': 'Getting started', 'Список руд и материалов': 'Ores and materials', 'Ресурсы и месторождения': 'Resources and deposits', 'Биомы и боссы': 'Biomes and bosses', 'Машины и автоматизация': 'Machines and automation',
       'Основы': 'Basics', 'Фабрика': 'Factory', 'Мир': 'World', 'Игровой процесс': 'Gameplay', 'Разделы вики': 'Wiki sections', 'Игра': 'Game', 'Справочники': 'Reference',
@@ -51,16 +51,24 @@ observePixelImages();
       document.title = language === 'en' ? 'InfiniteForge Wiki' : 'InfiniteForge Wiki';
       searchInput.placeholder = language === 'en' ? 'Search InfiniteForge Wiki' : 'Поиск по InfiniteForge Wiki';
       searchInput.setAttribute('aria-label', language === 'en' ? 'Search the wiki' : 'Поиск по вики');
+      document.querySelector('.wiki-sidebar').setAttribute('aria-label', language === 'en' ? 'Language selection' : 'Выбор языка');
+      document.querySelector('[data-current-language]').textContent = language === 'en' ? 'English' : 'Русский';
     }
     const { parts: routeParts, language: currentLanguage, page: routePage } = readWikiRoute();
     applyLanguage(currentLanguage);
     function updateLanguageLinks(pagePath) {
-      document.querySelectorAll('[data-language-link], .language-row a[lang]').forEach((link) => {
-        link.href = localizedPath(link.lang, pagePath);
-        link.setAttribute('aria-current', link.lang === currentLanguage ? 'true' : 'false');
+      document.querySelectorAll('[data-language-link]').forEach((link) => {
+        link.href = localizedPath(link.lang, pagePath) + window.location.hash;
+        if (link.lang === currentLanguage) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
       });
     }
     updateLanguageLinks(routeParts.slice(1).join('/') || 'home');
+    const languagePicker = document.querySelector('.language-picker');
+    const mobileLanguagePicker = window.matchMedia('(max-width: 760px)');
+    function fitLanguagePicker() { languagePicker.open = !mobileLanguagePicker.matches; }
+    fitLanguagePicker();
+    mobileLanguagePicker.addEventListener('change', fitLanguagePicker);
     searchForm.addEventListener('submit', (event) => {
       event.preventDefault();
       const query = searchInput.value.trim();
