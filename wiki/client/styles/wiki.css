@@ -40,13 +40,12 @@
       background: linear-gradient(180deg, #063b7d, #003777);
       border-bottom: 2px solid #06316a;
     }
-    .topbar__inner, .wiki-layout { width: min(1440px, calc(100% - 38px)); margin: 0 auto; }
-    .wiki-layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); align-items: start; gap: 14px; }
+    .topbar__inner { width: min(1440px, calc(100% - 38px)); margin: 0 auto; }
+    .wiki-layout { display: grid; width: 100%; margin: 0; grid-template-columns: 180px minmax(0, 1fr); align-items: start; gap: 14px; }
     .wiki-layout > .page { min-width: 0; width: 100%; margin: 0; }
-    .wiki-sidebar { position: sticky; top: 16px; margin-top: 16px; border: 1px solid #4d9dcc; background: rgba(229, 249, 255, .92); box-shadow: inset 0 1px rgba(255,255,255,.82); }
-    .language-picker summary { padding: 10px; color: white; background: linear-gradient(180deg, #1476c8, #0753a5); font-size: .88rem; font-weight: 700; cursor: pointer; }
-    .language-picker summary:focus-visible, .language-list a:focus-visible { outline: 2px solid #ffda70; outline-offset: -2px; }
-    .language-current { display: none; }
+    .wiki-sidebar { margin-top: 16px; border: 1px solid #4d9dcc; background: rgba(229, 249, 255, .92); box-shadow: inset 0 1px rgba(255,255,255,.82); }
+    .language-picker h2 { margin: 0; padding: 10px; color: white; background: linear-gradient(180deg, #1476c8, #0753a5); font-size: .88rem; font-weight: 700; }
+    .language-list a:focus-visible { outline: 2px solid #ffda70; outline-offset: -2px; }
     .language-list { margin: 0; padding: 8px; list-style: none; }
     .language-list a, .language-placeholder { display: flex; align-items: center; justify-content: space-between; min-height: 32px; padding: 5px 7px; gap: 7px; border-radius: 3px; font-size: .88rem; }
     .language-list a[aria-current="page"] { color: #053777; background: #c5eafb; font-weight: 700; }
@@ -55,9 +54,8 @@
     .language-placeholder small { color: #637b88; font-size: .68rem; }
     .language-note { margin: 0; padding: 9px 14px 12px; border-top: 1px solid #b1d7e7; color: #526c7b; font-size: .74rem; line-height: 1.4; }
     @media (max-width: 760px) {
-      .wiki-layout { width: calc(100% - 14px); grid-template-columns: minmax(0, 1fr); gap: 8px; }
-      .wiki-sidebar { position: static; margin-top: 8px; }
-      .language-current { display: inline; float: right; margin-left: 12px; color: #ffda70; font-size: .8rem; }
+      .wiki-layout { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+      .wiki-sidebar { margin-top: 8px; }
       .language-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     .topbar__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; min-height: 64px; gap: 24px; }

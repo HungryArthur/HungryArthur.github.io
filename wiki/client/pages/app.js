@@ -52,7 +52,6 @@ observePixelImages();
       searchInput.placeholder = language === 'en' ? 'Search InfiniteForge Wiki' : 'Поиск по InfiniteForge Wiki';
       searchInput.setAttribute('aria-label', language === 'en' ? 'Search the wiki' : 'Поиск по вики');
       document.querySelector('.wiki-sidebar').setAttribute('aria-label', language === 'en' ? 'Language selection' : 'Выбор языка');
-      document.querySelector('[data-current-language]').textContent = language === 'en' ? 'English' : 'Русский';
     }
     const { parts: routeParts, language: currentLanguage, page: routePage } = readWikiRoute();
     applyLanguage(currentLanguage);
@@ -64,11 +63,6 @@ observePixelImages();
       });
     }
     updateLanguageLinks(routeParts.slice(1).join('/') || 'home');
-    const languagePicker = document.querySelector('.language-picker');
-    const mobileLanguagePicker = window.matchMedia('(max-width: 760px)');
-    function fitLanguagePicker() { languagePicker.open = !mobileLanguagePicker.matches; }
-    fitLanguagePicker();
-    mobileLanguagePicker.addEventListener('change', fitLanguagePicker);
     searchForm.addEventListener('submit', (event) => {
       event.preventDefault();
       const query = searchInput.value.trim();
