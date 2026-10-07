@@ -1,0 +1,211 @@
+/* Shared palette and surfaces for the InfiniteForge wiki. */
+:root {
+  --text: #1c3342;
+  --link: #176b85;
+  --border: #cddbe2;
+  --forge-ink: #102635;
+  --forge-muted: #526d7b;
+  --forge-paper: #f2f6f7;
+  --forge-accent: #f0b45a;
+  --forge-line: #d6e1e6;
+  --green: #267465;
+  --green-dark: #185a4e;
+}
+
+body {
+  background: #e3ebef;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.55;
+}
+a:hover { color: #a25d20; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--forge-accent);
+  outline-offset: 3px;
+}
+::selection { color: #102635; background: #f7d49a; }
+
+.topbar { position: relative; z-index: 10; background: #102635; border-bottom: 1px solid #294351; }
+.topbar__inner { width: 100%; min-height: 72px; padding: 10px 24px; grid-template-columns: auto minmax(0, 1fr); gap: 28px; }
+.topbar .wiki-logo { grid-column: 1; justify-self: start; }
+.wiki-logo { font-size: 1rem; letter-spacing: .08em; }
+.wiki-logo__emblem { width: 38px; height: 38px; }
+.wiki-logo small { color: var(--forge-accent); border-color: #6f5938; background: #243442; }
+.header-tools { grid-column: 2; width: min(100%, 440px); }
+.search { max-width: none; height: 42px; }
+.search input { padding: 9px 14px; color: #edf5f9; border: 1px solid #3b5565; border-radius: 5px; background: #1c3546; font: inherit; font-size: .9rem; }
+.search input::placeholder { color: #b2c5d0; }
+.search input:focus { border-color: var(--forge-accent); box-shadow: 0 0 0 2px #f0b45a26; }
+.search-suggestions { top: calc(100% + 8px); border-color: #bcced8; border-radius: 6px; box-shadow: 0 12px 30px #0920302e; }
+.search-suggestion { padding: 12px 14px; color: var(--forge-ink); }
+.search-suggestion:hover, .search-suggestion[aria-selected="true"] { color: var(--forge-ink); background: #edf4f6; }
+
+.wiki-layout { grid-template-columns: 196px minmax(0, 1fr); gap: 0; }
+.wiki-sidebar { align-self: stretch; margin: 0; padding: 25px 12px; color: #d6e4ed; border: 0; border-right: 1px solid #294351; background: #132c3c; box-shadow: none; }
+.language-picker h2 { margin: 0 0 14px; padding: 0 6px; color: #b2c5d0; background: none; font-size: .73rem; letter-spacing: .07em; text-transform: uppercase; }
+.language-list { padding: 0; }
+.language-list a, .language-placeholder { min-height: 36px; padding: 7px 9px; border-radius: 4px; font-size: .84rem; }
+.language-list a { color: #d7e8ef; }
+.language-list a[aria-current="page"] { color: #fff; border-left: 3px solid var(--forge-accent); background: #254b5e; }
+.language-list a:hover { color: white; background: #254353; }
+.language-placeholder { color: #a3b8c4; }
+.language-placeholder small { padding: 1px 4px; color: #adbfca; border: 1px solid #365160; border-radius: 3px; font-size: .62rem; }
+.language-note { margin-top: 14px; padding: 12px 6px 0; color: #a3b8c4; border-color: #365160; font-size: .73rem; }
+
+.page { padding: 24px clamp(20px, 3vw, 52px) 48px; border: 0; background: var(--forge-paper); }
+.page.is-home > * { max-width: 1440px; margin-right: auto; margin-left: auto; }
+.hero { min-height: 380px; padding: 36px 5%; border: 1px solid #253f50; border-top: 3px solid var(--forge-accent); border-radius: 7px; box-shadow: 0 8px 24px #17374818; }
+.hero::before { background: linear-gradient(90deg, #0c202eeb 0%, #0c202ec9 42%, #0c202e29 100%); }
+.game-brand { gap: 20px; }
+.game-emblem { width: clamp(100px, 12vw, 150px); }
+.game-name span { font-size: clamp(2.3rem, 4.5vw, 4rem); letter-spacing: .025em; }
+.game-name small { color: var(--forge-accent); font-size: .7rem; letter-spacing: .16em; }
+.welcome { margin-top: 22px; max-width: 640px; }
+.welcome h1 { font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 650; }
+.welcome p { margin-top: 10px; max-width: 580px; color: #d5e3eb; font-size: .98rem; line-height: 1.6; }
+.hero-actions { display: flex; flex-wrap: wrap; margin-top: 22px; gap: 10px; }
+.hero-action { display: inline-flex; align-items: center; justify-content: space-between; padding: 10px 18px; gap: 24px; color: white; border: 1px solid #7693a3; border-radius: 4px; background: #183549b3; font-size: .88rem; font-weight: 650; }
+.hero-action:hover { color: white; border-color: #c5dce8; background: #25475e; text-decoration: none; }
+.hero-action.is-primary { color: #192e3d; border-color: var(--forge-accent); background: var(--forge-accent); }
+.hero-action.is-primary:hover { color: #192e3d; background: #ffcb7a; }
+
+.platform-row { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); margin-top: 20px; margin-bottom: 0; gap: 16px; }
+.platform-box, .version-box, .box { border: 1px solid var(--forge-line); border-radius: 6px; background: white; box-shadow: 0 3px 12px #17374805; }
+.platform-box, .version-box { padding: 20px; }
+.home-panel-title { display: flex; align-items: center; justify-content: space-between; margin: 0 0 12px; color: var(--forge-ink); font-size: 1rem; font-weight: 700; }
+.platform-links { display: grid; grid-template-columns: minmax(0, 1fr); justify-content: stretch; padding: 0; border: 0; background: none; gap: 3px; text-align: left; }
+.platform-links a { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; align-items: center; padding: 9px 0; gap: 12px; border-bottom: 1px solid #e5edf0; border-radius: 0; color: var(--forge-ink); }
+.platform-links a:last-child { border-bottom: 0; }
+.platform-links a:hover { color: var(--link); background: #f6f9fa; }
+.quick-link-number { color: #78919e; font-family: Consolas, monospace; font-size: .8rem; }
+.platform-links strong { display: block; font-size: .9rem; font-weight: 650; }
+.platform-links small { display: block; margin-top: 1px; color: var(--forge-muted); font-size: .77rem; }
+.version-box { text-align: left; }
+.version-badge { padding: 3px 9px; color: #6f4c1b; border: 1px solid #e9cd9b; border-radius: 4px; background: #fff6e5; font: 700 .78rem Consolas, monospace; }
+.version-box p { margin: 0; padding: 12px 0; color: var(--forge-muted); border-bottom: 1px solid #e5edf0; font-size: .88rem; }
+.version-about { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-size: .84rem; font-weight: 650; }
+.wiki-update-note { padding: 12px 0 0; color: #607d8c; border: 0; background: none; text-align: left; font-size: .75rem; }
+.columns { margin-top: 24px; }
+.box-title { padding: 14px 18px; color: var(--forge-ink); border-bottom: 1px solid var(--forge-line); border-radius: 6px 6px 0 0; background: #eaf1f4; text-align: left; text-shadow: none; font-size: 1rem; }
+.about { grid-template-columns: 70px minmax(0, 1fr); padding: 20px; gap: 20px; }
+.about img { width: 64px; height: 64px; }
+.about p { color: #3c5664; font-size: .91rem; line-height: 1.7; }
+.home-section-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; margin-top: 32px; gap: 8px 24px; }
+.home-section-heading h2 { margin: 0; color: var(--forge-ink); font-size: 1.4rem; }
+.home-section-heading p { margin: 0; color: var(--forge-muted); font-size: .84rem; }
+.home-hub { margin-top: 14px; gap: 18px; }
+.hub-section { border: 1px solid var(--forge-line); border-radius: 6px; background: white; box-shadow: 0 3px 12px #17374805; }
+.hub-section__header { min-height: 82px; padding: 16px 18px; color: var(--forge-ink); border-bottom: 1px solid var(--forge-line); border-left: 3px solid #c2934e; background: #ecf2f5; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; }
+.hub-section__header img { width: 44px; height: 44px; padding: 6px; border-radius: 4px; background: #dbe7ec; filter: none; }
+.hub-section__header h2 { color: var(--forge-ink); font-size: 1.05rem; text-shadow: none; }
+.hub-section__header p { margin-top: 4px; color: var(--forge-muted); font-size: .8rem; line-height: 1.45; }
+.hub-links { padding: 12px; gap: 6px; }
+.hub-links a { min-height: 54px; padding: 7px 9px; gap: 10px; color: #274f63; font-size: .87rem; line-height: 1.35; }
+.hub-links a:hover { color: #14394c; background: #edf4f6; }
+.hub-links img { flex-basis: 40px; width: 40px; height: 40px; padding: 4px; border: 1px solid #dae5eb; border-radius: 4px; background: #f3f7f8; }
+
+.overworld-page, .item-page { padding: 8px 0 24px; }
+.article-heading { padding: 0 0 18px; border-color: var(--forge-line); color: var(--forge-ink); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; }
+.catalog-intro { max-width: 940px; margin: 16px 0 24px; color: #45616f; line-height: 1.7; }
+.article-layout { gap: 32px; margin-top: 24px; }
+.article-copy h2, .biome-section h2 { padding-bottom: 9px; border-color: var(--forge-line); color: var(--forge-ink); font-size: 1.35rem; }
+.table-of-contents { padding: 14px 18px; border-color: var(--forge-line); border-radius: 5px; background: white; font-size: .9rem; }
+.table-of-contents strong { margin-bottom: 8px; color: var(--forge-ink); }
+.infobox { border: 1px solid #d0dfe7; border-top: 4px solid #c2934e; border-radius: 6px; outline: 0; background: white; box-shadow: 0 6px 18px #1737480d; }
+.infobox h2 { padding: 18px 16px 12px; color: var(--forge-ink); font-size: 1.3rem; font-weight: 700; }
+.infobox-caption { color: #506c7c; font-style: normal; font-size: .86rem; }
+.infobox h3 { padding: 10px 12px; color: #263e4e; background: #e7eff3; text-align: left; font-weight: 650; }
+.infobox dt, .infobox dd { padding: 10px 12px; border-top: 1px solid #e2ebef; font-size: .85rem; }
+.infobox dt { color: #506879; background: #f1f5f7; font-weight: 600; }
+.infobox dd { color: var(--forge-ink); background: white; overflow-wrap: anywhere; }
+.catalog-toolbar, .balance-controls { padding: 14px; border-color: var(--forge-line); border-radius: 6px; background: #eaf1f4; }
+.catalog-toolbar input, .balance-control input, .balance-control select, .search-page-form input { color: var(--text); border-color: #b7cbd6; border-radius: 4px; background: white; font-family: inherit; }
+.catalog-count, .search-summary { color: var(--forge-muted); font-size: .87rem; }
+.catalog-section > h2, .search-group > h2 { padding: 12px 15px; color: #173747; border: 1px solid var(--forge-line); border-radius: 5px 5px 0 0; background: #e3edf1; text-align: left; text-shadow: none; font-size: .98rem; }
+.catalog-heading-link:hover { color: #a25d20; }
+.catalog-grid, .search-results-grid, .achievement-grid { padding: 0; gap: 1px; border-color: var(--forge-line); background: var(--forge-line); }
+.catalog-card, .search-result, .achievement-card { padding: 14px; background: white; }
+.catalog-card:hover, .search-result:hover, .achievement-card:hover { background: #f6fafb; }
+.catalog-card strong, .fluid-card strong { color: #215569; }
+.boss-card, .biome-card, .biome-resource, .ability-card, .technology-card, .quest-card, .npc-quest, .system-card, .system-fact, .system-step, .mechanic-card, .mechanic-fact, .mechanic-entry, .fluid-card, .fluid-recipe, .guide-step, .article-pagination a, .balance-stat { border-color: var(--forge-line); border-radius: 5px; background-color: white; }
+.boss-card:hover, .system-card:hover, .mechanic-card:hover, .technology-card:hover { background: #f7fafb; box-shadow: 0 4px 14px #1737480d; }
+.boss-card p, .system-card p, .mechanic-card p, .achievement-card p, .search-result p { color: #45616f; }
+.balance-button, .search-page-form button { color: white; border-color: #175366; border-radius: 4px; background: #1d657b; font-family: inherit; }
+.balance-button:hover, .search-page-form button:hover { background: #134b5e; }
+.balance-button.is-secondary { color: #215569; border-color: #b7cbd6; background: #f5f9fb; }
+.balance-table-wrap { border-color: var(--forge-line); border-radius: 5px; background: white; }
+.balance-table th { background: #1c495c; }
+.balance-table th, .balance-table td { border-color: var(--forge-line); }
+.wiki-data-table { background: white; }
+.wiki-data-table th, .wiki-data-table td { border-color: var(--forge-line); }
+.wiki-data-table th { color: #304f60; background: #e7eff3; font-weight: 650; }
+.item-recipe-table-wrap { border-color: var(--forge-line); border-radius: 5px; background: white; }
+.item-recipe-table { background: white; }
+.item-recipe-table th { color: white; background: #1c495c; }
+.item-recipe-table th, .item-recipe-table td { border-color: var(--forge-line); }
+.item-recipe-table tbody tr { background: white; }
+.balance-source-note { color: #426170; border-left-color: #27798c; border-radius: 3px; background: #e5f0f3; }
+
+.site-directory { padding-left: 196px; color: #d6e6ef; border-top: 1px solid #324c5b; background: #163141; }
+.site-directory__inner { width: min(1440px, calc(100% - 48px)); padding: 32px 0; }
+.site-directory h2 { font-size: 1.2rem; }
+.site-directory__grid { gap: 16px; }
+.directory-group { border-color: #345162; border-radius: 5px; background: #1b394b; }
+.directory-group h3 { padding: 12px 16px; color: #e1edf4; border-color: #345162; background: none; font-size: .9rem; }
+.directory-group a { color: #c8dce6; font-size: .82rem; }
+footer { padding-left: 196px; color: #a6c0ce; border-top: 1px solid #2a4454; background: #102635; }
+.footer__inner { width: min(1440px, calc(100% - 48px)); padding: 18px 0; }
+
+@media (max-width: 1120px) {
+  .page { padding: 20px 22px 40px; }
+  .home-hub { grid-template-columns: minmax(0, 1fr); }
+  .hub-section.is-wide { grid-column: auto; }
+  .hub-section.is-wide > .hub-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .platform-row { grid-template-columns: minmax(0, 1fr); }
+  .article-layout { grid-template-columns: minmax(0, 1fr); }
+  .infobox { max-width: 420px; width: 100%; }
+}
+@media (max-width: 760px) {
+  .topbar__inner { padding: 12px 16px; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .topbar .wiki-logo, .header-tools { grid-column: 1; }
+  .header-tools { width: 100%; }
+  .wiki-layout { grid-template-columns: minmax(0, 1fr); }
+  .wiki-sidebar { padding: 18px 16px; border-right: 0; }
+  .language-picker h2 { margin-bottom: 10px; }
+  .language-list { gap: 2px 8px; }
+  .language-note { margin-top: 10px; }
+  .page { padding: 16px 14px 32px; }
+  .hero { min-height: 360px; padding: 28px; }
+  .hero::before { background: linear-gradient(90deg, #0c202eed, #0c202e9e); }
+  .game-emblem { width: 86px; }
+  .game-name span { font-size: 2.5rem; }
+  .welcome h1 { font-size: 1.45rem; }
+  .hero-actions { gap: 8px; }
+  .platform-row { margin-top: 16px; gap: 14px; }
+  .about { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .about img { display: none; }
+  .hub-section__header { padding: 14px; gap: 12px; }
+  .hub-links { padding: 8px; }
+  .hub-section.is-wide > .hub-links, .hub-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .home-section-heading { margin-top: 28px; }
+  .overworld-page, .item-page { padding: 6px 0 18px; }
+  .site-directory, footer { padding-left: 0; }
+  .site-directory__inner, .footer__inner { width: calc(100% - 32px); }
+  .footer-copy { text-align: left; }
+}
+@media (max-width: 450px) {
+  .hero { padding: 26px 18px; }
+  .game-brand { gap: 12px; }
+  .game-emblem { width: 60px; }
+  .game-name span { font-size: clamp(1.7rem, 7.3vw, 2rem); }
+  .game-name small { font-size: .59rem; letter-spacing: .1em; }
+  .welcome p { font-size: .91rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-action { justify-content: center; }
+  .hub-links, .hub-section.is-wide > .hub-links { grid-template-columns: minmax(0, 1fr); }
+  .platform-box, .version-box { padding: 16px; }
+  .home-section-heading { display: block; }
+  .home-section-heading p { margin-top: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

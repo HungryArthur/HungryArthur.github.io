@@ -186,6 +186,7 @@ const requiredFiles = [
   'en/home/index.html',
   'client/pages/app.js',
   'client/styles/wiki.css',
+  'client/styles/forge.css',
   'api-data/ru/items.json',
   'api-data/ru/search-index.json',
   'assets/branding/infinity-forge-emblem-v1.png',
